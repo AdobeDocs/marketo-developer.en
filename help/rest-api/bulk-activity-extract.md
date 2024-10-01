@@ -126,9 +126,6 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
         * Asset Group: Web Form
  
         Note that you must use "&lt;<em>program</em>&gt;.&lt;<em>asset</em>&gt;" notation to uniquely specify the name for the following asset groups: Marketing Program, Static List, Web Form.Example:For example, a form with name "MPS Outbound" that resides underneath program with name "GL_OP_ALL_2021" would be specified as "GL_OP_ALL_2021.MPS Outbound".Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValues":["GL_OP_ALL_2021.MPS Outbound"]}}When using `primaryAttributeValues`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, then only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. `primaryAttributeValues` and `primaryAttributeValueIds` cannot be used together.
-        
-        </td>
-    </tr>
   </tbody>
 </table>
 
