@@ -34,7 +34,26 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
 | Remove from List | Static list id | [Get Static List by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Static List |
 | Fill Out Form | Form id | [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Web Form |
 
-When using primaryAttributeValueIds, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValueIds" : [16,102,95,8]}}primaryAttributeValueIds and primaryAttributeValues cannot be used together.
+When using `primaryAttributeValueIds`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. Example Request Body:
+
+```json
+{
+  "filter": {
+    "createdAt": {
+      "startAt": "2021-07-01T23:59:59-00:00",
+      "endAt": "2021-07-02T23:59:59-00:00"
+    },
+    "activityTypeIds": [
+      2
+    ],
+    "primaryAttributeValueIds": [
+      16,102,95,8
+    ]
+  }
+}
+```
+
+`primaryAttributeValueIds` and `primaryAttributeValues` cannot be used together.
 
 ### primaryAttributeValues options {#primaryattributevalues-options}
 
@@ -47,7 +66,28 @@ When using primaryAttributeValueIds, the `activityTypeIds` filter must be presen
 | Remove from List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Static List |
 | Fill Out Form | Form name | [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Web Form |
 
-Note that you must use "&lt;<em>program</em>&gt;.&lt;<em>asset</em>&gt;" notation to specify the name for the following asset groups: Marketing Program, Static List, Web Form. For example, a form with the name "MPS Outbound" that resides underneath a program with the name "GL_OP_ALL_2021" would be specified as "GL_OP_ALL_2021.MPS Outbound". Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValues":["GL_OP_ALL_2021.MPS Outbound"]}}When using primaryAttributeValues, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, then only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. `primaryAttributeValues` and `primaryAttributeValueIds` cannot be used together.
+Note that you must use "&lt;<em>program</em>&gt;.&lt;<em>asset</em>&gt;" notation to specify the name for the following asset groups: Marketing Program, Static List, Web Form. For example, a form with the name "MPS Outbound" that resides underneath a program with the name "GL_OP_ALL_2021" would be specified as "GL_OP_ALL_2021.MPS Outbound". 
+
+Example Request Body:
+
+```json
+{
+  "filter": {
+    "createdAt": {
+      "startAt": "2021-07-01T23:59:59-00:00",
+      "endAt": "2021-07-02T23:59:59-00:00"
+    },
+    "activityTypeIds": [
+      2
+    ],
+    "primaryAttributeValues": [
+      "GL_OP_ALL_2021.MPS Outbound"
+    ]
+  }
+}
+```
+
+When using `primaryAttributeValues`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, then only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. `primaryAttributeValues` and `primaryAttributeValueIds` cannot be used together.
 
 ## Options
 
