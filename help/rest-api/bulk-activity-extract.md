@@ -23,7 +23,7 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
 | [primaryAttributeValueIds](#primaryattributevalueids-options) | Array\[Integer\] | No  | Accepts a JSON object with one member, `primaryAttributeValueIds`. The value is an array of ids that specify the primary attributes to filter on. A maximum of 50 ids may be specified. The ids are the unique identifier for either a lead field or an asset, and can be retrieved by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form name to the [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) endpoint to retrieve the Form Id. The following is a list of activity types where primary attribute filtering is supported. |
 | [primaryAttributeValues](#primaryattributevalues-options) | Array\[String\] | No  | Accepts a JSON object with one member, `primaryAttributeValues`. The value is an array of names that specify the primary attributes to filter on. A maximum of 50 names may be specified. The names are the unique identifier for either a lead field or an asset, and can be retrieved by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form Id to [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) endpoint to retrieve the Form name. The following is a list of activity types where primary attribute filtering is supported. |
 
-### primaryAttributeValueIds options
+### primaryAttributeValueIds options {#primaryattributevalueids-options}
 
 | Activity Type | Primary Attribute Value Id | Retrieval Endpoint | Asset Group |
 | --- | --- | --- | --- |
@@ -36,7 +36,7 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
 
 When using primaryAttributeValueIds, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValueIds" : [16,102,95,8]}}primaryAttributeValueIds and primaryAttributeValues cannot be used together.
 
-### primaryAttributeValues options
+### primaryAttributeValues options {#primaryattributevalues-options}
 
 | Activity Type | Primary Attribute Value | Retrieval Endpoint | Asset Group |
 | --- | --- | --- | --- |
