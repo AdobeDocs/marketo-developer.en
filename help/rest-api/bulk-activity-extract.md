@@ -41,7 +41,54 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
       <td>Array[Integer]</td>
       <td>No</td>
       <td>Accepts a JSON object with one member, `primaryAttributeValueIds`. The value is an array of ids that specify the primary attributes to filter on. A maximum of 50 ids may be specified. The ids are the unique identifier for either a lead field or an asset, and can be retrieved by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form name to the <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET">Get Form by Name</a> endpoint to retrieve the Form Id. The following is a list of activity types where primary attribute filtering is supported.
-        <table>
+        </td>
+    </tr>
+    <tr>
+      <td>primaryAttributeValues</td>
+      <td>Array[String]</td>
+      <td>No</td>
+      <td>Accepts a JSON object with one member, `primaryAttributeValues`. The value is an array of names that specify the primary attributes to filter on. A maximum of 50 names may be specified. The names are the unique identifier for either a lead field or an asset, and can be retrieved by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form Id to <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5">Get Form by Id</a> endpoint to retrieve the Form name. The following is a list of activity types where primary attribute filtering is supported.
+ 
+        * Activity Type: Change Data Value
+        * Primary Attribute Value: Lead field `displayName`
+        * Retrieval Endpoint: [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2)
+        * Asset Group: Attribute Name
+
+        * Activity Type: Change Score
+        * Primary Attribute Value: Lead field `displayName`
+        * Retrieval Endpoint: [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2)
+        * Asset Group: Attribute Name
+
+        * Activity Type: Change Status in Progression
+        * Primary Attribute Value: Program name
+        * Retrieval Endpoint: [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET)
+        * Asset Group: Marketing Program
+
+          * Activity Type: Add to List
+        * Primary Attribute Value: Static list name
+        * Retrieval Endpoint: [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)
+        * Asset Group: Static List
+
+        * Activity Type: Remove from List
+        * Primary Attribute Value: Static list name
+        * Retrieval Endpoint: [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)
+        * Asset Group: Static List
+
+        * Activity Type: Fill Out Form
+        * Primary Attribute Value: Form name
+        * Retrieval Endpoint: [Get Form by Id](ttps://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
+        * Asset Group: Web Form
+ 
+        Note that you must use "&lt;<em>program</em>&gt;.&lt;<em>asset</em>&gt;" notation to uniquely specify the name for the following asset groups: Marketing Program, Static List, Web Form.Example:For example, a form with name "MPS Outbound" that resides underneath program with name "GL_OP_ALL_2021" would be specified as "GL_OP_ALL_2021.MPS Outbound".Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValues":["GL_OP_ALL_2021.MPS Outbound"]}}When using `primaryAttributeValues`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, then only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. `primaryAttributeValues` and `primaryAttributeValueIds` cannot be used together.
+        
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+### primaryAttributeValueIds values
+
+<table>
           <tbody>
             <tr>
               <td>Activity Type</td>
@@ -87,50 +134,7 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
             </tr>
           </tbody>
         </table>
-        When using `primaryAttributeValueIds`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. Example: For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in activityTypeIds. Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValueIds" : [16,102,95,8]}}. `primaryAttributeValueIds` and `primaryAttributeValues` cannot be used together.</td>
-    </tr>
-    <tr>
-      <td>primaryAttributeValues</td>
-      <td>Array[String]</td>
-      <td>No</td>
-      <td>Accepts a JSON object with one member, `primaryAttributeValues`. The value is an array of names that specify the primary attributes to filter on. A maximum of 50 names may be specified. The names are the unique identifier for either a lead field or an asset, and can be retrieved by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form Id to <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5">Get Form by Id</a> endpoint to retrieve the Form name. The following is a list of activity types where primary attribute filtering is supported.
- 
-        * Activity Type: Change Data Value
-        * Primary Attribute Value: Lead field `displayName`
-        * Retrieval Endpoint: [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2)
-        * Asset Group: Attribute Name
-
-        * Activity Type: Change Score
-        * Primary Attribute Value: Lead field `displayName`
-        * Retrieval Endpoint: [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2)
-        * Asset Group: Attribute Name
-
-        * Activity Type: Change Status in Progression
-        * Primary Attribute Value: Program name
-        * Retrieval Endpoint: [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET)
-        * Asset Group: Marketing Program
-
-          * Activity Type: Add to List
-        * Primary Attribute Value: Static list name
-        * Retrieval Endpoint: [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)
-        * Asset Group: Static List
-
-        * Activity Type: Remove from List
-        * Primary Attribute Value: Static list name
-        * Retrieval Endpoint: [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)
-        * Asset Group: Static List
-
-        * Activity Type: Fill Out Form
-        * Primary Attribute Value: Form name
-        * Retrieval Endpoint: [Get Form by Id](ttps://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)
-        * Asset Group: Web Form
- 
-        Note that you must use "&lt;<em>program</em>&gt;.&lt;<em>asset</em>&gt;" notation to uniquely specify the name for the following asset groups: Marketing Program, Static List, Web Form.Example:For example, a form with name "MPS Outbound" that resides underneath program with name "GL_OP_ALL_2021" would be specified as "GL_OP_ALL_2021.MPS Outbound".Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValues":["GL_OP_ALL_2021.MPS Outbound"]}}When using `primaryAttributeValues`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, then only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. `primaryAttributeValues` and `primaryAttributeValueIds` cannot be used together.
-        
-        </td>
-    </tr>
-  </tbody>
-</table>
+        When using primaryAttributeValueIds, the activityTypeIds filter must be present and only contain activity ids that match the corresponding asset group.Example:For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in activityTypeIds.Example Request Body:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValueIds" : [16,102,95,8]}}primaryAttributeValueIds and primaryAttributeValues cannot be used together.
 
 ## Options
 
