@@ -34,7 +34,9 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
 | Remove from List | Static list id | [Get Static List by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Static List |
 | Fill Out Form | Form id | [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Web Form |
 
-When using `primaryAttributeValueIds`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. Example Request Body:
+When using `primaryAttributeValueIds`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. 
+
+Example Request Body:
 
 ```json
 {
@@ -214,7 +216,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 The response contains a file formatted in the way that the job was configured. The endpoint responds with the contents of the file.
 
-If a requested lead field is empty (contains no data), `then null` is placed in the corresponding field in the export file.  In the example below, the campaignId field for the returned activity is empty.
+If a requested lead field is empty (contains no data), `then null` is placed in the corresponding field in the export file.  In the example below, the `campaignId` field for the returned activity is empty.
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes

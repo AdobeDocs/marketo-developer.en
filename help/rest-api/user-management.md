@@ -17,12 +17,12 @@ Unlike other Marketo REST APIs, when using the User Management APIs:
   1. "Access Users" permission from the [Access Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) group 
   1. "Access User Management Api" from the [Access API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) group
 - Response bodies do not contain the "success" boolean attribute indicating success or failure of a call. Instead you must evaluate the HTTP response status code. If a call succeeds, a 200 status code is returned. If a call fails, a non-200 level status code is returned and the response body contains the standard "errors" array with error code and descriptive error message.
-- The format of datetime strings is "yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm". This applies to the following attributes: createdAt, updatedAt, expiresAt.
+- The format of datetime strings is `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`. This applies to the following attributes: `createdAt`, `updatedAt`, `expiresAt`.
 - User Management API endpoints are not prefixed with "/rest" like other endpoints.
 
 ## Query
 
-Query support for user management includes ability to retrieve all users, roles, and workspaces. Also, you can retrieve a single user record by user id, or role/wordspace record by user id.
+Query support for user management includes ability to retrieve all users, roles, and workspaces. Also, you can retrieve a single user record by user id, or a role/workspace record by user id.
 
 ### User by Id
 
@@ -124,29 +124,29 @@ GET /userservice/management/v1/users/allusers.json
 ```json
 [
   {
-    "userid": "02226aae-9f54-45d1-bc26-8305c8f55ec7@adobe.com",
-    "firstName": "Aparna",
-    "lastName": "Ghosh",
-    "emailAddress": "aparna.ghosh@ericsson.com",
-    "id": 5222,
+    "userid": "jamie@lannister.com",
+    "firstName": "Jamie",
+    "lastName": "Lannister",
+    "emailAddress": "jamie@houselannister.com",
+    "id": 6785,
     "apiOnly": false
-    },
-    {
-    "userid": "038e1cac-3f3e-4c05-b0b3-6265fd2abcd3@adobe.com",
-    "firstName": "Timm",
-    "lastName": "Rehse",
-    "emailAddress": "timm.rehse@ericsson.com",
-    "id": 7075,
+  },
+  {
+    "userid": "jeoffery@housebaratheon.com",
+    "firstName": "Jeoffery",
+    "lastName": "Baratheon",
+    "emailAddress": "jeoffery@housebaratheon.com",
+    "id": 7718,
     "apiOnly": false
-    },
-    {
-    "userid": "0a855522-06c9-4a9e-93de-91a0d2cc2987@adobe.com",
-    "firstName": "Dhinagaran",
-    "lastName": "Swaminathan",
-    "emailAddress": "dhinagaran.swaminathan@ericsson.com",
-    "id": 6439,
+  },
+  {
+    "userid": "rickon@housestark.com",
+    "firstName": "Rickon",
+    "lastName": "Stark",
+    "emailAddress": "rickon@housestark.com",
+    "id": 8612,
     "apiOnly": false
-    }
+  }
 ]
 ```
 
