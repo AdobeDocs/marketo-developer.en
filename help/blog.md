@@ -1,3 +1,8 @@
+---
+title: Blog Archive
+description: This is an archive of the Marketo Developers blog from 2014-2023
+---
+
 # Blog Archive
 
 This is an archive of the Marketo blog, from 2014 to 2024. It is provided here as a historical reference document.
@@ -25,8 +30,8 @@ Developer documentation available [here](/javascriptapi/forms-api-reference).
 
 ### SOAP API version 2_3 now available:
 
-* [getLeadChanges:](/soap-api/getleadchanges/) Introduced request field `activityNameFilter`
-* [ListOperation:](/soap-api/listoperation/) Removed request field `skipActivityLog`
+* [getLeadChanges:](/soap/getleadchanges/) Introduced request field `activityNameFilter`
+* [ListOperation:](/soap/listoperation/) Removed request field `skipActivityLog`
 
 **Note:** SOAP API revisions are backward compatible
 
@@ -5563,7 +5568,6 @@ Background form submission is one of the recommended replacement methods for Mun
         })
     </script>
 </body>
-
 </html>
 ```
 
@@ -5640,10 +5644,10 @@ Here's a video example of [connecting using the DataDirect Cloud ODBC client](ht
 
 **Marketo and DataDirect Cloud Reference for Developers:**
 
-* Marketo Connection Properties ([link to docs](http:/.progress.com/output/DataDirect/DataDirectCloud/index.html#page/connectivity/marketo-parameters.html))
-* Supported SQL and extensions with Marketo ([link to docs](http:/.progress.com/output/DataDirect/DataDirectCloud/index.html#page/queries/oracle-eloqua,-hubspot,-and-marketo.html))
-* Exposed Marketo Tables and Views ([link to docs](http:/.progress.com/output/DataDirect/DataDirectCloud/index.html#page/queries/tables-exposed-by-marketo.html))
-* Common error messages returned from Marketo ([link to docs](http:/.progress.com/output/DataDirect/DataDirectCloud/index.html#page/queries/marketo-error-messages.html))
+* Marketo Connection Properties ([link to docs](http://progress.com/output/DataDirect/DataDirectCloud/index.html#page/connectivity/marketo-parameters.html))
+* Supported SQL and extensions with Marketo ([link to docs](http://progress.com/output/DataDirect/DataDirectCloud/index.html#page/queries/oracle-eloqua,-hubspot,-and-marketo.html))
+* Exposed Marketo Tables and Views ([link to docs](http://progress.com/output/DataDirect/DataDirectCloud/index.html#page/queries/tables-exposed-by-marketo.html))
+* Common error messages returned from Marketo ([link to docs](http://progress.com/output/DataDirect/DataDirectCloud/index.html#page/queries/marketo-error-messages.html))
 
 **Biography:** Sumit Sarkar is a Chief Data Evangelist at Progress, with over 10 years experience working in the data connectivity field. The world's leading consultant on open data standards connectivity with cloud data, Sumit's interests include performance tuning of the data access layer for which he has developed a patent pending technology for its analysis; business intelligence and data warehousing for SaaS platforms; and data connectivity for PaaS environments, with a focus on standards such as ODBC, JDBC, ADO.NET and ODATA. He is an IBM Certified Consultant for IBM Cognos Business Intelligence and TDWI member. He has presented sessions on data connectivity at various conferences including Dreamforce, Oracle OpenWorld, Strata Hadoop, MongoDB World and SAP Analytics and Business Objects Conference, among many others. Twitter: @SAsInSumit LinkedIn: [www.linkedin.com/in/meetsumit](http://www.linkedin.com/in/meetsumit)
 
