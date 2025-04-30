@@ -7786,7 +7786,7 @@ For the summer 2016 release on September 23rd, there are three developer-oriente
 
 ### Email 2.0 Support in the REST API
 
-All [pre-existing Asset APIs](/help/rest-api/assets/) which were only compatible with v1.0 Emails and Templates are now enabled for use with v2.0 email assets.
+All [pre-existing Asset APIs](/help/rest-api/assets) which were only compatible with v1.0 Emails and Templates are now enabled for use with v2.0 email assets.
 
 ### Push Lead to Marketo
 
@@ -8593,7 +8593,7 @@ IFTTT offers Applet Actions with over 300 partners, so your portfolio of apps an
 
 ### Executing a Marketo Action from IFTTT, via Zapie
 
-Now, we are going to trigger a Marketo Smart Campaign from the IFTTT Platform. For that we are going to use the [Marketo REST API](/help/rest-api/). Since this API is secured and requires an OAuth2 Authentication prior to invoke anything, we need to handle that authentication via another platform such as Zapier, because IFTTT doesn't allow to chain two consecutive calls on an API with the Maker Channel. We picked [Zapier](https://zapier.com/) web app Automation Service since we published already introducing Zapier and explaining step by step how to implement a custom Marketo connector for Zapier. Other platforms such as [Workato](https://www.workato.com/integrations/marketo) could be a solution too.
+Now, we are going to trigger a Marketo Smart Campaign from the IFTTT Platform. For that we are going to use the [Marketo REST API](/help/rest-api). Since this API is secured and requires an OAuth2 Authentication prior to invoke anything, we need to handle that authentication via another platform such as Zapier, because IFTTT doesn't allow to chain two consecutive calls on an API with the Maker Channel. We picked [Zapier](https://zapier.com/) web app Automation Service since we published already introducing Zapier and explaining step by step how to implement a custom Marketo connector for Zapier. Other platforms such as [Workato](https://www.workato.com/integrations/marketo) could be a solution too.
 
 ### Marketo Campaign
 
@@ -8616,59 +8616,14 @@ We need to build a custom Zapier connector that authenticates with the Marketo R
     * Do the "Triggers" step (required for Zapier testing purpose)
     * Do the following specific "Actions" step, responsible to launch a Marketo campaign, explained below:
 
-#### Action
-
-Click **Add New Action** to start the wizard and fill-up the following fields (fields not mentioned can be left blank): Name and Description
-
-**Name**
-
-**Noun**
-
-**Key**
-
-**Description**
-
-**Important?**
-
-**Hide?**
-
-Launch Campaign
-
-Campaign
-
-launch_campaign
-
-Launch a Smart Campaign in Marketo
-
-Checked
-
-Not Checked
-
-Action Fields
-
-**Label**
-
-**Key**
-
-**Type**
-
-**Required?**
-
-**Campaign Id**
-
-CampaignId
-
-Unicode
-
-Checked
 
 Where to Send Data Action Endpoint URL :
 
-> https://{{munchkin_account_id}}.mktorest.com/rest/v1/campaigns/{{CampaignId}}/schedule.json
+` https://{{munchkin_account_id}}.mktorest.com/rest/v1/campaigns/{{CampaignId}}/schedule.json`
 
 Leave blank the other optional fields.
 
-##### Scripting API
+#### Scripting API
 
 Zapier's scripting feature allows you to manipulate the requests and responses that are exchanged between your app's API and Zapier. You can modify HTTP requests just before they are sent and can parse responses before Zapier does anything with them. We need it in order to complete our custom 'Session Auth' authentication. More information is available on the original article. Copy the following code very similar to the original, we just changed the action methods:
 
