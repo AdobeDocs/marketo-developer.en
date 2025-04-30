@@ -8469,11 +8469,11 @@ The integer "id" field contained in records returned by these endpoints will no 
 
 #### Landing Pages Variables
 
-New endpoints for manipulating Guided Landing Page variables. Details can be found [here](/help/rest-api/assets/landing-pages/#variables).
+New endpoints for manipulating Guided Landing Page variables. Details can be found [here]landing-pages.md#variables).
 
 #### Push Token Removal
 
-Added the ability to remove push tokens via the SDK API. Details can be found here: [iOS](/mobile/push-notifications/#ios_enable_push_notification_in_app_with_marketo_sdk), [Android](/mobile/push-notifications/#android_setup_push).
+Added the ability to remove push tokens via the SDK API. Details can be found here: [iOS](/hemp/mobile/push-notifications/#ios_enable_push_notification_in_app_with_marketo_sdk), [Android](/help/mobile/push-notifications/#android_setup_push).
 
 Posted on _2017-03-01_ by _David_
 
@@ -8903,11 +8903,11 @@ In the Winter 2018 release, we are releasing a few enhancements to our APIs. See
 
 ### Activate/Deactivate Trigger Campaigns
 
-We have added the ability to activate and deactivate trigger campaigns, which can simplify the process of automating your program templates. This is achieved by calling two newly added endpoints: [Activate Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#operation/activateSmartCampaignUsingPOST), [Deactivate Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#operation/deactivateSmartCampaignUsingPOST). See Trigger section in [Campaigns](/help/rest-api/assets/campaigns) documentation for details.
+We have added the ability to activate and deactivate trigger campaigns, which can simplify the process of automating your program templates. This is achieved by calling two newly added endpoints: [Activate Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#operation/activateSmartCampaignUsingPOST), [Deactivate Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#operation/deactivateSmartCampaignUsingPOST). See Trigger section in [Campaigns](/help/rest-api/assets.md) documentation for details.
 
 ### Get Program by Name
 
-Added two parameters to [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset/#operation/getProgramByNameUsingGET) endpoint to facilitate retrieval of program costs and program tags. See **includeCosts** and **includeTags** parameters in [Programs](/help/rest-api/assets/programs#by_name) documentation for details.
+Added two parameters to [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset/#operation/getProgramByNameUsingGET) endpoint to facilitate retrieval of program costs and program tags. See **includeCosts** and **includeTags** parameters in [Programs](/help/rest-api/assets.md) documentation for details.
 
 ### Other Enhancements
 
@@ -8923,7 +8923,7 @@ REST API
 
 ### Static List CRUD
 
-Allows users to remotely Create, Read, Update, and Delete Static List Records. Enables management of the entire lifecycle of a static list through REST APIs, including populating and maintaining membership. Details can be found [here](/help/rest-api/assets/static-lists).
+Allows users to remotely Create, Read, Update, and Delete Static List Records. Enables management of the entire lifecycle of a static list through REST APIs, including populating and maintaining membership. Details can be found [here](/help/rest-api/static-lists).
 
 ### Custom Activity Metadata
 
@@ -8931,7 +8931,7 @@ Allows users to remotely create Custom Activity Records. Enables management of t
 
 ### Smart List Metadata
 
-Allows users to remotely Read, Clone, and Delete Smart List Records. Enables management of smart lists through REST APIs. Details can be found [here](/help/rest-api/assets/smart-lists).
+Allows users to remotely Read, Clone, and Delete Smart List Records. Enables management of smart lists through REST APIs. Details can be found [here](/help/rest-api/smart-lists).
 
 ### Web Tracking Privacy
 
@@ -9148,7 +9148,7 @@ In August 2019 we are releasing new REST APIs, enhancing existing APIs, and reso
 
 ### Enhancements
 
-1. Enhanced Smart Campaign lifecycle capabilities. Added new endpoints to allow you to perform the following operations on Smart Campaigns: get by name, create, update, clone, and delete. Complete information can be found [here](/help/rest-api/assets/smart-campaigns/).
+1. Enhanced Smart Campaign lifecycle capabilities. Added new endpoints to allow you to perform the following operations on Smart Campaigns: get by name, create, update, clone, and delete. Complete information can be found [here](/help/rest-api/asmart-campaigns).
 1. Enhanced Smart List endpoints to improve query capabilities.
     1. [Get Smart List by Id](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListByIdUsingGET) endpoint now returns Smart List rule descriptions (triggers and filters) when you pass the **includeRules** boolean parameter.
     1. [Get Smart Lists](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListsUsingGET) endpoint now allows you to filter the results by date range when you pass the **earliestUpdatedAt** and **latestUpdatedAt** datetime parameters. Additionally, this endpoint now returns Smart Lists that are members of campaigns and email programs.
@@ -9169,7 +9169,7 @@ In August 2019 we are releasing new REST APIs, enhancing existing APIs, and reso
 1. To align with Adobe's world-class standard for security, we will be deprecating support for Transport Layer Security (TLS) 1.0 and 1.1 starting December 13, 2019. Systems integrating with Marketo that are not compliant with 1.2 protocol could potentially lose access to Marketo Engage services. To maintain your Marketo Engage access, please ensure that all client systems are TLS 1.2 compliant before December 13, 2019. More detailed information can be found [here](https://nation.marketo.com/docs/DOC-7059-tls-10-11-deprecation-faq).
 
 
-1. All Smart Campaign related content now resides in the [Smart Campaigns](/help/rest-api/assets/smart-campaigns/) menu item (underneath REST API > Assets).
+1. All Smart Campaign related content now resides in the [Smart Campaigns](/help/rest-api/smart-campaigns/) menu item (underneath REST API > Assets).
 
 Posted on _2019-08-16_ by _David_
 
@@ -9180,7 +9180,7 @@ In January 2020 we are releasing new REST APIs, enhancing existing APIs, and res
 * Added the ability to programmatically create of Custom Object schema definitions. This allows you to define a custom object once and provision it to as many instances as needed. This allows you to enable users to effectively leverage sandbox and center-of-excellence models. Also allows ISVs to simplify the customer onboarding process. You will need an appropriate subscription type to access Custom Object Metadata API. 
 * Added the ability to import and export of Program Members in bulk. This new set of endpoints follow the existing Marketo REST API pattern for creating asynchronous bulk processing jobs. Program Member records can contain Program Member custom fields, and/or Lead fields.
 * Added Get Available Form Program Member Fields endpoint to support use of Program Member Custom Fields as Form Fields. This returns a list of all program member custom fields that can be used in a Marketo Form.
-* Added [Get Email Template Used By](/help/rest-api/assets/email-templates#query_email_dependencies) endpoint that returns a list of email assets that depend on a given email template. This allows you to quickly understand the impact of a potential email template change, and more easily address these dependencies.
+* Added [Get Email Template Used By](/help/rest-api/email-templates.md#query_email_dependencies) endpoint that returns a list of email assets that depend on a given email template. This allows you to quickly understand the impact of a potential email template change, and more easily address these dependencies.
 
 Posted on _2020-01-17_ by _David_
 
@@ -9291,7 +9291,7 @@ The core technique uses the [Bulk Lead Extract API](/help/rest-api/bulk-extract/
 
 ### Find Your Oldest Lead
 
-I'm using a little "trick" to get the oldest possible date for a lead in the target instance. There's no API endpoint dedicated to that task, so we need a little creativity. What I do is [query all folders](/help/rest-api/assets/folders#browse) with a **maxDepth = 1** which will give us a list of all the top-level folders in the instance. Then I collect the **createdAt** dates, parse them, and find the oldest date. This method works because some default, top-level folders are created with the instance and no leads could be created before then.
+I'm using a little "trick" to get the oldest possible date for a lead in the target instance. There's no API endpoint dedicated to that task, so we need a little creativity. What I do is [query all folders](/help/rest-api/folders.md#browse) with a **maxDepth = 1** which will give us a list of all the top-level folders in the instance. Then I collect the **createdAt** dates, parse them, and find the oldest date. This method works because some default, top-level folders are created with the instance and no leads could be created before then.
 
 ### Select Required Fields
 
@@ -9491,7 +9491,7 @@ In February 2020 we are releasing new REST APIs. See the full list of updates be
 
 ### Announcements
 
-* After September 2020, [Asset API](/help/rest-api/assets/) Endpoints will no longer accept **_method** query parameter. This was used to pass query parameters in a POST body to bypass URI length limitations. To accommodate requests which required this parameter, the URI limit for Asset APIs will be increased from 6KiB to 65KiB.
+* After September 2020, [Asset API](/help/rest-api/assets.md) Endpoints will no longer accept **_method** query parameter. This was used to pass query parameters in a POST body to bypass URI length limitations. To accommodate requests which required this parameter, the URI limit for Asset APIs will be increased from 6KiB to 65KiB.
 * With regard to our position on ITP, please see thisMarketo Community post: [Browser Cookie Updates: How Marketo/Munchkin Is Affected](https://nation.marketo.com/t5/Knowledgebase/Browser-Cookie-Updates-How-Marketo-Munchkin-Is-Affected/ta-p/251524)
 * A change was made to the "Change Status in Progression" activity. The "Program Member ID" attribute was added to in support of upcoming feature "Program Member Custom Fields".
 
@@ -9784,7 +9784,7 @@ Posted on _2020-10-18_ by _Amit_
 In January 2021 we are releasing new REST APIs and resolving several defects. See the full list of updates below.
 
 * Added [Submit Form](/help/rest-api/lead-database/leads/#submit_form) endpoint which allows you to perform programmatic form submissions. Third party forms can now integrate with Marketo forms to take advantage of existing marketing workflows.
-* Added [Get Landing Page Full Content](/help/rest-api/assets/landing-pages/#preview_landing_page) endpoint which returns the serialized HTML version of a landing page. Allows you to render fully personalized previews of landing pages without having to login to Marketo Engage. This can help streamline editing and translation workflows within integrated applications.
+* Added [Get Landing Page Full Content](/help/rest-api/landing-pages.md) endpoint which returns the serialized HTML version of a landing page. Allows you to render fully personalized previews of landing pages without having to login to Marketo Engage. This can help streamline editing and translation workflows within integrated applications.
 * You can now configure the number custom objects available for access via Velocity script. Configuration instructions can be found [here](https://docs.marketo.com/display/public/DOCS/Change+Custom+Object+Retrieval+Limits+in+Velocity+Scripting).
 
 ### Defect Resolutions
@@ -9995,10 +9995,10 @@ Posted on _2022-01-27_ by _David_
 In March 2022 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
 * We have added the **actionResult** field to the export file produced by the [Bulk Activity Extract API](/help/rest-api/bulk-extract/bulk-activity-extract/). This field can be used to distinguish between successful, skipped, and failed activities.
-* We have added the **isOpenTrackingDisabled** field to responses from [Emails API](/help/rest-api/assets/emails/). This field can be used to determine whether [Disable Open Tracking](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview.html?lang=en) feature is enabled.
-* We have added two endpoints that allow you to selectively manage program tags. The [Update Program Tags](/help/rest-api/assets/programs/tags/#update) endpoint allows you to selectively update a program tag. The [Delete Program Tags](/help/rest-api/assets/programs/tags/#delete) endpoint allows you to selectively delete a program tag.
-* We have added the **isExecutable** parameter to the [Clone Smart Campaign](/help/rest-api/assets/smart-campaigns/#clone) endpoint. This parameter allows you to clone a program as an executable program.
-* We have added the **headStart** field to [Programs API](/help/rest-api/assets/programs/). This allows you to create, update, and retrieve the [Head Start](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs.html?lang=en) setting for Email Programs.
+* We have added the **isOpenTrackingDisabled** field to responses from [Emails API](/help/rest-api/emails.md). This field can be used to determine whether [Disable Open Tracking](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview.html?lang=en) feature is enabled.
+* We have added two endpoints that allow you to selectively manage program tags. The [Update Program Tags](/help/rest-api/programs.md) endpoint allows you to selectively update a program tag. The [Delete Program Tags](/help/rest-api/programs.md) endpoint allows you to selectively delete a program tag.
+* We have added the **isExecutable** parameter to the [Clone Smart Campaign](/help/rest-api/smart-campaigns.md#clone) endpoint. This parameter allows you to clone a program as an executable program.
+* We have added the **headStart** field to [Programs API](/help/rest-api/programs). This allows you to create, update, and retrieve the [Head Start](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs.html?lang=en) setting for Email Programs.
 
 ### Defect Resolutions
 
@@ -10021,7 +10021,7 @@ In May 2022 we are enhancing existing REST APIs, and resolving several defects. 
 
 `POST /rest/asset/v1/form/{id}/field/State.json?values=[{"label":"Alaska"},{"value":"AK"},{"label":"West Virginia","value":"WV"},{"label":"Wyoming","value":"WY"}]`
 
-* We have updated the [Add Form Field Visibility Rules](https://developer.adobe.com/marketo-apis/api/asset/#operation/getAllProgramMemberFieldsUsingGET) endpoint to allow you to add multiple comparison values for **isNot** type [Invisibility Rules](/help/rest-api/assets/forms#visibility-rule). Here is an example:
+* We have updated the [Add Form Field Visibility Rules](https://developer.adobe.com/marketo-apis/api/asset/#operation/getAllProgramMemberFieldsUsingGET) endpoint to allow you to add multiple comparison values for **isNot** type [Invisibility Rules](/help/rest-api/forms.md#visibility-rule). Here is an example:
 
 `POST /rest/asset/v1/form/{id}/field/LastName/visibility.json?visibilityRule={"ruleType":"show","rules":[{"subjectField":"LastName","operator":"isNot","values":["A","B","C"]}`
 
