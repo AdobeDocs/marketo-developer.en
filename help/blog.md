@@ -8496,17 +8496,17 @@ New endpoints to support CRUD operations on Named Account Lists. Details can be 
 
 ### Ionic
 
-You can now use Marketo Mobile MME and with the [Ionic](https://ionicframework.com/) application framework. Details can be found [here](http://developers.marketo.com/mobile/ionic/).
+You can now use Marketo Mobile MME and with the [Ionic](https://ionicframework.com/) application framework. Details can be found [here](/mobile/ionic/).
 
 ### Unregister Push Notification Token
 
-A new method was added to the SDK that allows you to unregister the push notification token with Marketo. This is useful for example when a user logs out of your app. For usage see "unregisterPushDeviceToken" (iOS) or "uninitializeMarketoPush" (Android) method [here](/mobile/push-notifications/).
+A new method was added to the SDK that allows you to unregister the push notification token with Marketo. This is useful for example when a user logs out of your app. For usage see `unregisterPushDeviceToken` (iOS) or `uninitializeMarketoPush` (Android) method [here](/mobile/push-notifications/).
 
 Posted on _2017-06-16_ by _David_
 
-## Internet of Things for Marketers with IFTTT and Zapie--
+## Internet of Things for Marketers with IFTTT and Zapier
 
-The Internet of Things (IoT) is the inter-networking of connected devices, appliances, wearables, vehicles, etc. with embedded electronics, software, sensors, and network connectivity that enable these objects to collect and exchange data with cloud information systems. These technologies are growing and trending so fast that they will impact how we live, how we work and how we do business in no time. Marketo the leading Marketing Engagement Platform is ready for the IoT with its capabilities to scale and interact with any form of communication channel. Marketo can track already over 70 types of activities related to emails, web, mobile, CRM, etc … and it supports also [custom activities](http://docs.marketo.com/display/public/DOCS/Create+a+Custom+Activity) that can be fed by any 3rd party system. Marketo [custom objects](http://docs.marketo.com/display/public/DOCS/Understanding+Marketo+Custom+Objects) make possible to track all kinds of 3rd party metrics related to your business, and allows marketers to leverage those metrics right from Marketo smart campaign filters and triggers. Implementing IoT for consumers would require a centralized server to interact with consumer devices and this server would exchange data with the Marketo open platform, with capabilities such as REST API, Custom Objects, Custom Activities, etc. - documented [here](http://developers.marketo.com/). Not easy to demonstrate via a blog post. Instead of that, we are going to integrate the IFTTT Service with Marketo in order to implement some cool IoT use cases for the Marketers like:
+The Internet of Things (IoT) is the inter-networking of connected devices, appliances, wearables, vehicles, etc. with embedded electronics, software, sensors, and network connectivity that enable these objects to collect and exchange data with cloud information systems. These technologies are growing and trending so fast that they will impact how we live, how we work and how we do business in no time. Marketo the leading Marketing Engagement Platform is ready for the IoT with its capabilities to scale and interact with any form of communication channel. Marketo can track already over 70 types of activities related to emails, web, mobile, CRM, etc … and it supports also [custom activities](http://docs.marketo.com/display/public/DOCS/Create+a+Custom+Activity) that can be fed by any 3rd party system. Marketo [custom objects](http://docs.marketo.com/display/public/DOCS/Understanding+Marketo+Custom+Objects) make possible to track all kinds of 3rd party metrics related to your business, and allows marketers to leverage those metrics right from Marketo smart campaign filters and triggers. Implementing IoT for consumers would require a centralized server to interact with consumer devices and this server would exchange data with the Marketo open platform, with capabilities such as REST API, Custom Objects, Custom Activities, etc. - documented [here](http://eto.com/). Not easy to demonstrate via a blog post. Instead of that, we are going to integrate the IFTTT Service with Marketo in order to implement some cool IoT use cases for the Marketers like:
 
 * Cheering up your Marketing team each time a lead is registering to a road show by blinking a colored light in the office
 * Cheering up your Sales team each time a deal is won by automatically firing up a bell plugged to a connected power plug
@@ -8769,18 +8769,15 @@ From the Zapier Dashboard click the button "Make a new Zap". **Trigger**
 * Choose the only action available: **Launch Campaign**
 * Connect to your Marketo account, filling up the authentication parameters (Munchkin Account Id, Client Id, Client Secret)
 * Edit the Template and associate the Campaign ID from the Trigger to the "Launch Campaign" Campaign Id parameter
-
-![](http://developers.marketo.com/wp-content/uploads/2017/06/IFTTTMedia24.jpg)
-
 * Test the step and check that the Marketo Campaign get launched
 
 ### IFTTT Applet that Calls the Zapier Webhook
 
-We start with a simple scenario that is easy to test. We pick in IFTTT a Date & Time trigger that will kick off the Marketo Campaign every hour. ![](http://developers.marketo.com/wp-content/uploads/2017/06/IFTTTMedia25.jpg) The Action is a web request posting to the Zapier Webhook URL and passing over the Smart Campaign Id. ![](http://developers.marketo.com/wp-content/uploads/2017/06/IFTTTMedia26.jpg) Make sure the Zapier Zap and the IFTTT Applet are both active and test everything is working as expected.
+We start with a simple scenario that is easy to test. We pick in IFTTT a Date & Time trigger that will kick off the Marketo Campaign every hour. The Action is a web request posting to the Zapier Webhook URL and passing over the Smart Campaign Id. Make sure the Zapier Zap and the IFTTT Applet are both active and test everything is working as expected.
 
 ### Let's get Creative with IFTTT
 
-IFTTT offers Applet Triggers with over 300 partners, so again your portfolio of apps and appliances together with your imagination are the limits … Let's take an example with the [Weather Underground](https://www.wunderground.com/) service that we are going to use to launch our Marketo campaign on weather alert. ![](http://developers.marketo.com/wp-content/uploads/2017/06/IFTTTMedia27.jpg) The following trigger would kick-off when a Rain condition is announced. ![](http://developers.marketo.com/wp-content/uploads/2017/06/IFTTTMedia28.jpg) And then associate the Trigger with the Maker Webhook Action, and just like previously fill in the Zapier webhook parameters. ![](http://developers.marketo.com/wp-content/uploads/2017/06/IFTTTMedia29.jpg) Et voila, you just need now a good rain to come to double check this is actually working.
+IFTTT offers Applet Triggers with over 300 partners, so again your portfolio of apps and appliances together with your imagination are the limits … Let's take an example with the [Weather Underground](https://www.wunderground.com/) service that we are going to use to launch our Marketo campaign on weather alert. The following trigger would kick-off when a Rain condition is announced. And then associate the Trigger with the Maker Webhook Action, and just like previously fill in the Zapier webhook parameters.  Et voila, you just need now a good rain to come to double check this is actually working.
 
 We hope you'll have a lot of fun applying the concepts provided in this article. But most important, we think it will help anybody wanting to integrate Marketo with other 3rd party systems, thanks to the key concepts from this article:
 
@@ -8796,7 +8793,7 @@ In the Summer 2017 release, we are releasing some minor enhancements to our Prog
 
 ### Browse Programs
 
-We are adding the ability to get programs by date range to our [Get Programs](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/browseProgramsUsingGET) endpoint, via the addition of the optional earliestUpdatedAt and latestUpdatedAt parameters. You can set either or both parameters with the datetime of your choice to return only programs which have been created or updated between the two datetimes. This is useful for retrieving new and updated sets of marketing collateral, most importantly for translation and business intelligence use cases.
+We are adding the ability to get programs by date range to our [Get Programs](https://developer.adobe.com/marketo-apis/api/asset/#operation/browseProgramsUsingGET) endpoint, via the addition of the optional earliestUpdatedAt and latestUpdatedAt parameters. You can set either or both parameters with the datetime of your choice to return only programs which have been created or updated between the two datetimes. This is useful for retrieving new and updated sets of marketing collateral, most importantly for translation and business intelligence use cases.
 
 Posted on _1970-01-01_ by _Kenny_
 
@@ -8845,7 +8842,7 @@ You need a Google Cloud account. You can try GCP for free with a credit that is 
     or from the Google Cloud web interface, by selecting your project and clicking the Storage menu:
     * Give your Storage bucket a unique name
     * Select the default storage class
-    * Select the best suited regional location![](http://developers.marketo.com/wp-content/uploads/2017/11/GCPFunctions4.png)
+    * Select the best suited regional location
 
 1. Create a directory on your local system for the application code.
 1. Create an 'index.js' file in this directory with the following JavaScript code: the code is really simple to understand. It parses the two input parameters from the HTTP request body in JSON, does the processing and encodes in JSON the HTTP response.
@@ -9150,20 +9147,33 @@ The June 2019 release is primarily a maintenance release comprised of minor enha
 
 1. Added a checksum to Bulk Export status endpoints. You can compare the checksum with a hash of the retrieved file to verify the integrity of the retrieved file. The checksum is a SHA-256 hash of the exported file and is stored in the fileCheckSum attribute when an export job is completed.
 
-The following endpoints return the checksum: [Get Export Lead Job Status](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#/Bulk_Export_Leads/getExportLeadsStatusUsingGET), [Get Export Lead Jobs](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Bulk_Export_Leads/getExportLeadsUsingGET), [Get Export Activity Job Status](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Bulk_Export_Activities/getExportActivitiesStatusUsingGET), [Get Export Activity Jobs](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Bulk_Export_Activities/getExportActivitiesUsingGET)
+The following endpoints return the checksum: [Get Export Lead Job Status](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getExportLeadsStatusUsingGET), [Get Export Lead Jobs](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getExportLeadsFileUsingGET), [Get Export Activity Job Status](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getExportLeadsStatusUsingGET), [Get Export Activity Jobs](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getExportActivitiesUsingGET)
 
 #### Defect Resolutions
 
-1. Fixed issue with [Bulk Custom Object Import](https://developers.marketo.com/rest-api/bulk-import/bulk-custom-object-import/) when importing decimal numbers into integer fields. Before the fix, the decimal number was converted to an integer by assigning the whole number portion and discarding the fractional portion (e.g. 5.432 was converted to 5). Now an "Invalid data type in field Source ID" error is generated for each row that contains a data mismatch. [LM-124228]
+1. Fixed issue with [Bulk Custom Object Import](/rest/bulk-import/bulk-custom-object-import/) when importing decimal numbers into integer fields. Before the fix, the decimal number was converted to an integer by assigning the whole number portion and discarding the fractional portion (e.g. 5.432 was converted to 5). Now an "Invalid data type in field Source ID" error is generated for each row that contains a data mismatch. [LM-124228]
 1. Fixed issue where a Email program created using the [Clone Program](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/cloneProgramUsingPOST) endpoint did not honor Communication Limits settings in certain cases. [LM-121052]
 1. Fixed issue with [Approve Landing Page Draft](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Landing_Pages/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when landing page contained Email Unsubscribe form. [LM-125614]
 1. Fixed issue with [Approve Landing Page Draft](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Landing_Pages/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when landing page had been cloned using [Clone Landing Page](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Landing_Pages/cloneLandingPageUsingPOST) endpoint. [LM-125614]
 
 #### Deprecations
 
-1. As part of the [Email Editor 1.0 Deprecation](https://nation.marketo.com/docs/DOC-7038), 1.0 Email Assets will become read-only at the end of 2019. All 1.0 Email Assets must be converted to 2.0 as described [here](https://nation.marketo.com/docs/DOC-7038#jive_content_id_How_do_I_convert_my_assets_from_using_Email_Editor_10_to_20). To help developers prepare for that event, we have added warnings to all Email-related endpoints that attempt to modify 1.0 Email Assets. Here is an example response that contains the warning:
+1. As part of the [Email Editor 1.0 Deprecation](https://nation.marketo.com/docs/DOC-7038), 1.0 Email Assets will become read-only at the end of 2019. All 1.0 Email Assets must be converted to 2.0 as descriDiscard Email Draft, bed [here](https://nation.marketo.com/docs/DOC-7038#jive_content_id_How_do_I_convert_my_assets_from_using_Email_Editor_10_to_20). To help developers prepare for that event, we have added warnings to all Email-related endpoints that attempt to modify 1.0 Email Assets. Here is an example response that contains the warning:
 
-`{` `"success": true,` `"errors": [],` `"requestId": "15c57#16b338d6e75",` `"warnings": [` `"This is a v1 email asset. API support for modifying v1 emails is being dropped, and this operation will not work on v1 emails in the future. To avoid service interruptions, upgrade this and related assets by editing them in the User Interface."` `],` `"result": [` `"{\"service\":\"sendTestEmail\",\"result\":true}"` `]` `}` The following Email-related endpoints return the warning: [Update Email Full Content,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/createEmailFullContentUsingPOST) [Update Email Content,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/updateEmailContentUsingPOST) [Discard Email Draft,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/discardDraftUsingPOST) [Send Sample Email,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/sendSampleEmailUsingPOST) [Unapprove Email,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/unapproveDraftUsingPOST) [Clone Program,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/cloneProgramUsingPOST) [Clone Email,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/cloneEmailUsingPOST) [Approve Email Draft,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/approveDraftUsingPOST) [Update Email Dynamic Content Section,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/updateEmailDynamicContentUsingPOST) [Update Email Metadata,](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/updateEmailUsingPOST) [Approve Program](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/approveProgramUsingPOST)
+`{` `"success": true,` `"errors": [],` `"requestId": "15c57#16b338d6e75",` `"warnings": [` `"This is a v1 email asset. API support for modifying v1 emails is being dropped, and this operation will not work on v1 emails in the future. To avoid service interruptions, upgrade this and related assets by editing them in the User Interface."` `],` `"result": [` `"{\"service\":\"sendTestEmail\",\"result\":true}"` `]` `}` 
+
+The following Email-related endpoints return the warning: 
+
+* Update Email Full Content
+* Update Email Content
+* Send Sample Email
+* Unapprove Email
+* Clone Program
+* Clone Email
+* Approve Email Draft
+* Update Email Dynamic Content Section
+* Update Email Metadata
+* Approve Program
 
 Email Scripting (Apache Velocity)
 
@@ -9209,27 +9219,16 @@ Posted on _2019-08-16_ by _David_
 
 In January 2020 we are releasing new REST APIs, enhancing existing APIs, and resolving defects. See the full list of updates below.
 
-* Added the ability to programmatically create of Custom Object schema definitions. This allows you to define a custom object once and provision it to as many instances as needed. This allows you to enable users to effectively leverage sandbox and center-of-excellence models. Also allows ISVs to simplify the customer onboarding process. You will need an appropriate subscription type to access Custom Object Metadata API. For more information see [Custom Object Types](/rest-api/lead-database/custom-objects/#custom_object_types).
-* Added the ability to import and export of Program Members in bulk. This new set of endpoints follow the existing Marketo REST API pattern for creating asynchronous bulk processing jobs. Program Member records can contain Program Member custom fields, and/or Lead fields. For more information see [Bulk Program Member Import](/rest-api/bulk-import/bulk-program-member-import/) and [Bulk Program Member Extract](/rest-api/bulk-extract/bulk-program-member-extract/).
-* Added [Get Available Form Program Member Fields](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#/Form_Fields/getAllProgramMemberFieldsUsingGET) endpoint to support use of Program Member Custom Fields as Form Fields. This returns a list of all program member custom fields that can be used in a Marketo Form.
-* Added [Get Email Template Used By](/rest-api/assets/email-templates/#query_email_dependencies) endpoint that returns a list of email assets that depend on a given email template. This allows you to quickly understand the impact of a potential email template change, and more easily address these dependencies.
-
-### Defect Resolutions
-
-* Fixed issue where [Import Custom Objects](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Bulk_Import_Custom_Objects/importCustomObjectUsingPOST) endpoint would return error "1003, Partition is not part of the given workspace" when using single partition with multiple workspaces and API user had sufficient permissions to perform operation [LM-130159]
-* When you update and approve an email template, a draft is created for all of its dependent email assets. If you used [Approve Email Draft](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/approveDraftUsingPOST) endpoint to approve said drafts, then the email template updates were not reflected in subsequent "email preview" or "email send sample" operations. [LM-130243]
-* Fixed issue where [Get Smart Campaigns](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Smart_Campaigns/getAllSmartCampaignsGET) endpoint would return isRequestable = false for Smart Campaigns that were requestable. [LM-131266]
-* Fixed issue where [Create Token](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Tokens/addTokenTOFolderUsingPOST) endpoint would return error "611, Number token value limited to only numbers" when creating tokens with type = number. [LM-131189]
-* Fixed issue where [Clone Smart List](/rest-api/endpoint-reference/asset-endpoint-reference/#/Smart_Lists/cloneSmartListUsingPOST) endpoint would return error "611, System error" when passed an invalid folder id. Smart List parent folders must be either a Program or Smart List folder. [LM-130867]
-* Fixed issue where [Add Field to Form](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Form_Fields/addFieldToAFormUsingPOST) endpoint to add a single checkbox field would not render in the Marketo Engage UI. [LM-130124]
-* Fixed issue where [Approve Template Draft](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#/EmailTemplates/approveDraftUsingPOST_1) endpoint would return error "702, {id } There is a problem with the email template content." when mktEditable IDs contained spaces, special characters, or japanese characters. [LM-130028]
-* Fixed issue where [Update Form Field](/rest-api/endpoint-reference/asset-endpoint-reference/#/FormFields/updateFormFieldUsingPOST) endpoint would return error "709, equal operator should have only one value." when updating a multi-value "Select" field type. [LM-111678]
+* Added the ability to programmatically create of Custom Object schema definitions. This allows you to define a custom object once and provision it to as many instances as needed. This allows you to enable users to effectively leverage sandbox and center-of-excellence models. Also allows ISVs to simplify the customer onboarding process. You will need an appropriate subscription type to access Custom Object Metadata API. 
+* Added the ability to import and export of Program Members in bulk. This new set of endpoints follow the existing Marketo REST API pattern for creating asynchronous bulk processing jobs. Program Member records can contain Program Member custom fields, and/or Lead fields.
+* Added Get Available Form Program Member Fields endpoint to support use of Program Member Custom Fields as Form Fields. This returns a list of all program member custom fields that can be used in a Marketo Form.
+* Added [Get Email Template Used By](/rest/assets/email-templates#query_email_dependencies) endpoint that returns a list of email assets that depend on a given email template. This allows you to quickly understand the impact of a potential email template change, and more easily address these dependencies.
 
 Posted on _2020-01-17_ by _David_
 
 ## How to Retrieve Every Custom Object
 
-We are often asked how to use Marketo's API to get a list of all [custom objects](https://docs.marketo.com/display/public/DOCS/Marketo+Custom+Objects) (COs). Querying for COs requires more than its name: some _a priori_ knowledge about each CO is also required. The methods to get that knowledge may not be obvious since the API provides no method for querying it directly. As with many goals in Marketo Engage, Smart Lists provide an answer for COs linked to Persons (Leads). Smart Lists work differently with Companies and you'll end up with a list of all Persons whose Companies are linked to the type of object for the filter so you may find it necessary to deduplicate companies depending on your goals. Anytime a new Custom Object is approved, an associated filter is created. It will be named in the format "**Has CO NAME**". In the example below, the custom object name is "**Conference Track Subscription"** and its filter is named "**Has Conference Track Subscription**". Once you have created the Smart List, you can retrieve the information necessary to query for associated COs using the [custom objects endpoint](/rest/lead-database/custom-objects#query). Export the list ensuring the linked field is included (either ID or email address). You can export using the [Bulk Lead Extract API](/rest/bulk-extract/bulk-lead-extract) filtering by the **smartListName** or **smartListId** [(1)](#footnote1) filter or [export from the UI](https://docs.marketo.com/display/public/DOCS/Export+People+to+Excel+from+a+List+or+Smart+List). You'll use each linked field value to query associated custom objects individually in the next step. The custom object's name is **"Conference Track Subscription"** in this example, and its API name is **conferenceTrackSubscription_c**. You'll find the API name both in the UI as "**API Name**" and via the API as "**name**".  Admin | Marketo Custom Objects[/caption] And here's a fragment returned by the [List Custom Objects API](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Custom_Objects/listCustomObjectsUsingGET) endpoint:
+We are often asked how to use Marketo's API to get a list of all [custom objects](https://docs.marketo.com/display/public/DOCS/Marketo+Custom+Objects) (COs). Querying for COs requires more than its name: some _a priori_ knowledge about each CO is also required. The methods to get that knowledge may not be obvious since the API provides no method for querying it directly. As with many goals in Marketo Engage, Smart Lists provide an answer for COs linked to Persons (Leads). Smart Lists work differently with Companies and you'll end up with a list of all Persons whose Companies are linked to the type of object for the filter so you may find it necessary to deduplicate companies depending on your goals. Anytime a new Custom Object is approved, an associated filter is created. It will be named in the format "**Has CO NAME**". In the example below, the custom object name is "**Conference Track Subscription"** and its filter is named "**Has Conference Track Subscription**". Once you have created the Smart List, you can retrieve the information necessary to query for associated COs using the [custom objects endpoint](/rest/lead-database/custom-objects#query). Export the list ensuring the linked field is included (either ID or email address). You can export using the [Bulk Lead Extract API](/rest/bulk-extract/bulk-lead-extract) filtering by the **smartListName** or **smartListId** filter or [export from the UI](https://docs.marketo.com/display/public/DOCS/Export+People+to+Excel+from+a+List+or+Smart+List). You'll use each linked field value to query associated custom objects individually in the next step. The custom object's name is **"Conference Track Subscription"** in this example, and its API name is **conferenceTrackSubscription_c**. You'll find the API name both in the UI as "**API Name**" and via the API as "**name**".  Admin | Marketo Custom Objects[/caption] And here's a fragment returned by the [List Custom Objects API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET) endpoint:
 
 ```json
 {
@@ -9270,7 +9269,7 @@ To retrieve the custom objects associated one to one (1:1) or one to many (1:N) 
 
 `GET /rest/v1/customobjects/conferenceTrackSubscription_c.json?filterType=leadID&filterValues=1000302,1000303,1000304,1000306,1000307`
 
-In this example, this custom object is linked to Persons by the **leadID** field so the filter type is "**leadID**". The filter values parameter is a comma-separated list of of the IDs taken from the Smart List export. The request may include as many filter values as you can fit in a single request URI: up to 8K characters. Requests exceeding this length will return a 414 HTTP-level error code. The response may be returned in more than one chunk. If so, **moreResult** will be **true** and a **nextPageToken** will be included. You will then need to [page through](https://developers.marketo.com/rest-api/paging-tokens/) the results until **moreResult** is **false**. Here's part of the result for the above API request:
+In this example, this custom object is linked to Persons by the **leadID** field so the filter type is "**leadID**". The filter values parameter is a comma-separated list of of the IDs taken from the Smart List export. The request may include as many filter values as you can fit in a single request URI: up to 8K characters. Requests exceeding this length will return a 414 HTTP-level error code. The response may be returned in more than one chunk. If so, **moreResult** will be **true** and a **nextPageToken** will be included. You will then need to [page through](/rest/paging-tokens/) the results until **moreResult** is **false**. Here's part of the result for the above API request:
 
 ```json
 "result": [
@@ -9744,7 +9743,7 @@ Custom objects allow you to compile and use unique data that is relevant to a co
 * Marketo API's support CRUD (Create, Read, Update, and Delete) operation on custom objects.
 * You can use this custom object data for email personalization using Velocity Script.
 * You can find all Custom object related endpoints [here](/rest-api/endpoint-reference/lead-database-endpoint-reference/#/Custom_Objects).
-* Bulk APIs only support bulk import of custom object records, it doesn't support bulk extract. More details [here](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#/Bulk_Import_Custom_Objects).
+* Bulk APIs only support bulk import of custom object records, it doesn't support bulk extract. More details [here](/rest/endpoint-reference/lead-database-endpoint-reference/#/Bulk_Import_Custom_Objects).
 * You can import data into a custom object using Lead Database import functionality. More details [here](https://docs.marketo.com/display/public/DOCS/Import+Custom+Object+Data).
 
 ### Custom Object Terminology
@@ -9834,9 +9833,9 @@ In January 2021 we are releasing new REST APIs and resolving several defects. Se
 
 * Fixed issue where [Delete User](/rest-api/user-management/#delete_user) endpoint would allow you to delete an API-Only User that was in-use by a Custom Service. Now it returns an error "611, You cannot delete an API user that is being used in API service". [LM-141893]
 * Fixed issue where [Get Users](/rest-api/user-management/#browse_users) endpoint would return deleted users in some cases. [LM-141542]
-* Fixed issue where [Clone Program](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/cloneProgramUsingPOST) endpoint. If you specified a program name that exceeded 255 characters, it would return "611, Unable to clone program error". Now it returns "701, name cannot exceed more than 255 characters". [LM-143436]
-* Fixed issue with [Approve Landing Page Draft](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Landing_Pages/approveLandingPageUsingPOST) endpoint. When you approved a landing page with mobile version activated, you would see content from mobile version in desktop version in certain cases. [LM-146867]
-* Fixed issue with [Unapprove Landing Page](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Landing_Pages/unapproveLandingPageByIdUsingPOST) endpoint which allowed you to unapprove a landing page that was in use as a follow up page by one or more forms. It now returns an error "709, Unapprove landing page failed. Landing page is in use by one or more forms as a followup page with form IDs:[_formId1,formId2,..._]". [LM-143326]
+* Fixed issue where [Clone Program](/rest/endpoint-reference/asset-endpoint-reference/#!/Programs/cloneProgramUsingPOST) endpoint. If you specified a program name that exceeded 255 characters, it would return "611, Unable to clone program error". Now it returns "701, name cannot exceed more than 255 characters". [LM-143436]
+* Fixed issue with [Approve Landing Page Draft](/rest/endpoint-reference/asset-endpoint-reference/#!/Landing_Pages/approveLandingPageUsingPOST) endpoint. When you approved a landing page with mobile version activated, you would see content from mobile version in desktop version in certain cases. [LM-146867]
+* Fixed issue with [Unapprove Landing Page](/rest/endpoint-reference/asset-endpoint-reference/#!/Landing_Pages/unapproveLandingPageByIdUsingPOST) endpoint which allowed you to unapprove a landing page that was in use as a follow up page by one or more forms. It now returns an error "709, Unapprove landing page failed. Landing page is in use by one or more forms as a followup page with form IDs:[_formId1,formId2,..._]". [LM-143326]
 
 Posted on _2021-01-15_ by _David_
 
@@ -9920,23 +9919,23 @@ In May 2021 we are releasing new REST APIs, enhancing existing REST APIs, and re
 
 * Added Program Member APIs that allow you to retrieve, update, and delete program membership records. For more information see [REST API > Lead Database > Program Members](/rest-api/lead-database/program-members/).
 * Added Bulk Custom Object Extract APIs that allow you to export first-level Marketo Custom Object records which are associated with leads in a one-to-many relationship. For more information see [REST API > Bulk Extract > Bulk Custom Object Extract](/rest-api/bulk-extract/bulk-custom-object-extract/).
-* Added Custom Field Metadata APIs that allow you to create, update, and retrieve metadata for lead fields. For more information see [REST API > Lead Database > Leads](https://developers.marketo.com/rest-api/lead-database/leads/#fields).
+* Added Custom Field Metadata APIs that allow you to create, update, and retrieve metadata for lead fields. For more information see [REST API > Lead Database > Leads](/rest/lead-database/leads/#fields).
 * We have enhanced both the [Lead API](/rest-api/lead-database/leads/#adobe_ecid) and the [Bulk Lead Extract API](/rest-api/bulk-extract/bulk-lead-extract/#options) to permit users to retrieve the Adobe Experience Cloud Id (ECID). This allows users who [Sync Audiences from Adobe Experience Cloud](https://docs.marketo.com/display/public/DOCS/Sync+an+Audience+From+Adobe+Experience+Cloud) to identify leads that have associated ECIDs. This opens up [integration possibilities](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) with other Adobe Experience Cloud products.
 * We have enhanced the [Bulk Lead Import API](/rest-api/bulk-import/bulk-lead-import/) to support adding leads to company records during the import process. This is done by including the **externalCompanyId** field to the import file.
-* We have enhanced several Program endpoints to provide parity with functionality found in the Marketo Engage UI. We have enhanced the [Create Programs](/rest-api/assets/programs/#create) and [Clone Programs](https://developers.marketo.com/rest-api/assets/programs/#clone) endpoints to permit create, clone, or move operations on event programs. This is for users that organize event programs by "nesting" them underneath other program types. We have also enhanced the [Delete Program](/rest-api/assets/programs/#delete-program) endpoint to permit deletion of programs that contain the following assets: Push Notifications, In-App Messages, Reports, Landing Pages with Embedded Social Assets.
+* We have enhanced several Program endpoints to provide parity with functionality found in the Marketo Engage UI. We have enhanced the [Create Programs](/rest-api/assets/programs/#create) and [Clone Programs](/rest/assets/programs/#clone) endpoints to permit create, clone, or move operations on event programs. This is for users that organize event programs by "nesting" them underneath other program types. We have also enhanced the [Delete Program](/rest-api/assets/programs/#delete-program) endpoint to permit deletion of programs that contain the following assets: Push Notifications, In-App Messages, Reports, Landing Pages with Embedded Social Assets.
 * As a Marketo Admin, you can [mark a specific field as "sensitive"](https://docs.marketo.com/display/public/DOCS/Mark+a+Field+as+Sensitive) so its values [never get pre-filled in forms](https://docs.marketo.com/display/public/DOCS/Disable+Pre-fill+for+a+Form+Field), thereby protecting users' sensitive data. We have enhanced several Form Field endpoints to provide parity with this functionality found in the Marketo Engage UI. The following endpoints now permit you to set or retrieve the **isSensitive** boolean field attribute : [Add Field to Form](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Form_Fields/addFieldToAFormUsingPOST), [Update Form Field](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Form_Fields/updateFormFieldUsingPOST), [Get Fields for Form](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Form_Fields/getFormFieldByFormVidUsingGET), [Get Available Form Fields](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Form_Fields/getAllFieldsUsingGET).
-* We have enhanced [Get Channel by Name](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Channels/getChannelByNameUsingGET) and [Get Channels](http://marketohost.staging.wpengine.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Channels/getAllChannelsUsingGET) endpoints to return status type in the **type** attribute.
+* We have enhanced [Get Channel by Name](/rest/endpoint-reference/asset-endpoint-reference/#!/Channels/getChannelByNameUsingGET) and [Get Channels](http://marketohost.staging.wpengine.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Channels/getAllChannelsUsingGET) endpoints to return status type in the **type** attribute.
 
 ### Defect Resolutions
 
-* Fixed issue with [Delete Program](/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/deleteProgramUsingPOST) endpoint. If you tried to delete a program in a shared folder, it would return "611, System Error". Now it returns " "Target program is in a shared folder and cannot be deleted. The folder must be unshared before attempting deletion." [LM-149405]
-* Fixed issue with [Clone Program](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/cloneProgramUsingPOST) endpoint. If you tried to clone a program that contained a DateTime in a flow step, it would return "611, System Error". Now it successfully clones the program. [LM-135226]
-* Fixed issue with [Create Programs](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/createProgramUsingPOST) endpoint that inadvertently allowed you to create a program underneath an email program (which is not allowed). [LM-150648]
-* Fixed issue with [Clone Program](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/cloneProgramUsingPOST) endpoint. If you cloned a program that contained a landing page, the name of the landing page in the target program was missing an underscore between program name and landing page name. e.g. http://<_pod_\>.marketo.com/lp/<_munchkin_\>/<_program name_\>**_**<_LP name_\>.html [LM-149488]
+* Fixed issue with Delete Program endpoint. If you tried to delete a program in a shared folder, it would return "611, System Error". Now it returns " "Target program is in a shared folder and cannot be deleted. The folder must be unshared before attempting deletion." 
+* Fixed issue with Clone Program endpoint. If you tried to clone a program that contained a DateTime in a flow step, it would return "611, System Error". Now it successfully clones the program. 
+* Fixed issue with Create Programs endpoint that inadvertently allowed you to create a program underneath an email program (which is not allowed).
+* Fixed issue with Clone Program endpoint. If you cloned a program that contained a landing page, the name of the landing page in the target program was missing an underscore between program name and landing page name. e.g. `http://<_pod_\>.marketo.com/lp/<_munchkin_\>/<_program name_\>**_**<_LP name_\>.html`
 
 ### Announcements
 
-* The previously released Describe Program Member endpoint (/rest/v1/program/members/describe.json) has been superceded by a new version of [Describe Program Member](/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Program_Members/describeProgramMemberUsingGET2) (/rest/v1/programs/members/describe.json). This is to standardize on a common set of API names for program member fields across all program member related endpoints. For example, the old API name for "Acquired By" was "Acquired By" and the new API name is "acquiredBy". We encourage you to migrate to the new endpoint and use the new API names. The old endpoint will continue to function but will no longer be maintained.
+* The previously released Describe Program Member endpoint (`/rest/v1/program/members/describe.json`) has been superceded by a new version of [Describe Program Member](/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Program_Members/describeProgramMemberUsingGET2) (/rest/v1/programs/members/describe.json). This is to standardize on a common set of API names for program member fields across all program member related endpoints. For example, the old API name for "Acquired By" was "Acquired By" and the new API name is "acquiredBy". We encourage you to migrate to the new endpoint and use the new API names. The old endpoint will continue to function but will no longer be maintained.
 * The [Change Lead Program Status](/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/changeLeadProgramStatusUsingPOST) endpoint has been superceded by [Sync Program Member Status](/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Program_Members/syncProgramMemberStatusUsingPOST). Currently the two endpoints are functionally equivalent. We encourage you to migrate to Sync Program Member Status. Change Lead Program Status will continue to function but will no longer be maintained.
 * In January 2021 there was a minor change in behavior in our Bulk Extract Activity API due to a backend infrastructure component upgrade. Before the upgrade, when the database entry associated with primaryAttributeValueId field contained a null value, the API exported a 0 for that field. After the change, a null value is exported as null. If you have an integration that is impacted by this change, please adjust how you consume the primaryAttributeValueId field. Assume that the field can now contain an integer or null as a value.
 
@@ -9956,96 +9955,43 @@ Marketo Engage partner community support is one of the pillars of our customers'
 1. In the **Adobe Exchange Product** dropdown select "Adobe Exchange Program"
 1. Submit the Form. Our team will be in contact with you shortly!
 
-**If you would like to take advantage of this offer you must let us know by submitting a request [here](https://nam04.safelinks.protection.outlook.com/?url=http%3A%2F%2Fexchangepartners-engage.adobe.com%2FNjA4LURIVi05MTUAAAF-P5lIeTwCa0rEpYTOvZQStRFsQ-CZVh9VyFTryyaRUqy2BWDg80rtUQLe2z9_3BHHycT8_0I%3D&data=04%7C01%7Cweihl%40adobe.com%7Cdd1aeed93405468825ff08d946187940%7Cfa7b1b5a7b34438794aed2c178decee1%7C0%7C0%7C637617893186772925%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=ZSCzmPqopCoQx4%2BOPiH%2FhfIZKH7fdInq%2BWH9X4vc2ik%3D&reserved=0) by August 31st. Please note that we will not be able to honor any requests that come in after that date.** Please contact our [support team](https://nam04.safelinks.protection.outlook.com/?url=http%3A%2F%2Fexchangepartners-engage.adobe.com%2FNjA4LURIVi05MTUAAAF-P5lIebDIJMSrcEMyIrupWPvzlCHjycoXbmbRMbAB9JQyxU5NVi3K1Ki5eImB2F7qN-4ylic%3D&data=04%7C01%7Cweihl%40adobe.com%7Cdd1aeed93405468825ff08d946187940%7Cfa7b1b5a7b34438794aed2c178decee1%7C0%7C0%7C637617893186782920%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=ZyQ%2FC1jnfK826Bl9aiKJOUqn2co0Z9%2Fr%2FU0eE8yYAzA%3D&reserved=0) if you have questions. Sincerely, Adobe Exchange Team
-
 Posted on _2021-07-22_ by _David_
 
 ## August 2021 Updates
 
 In August 2021 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have enhanced the Bulk Activity Extract API to permit users to filter using primary attributes for 6 different activity types. For more information see [Bulk Activity Extract](https://developers.marketo.com/rest-api/bulk-extract/bulk-activity-extract/#filters).
+* We have enhanced the Bulk Activity Extract API to permit users to filter using primary attributes for 6 different activity types. For more information see [Bulk Activity Extract](/rest/bulk-extract/bulk-activity-extract/#filters).
 * In order to give Marketo Sales Connect users more access to their sales activity data we enabled additional sales activity attributes. We added the following attributes to Send Sales Email, Open Sales Email, and Click Sales Email activities:
 
-**Activity Attribute**
 
-**Description**
-
-Marketo Sales Person ID
-
-Unique ID for person record in Sales Connect
-
-Sales Campaign Name
-
-Name of sales campaign, if email was part of a sales campaign
-
-Sales Campaign URL
-
-Sales Connect URL for sales campaign if email was part of a sales campaign
-
-Sales Template Name
-
-Name of email template in Sales Connect, if a template was used
-
-Sales Template URL
-
-Sales Connect URL for email template, if a template was used
-
-Asset APIs--
+* Marketo Sales Person ID - Unique ID for person record in Sales Connect
+* Sales Campaign Name - Name of sales campaign, if email was part of a sales campaign
+* Sales Campaign URL - Sales Connect URL for sales campaign if email was part of a sales campaign
+* Sales Template Name - Name of email template in Sales Connect, if a template was used
+* Sales Template URL - Sales Connect URL for email template, if a template was used
 
 ### Emails
 
-* We have enhanced the [Get Emails](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/getEmailUsingGET) endpoint by adding earliestUpdatedAt/latestUpdatedAt filter. This allows you to use the updatedAt field to search only for a subset of emails, allowing incremental synchronization.
-* We have enhanced the [Get Emails](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/getEmailUsingGET), [Get Email by Name](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/getEmailByNameUsingGET), [Get Email by Id](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/getEmailByIdUsingGET) endpoints to support retrieval of [Champion and Challenger](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger.html?lang=en) type email records.
+* We have enhanced the Get Emails endpoint by adding `earliestUpdatedAt`/`latestUpdatedAt` filter. This allows you to use the `updatedAt` field to search only for a subset of emails, allowing incremental synchronization.
+* We have enhanced the Get Emails, Get Email by Name, Get Email by Id endpoints to support retrieval of [Champion and Challenger](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger.html?lang=en) type email records.
 
 ### Defect Resolutions
 
-* Fixed issue with the [Get Users](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/getUsersUsingGET) endpoint. Users that had been issued a [Marketing Calendar](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license.html?lang=en) license were not being returned. Marketing Calendar users are now correctly returned. [LM-152424]
-* Fixed issue with [Submit Form](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/SubmitFormUsingPOST) endpoint. In the event of duplicate lead records, Submit Form used to issue a "1007, Multiple lead match lookup criteria" error. Submit Form now updates the most recently updated record in the same way that the [Forms 2.0 API](https://developers.marketo.com/javascriptapi/forms-api-reference) does. [LM-151990]
-* Improved several misleading error messages returned by [Update Lead Field](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/updateLeadFieldUsingPOST) and [Create Lead Fields](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/createLeadFieldUsingPOST) endpoints. [LM-151890, LM-151888, LM-151889]
-* Fixed issue with [Get Lead Field by Name](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadFieldByNameUsingGET) and [Get Lead Fields](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadFieldsUsingGET) endpoints. Both endpoints could potentially return slightly out of date information. They now always return current information. [LM-151202]
-* Fixed issue with [Bulk Extract API](https://developers.marketo.com/rest-api/bulk-extract/) when using the "range" HTTP header for partial retrieval where the last byte in the range was not returned. [LM-155141]
-* Fixed issue with [Update Snippet Metadata](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Snippets/updateSnippetUsingPOST) endpoint. When updating the snippet name or description, the snippet status was changed to "approved with draft". Now the snipped status remains unchanged after updating snippet name or description. [LM-155005]
-* Fixed issue with [Add Email Module](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/addModuleUsingPOST) endpoint. When adding a module that contained a snippet, it returned a "611, System Error". It now correctly adds the module to the email. [LM-154423]
-* Fixed issue with [Delete Program](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/deleteProgramUsingPOST) endpoint. When deleting a program that contained an In-App Message local asset, it returned a "611, System Error". It now correctly deletes the program [LM-152876]
+* Fixed issue with the Get Users endpoint. Users that had been issued a [Marketing Calendar](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license.html?lang=en) license were not being returned. Marketing Calendar users are now correctly returned. 
+* Fixed issue with Submit Form endpoint. In the event of duplicate lead records, Submit Form used to issue a "1007, Multiple lead match lookup criteria" error. Submit Form now updates the most recently updated record in the same way that the [Forms 2.0 API](/javascriptapi/forms-api-reference) does. 
+* Improved several misleading error messages returned by Update Lead Field and Create Lead Fields endpoints. [LM-151890, LM-151888, LM-151889]
+* Fixed issue with Get Lead Field by Name and Get Lead Fields endpoints. Both endpoints could potentially return slightly out of date information. They now always return current information.
+* Fixed issue with [Bulk Extract API](/rest/bulk-extract/) when using the "range" HTTP header for partial retrieval where the last byte in the range was not returned. 
+* Fixed issue with Update Snippet Metadata endpoint. When updating the snippet name or description, the snippet status was changed to "approved with draft". Now the snipped status remains unchanged after updating snippet name or description. 
+* Fixed issue with Add Email Module endpoint. When adding a module that contained a snippet, it returned a "611, System Error". It now correctly adds the module to the email.
+* Fixed issue with Delete Program endpoint. When deleting a program that contained an In-App Message local asset, it returned a "611, System Error". It now correctly deletes the program.
 
 Posted on _2021-08-22_ by _David_
 
 ## Munchkin Version 161 Rollout--
 
-On September 7th 2021, version 161 of Munchkin will begin rolling out to 10% of subscriptions with Munchkin Beta enabled, followed by 50% on September 16th, and 100% on September 30th. This change will affect Marketo landing pages and the version of the file munchkin-beta.js served to external landing pages which are loaded from subscriptions that the new version has been rolled out to. This version fully deprecates the Munchkin Associate Lead method, which is a feature that allowed submission of person data to a Marketo subscription and associated web browsing history with a known person record. Associate Lead is being removed in favor of more modern and secure alternatives, like the [Forms JS API](https://developers.marketo.com/javascriptapi/forms-api-reference), the [Form Submit API](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/SubmitFormUsingPOST) and the [Associate Lead REST API](https://developers.marketo.com/rest-api/lead-database/leads/#associate_web_activity). If you or your organization uses this method, you should migrate away from usage by October 12th 2021 when the October release rollout is scheduled to begin. If you no longer wish to opt into the Munchkin beta, you can disable usage on Marketo landing pages by toggling the "Munchkin Beta on Landing Pages" feature to disabled in the [Treasure Chest menu](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features.html). If you have deployed the Munchkin Beta JavaScript to external web pages and wish to switch to the default Munchkin release channel, you will need to update your code snippet to load Munchkin JavaScript from munchkin.js instead of munchkin-beta.js.
-
-Schedule
-
-Below is the rollout schedule as of 8/24/21
-
-Phase
-
-Date
-
-Beta 10%
-
-9/7/21
-
-Beta 50%
-
-9/16/21
-
-Beta 100%
-
-9/30/21
-
-GA 10%
-
-10/14/21
-
-GA 50%
-
-10/21/21
-
-GA 100%
-
-10/28/21
+On September 7th 2021, version 161 of Munchkin will begin rolling out to 10% of subscriptions with Munchkin Beta enabled, followed by 50% on September 16th, and 100% on September 30th. This change will affect Marketo landing pages and the version of the file munchkin-beta.js served to external landing pages which are loaded from subscriptions that the new version has been rolled out to. This version fully deprecates the Munchkin Associate Lead method, which is a feature that allowed submission of person data to a Marketo subscription and associated web browsing history with a known person record. Associate Lead is being removed in favor of more modern and secure alternatives, like the [Forms JS API](/javascriptapi/forms-api-reference), the Form Submit API and the [Associate Lead REST API](/rest/lead-database/leads/#associate_web_activity). If you or your organization uses this method, you should migrate away from usage by October 12th 2021 when the October release rollout is scheduled to begin. If you no longer wish to opt into the Munchkin beta, you can disable usage on Marketo landing pages by toggling the "Munchkin Beta on Landing Pages" feature to disabled in the [Treasure Chest menu](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features.html). If you have deployed the Munchkin Beta JavaScript to external web pages and wish to switch to the default Munchkin release channel, you will need to update your code snippet to load Munchkin JavaScript from munchkin.js instead of munchkin-beta.js.
 
 Posted on _2021-08-24_ by _Kenny_
 
@@ -10059,14 +10005,14 @@ Posted on _2021-10-04_ by _Kenny_
 
 In October 2021 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have enhanced the [Submit Form](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/SubmitFormUsingPOST) endpoint to support program member custom fields as part of the form submission. Optionally, a program can be specified as program to add form to, and/or the program to add program member custom fields to as described [here](https://developers.marketo.com/rest-api/lead-database/leads/#submit_form).
- We have enhanced the [Get Program Members](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Program_Members/getProgramMembersUsingGET) endpoint to support date range based queries based on updatedAt attribute. This is done by passing starting and ending datetime parameters as described [here](https://developers.marketo.com/rest-api/lead-database/program-members/#query).
-* We have enhanced the [Leads Fields](https://developers.marketo.com/rest-api/lead-database/leads/#fields) APIs to support [Sensitive Fields](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive.html?lang=en). The [Get Lead Field by Name](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadFieldByNameUsingGET), [Get Lead Fields](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadFieldsUsingGET), [Create Lead Fields](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/createLeadFieldUsingPOST), and [Update Lead Field](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/updateLeadFieldUsingPOST) endpoints now support the isSensitive attribute.
+* We have enhanced the [Submit Form](https://developer.adobe.com/marketo-apis/api/mapi/#operation/SubmitFormUsingPOST) endpoint to support program member custom fields as part of the form submission. Optionally, a program can be specified as program to add form to, and/or the program to add program member custom fields to as described [here](/rest/lead-database/leads/#submit_form).
+ We have enhanced the [Get Program Members](/rest/endpoint-reference/lead-database-endpoint-reference/#!/Program_Members/getProgramMembersUsingGET) endpoint to support date range based queries based on updatedAt attribute. This is done by passing starting and ending datetime parameters as described [here](/rest/lead-database/program-members/#query).
+* We have enhanced the [Leads Fields](/rest/lead-database/leads/#fields) APIs to support [Sensitive Fields](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive.html?lang=en). The [Get Lead Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET), [Get Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET), [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST), and [Update Lead Field](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST) endpoints now support the isSensitive attribute.
 
 ### Defect Resolutions
 
-* Fixed issue with [User Management](https://developers.marketo.com/rest-api/user-management/) API. Pertains to Marketo users that are configured for use with [Sales Insight](https://www.marketo.com/software/sales-insight/). These users are now returned by [Get Users](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/getUsersUsingGET) endpoint, and these users may now be deleted using [Delete User](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/deleteUserUsingPOST) endpoint. [LM-155864]
-* Fixed issue with Add [Rich Text Field](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Form_Fields/addRichTextFieldUsingPOST) endpoint. When adding a rich text field that is longer than 65k characters to email, landing page, snippet, or form, it returned a "611, System Error". It now returns error "701, Operation cannot be completed. 'content' exceeds maximum length of 65,535 bytes". [LM-156706]
+* Fixed issue with [User Management](/rest/user-management/) API. Pertains to Marketo users that are configured for use with [Sales Insight](https://www.marketo.com/software/sales-insight/). These users are now returned by [Get Users](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET) endpoint, and these users may now be deleted using [Delete User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST) endpoint. [LM-155864]
+* Fixed issue with Add [Rich Text Field](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/addRichTextFieldUsingPOST) endpoint. When adding a rich text field that is longer than 65k characters to email, landing page, snippet, or form, it returned a "611, System Error". It now returns error "701, Operation cannot be completed. 'content' exceeds maximum length of 65,535 bytes". [LM-156706]
 
 Posted on _2021-10-25_ by _David_
 
@@ -10074,20 +10020,20 @@ Posted on _2021-10-25_ by _David_
 
 In January 2022 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have enhanced the [Bulk Custom Object Extract](https://developers.marketo.com/rest-api/bulk-extract/bulk-custom-object-extract/#filters) API to permit users to filter using an **updatedAt** date range.
-* Added Program Member field metadata APIs that allow you to create, update, and retrieve metadata for Program Member fields. For more information see [Program Members > Fields](https://developers.marketo.com/rest-api/lead-database/program-members/#fields).
-* Added Company field metadata APIs that allow you to retrieve metadata for Company fields. For more information see [Companies > Fields](https://developers.marketo.com/rest-api/lead-database/companies/#fields).
-* Added Opportunity field metadata APIs that allow you to retrieve metadata for Opportunity fields. For more information see [Opportunities > Fields](https://developers.marketo.com/rest-api/lead-database/opportunities/#fields).
-* Added Named Account field metadata APIs that allow you to retrieve metadata for Named Account fields. For more information see [Named Accounts > Fields](https://developers.marketo.com/rest-api/lead-database/named-accounts/#fields).
+* We have enhanced the [Bulk Custom Object Extract](/rest/bulk-extract/bulk-custom-object-extract/#filters) API to permit users to filter using an **updatedAt** date range.
+* Added Program Member field metadata APIs that allow you to create, update, and retrieve metadata for Program Member fields. For more information see [Program Members > Fields](/rest/lead-database/program-members/#fields).
+* Added Company field metadata APIs that allow you to retrieve metadata for Company fields. For more information see [Companies > Fields](/rest/lead-database/companies/#fields).
+* Added Opportunity field metadata APIs that allow you to retrieve metadata for Opportunity fields. For more information see [Opportunities > Fields](/rest/lead-database/opportunities/#fields).
+* Added Named Account field metadata APIs that allow you to retrieve metadata for Named Account fields. For more information see [Named Accounts > Fields](/rest/lead-database/named-accounts/#fields).
 * Updated field metadata endpoints to return a new boolean property **isApiCreated** to indicate whether or not a field was created by the REST API.
 
 ### Defect Resolutions
 
-* Fixed latency issue between time of call to [Create Lead Fields](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/createLeadFieldUsingPOST) endpoint and time when newly created lead field was available in smart list. [LM-152838]
-* Fixed issue with [Create Lead Fields](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/createLeadFieldUsingPOST) endpoint where created fields were not available in form fields dropdown list used to [add fields to form](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form.html?lang=en) in Marketo Engage UI. [LM-158243]
-* Fixed issue with [Get Campaigns](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#/Campaigns/getCampaignsUsingGET) endpoint where triggerable campaigns were not returned when isTriggerable=true parameter was specified. [LM-158283]
-* Fixed issue where [Get Leads by List Id](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getLeadsByListIdUsingGET) endpoint would return an error "611, System error" in certain cases. [LM-157214]
-* Cleaned up several error messages returned by [Update Lead Field](https://developers.marketo.com/rest-api/lead-database/leads/#update_field) endpoint. [LM-151886, LM-151888, LM-151889]
+* Fixed latency issue between time of call to [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) endpoint and time when newly created lead field was available in smart list. [LM-152838]
+* Fixed issue with [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) endpoint where created fields were not available in form fields dropdown list used to [add fields to form](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form.html?lang=en) in Marketo Engage UI. [LM-158243]
+* Fixed issue with [Get Campaigns](/rest/endpoint-reference/lead-database-endpoint-reference/#/Campaigns/getCampaignsUsingGET) endpoint where triggerable campaigns were not returned when isTriggerable=true parameter was specified. [LM-158283]
+* Fixed issue where [Get Leads by List Id](/rest/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getLeadsByListIdUsingGET) endpoint would return an error "611, System error" in certain cases. [LM-157214]
+* Cleaned up several error messages returned by [Update Lead Field](/rest/lead-database/leads/#update_field) endpoint. [LM-151886, LM-151888, LM-151889]
 
 Posted on _2022-01-27_ by _David_
 
@@ -10095,21 +10041,21 @@ Posted on _2022-01-27_ by _David_
 
 In March 2022 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have added the **actionResult** field to the export file produced by the [Bulk Activity Extract API](https://developers.marketo.com/rest-api/bulk-extract/bulk-activity-extract/). This field can be used to distinguish between successful, skipped, and failed activities.
-* We have added the **isOpenTrackingDisabled** field to responses from [Emails API](https://developers.marketo.com/rest-api/assets/emails/). This field can be used to determine whether [Disable Open Tracking](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview.html?lang=en) feature is enabled.
-* We have added two endpoints that allow you to selectively manage program tags. The [Update Program Tags](https://developers.marketo.com/rest-api/assets/programs/tags/#update) endpoint allows you to selectively update a program tag. The [Delete Program Tags](https://developers.marketo.com/rest-api/assets/programs/tags/#delete) endpoint allows you to selectively delete a program tag.
-* We have added the **isExecutable** parameter to the [Clone Smart Campaign](https://developers.marketo.com/rest-api/assets/smart-campaigns/#clone) endpoint. This parameter allows you to clone a program as an executable program.
-* We have added the **headStart** field to [Programs API](https://developers.marketo.com/rest-api/assets/programs/). This allows you to create, update, and retrieve the [Head Start](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs.html?lang=en) setting for Email Programs.
+* We have added the **actionResult** field to the export file produced by the [Bulk Activity Extract API](/rest/bulk-extract/bulk-activity-extract/). This field can be used to distinguish between successful, skipped, and failed activities.
+* We have added the **isOpenTrackingDisabled** field to responses from [Emails API](/rest/assets/emails/). This field can be used to determine whether [Disable Open Tracking](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview.html?lang=en) feature is enabled.
+* We have added two endpoints that allow you to selectively manage program tags. The [Update Program Tags](/rest/assets/programs/tags/#update) endpoint allows you to selectively update a program tag. The [Delete Program Tags](/rest/assets/programs/tags/#delete) endpoint allows you to selectively delete a program tag.
+* We have added the **isExecutable** parameter to the [Clone Smart Campaign](/rest/assets/smart-campaigns/#clone) endpoint. This parameter allows you to clone a program as an executable program.
+* We have added the **headStart** field to [Programs API](/rest/assets/programs/). This allows you to create, update, and retrieve the [Head Start](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs.html?lang=en) setting for Email Programs.
 
 ### Defect Resolutions
 
-* Fixed issue with [Get Email Dynamic Content](https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Emails/getEmailDynamicContentUsingGET) endpoint. When trying to retrieve subject lines with dynamic content from emails that had broken template relationships, an error was returned, 709 ,""API only allows operations on emails with a template". The endpoint now returns the dynamic content. [LM-152331]
-* Fixed issue with [Sync Leads](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/syncLeadUsingPOST) endpoint. When using externalSalesPersonId to associate Sales Person with lead using externalSalesPersonId and using action = createDuplicate, then the Sales Person association would not occur. [LM-158990]
+* Fixed issue with [Get Email Dynamic Content](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET) endpoint. When trying to retrieve subject lines with dynamic content from emails that had broken template relationships, an error was returned, 709 ,""API only allows operations on emails with a template". The endpoint now returns the dynamic content. [LM-152331]
+* Fixed issue with [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/syncLeadUsingPOST) endpoint. When using externalSalesPersonId to associate Sales Person with lead using externalSalesPersonId and using action = createDuplicate, then the Sales Person association would not occur. [LM-158990]
 
 
 ### Adobe IMS Integration
 
-* Those who've been onboarded to [Adobe IMS](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/overview.html?lang=en) cannot utilize all of the [Marketo User Management APIs](https://developers.marketo.com/rest-api/user-management/). The following endpoints will return an error on when called on Marketo Instances that have been integrated with Adobe IMS : [Invite User](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/inviteUserUsingPOST), [Get Invited User by Id](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/getInvitedUserUsingGET), [Update User Attributes](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/updateUserAttributeUsingPOST), [Delete User](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/deleteUserUsingPOST), and [Delete Invited User](https://developers.marketo.com/rest-api/endpoint-reference/user-management-endpoint-reference/#!/User_Management/deleteInvitedUserUsingPOST). As a replacement, the [Adobe User Management APIs](https://www.adobe.io/apis/experienceplatform/umapi-new.html) should be used.
+* Those who've been onboarded to [Adobe IMS](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/overview.html?lang=en) cannot utilize all of the [Marketo User Management APIs](/rest/user-management/). The following endpoints will return an error on when called on Marketo Instances that have been integrated with Adobe IMS : [Invite User](https://developer.adobe.com/marketo-apis/api/user/#operation/inviteUserUsingPOST), [Get Invited User by Id](https://developer.adobe.com/marketo-apis/api/user/#operation/getInvitedUserUsingGET), [Update User Attributes](https://developer.adobe.com/marketo-apis/api/user/#operation/updateUserAttributeUsingPOST), [Delete User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST), and [Delete Invited User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteInvitedUserUsingPOST). As a replacement, the [Adobe User Management APIs](https://www.adobe.io/apis/experienceplatform/umapi-new.html) should be used.
 
 Posted on _2022-03-14_ by _David_
 
@@ -10136,7 +10082,7 @@ Posted on _2022-05-09_ by _David_
 
 In August 2022 we are enhancing existing REST APIs. See the full list of updates below.
 
-LWe have added several new filters that can be used when calling [Create Export Program Member Job](https://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Bulk_Export_Program_Members/createExportProgramMembersUsingPOST) endpoint. Note that many of the filters can be used in combination with each other to refine the extracted data set.
+LWe have added several new filters that can be used when calling [Create Export Program Member Job](/rest/endpoint-reference/lead-database-endpoint-reference/#!/Bulk_Export_Program_Members/createExportProgramMembersUsingPOST) endpoint. Note that many of the filters can be used in combination with each other to refine the extracted data set.
 
 * The **programIds** filter can be used to specify up to 10 program identifiers which can help improve throughput.
 * The **isExhausted** filter can be used to filter records for [people who have exhausted content](https://experienceleague.adobe.com/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content.html?lang=en).
