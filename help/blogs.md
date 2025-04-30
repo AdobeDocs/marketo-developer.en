@@ -266,7 +266,7 @@ When extracting large volumes of contacts out of Marketo it is recommended to tu
 
 * `<includeAttributes/>`: It is recommended that you only request those fields you are interested in keeping in sync with your system. This reduces the payload of the response and increases query performance.
 * `<batchSize/>`: The API supports up to 1000 records to be returned in a single call. Tuning this value down to 500 records also reduces the payload of the response.
-* `<LastUpdatedAtSelector/>`: It is recommended to set both the `<oldestUpdatedAt/>` along with the `<latestUpdatedAt/>` pararameter to limit the date range. For example, instead of making a single request for a year's worth of data. Break up the API calls to request smaller date ranges.
+* `<LastUpdatedAtSelector/>`: It is recommended to set both the `<oldestUpdatedAt/>` along with the `<latestUpdatedAt/>` parameter to limit the date range. For example, instead of making a single request for a year's worth of data. Break up the API calls to request smaller date ranges.
 
 This article contains code used to implement custom integrations. Due to its customized nature, The Marketo Technical Support team is unable to troubleshoot custom work. Please do not attempt to implement the following code sample without appropriate technical experience, or access to an experienced developer.
 
@@ -340,7 +340,7 @@ Let's say you would like to delete a lead via the Marketo API. You can accomplis
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">
   <SOAP-ENV:Header>
     <ns1:AuthenticationHeader>
       <mktowsUserId>demo17_1_809939944BFABAE58E5D27</mktowsUserId><requestSignature>48397ad47b71a1439f13a51eea3137df46441979</requestSignature><requestTimestamp>2013-08-01T12:31:14-07:00</requestTimestamp>
@@ -369,7 +369,7 @@ SOAP Response for requestCampaign
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">
   <SOAP-ENV:Body>
     <ns1:successRequestCampaign>
       <result>
@@ -383,7 +383,7 @@ SOAP Response for requestCampaign
 See below a sample Java program that executes the scenario described above.
 
 ```java
-import com.marketo.mktows.\*;
+import com.marketo.mktows.*;
 import java.net.URL;
 import javax.xml.namespace.QName;
 import java.text.DateFormat;
@@ -474,7 +474,7 @@ Posted on _2014-05-16_ by _Murta_
 
 ## Custom Activity Tracking with the Munchkin AP-
 
-Let's you want to track custom activity in Marketo. For example, you have a video on webpage, and want to track visitors who watch more than 50% of a video. You can do this using Munchkin's custom activity tracking feature. This would be implemented by listening for an event on the page, which is the video reaching 50%, and then calling the Munchkin API. To do this, we'll have to set up a custom activity in Marketo to call based on this event on the page. We will use YouTube for the video player, and use their [YouTube Iframe API](https://developers.google.com/youtube/iframe_api_reference) to call the method on the Munchkin API. We'll show you first how to generate Munchkin tracking code in Marketo, second how to modify your Munchkin sample code to trigger based on page events, third how to set up a campaign with a smart list that is defined by actions on the page with flows steps, and fifth how toverify that a page visit from an anonymous user was recorded in Marketo. ==== This blog post is live example of the code being explained. Please fill out this form, so you are a known user in Marketo. This way when you watch 50% of video, it will send you rest of video, and if you watch 100% of video it will send you a link to another blog post. === <https://developers.google.com/youtube/iframe_api_reference> **How to Generate Munchkin Tracking Code** The Munchkin tracking code allows you to track visits to your web site. There are three types of Munchkin code described below, but in this example we will use the Asynchronous Munchkin tracking code. A) Simple: has the fewest lines of code, but does not optimize for webpage loading time. This code loads the jQuery library each time a webpage is loaded. B) Asynchronous: reduces webpage loading time. This code checks if the jQuery library already exists, loads it if it's missing, and uses it for executing tracking code once the rest of the webpage has loaded. C) Asynchronous jQuery: reduces webpage loading time and also improves system performance. This code assumes that you already have jQuery, and does not check to load it.
+Let's you want to track custom activity in Marketo. For example, you have a video on webpage, and want to track visitors who watch more than 50% of a video. You can do this using Munchkin's custom activity tracking feature. This would be implemented by listening for an event on the page, which is the video reaching 50%, and then calling the Munchkin API. To do this, we'll have to set up a custom activity in Marketo to call based on this event on the page. We will use YouTube for the video player, and use their [YouTube Iframe API](https://developers.google.com/youtube/iframe_api_reference) to call the method on the Munchkin API. We'll show you first how to generate Munchkin tracking code in Marketo, second how to modify your Munchkin sample code to trigger based on page events, third how to set up a campaign with a smart list that is defined by actions on the page with flows steps, and fifth how to verify that a page visit from an anonymous user was recorded in Marketo. ==== This blog post is live example of the code being explained. Please fill out this form, so you are a known user in Marketo. This way when you watch 50% of video, it will send you rest of video, and if you watch 100% of video it will send you a link to another blog post. === <https://developers.google.com/youtube/iframe_api_reference> **How to Generate Munchkin Tracking Code** The Munchkin tracking code allows you to track visits to your web site. There are three types of Munchkin code described below, but in this example we will use the Asynchronous Munchkin tracking code. A) Simple: has the fewest lines of code, but does not optimize for webpage loading time. This code loads the jQuery library each time a webpage is loaded. B) Asynchronous: reduces webpage loading time. This code checks if the jQuery library already exists, loads it if it's missing, and uses it for executing tracking code once the rest of the webpage has loaded. C) Asynchronous jQuery: reduces webpage loading time and also improves system performance. This code assumes that you already have jQuery, and does not check to load it.
 
 1. Click Admin at the top right of the app.
 1. Click Munchkin in the tree on the left.
@@ -1497,7 +1497,7 @@ Here is a [post](https://nation.marketo.com/community/product_and_support/blog/2
 
 Posted on _2014-11-07_ by _Murta_
 
-## Find Leads Updated on Specific Date Range-
+## Find Leads Updated on Specific Date Range
 
 Let's say you want to find leads that were updated on specific dates via the [Marketo API](/soap/soap-api). This is possible with the [getMultipleLeads SOAP API](/soap/leads/getmultipleleads). This method will return any leads with a data value change or new activity in Marketo for the date range you request. For the leadSelector, you would specify LastUpdateAtSelector. Then, you would define the date ranges with oldestUpdatedAt and latestUpdatedAt time bounds. Please see the sample Request XML below, which shows you how to find leads that were updated between 12am PST on June 6, 2014 and 12am PST on June 7, 2011. Note: the date range must not exceed 30 days.
 
