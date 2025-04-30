@@ -8931,7 +8931,7 @@ Allows users to remotely create Custom Activity Records. Enables management of t
 
 ### Smart List Metadata
 
-Allows users to remotely Read, Clone, and Delete Smart List Records. Enables management of smart lists through REST APIs. Details can be found [here](/help/rest-api/assets/smart-lists/).
+Allows users to remotely Read, Clone, and Delete Smart List Records. Enables management of smart lists through REST APIs. Details can be found [here](/help/rest-api/assets/smart-lists).
 
 ### Web Tracking Privacy
 
@@ -8970,7 +8970,7 @@ The Summer 2018 release is primarily a maintenance release comprised of minor en
 
 If you had set Block Non-Operational Emails to false when creating the program, a call to Approve Program would reset to true.
 
-[Bulk Extract](/help/rest-api/bulk-extract/)
+[Bulk Extract](/help/rest-api/bulk-extract.md)
 
 Certain Unicode characters were corrupted in extract output file.
 
@@ -9083,7 +9083,7 @@ The Fall 2019 release is primarily a maintenance release comprised of minor enha
 
 ### Defect Resolutions
 
-* Adjusted [Multiple Branding Domains](https://docs.marketo.com/display/DOCS/Add+Multiple+Branding+Domains) support for [Asset API](/help/rest-api/assets/). Previously, Multiple Branding Domains settings were not propagated when approving an Email draft, cloning an Email, or cloning a Program. This has been corrected. This change affects the following endpoints: [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST), [Clone Email](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [Clone Program.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
+* Adjusted [Multiple Branding Domains](https://docs.marketo.com/display/DOCS/Add+Multiple+Branding+Domains) support for [Asset API](/help/rest-api/assets.md). Previously, Multiple Branding Domains settings were not propagated when approving an Email draft, cloning an Email, or cloning a Program. This has been corrected. This change affects the following endpoints: [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST), [Clone Email](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [Clone Program.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
 * Added [apiOnly](/help/javascript-api/lead-tracking/configuration/#apionly) configuration setting. By default, web pages that contain the Munchkin tag fire a "Visits Web Page" event when the web page is loaded in the browser. In some cases, this is undesirable. For example, single page web applications that need full control of when this event is fired. To support this use case, we added a new **apiOnly** configuration setting. When set to true, the Munchkin tag does not generate a "Visits Web Page" activity during page load.
 * Added [domainSelectorV2](/help/javascript-api/lead-tracking/configuration/#domainselectorv2) configuration setting. By default, the Munchkin tag doesn't correctly handle web pages that are hosted on sites with two-letter [country code top-level domains](https://en.wikipedia.org/wiki/Country_code_top-level_domain) (examples: .io, .co, .ly). This causes the Munchkin cookie domain attribute to be set incorrectly. To achieve a better out of box experience, we added a new **domainSelectorV2** configuration setting. When set to true, an improved algorithm is used to automatically set the Munchkin cookie domain attribute.
 * Adjusted [Opt-Out](/help/javascript-api/lead-tracking/#opt_out) cookie domain. In certain cases, the domain attribute of the Munchkin Opt-Out cookie (mkto_opt_out) was set incorrectly. The Munchkin Opt-Out cookie now uses the same logic as the Munchkin cookie (_mkto_trk) to determine the domain cookie attribute, including honoring the **domainLevel** configuration setting.
