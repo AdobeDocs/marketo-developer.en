@@ -60,7 +60,7 @@ Posted on _2014-03-06_ by _David_
 
 You can retrieve information about customers and prospects that are stored within Marketo using the `getLead` and [`getMultipleLeads`](/help/soap-api/getmultiplelead.md) SOAP API. It is often desired to extract this information on a recurring basis to keep another system updated as customers and prospect information is updated or new records are created in Marketo. We'll show you the code sample that would be executed on a recurring basis to poll Marketo for updates. The below diagram depicts the API calls that are made on a set periodic timer. Depending on the use case, the periodic timer could be set to run the below code every 10 minutes.
 
-The first call to [`getMultipleLeads`](/help/soap-api/getmultipleleads) will set the time range, batchSize and which fields are to be returned. All leads within Marketo that were updated in the specified time range will be returned along with a streamPosition when more records are available than the batchSize specified.
+The first call to [`getMultipleLeads`](/help/soap-api/getmultipleleads.md) will set the time range, batchSize and which fields are to be returned. All leads within Marketo that were updated in the specified time range will be returned along with a streamPosition when more records are available than the batchSize specified.
 
 **SOAP Request for first call to getMultipleLeads:**
 
@@ -1353,7 +1353,7 @@ Posted on _2014-09-18_ by _Murta_
 **Answer:** It is not directly possible. However, the workaround described below will allow you to do this. 
 
 1. Create a custom field called "Fullname" in Marketo. 
-1. Use either [getMultipleLeads](/help/soap-api/getmultipleleads) SOAP API or [Get Multiple Leads by Filter Type](/help/rest-api/get-multiple-leads-by-filter-type) to query your lead database. Include first name and last name as attributes in your request to either REST or SOAP APIs.
+1. Use either [getMultipleLeads](/help/soap-api/getmultipleleads.md) SOAP API or [Get Multiple Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadByIdUsingGET) to query your lead database. Include first name and last name as attributes in your request to either REST or SOAP APIs.
 1. After you query your lead database, concatenate "First Name" and "Last Name" for each lead, and store this data in a "Fullname" column. 1. Use [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) SOAP API to push this data to "Fullname" custom field. Alternatively, you can use the [Import Lead](/help/rest-api/leads.md) API, or import a CSV or XLS using the Marketo UI.
 1. Now you will be able to query by full name using [Get Multiple Leads by Filter Type API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) to search for this custom field. Specify "Fullname" as "filterType" and "filterValue" would be "Joe Johnson"with a Get Multiple Leads by Filter Type REST API call.
 
@@ -3748,7 +3748,7 @@ Posted on _2015-06-17_ by _David_
 
 ## Sending Transactional Emails with the Marketo REST API: Part 1
 
-A common use case for the Marketo API is to trigger the sending of transactional emails to specific records via the [Request Campaign](/help/rest-api/request-campaign/) API call. There are a few configuration requirements within Marketo in order to execute the required call with the Marketo REST API.
+There are a few configuration requirements within Marketo in order to execute the required call with the Marketo REST API.
 
 * The recipient must have a record within Marketo
 * There needs to be a Transactional Email created and approved in your Marketo instance.
@@ -5215,7 +5215,7 @@ Posted on _2015-08-28_ by _Kenny_
 
 ## How to Specify Lead Partitions Using the REST APII
 
-**Lead Partitioning** Marketo Lead Partitions provide a convenient way to isolate leads. Partitions can allow different marketing groups within your organization to share a single Marketo instance. For more information, see [Understanding Workspaces and Lead Partitions](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions.html?lang=en). Suppose that you are using lead partitions and creating leads programmatically using the Marketo REST API. How do you ensure the leads that you create will end up in the correct partition? This post will show you how! For the sake of this example, we'll use Workspaces and Partitions to isolate our leads based on geography. First we'll define a workspace called "Country". Next, we'll create two partitions within that workspace called "Mexico" and "Canada".  **Create Lead in Partition** Suppose now that we want to create two leads in the "Mexico" partition. To create leads, we call the [Create/Update Leads](/help/rest-api/createupdate-leads/) API. To specify the partition, we must include the "partitionName" attribute in the request body. How do we know what to use for the partitionName value? We can retrieve a list of valid partition name values for our instance by calling the [Get Lead Partitions](/help/rest-api/get-lead-partitions/) API as follows:
+**Lead Partitioning** Marketo Lead Partitions provide a convenient way to isolate leads. Partitions can allow different marketing groups within your organization to share a single Marketo instance. For more information, see [Understanding Workspaces and Lead Partitions](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions.html?lang=en). Suppose that you are using lead partitions and creating leads programmatically using the Marketo REST API. How do you ensure the leads that you create will end up in the correct partition? This post will show you how! For the sake of this example, we'll use Workspaces and Partitions to isolate our leads based on geography. First we'll define a workspace called "Country". Next, we'll create two partitions within that workspace called "Mexico" and "Canada".  **Create Lead in Partition** Suppose now that we want to create two leads in the "Mexico" partition. To create leads, we call the. To specify the partition, we must include the "partitionName" attribute in the request body. How do we know what to use for the partitionName value? We can retrieve a list of valid partition name values for our instance by calling the [Get Lead Partitions](https://developer.adobe.com/marketo-apis/api/mapi/#operation/describeProgramMemberUsingGET) API as follows:
 
 `GET /rest/v1/leads/partitions.json`
 
@@ -7146,7 +7146,7 @@ Edit the 'Authentication Settings':
 
 * Access Token Placement**:** Token in Querystring
 
-Once a Marketo custom service has been created, client id and client secret become available. We use the client id and client secret to generate an access token via the REST API [Authentication](/help/rest-api/authentication/) endpoint. We can then use this access token to make subsequent requests to the REST API. The token expires after an hour and must be generated again to proceed calling the REST API. We chose authentication Type = 'Session Auth' as it allows us to execute a custom authentication script every time our session token is expired. We'll see in the section 'Scripting API' how to implement this mechanism that can only work with this type of authentication. **Triggers** Zapier Triggers are there to bring data into Zapier. We do not need one for our use cases as we will leverage a Marketo Webhook instead. However, we still need to write a dummy Trigger as a mandatory test for our Marketo connector. We are going to create a Test Trigger calling the Marketo REST API [Get Daily Usage](/help/rest-api/get-daily-usage) endpoint. Click **Add New Trigger** to start the wizard and fill-up the following fields (fields not mentioned can be left blank): Name and Description
+Once a Marketo custom service has been created, client id and client secret become available. We use the client id and client secret to generate an access token via the REST API [Authentication](/help/rest-api/authentication.md) endpoint. We can then use this access token to make subsequent requests to the REST API. The token expires after an hour and must be generated again to proceed calling the REST API. We chose authentication Type = 'Session Auth' as it allows us to execute a custom authentication script every time our session token is expired. We'll see in the section 'Scripting API' how to implement this mechanism that can only work with this type of authentication. **Triggers** Zapier Triggers are there to bring data into Zapier. We do not need one for our use cases as we will leverage a Marketo Webhook instead. However, we still need to write a dummy Trigger as a mandatory test for our Marketo connector. We are going to create a Test Trigger calling the Marketo REST API [Get Daily Usage](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getDailyUsageUsingGET) endpoint. Click **Add New Trigger** to start the wizard and fill-up the following fields (fields not mentioned can be left blank): Name and Description
 
 * Name: Test Trigger
 * Key: test_trigger
@@ -7487,7 +7487,7 @@ All [pre-existing Asset APIs](/help/rest-api/assets.md) which were only compatib
 
 ### Push Lead to Marketo
 
-[Push Lead](/help/rest-api/leads#push_lead_to_marketo) is an alternate lead synchronization method designed for easier triggering in Smart Campaigns. You can create a single activity log item, associate a lead, and update the lead record in one call. This works similarly to a single form fill out by a lead, and can more easily be used as a proxy method for form submission in lieu of using the existing Sync Leads method.
+[Push Lead](/help/rest-api/leads.md) is an alternate lead synchronization method designed for easier triggering in Smart Campaigns. You can create a single activity log item, associate a lead, and update the lead record in one call. This works similarly to a single form fill out by a lead, and can more easily be used as a proxy method for form submission in lieu of using the existing Sync Leads method.
 
 ### HTTP Compression
 
@@ -8152,7 +8152,7 @@ In the Winter 2017 release, we are adding the ability to bulk import custom obje
 
 #### Bulk Import of Custom Objects
 
-New endpoints to support Bulk Import of Custom Objects. Details can be found [here](/help/rest-api/custom-objects/#bulk_import).
+New endpoints to support Bulk Import of Custom Objects. Details can be found [here](/help/rest-api/custom-objects.md).
 
 #### Notice of Upcoming Change to Activities
 
@@ -9475,14 +9475,14 @@ Posted on _2020-10-18_ by _Amit_
 
 In January 2021 we are releasing new REST APIs and resolving several defects. See the full list of updates below.
 
-* Added [Submit Form](/help/rest-api/leads/#submit_form) endpoint which allows you to perform programmatic form submissions. Third party forms can now integrate with Marketo forms to take advantage of existing marketing workflows.
+* Added [Submit Form](/help/rest-api/leads.md) endpoint which allows you to perform programmatic form submissions. Third party forms can now integrate with Marketo forms to take advantage of existing marketing workflows.
 * Added [Get Landing Page Full Content](/help/rest-api/landing-pages.md) endpoint which returns the serialized HTML version of a landing page. Allows you to render fully personalized previews of landing pages without having to login to Marketo Engage. This can help streamline editing and translation workflows within integrated applications.
 * You can now configure the number custom objects available for access via Velocity script. Configuration instructions can be found [here](https://docs.marketo.com/display/public/DOCS/Change+Custom+Object+Retrieval+Limits+in+Velocity+Scripting).
 
 ### Defect Resolutions
 
-* Fixed issue where [Delete User](/help/rest-api/user-management#delete_user) endpoint would allow you to delete an API-Only User that was in-use by a Custom Service. Now it returns an error "611, You cannot delete an API user that is being used in API service". [LM-141893]
-* Fixed issue where [Get Users](/help/rest-api/user-management#browse_users) endpoint would return deleted users in some cases. [LM-141542]
+* Fixed issue where [Delete User](/help/rest-api/user-management.md) endpoint would allow you to delete an API-Only User that was in-use by a Custom Service. Now it returns an error "611, You cannot delete an API user that is being used in API service". [LM-141893]
+* Fixed issue where [Get Users](/help/rest-api/user-management].) endpoint would return deleted users in some cases. [LM-141542]
 * Fixed issue where [Clone Program](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) endpoint. If you specified a program name that exceeded 255 characters, it would return "611, Unable to clone program error". Now it returns "701, name cannot exceed more than 255 characters". [LM-143436]
 * Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint. When you approved a landing page with mobile version activated, you would see content from mobile version in desktop version in certain cases. [LM-146867]
 * Fixed issue with [Unapprove Landing Page](https://developer.adobe.com/marketo-apis/api/asset/#operation/unapproveLandingPageByIdUsingPOST) endpoint which allowed you to unapprove a landing page that was in use as a follow up page by one or more forms. It now returns an error "709, Unapprove landing page failed. Landing page is in use by one or more forms as a followup page with form IDs:[_formId1,formId2,..._]". [LM-143326]
@@ -9495,7 +9495,7 @@ Posted on _2021-01-15_ by _David_
 
 ### Test Beacon API
 
-If you wish to test the updated Beacon API in anticipation of the upcoming version, you can do so, by adding the **useBeaconAPI** parameter to your Munchkin configuration on an external test page. This test will work with either the generally available or beta version of Munchkin. The configuration paraemeter is shown below in the second argument of the invocation of the Munchkin.init() method on line 7: { 'useBeaconAPI': true}
+If you wish to test the updated Beacon API in anticipation of the upcoming version, you can do so, by adding the **useBeaconAPI** parameter to your Munchkin configuration on an external test page. This test will work with either the generally available or beta version of Munchkin. The configuration paraemeter is shown below in the second argument of the invocation of the `Munchkin.init()` method on line 7: `{ 'useBeaconAPI': true}`
 
 ```javascript
 <script type="text/javascript">
@@ -9649,14 +9649,14 @@ Posted on _2021-10-04_ by _Kenny_
 
 In October 2021 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have enhanced the [Submit Form](https://developer.adobe.com/marketo-apis/api/mapi/#operation/SubmitFormUsingPOST) endpoint to support program member custom fields as part of the form submission. Optionally, a program can be specified as program to add form to, and/or the program to add program member custom fields to as described [here](/help/rest-api/leads/#submit_form).
- We have enhanced the [Get Program Members](/help/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Program_Members/getProgramMembersUsingGET) endpoint to support date range based queries based on updatedAt attribute. This is done by passing starting and ending datetime parameters as described [here](/help/rest-api/program-members/#query).
-* We have enhanced the [Leads Fields](/help/rest-api/leads/#fields) APIs to support [Sensitive Fields](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive.html?lang=en). The [Get Lead Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET), [Get Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET), [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST), and [Update Lead Field](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST) endpoints now support the isSensitive attribute.
+* We have enhanced the [Submit Form](https://developer.adobe.com/marketo-apis/api/mapi/#operation/SubmitFormUsingPOST) endpoint to support program member custom fields as part of the form submission. Optionally, a program can be specified as program to add form to, and/or the program to add program member custom fields to as described [here](/help/rest-api/leads.md).
+ We have enhanced the [Get Program Members](/help/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Program_Members/getProgramMembersUsingGET) endpoint to support date range based queries based on updatedAt attribute. This is done by passing starting and ending datetime parameters as described [here](/help/rest-api/program-members.md).
+* We have enhanced the [Leads Fields](/help/rest-api/leads.md) APIs to support [Sensitive Fields](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive.html?lang=en). The [Get Lead Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET), [Get Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET), [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST), and [Update Lead Field](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST) endpoints now support the isSensitive attribute.
 
 ### Defect Resolutions
 
-* Fixed issue with [User Management](/help/rest-api/user-management/) API. Pertains to Marketo users that are configured for use with [Sales Insight](https://www.marketo.com/software/sales-insight/). These users are now returned by [Get Users](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET) endpoint, and these users may now be deleted using [Delete User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST) endpoint. [LM-155864]
-* Fixed issue with Add [Rich Text Field](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/addRichTextFieldUsingPOST) endpoint. When adding a rich text field that is longer than 65k characters to email, landing page, snippet, or form, it returned a "611, System Error". It now returns error "701, Operation cannot be completed. 'content' exceeds maximum length of 65,535 bytes". [LM-156706]
+* Fixed issue with [User Management](/help/rest-api/user-management.md) API. Pertains to Marketo users that are configured for use with [Sales Insight](https://www.marketo.com/software/sales-insight/). These users are now returned by [Get Users](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET) endpoint, and these users may now be deleted using [Delete User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST) endpoint. [LM-155864]
+* Fixed issue with Add [Rich Text Field](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/addRichTextFieldUsingPOST) endpoint. When adding a rich text field that is longer than 65k characters to email, landing page, snippet, or form, it returned a "611, System Error". It now returns error "701, Operation cannot be completed. 'content' exceeds maximum length of 65,535 bytes".
 
 Posted on _2021-10-25_ by _David_
 
@@ -9664,11 +9664,11 @@ Posted on _2021-10-25_ by _David_
 
 In January 2022 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have enhanced the [Bulk Custom Object Extract](/help/rest-api/bulk-custom-object-extract/#filters) API to permit users to filter using an **updatedAt** date range.
-* Added Program Member field metadata APIs that allow you to create, update, and retrieve metadata for Program Member fields. For more information see [Program Members > Fields](/help/rest-api/program-members/#fields).
-* Added Company field metadata APIs that allow you to retrieve metadata for Company fields. For more information see [Companies > Fields](/help/rest-api/companies/#fields).
-* Added Opportunity field metadata APIs that allow you to retrieve metadata for Opportunity fields. For more information see [Opportunities > Fields](/help/rest-api/opportunities/#fields).
-* Added Named Account field metadata APIs that allow you to retrieve metadata for Named Account fields. For more information see [Named Accounts > Fields](/help/rest-api/named-accounts/#fields).
+* We have enhanced the [Bulk Custom Object Extract](/help/rest-api/bulk-custom-object-extract.md) API to permit users to filter using an **updatedAt** date range.
+* Added Program Member field metadata APIs that allow you to create, update, and retrieve metadata for Program Member fields. For more information see [Program Members > Fields](/help/rest-api/program-members.md).
+* Added Company field metadata APIs that allow you to retrieve metadata for Company fields. For more information see [Companies > Fields](/help/rest-api/companies.md).
+* Added Opportunity field metadata APIs that allow you to retrieve metadata for Opportunity fields. For more information see [Opportunities > Fields](/help/rest-api/opportunities.md).
+* Added Named Account field metadata APIs that allow you to retrieve metadata for Named Account fields. For more information see [Named Accounts > Fields](/help/rest-api/named-accounts.md).
 * Updated field metadata endpoints to return a new boolean property **isApiCreated** to indicate whether or not a field was created by the REST API.
 
 ### Defect Resolutions
@@ -9677,7 +9677,7 @@ In January 2022 we are enhancing existing REST APIs, and resolving several defec
 * Fixed issue with [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST) endpoint where created fields were not available in form fields dropdown list used to [add fields to form](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form.html?lang=en) in Marketo Engage UI. [LM-158243]
 * Fixed issue with [Get Campaigns](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getCampaignsUsingGET) endpoint where triggerable campaigns were not returned when isTriggerable=true parameter was specified. [LM-158283]
 * Fixed issue where [Get Leads by List Id](/help/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getLeadsByListIdUsingGET) endpoint would return an error "611, System error" in certain cases. [LM-157214]
-* Cleaned up several error messages returned by [Update Lead Field](/help/rest-api/leads/#update_field) endpoint. [LM-151886, LM-151888, LM-151889]
+* Cleaned up several error messages returned by [Update Lead Field](/help/rest-api/leads.md) endpoint. [LM-151886, LM-151888, LM-151889]
 
 Posted on _2022-01-27_ by _David_
 
