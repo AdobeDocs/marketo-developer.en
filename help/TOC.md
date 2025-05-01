@@ -157,3 +157,4 @@ index: yes
 - [License](api-license.md)
 - [Partner Sandbox](partner-sandbox.md)
 - [Self-Service Flow Steps](self-service-flow-steps.md)
+- [Blog Archive](blog.md)
