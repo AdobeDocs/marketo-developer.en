@@ -331,10 +331,10 @@ Posted on _1970-01-01_ by _Travis Kaufman_
 
 ## Delete a Lead with the Marketo API
 
-Let's say you would like to delete a lead via the Marketo API. You can accomplish this by calling the [requestCampaign API](/help/soap-api/requestcampaign) on a campaign that has a predefined flow action to delete a lead. We'll show you first how to create a Smart Campaign, second how to set up a trigger to run a campaign via the API, third how to define deleting a lead as part of a flow action, and fourth a code sample that would be used to execute this campaign. **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. In a Smart Campaign, you can set up a series of automated actions to take on a smart list of contacts. In the case of deleting a lead, you set up a trigger in the campaign as shown below. First let's set up the Smart Campaign.
+Let's say you would like to delete a lead via the Marketo API. You can accomplish this by calling the [requestCampaign API](/help/soap-api/requestcampaign.md) on a campaign that has a predefined flow action to delete a lead. We'll show you first how to create a Smart Campaign, second how to set up a trigger to run a campaign via the API, third how to define deleting a lead as part of a flow action, and fourth a code sample that would be used to execute this campaign. **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. In a Smart Campaign, you can set up a series of automated actions to take on a smart list of contacts. In the case of deleting a lead, you set up a trigger in the campaign as shown below. First let's set up the Smart Campaign.
 
 1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset  1. Click on Smart Campaign  
-1. Enter smart campaign name and click Create  **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](/help/soap-api/requestcampaign/). 
+1. Enter smart campaign name and click Create  **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](/help/soap-api/requestcampaign.md). 
 1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas.  
 1. In the trigger, select "is" and "Web Service API." 
 
@@ -1184,7 +1184,7 @@ Let's say you have multiple Marketo instances and you would like to send web tra
 <script>Munchkin.init('XXX-XXX-XXX', { altIds:['YYY-YYY-YYY', 'ZZZ-ZZZ-ZZZ'] });</script>
 ```
 
-For additional information on Munchkin initialization parameters, see [this document](/help/javascript-api/configuration).
+For additional information on Munchkin initialization parameters, see [this document](/help/javascript-api/configuration.md).
 
 Posted on _2014-08-08_ by _Murta_
 
@@ -1470,7 +1470,7 @@ Posted on _2014-09-19_ by _Murta_
 
 ## Marketo REST vs SOAP APIs FAQ
 
-**Updated: March 2016** Here are answers to the most frequently asked questions about Marketo [REST](/help/rest-api/rest-api) and [SOAP](/help/soap-api/soap-api) APIs. **Q: What are the main differences between the Marketo REST and SOAP APIs?** A: While the ability to push/pull specific data via REST and SOAP APIs mostly overlaps, there is certain functionality that only exists in either REST or SOAP APIs. In terms of performance, the REST API has better [throughput](http://en.wikipedia.org/wiki/Throughput) than the SOAP API. In terms of the authentication model, the REST API has an authentication model that uses an expiring token. Our REST API also provides access to Marketo [assets](https://developer.adobe.com/marketo-apis/api/asset/).   **Q: What features are available in the REST API that are not available in the SOAP API?** A: [List of lists API](/help/rest-api/get-multiple-lists/), check if [lead is a member of list](/help/rest-api/member-of-list/) API, [remove a lead from a list API](/help/rest-api/remove-leads-from-list/), [Usage API](/help/rest-api/rest-api), and [Error API](/help/rest-api/rest-api) are only available with the REST API. **Q: Are there plans to increase the number of APIs available for the SOAP API?** A: No. **Q: Are there plans to increase the number of APIs available for the REST API?** A: Yes. REST is the primary focus of Marketo's API development at this time.
+**Updated: March 2016** Here are answers to the most frequently asked questions about Marketo [REST](/help/rest-api/rest-api.md) and [SOAP](/help/soap-api/soap-api.md) APIs. **Q: What are the main differences between the Marketo REST and SOAP APIs?** A: While the ability to push/pull specific data via REST and SOAP APIs mostly overlaps, there is certain functionality that only exists in either REST or SOAP APIs. In terms of performance, the REST API has better [throughput](http://en.wikipedia.org/wiki/Throughput) than the SOAP API. In terms of the authentication model, the REST API has an authentication model that uses an expiring token. Our REST API also provides access to Marketo [assets](https://developer.adobe.com/marketo-apis/api/asset/).   **Q: What features are available in the REST API that are not available in the SOAP API?** A: [List of lists API](/help/rest-api/list-of-standard-fields.md), check if [lead is a member of list](/help/rest-api/member-of-list/) API, [remove a lead from a list API](/help/rest-api/lead-database.md), [Usage API](/help/rest-api/rest-api.md), and [Error API](/help/rest-api/rest-api.md) are only available with the REST API. **Q: Are there plans to increase the number of APIs available for the SOAP API?** A: No. **Q: Are there plans to increase the number of APIs available for the REST API?** A: Yes. REST is the primary focus of Marketo's API development at this time.
 
 Posted on _2014-09-20_ by _Murta_
 
@@ -1550,7 +1550,7 @@ Posted on _2014-09-26_ by _Murta_
 
 ## How to Update SOAP API Credentials
 
-It is a best practice to regularly update your [SOAP API](/help/soap-api/soap-api) credentials. Currently, there is no way to programmatically do this via the Marketo API. The instructions below will show you how to update your SOAP API credentials via the Marketo UI.
+It is a best practice to regularly update your [SOAP API](/help/soap-api/soap-api.md) credentials. Currently, there is no way to programmatically do this via the Marketo API. The instructions below will show you how to update your SOAP API credentials via the Marketo UI.
 
 1. Go to the Admin section and click on Web Services.
 1. Set an Encryption Key that is at least 10 characters, click Save Changes. 
@@ -1574,7 +1574,7 @@ Posted on _2014-10-08_ by _Josh_
 
 ### External Page Prefill
 
-Marketo forms do not provide native prefill functionality when loaded outside of a Marketo landing page. However, we can still implement this using the [Marketo APIs](/help/rest-api/rest-api) and the [Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md/). The first step is to retrieve the lead data from Marketo via a REST call from your server. Assuming that we do not have an immediate way to crossreference lead IDs or another unique identifier from the server, we'll need to use the Munchkin cookie, '_mkto_trk', to retrieve data from the Marketo server, using the [Get Leads By Filter Type method](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET). To make this call, we'll need your Authentication and REST endpoints from your instance. Once you have authenticated with your Marketo instance we'll need to make a call to the leads API at `https://<host>/rest/v1/leads.json`. We then need to create a querystring to filter on the Marketo cookie like this `?filterType=cookie&filterValues=`. You'll need to retrieve the specific value from the '_mkto_trk' key sent to your server by the client. NOTE: The _mkto_trk cookie value includes an ampersand and needs to be URL encoded to `%26` in order to be properly accepted by the Marketo endpoint. By default the leads API will return four fields: `id`, `email`, `firstName`, and `updatedAt`. To set a specific set of fields, you need to include a `fields` query parameter, with field names separated by commas like this: `&fields=email,firstName,lastName,company`. Ultimately our call is going to look like this:
+Marketo forms do not provide native prefill functionality when loaded outside of a Marketo landing page. However, we can still implement this using the [Marketo APIs](/help/rest-api/rest-api.md) and the [Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md/). The first step is to retrieve the lead data from Marketo via a REST call from your server. Assuming that we do not have an immediate way to crossreference lead IDs or another unique identifier from the server, we'll need to use the Munchkin cookie, '_mkto_trk', to retrieve data from the Marketo server, using the [Get Leads By Filter Type method](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET). To make this call, we'll need your Authentication and REST endpoints from your instance. Once you have authenticated with your Marketo instance we'll need to make a call to the leads API at `https://<host>/rest/v1/leads.json`. We then need to create a querystring to filter on the Marketo cookie like this `?filterType=cookie&filterValues=`. You'll need to retrieve the specific value from the '_mkto_trk' key sent to your server by the client. NOTE: The _mkto_trk cookie value includes an ampersand and needs to be URL encoded to `%26` in order to be properly accepted by the Marketo endpoint. By default the leads API will return four fields: `id`, `email`, `firstName`, and `updatedAt`. To set a specific set of fields, you need to include a `fields` query parameter, with field names separated by commas like this: `&fields=email,firstName,lastName,company`. Ultimately our call is going to look like this:
 
 `https://<host>/rest/v1/leads.json?filterType=cookie&filterValues=<cookie>&fields=email,firstName,lastName,company&access_token=<token>`
 
@@ -1702,7 +1702,7 @@ Posted on _2014-10-30_ by _Murta_
 
 ## When do you need a developer to help with marketing automation
 
-**NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](http://www.marketingrockstarguides.com/).** Marketing automation platforms are tremendously powerful out of the box and in the hands of an experienced operator. Platforms, by definition, allow the use of extension applications to make the system do even more amazing things for your team. You may think Marketo's logic engine is capable of so much (and it is), but there are limitations. Marketo cannot do everything for you, nor should it. There are other tools out there that perform their function better than Marketo could build it. Marketo's platform is very open, enabling the [LaunchPoint ecosystem of applications](http://launchpoint.marketo.com/) to exist. You can also use this openness to expand the capabilities of your site and Marketo to match your business needs. The great thing about a platform like Marketo is it allows the typical marketer the ability to build pages, emails, and routing logic without being a full-fledged programmer. A marketer these days does need to understand logic, but actual programming is best left to the experts. So how do you know when you need to call in a developer? I have a few basic rules, or heuristics, to decide when a programmer should get involved: - When Marketo doesn't have an obvious filter, trigger, or feature for the need, it can often be done with some Javascript or jQuery. - Will this be too complex for Marketo by itself? - Can Marketo even do this? - Is this a website customization not easily supported? - Does Marketo need to talk to a website or other database? - Does it sound like something a computer can do, but Marketo doesn't have a function for it? Remember that while Marketo may not offer an out-of-the-box function, it does connect to many third-party integrations as well as custom connections. Take a look at a few of these categories at the [LaunchPoint marketplace](http://launchpoint.marketo.com/): - [Analytics Tools](http://launchpoint.marketo.com/applications/marketing-analytics) - [Data Appending](http://launchpoint.marketo.com/applications/customer-data) - [Content Management Systems](http://launchpoint.marketo.com/platforms/cms) Some third party applications provide intuitive control panels and setup tools right within the platform (GoToWebinar). These are "native" integrations where the most work you need to do is setup the login and then use it in Marketo. Other extensions, however, require the use of the more complex API that must be programmed more directly. **Marketo's Integration Options** - LaunchPoint Integration – usually a login or easy settings. - API Integration – requires setup of API and programming: (1) [REST API](/help/rest-api/rest-api.md) (2) [SOAP API](/help/soap-api/soap-api.md) (3) [Webhook Integration](/help/webhooks/webhooks.md) – requires setup of special code, but fairly easy. (4) [Email Scripting](./email-scripting) (Velocity) - JavaScript and jQuery: (1) [Forms 2.0](/help/javascript-api/forms-api-reference.md) (2) [Lead Tracking (Munchkin)](/help/javascript-api/lead-tracking.md) (3) [Social JS](/help/javascript-api/social) (4) [RTP JS](/help/javascript-api/personalization) Here are a few use cases for using a developer to extend the capabilities of the Marketo platform. Do you have any of these use cases? If so, it might be time to speak with a developer. [Visit the services partner section on LaunchPoint](http://launchpoint.marketo.com/services).
+**NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](http://www.marketingrockstarguides.com/).** Marketing automation platforms are tremendously powerful out of the box and in the hands of an experienced operator. Platforms, by definition, allow the use of extension applications to make the system do even more amazing things for your team. You may think Marketo's logic engine is capable of so much (and it is), but there are limitations. Marketo cannot do everything for you, nor should it. There are other tools out there that perform their function better than Marketo could build it. Marketo's platform is very open, enabling the [LaunchPoint ecosystem of applications](http://launchpoint.marketo.com/) to exist. You can also use this openness to expand the capabilities of your site and Marketo to match your business needs. The great thing about a platform like Marketo is it allows the typical marketer the ability to build pages, emails, and routing logic without being a full-fledged programmer. A marketer these days does need to understand logic, but actual programming is best left to the experts. So how do you know when you need to call in a developer? I have a few basic rules, or heuristics, to decide when a programmer should get involved: - When Marketo doesn't have an obvious filter, trigger, or feature for the need, it can often be done with some Javascript or jQuery. - Will this be too complex for Marketo by itself? - Can Marketo even do this? - Is this a website customization not easily supported? - Does Marketo need to talk to a website or other database? - Does it sound like something a computer can do, but Marketo doesn't have a function for it? Remember that while Marketo may not offer an out-of-the-box function, it does connect to many third-party integrations as well as custom connections. Take a look at a few of these categories at the [LaunchPoint marketplace](http://launchpoint.marketo.com/): - [Analytics Tools](http://launchpoint.marketo.com/applications/marketing-analytics) - [Data Appending](http://launchpoint.marketo.com/applications/customer-data) - [Content Management Systems](http://launchpoint.marketo.com/platforms/cms) Some third party applications provide intuitive control panels and setup tools right within the platform (GoToWebinar). These are "native" integrations where the most work you need to do is setup the login and then use it in Marketo. Other extensions, however, require the use of the more complex API that must be programmed more directly. **Marketo's Integration Options** - LaunchPoint Integration – usually a login or easy settings. - API Integration – requires setup of API and programming: (1) [REST API](/help/rest-api/rest-api.md) (2) [SOAP API](/help/soap-api/soap-api.md) (3) [Webhook Integration](/help/webhooks/webhooks.md) – requires setup of special code, but fairly easy. (4) [Email Scripting](./email-scripting.md) (Velocity) - JavaScript and jQuery: (1) [Forms 2.0](/help/javascript-api/forms-api-reference.md) (2) [Lead Tracking (Munchkin)](/help/javascript-api/lead-tracking.md) (3) [Social JS](/help/javascript-api/social.md) (4) [RTP JS](/help/javascript-api/web-personalization.md) Here are a few use cases for using a developer to extend the capabilities of the Marketo platform. Do you have any of these use cases? If so, it might be time to speak with a developer. [Visit the services partner section on LaunchPoint](http://launchpoint.marketo.com/services).
 
 Posted on _2014-11-06_ by _Josh_
 
@@ -2561,7 +2561,7 @@ response = RestClient.get request_url
 puts response
 ```
 
-1. The Get Lead Activites API will return a paging token with each response that you can use to paginate through the results set.** For more information, please see the [REST API documentation](/help/rest-api/rest-api).
+1. The Get Lead Activites API will return a paging token with each response that you can use to paginate through the results set.** For more information, please see the [REST API documentation](/help/rest-api/rest-api.md).
 
 Posted on _2015-01-20_ by _Murta_
 
@@ -2705,7 +2705,7 @@ Let's say a lead enters their name in lowercase, such as "john doe". But when yo
   $formattedFirstName
   ```
 
- 1. Reference the token in your email asset. It will output the first name of the lead with the first letter capitalized. For more information about email scripting, please visit the [email scripting documentation](/email-scripting).
+ 1. Reference the token in your email asset. It will output the first name of the lead with the first letter capitalized. For more information about email scripting, please visit the [email scripting documentation](/help/email-scripting.md).
 
 Posted on _2015-01-26_ by _Murta_
 
@@ -2844,7 +2844,7 @@ Posted on _2015-02-02_ by _Murta_
 
 ## Marketo SOAP API Tips and Tricks
 
-**NOTE: This is a guest blog post. [Ed Blachman is a Senior Architect](https://www.linkedin.com/profile/view?id=2777965) at [TIBCO Software, a well-known vendor of enterprise software](https://launchpoint.marketo.com/tibco/1389-tibco-activematrixtm-businessworks-6/). Ed is working on products that allow what Gartner calls "citizen developers" to integrate the cloud services they use without needing to do any programming themselves.** [Marketo's SOAP API](/help/soap-api/soap-api) is a powerful tool by which developers can harness the power of Marketo and integrate it with our own applications. Between [the formal documentation](/getting-started/) and [the community resources](https://community.marketo.com/), there's a lot of information available regarding how to use it. When I was getting started, I leaned heavily on that information and found it invaluable. However, in that process, I built up some tips and tricks that I hadn't seen in any of those places. Here's some of what I figured out. **The Developers' Sandbox** The Sandbox is, of course, a wonderful resource for API developers: a safe place in which you can experiment with Marketo features, adding and removing objects without interfering with real marketing activities carried on by your organization's actual Marketo users. However, the Sandbox is not a panacea. For example, I needed to share our Sandbox with another development group, and this took some doing, because they had gotten accustomed to the notion that they owned the Sandbox. Eventually, we figured out a couple of Best Practices for sharing: - Don't write tests that depend on complete knowledge of the contents of your Sandbox. As a shared resource, schemas may be subject to change without notice, as well as entire entries in your leads database or programs or other entities. If your tests assume complete knowledge of the Sandbox, your development cycle will create blackout periods for the groups with whom you're sharing it. Since typically their development cycle will not coincide with yours, this amounts to hogging the resource–not cool. It's also not necessary, if you think it through. - Do use a convention to label all of your stuff–your leads, your lead schema fields, your programs, whatever. If you each can identify your own objects, and if you can agree with your co-tenants that each of you will leave the others' objects alone, you should be on a firm foundation for sharing. For leads, you could create a custom field, and create a convention using this custom field to identify these leads as your test leads. For lists or programs, you might start the names of your objects with some string that identifies those objects as belonging to you. - Consider writing tests that clean up after themselves–that first create the objects you're interested in, then access or update or selectively delete them, then finally remove them. (Note that this is not achievable 100% in the SOAP API because not everything in the Sandbox, or in a real instance for that matter, can be managed via the SOAP API. Even so, it's still worthwhile to do this as much as you can.) **Real Instances** The problem with the Sandbox is that it's not being used in production, so it's difficult to get a sense of what real usage looks like in a Marketo instance. Now, if you're lucky enough to have a Marketo power user on your team, or if you're doing bespoke development for internal Marketo users, that's not such a problem. But in the case of my team, it was a big deal indeed. None of us were Marketo experts, and since we were being asked to understand a large number of cloud services, we just didn't have the headcount to become experts in anything. Here are some of the insights we gleaned from access to a real instance: - Large lead schemas. The lead schema in the production instance we accessed has over 200 fields. That made it crystal clear to our UI designers that the UI they were designing had to accommodate schemas of that size (or larger). - Bursty usage. We saw two orders of magnitude difference between the highest-usage times and low-usage times (in terms of numbers of leads created or updated). This impacted both the volume of data we'd get back from API calls (obvious) and the time it would take for an API call to respond (possibly less obvious). **API Call Response Time** Depending on the time of day, the details of your API call, and the contents of your instance, you may find the SOAP API's response time will take longer than average. On occasion, we had API calls that took a minute and a half to respond. You need to be aware of the possibility in order to deal with it: - Test. Maybe this is not a problem for your usage. But don't just assume that, do some testing. - Tweak your usage. In our case, the biggest issue was that we set the page size for our calls to [getMultipleLeads](/help/soap-api/getmultipleleads) to be as big as the API allows. In our context, that makes a certain amount of sense, because our goal is to be as efficient as possible with our customer's API quota. But in your context, you may not need to worry so intensely about your users' API call quotas, in which case you'll definitely get better response time by asking for smaller pages of data. **Lead Partitioning** Marketo provides powerful tools–partitions and workspaces–that allow multiple marketing groups to share a single Marketo instance. However, those tools aren't reflected directly in the SOAP API. For instance, when you use getMultipleLeads to get all leads that have been updated or created since some datetime, you get back all the leads in your instance for which that's the case, without regard for (and with nothing to indicate) which partition or workspace contains any given lead. Lead creation and adding leads to lists are other contexts in which lead partitioning may impact what your API calls actually do. Note that this means that partitions and workspaces may not be the solution you'll need to the problem of Sandbox sharing discussed above. So how do you figure out whether this is an issue for you? I've found all of these to be helpful: The Developer Evangelists are committed to our success in using the APIs, and where there are questions, they're amazingly good at working to find answers. - [API Documentation](/getting-started/). The Evangelists have already brought this issue into some of the documentation, and as part of their commitment to our success, they're really good about updating the doc. - Your Own Test Cases. Although using partitions and workspaces for sharing the sandbox may not be a great idea, the Sandbox is a great place to play with partitions and workspaces to figure out whether they pose challenges for your intended usage. (It's also a good way to narrow down your questions for the Evangelists, which is always a good idea.) **TIMTOWTDI and Testing** "There is more than one way to do it"–the Perl programming motto–actually applies in certain contexts to the Marketo SOAP API. For instance, I wanted to combine updating a set of leads with adding those leads to some list. The SOAP API gives you two ways to do this: 1. [importToList](/help/soap-api/importtolist/) + [getImportToListStatus](/help/soap-api/getimporttoliststatus/). Reading the documentation, this is obviously the "normal" way to do this. However, the fact that you have to poll for the status of your import operation raised a yellow flag for me. Was this really the way I wanted to implement my import? 1. [syncMultipleLeads](/help/soap-api/syncmultipleleads/) + [listOperation](/help/soap-api/listoperation/). This seems much less elegant than a unitary importToList call, but it doesn't rely on polling. Was it a viable option? Cases like these are hard for the Evangelists to deal with, because they really depend on the nature of the instances that you're dealing with and exactly what you're trying to do. Luckily, if you've set up a robust unit testing environment, you should be able to use it to explore questions like these as well. In this particular case, it turned out that option 2 was better for my use case than option 1–not because of the polling but rather because I ran into field-oriented limitations on importToList, and also because I was trying to write code that could be used in contexts and instances over which I had no control. But your use case may be different–and testing is the only way you'll find out. **Conclusion** I don't think any of this is a huge secret. On the other hand, I'd have been ahead of the game if I'd known all this before I got started. I hope you find it useful.
+**NOTE: This is a guest blog post. [Ed Blachman is a Senior Architect](https://www.linkedin.com/profile/view?id=2777965) at [TIBCO Software, a well-known vendor of enterprise software](https://launchpoint.marketo.com/tibco/1389-tibco-activematrixtm-businessworks-6/). Ed is working on products that allow what Gartner calls "citizen developers" to integrate the cloud services they use without needing to do any programming themselves.** [Marketo's SOAP API](/help/soap-api/soap-api.md) is a powerful tool by which developers can harness the power of Marketo and integrate it with our own applications. Between [the formal documentation](./getting-started.md) and [the community resources](https://community.marketo.com/), there's a lot of information available regarding how to use it. When I was getting started, I leaned heavily on that information and found it invaluable. However, in that process, I built up some tips and tricks that I hadn't seen in any of those places. Here's some of what I figured out. **The Developers' Sandbox** The Sandbox is, of course, a wonderful resource for API developers: a safe place in which you can experiment with Marketo features, adding and removing objects without interfering with real marketing activities carried on by your organization's actual Marketo users. However, the Sandbox is not a panacea. For example, I needed to share our Sandbox with another development group, and this took some doing, because they had gotten accustomed to the notion that they owned the Sandbox. Eventually, we figured out a couple of Best Practices for sharing: - Don't write tests that depend on complete knowledge of the contents of your Sandbox. As a shared resource, schemas may be subject to change without notice, as well as entire entries in your leads database or programs or other entities. If your tests assume complete knowledge of the Sandbox, your development cycle will create blackout periods for the groups with whom you're sharing it. Since typically their development cycle will not coincide with yours, this amounts to hogging the resource–not cool. It's also not necessary, if you think it through. - Do use a convention to label all of your stuff–your leads, your lead schema fields, your programs, whatever. If you each can identify your own objects, and if you can agree with your co-tenants that each of you will leave the others' objects alone, you should be on a firm foundation for sharing. For leads, you could create a custom field, and create a convention using this custom field to identify these leads as your test leads. For lists or programs, you might start the names of your objects with some string that identifies those objects as belonging to you. - Consider writing tests that clean up after themselves–that first create the objects you're interested in, then access or update or selectively delete them, then finally remove them. (Note that this is not achievable 100% in the SOAP API because not everything in the Sandbox, or in a real instance for that matter, can be managed via the SOAP API. Even so, it's still worthwhile to do this as much as you can.) **Real Instances** The problem with the Sandbox is that it's not being used in production, so it's difficult to get a sense of what real usage looks like in a Marketo instance. Now, if you're lucky enough to have a Marketo power user on your team, or if you're doing bespoke development for internal Marketo users, that's not such a problem. But in the case of my team, it was a big deal indeed. None of us were Marketo experts, and since we were being asked to understand a large number of cloud services, we just didn't have the headcount to become experts in anything. Here are some of the insights we gleaned from access to a real instance: - Large lead schemas. The lead schema in the production instance we accessed has over 200 fields. That made it crystal clear to our UI designers that the UI they were designing had to accommodate schemas of that size (or larger). - Bursty usage. We saw two orders of magnitude difference between the highest-usage times and low-usage times (in terms of numbers of leads created or updated). This impacted both the volume of data we'd get back from API calls (obvious) and the time it would take for an API call to respond (possibly less obvious). **API Call Response Time** Depending on the time of day, the details of your API call, and the contents of your instance, you may find the SOAP API's response time will take longer than average. On occasion, we had API calls that took a minute and a half to respond. You need to be aware of the possibility in order to deal with it: - Test. Maybe this is not a problem for your usage. But don't just assume that, do some testing. - Tweak your usage. In our case, the biggest issue was that we set the page size for our calls to [getMultipleLeads](/help/soap-api/getmultipleleads.md) to be as big as the API allows. In our context, that makes a certain amount of sense, because our goal is to be as efficient as possible with our customer's API quota. But in your context, you may not need to worry so intensely about your users' API call quotas, in which case you'll definitely get better response time by asking for smaller pages of data. **Lead Partitioning** Marketo provides powerful tools–partitions and workspaces–that allow multiple marketing groups to share a single Marketo instance. However, those tools aren't reflected directly in the SOAP API. For instance, when you use getMultipleLeads to get all leads that have been updated or created since some datetime, you get back all the leads in your instance for which that's the case, without regard for (and with nothing to indicate) which partition or workspace contains any given lead. Lead creation and adding leads to lists are other contexts in which lead partitioning may impact what your API calls actually do. Note that this means that partitions and workspaces may not be the solution you'll need to the problem of Sandbox sharing discussed above. So how do you figure out whether this is an issue for you? I've found all of these to be helpful: The Developer Evangelists are committed to our success in using the APIs, and where there are questions, they're amazingly good at working to find answers. - [API Documentation](./getting-started.md). The Evangelists have already brought this issue into some of the documentation, and as part of their commitment to our success, they're really good about updating the doc. - Your Own Test Cases. Although using partitions and workspaces for sharing the sandbox may not be a great idea, the Sandbox is a great place to play with partitions and workspaces to figure out whether they pose challenges for your intended usage. (It's also a good way to narrow down your questions for the Evangelists, which is always a good idea.) **TIMTOWTDI and Testing** "There is more than one way to do it"–the Perl programming motto–actually applies in certain contexts to the Marketo SOAP API. For instance, I wanted to combine updating a set of leads with adding those leads to some list. The SOAP API gives you two ways to do this: 1. [importToList](/help/soap-api/importtolist.md) + [getImportToListStatus](/help/soap-api/getimporttoliststatus.md). Reading the documentation, this is obviously the "normal" way to do this. However, the fact that you have to poll for the status of your import operation raised a yellow flag for me. Was this really the way I wanted to implement my import? 1. [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) + [listOperation](/help/soap-api/listoperation.md). This seems much less elegant than a unitary importToList call, but it doesn't rely on polling. Was it a viable option? Cases like these are hard for the Evangelists to deal with, because they really depend on the nature of the instances that you're dealing with and exactly what you're trying to do. Luckily, if you've set up a robust unit testing environment, you should be able to use it to explore questions like these as well. In this particular case, it turned out that option 2 was better for my use case than option 1–not because of the polling but rather because I ran into field-oriented limitations on importToList, and also because I was trying to write code that could be used in contexts and instances over which I had no control. But your use case may be different–and testing is the only way you'll find out. **Conclusion** I don't think any of this is a huge secret. On the other hand, I'd have been ahead of the game if I'd known all this before I got started. I hope you find it useful.
 
 Posted on _2015-02-05_ by _David_
 
@@ -3057,7 +3057,7 @@ Posted on _2015-03-24_ by _Yanir_
 
 ### Marketo Mobile Engagement SDK v0.3.2
 
-Marketo now includes marketing automation and user engagement for mobile apps. Installing the [Marketo Mobile SDK](/mobile/) into your iOS or Android app allows Marketers to listen for in app events and send relevant push notifications.
+Marketo now includes marketing automation and user engagement for mobile apps. Installing the [Marketo Mobile SDK](/help/mobile/mobile.md) into your iOS or Android app allows Marketers to listen for in app events and send relevant push notifications.
 
 ### REST API Enhancements
 
@@ -3322,8 +3322,8 @@ public class SyncEmailUnsubscribe {
 
 Perform the following steps for each Marketo instance that you would like to sync.
 
-1. Create a Custom Service with role permission: Read-Write Lead. If you are unfamiliar with creating a Custom Service, click [here](/help/rest-api/custom-services/).
-1. Create a Webhook that calls your external web service. If you are unfamiliar with creating Webhooks, click [here](/webhooks/).
+1. Create a Custom Service with role permission: Read-Write Lead. If you are unfamiliar with creating a Custom Service, click [here](/help/rest-api/custom-services.md).
+1. Create a Webhook that calls your external web service. If you are unfamiliar with creating Webhooks, click [here](/help/webhooks/webhooks.md).
 1. Add Webhook as flow step in Smart Campaign.
 
 The screenshot below shows how to create a webhook to invoke the service specified above using tokens to automatically populate the query parameters. Now that we have created our webhook, we can add it to a Smart Campaign as a flow action.  The Smart List should contain an "Unsubsubscribes from Email" trigger. 
@@ -3336,12 +3336,12 @@ Posted on _2015-05-11_ by _David_
 
 ## Synchronizing Lead Data Changes using REST API
 
-That post presented a code sample that could be run on a recurring basis to poll Marketo for updates. The idea was to use Marketo APIs to identify changes to lead data, and extract the lead data that had changed. This data could then be pushed to an external system for synchronization purposes. The code sample presented used our SOAP API. Well we have a [new way to walk](https://youtu.be/G-7ZJjLy5D8), and that way is using the [Marketo REST API](/help/rest-api/rest-api). This post will show you how to accomplish that same goal using two REST endpoints: [Get Lead Changes](/help/rest-api/get-lead-changes/), [Get Lead by Id](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadByIdUsingGET). The program contains 2 main steps:
+That post presented a code sample that could be run on a recurring basis to poll Marketo for updates. The idea was to use Marketo APIs to identify changes to lead data, and extract the lead data that had changed. This data could then be pushed to an external system for synchronization purposes. The code sample presented used our SOAP API. Well we have a [new way to walk](https://youtu.be/G-7ZJjLy5D8), and that way is using the [Marketo REST API](/help/rest-api/rest-api.md). This post will show you how to accomplish that same goal using two REST endpoints: [Get Lead Changes](/help/rest-api/rest-api.md), [Get Lead by Id](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadByIdUsingGET). The program contains 2 main steps:
 
 1. Call Get Lead Changes to generate a list of all Lead Ids that either had specific lead fields changed, or were added during a given time period.
 1. Call Get Lead Id for each Lead Id in the list to retrieve field data from the lead record.
 
-We'll take the data retrieved in step 2 and format it for consumption by an external system.  **Program Input** By default the program "goes back" one day from the current date to look for changes. So you could run this program at the same time each day for example. To go farther back in time, you can specify the number of days as a command line argument, effectively increasing the time window. The program contains several variables that you can modify: CUSTOM_SERVICE_DATA - This contains your Marketo [Custom Service](/help/rest-api/custom-services/) data (Account Id, Client Id, Client Secret). LEAD_CHANGE_FIELD_FILTER - This contains a comma seperated list of lead fields that we will inspect for changes. READ_BATCH_SIZE - This is the number of records to retrieve at a time. Use this to tune the response body size. **Program Output** The program gathers up all of the changed lead records and formats them in JSON as an array of lead objects as follows:
+We'll take the data retrieved in step 2 and format it for consumption by an external system.  **Program Input** By default the program "goes back" one day from the current date to look for changes. So you could run this program at the same time each day for example. To go farther back in time, you can specify the number of days as a command line argument, effectively increasing the time window. The program contains several variables that you can modify: CUSTOM_SERVICE_DATA - This contains your Marketo [Custom Service](/help/rest-api/custom-services.md) data (Account Id, Client Id, Client Secret). LEAD_CHANGE_FIELD_FILTER - This contains a comma seperated list of lead fields that we will inspect for changes. READ_BATCH_SIZE - This is the number of records to retrieve at a time. Use this to tune the response body size. **Program Output** The program gathers up all of the changed lead records and formats them in JSON as an array of lead objects as follows:
 
 ```json
 {
@@ -3621,21 +3621,21 @@ Note: Role permissions were added to provide access to the Opportunity endpoints
 
 * Asset API - Snippets. New [asset endpoints for snippets](https://developer.adobe.com/marketo-apis/api/asset/#snippet_endpoints) have been introduced to allow you to programmatically manipulate snippet objects. Snippets can be used as dynamic content blocks in Emails and Landing Pages.
 * Leads API - Update Leads Partition. A new [lead endpoint for partitions](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updatePartitionsUsingPOST) has been added to allow you to update the partition for one or more leads.
-* Fixed issue where Lead-related API's were missing time zone offset in "createdAt" and "updatedAt" attributes. [LM-52671]
-* Fixed issue where Schedule Campaign was not returning the proper error code when daily maximum number of calls had been exceeded. [LM-57082]
-* Fixed issue where Get Folder by Id would sometimes return null for "parent" and "description" attributes. [LM-57956]
-* Fixed issue where Approve Email by Id would give system error in certain cases. [LM-58271]
-* Fixed issue where Create Token by Folder Id would produce a token that was unusable in certain cases. [LM-58073]
+* Fixed issue where Lead-related API's were missing time zone offset in "createdAt" and "updatedAt" attributes. 
+* Fixed issue where Schedule Campaign was not returning the proper error code when daily maximum number of calls had been exceeded. 
+* Fixed issue where Get Folder by Id would sometimes return null for "parent" and "description" attributes. 
+* Fixed issue where Approve Email by Id would give system error in certain cases.
+* Fixed issue where Create Token by Folder Id would produce a token that was unusable in certain cases.
 
 ### Real-Time Personalization (RTP)
 
-* Rich Media Recommendation API. New [rich media recommendation](/help/javascript-api/web-personalization) capabilities have been added to the RTP JavaScript API. The Rich Media Content Recommendation engages your web visitors with the most relevant content powered by machine learning and predictive analytics. Enhance your content assets with text descriptions and images and embed multiple content recommendations on your website.
+* Rich Media Recommendation API. New [rich media recommendation](/help/javascript-api/web-personalization.md) capabilities have been added to the RTP JavaScript API. The Rich Media Content Recommendation engages your web visitors with the most relevant content powered by machine learning and predictive analytics. Enhance your content assets with text descriptions and images and embed multiple content recommendations on your website.
 
 ### Mobile Engagement SDK
 
 iOS v0.3.4/Android v0.3.3
 
-* Custom Actions. Added the ability to track user interaction by sending custom actions. For details, see "Sending Custom Actions" [here](/mobile/mobile).
+* Custom Actions. Added the ability to track user interaction by sending custom actions. For details, see "Sending Custom Actions" [here](/help/mobile/mobile.md).
 * The trackPushNotification method has been deprecated.
 
 Posted on _2015-05-26_ by _David_
@@ -3705,105 +3705,6 @@ to this:
 
 "**folderType**": "Marketing Folder"
 
-The following table lists the Asset APIs were changed.
-
-**API Group**
-
-**API**
-
-**Change Description**
-
-Folder
-
-[Create Folder](https://developer.adobe.com/marketo-apis/api/asset/create-folder)
-
-Changed "parent" parameter from integer to FolderIdType
-
-[Get Folder by Id](https://developer.adobe.com/marketo-apis/api/asset/get-folder-by-id)
-
-Added "type" parameter
-
-[Get Folder by Name](https://developer.adobe.com/marketo-apis/api/asset/get-folder-by-name)
-
-Added "type" parameter
-
-[Update Folder](https://developer.adobe.com/marketo-apis/api/asset/update-folder)
-
-Added "type" parameter
-
-[Delete Folder by Id](https://developer.adobe.com/marketo-apis/api/asset/delete-folder-by-id)
-
-Added "type" parameter
-
-[Browse Folders](https://developer.adobe.com/marketo-apis/api/asset/browse-folders)
-
-Changed "root" parameter from integer to FolderIdType
-
-[Get Folder Contents](https://developer.adobe.com/marketo-apis/api/asset/get-folder-contents)
-
-Added "type" parameter
-
-Email Template
-
-[Create Email Template](https://developer.adobe.com/marketo-apis/api/asset/create-email-template)
-
-Changed "folder" parameter from integer to FolderIdType
-
-[Clone Email Template](https://developer.adobe.com/marketo-apis/api/asset/clone-email-template)
-
-Changed "folder" parameter from integer to FolderIdType
-
-Email
-
-[Create Email](https://developer.adobe.com/marketo-apis/api/asset/create-email)
-
-Changed "folder" parameter from integer to FolderIdType
-
-[Get Emails](https://developer.adobe.com/marketo-apis/api/asset/get-emails)
-
-Changed "folder" parameter from integer to FolderIdType
-
-[Clone Email](https://developer.adobe.com/marketo-apis/api/asset/clone-email)
-
-Changed "folder" parameter from integer to FolderIdType
-
-[Get Email by Name](https://developer.adobe.com/marketo-apis/api/asset/get-email-by-name)
-
-Changed "folder" parameter from integer to FolderIdType
-
-Snippet
-
-[Create Snippet](https://developer.adobe.com/marketo-apis/api/asset/create-snippet/)
-
-Changed "folder" parameter from integer to FolderIdType
-
-[Clone Snippet](https://developer.adobe.com/marketo-apis/api/asset/clone-snippet/)
-
-Changed "folder" parameter from integer to FolderIdType
-
-File
-
-[Create a File](https://developer.adobe.com/marketo-apis/api/asset/create-a-file)
-
-Changed "folder" parameter from integer to FolderIdType
-
-[List Files](https://developer.adobe.com/marketo-apis/api/asset/list-files)
-
-Changed "folder" parameter from integer to FolderIdType
-
-Token
-
-[Create Token by Folder Id](https://developer.adobe.com/marketo-apis/api/asset/create-token-by-folder-id/)
-
-Added "folderType" parameter
-
-[Get Tokens by Folder Id](https://developer.adobe.com/marketo-apis/api/asset/get-tokens-by-folder-id/)
-
-Added "folderType" parameter
-
-[Delete Tokens by Folder Id](https://developer.adobe.com/marketo-apis/api/asset/delete-tokens-by-folder-id/)
-
-Added `folderType` parameter
 
 ### Mobile Engagement SDK
 
@@ -3826,7 +3727,7 @@ Several of our customers provide web app solutions for their users and we receiv
 * Different subscription types (up-sell, cross-sell, or webinar training)
 * New features relevant to the user activity
 
-**Use Case Example** Marketo's Customer Success team uses In-App Web Personalization to communicate with specific subscription types (Spark, Standard, Select, or Enterprise) with personalized content, making sure they are seeing progressive campaigns and nurturing in-app users based on their engagement. Let's see how this can be done for a user with an Enterprise subscription type. **Prerequisite** Understand the [RTP User Context API](/javascript/web-personalization/user-context/). **Enable the User Context API** Request from Marketo Support to enable the User Context API for your RTP account. **Set the Custom Variable** There are 5 custom variable slots available in RTP to send data to. In this example, we will send user subscription type Enterprise to Custom Variable 1.
+**Use Case Example** Marketo's Customer Success team uses In-App Web Personalization to communicate with specific subscription types (Spark, Standard, Select, or Enterprise) with personalized content, making sure they are seeing progressive campaigns and nurturing in-app users based on their engagement. Let's see how this can be done for a user with an Enterprise subscription type. **Prerequisite** Understand the [RTP User Context API](/help/javascript-api/web-personalization.md). **Enable the User Context API** Request from Marketo Support to enable the User Context API for your RTP account. **Set the Custom Variable** There are 5 custom variable slots available in RTP to send data to. In this example, we will send user subscription type Enterprise to Custom Variable 1.
 
 `rtp('set', 'customVar1', 'Enterprise');`
 
@@ -5000,7 +4901,7 @@ With the new SalesPerson APIs, you can freely associate Marketo leads to SalesPe
 
 ### Creating SalesPerson records
 
-In order to associate leads to SalesPerson records, we first need to input our SalesPerson records into Marketo. This is done with the [Create/Update/Upsert SalesPerson endpoint](/sales-persons/createupdateupsert-sales-persons/). Here's an example class in PHP:
+In order to associate leads to SalesPerson records, we first need to input our SalesPerson records into Marketo. Here's an example class in PHP:
 
 ```php
 <?php
@@ -5588,7 +5489,7 @@ DataDirect has been building this style of connectivity to SaaS data sources sin
 * [Register for a DataDirect Cloud Login](https://pacific.progress.com/console/register?productName=d2c&ignoreCookie=true)
 * Click "Data Sources" and then "+New Data Source" button
 
-* Select "Marketo" and enter the connection information. You can check with your Marketo administrator or login to find [connection information for SOAP integration](/help/soap-api/soap).
+* Select "Marketo" and enter the connection information. You can check with your Marketo administrator or login to find [connection information for SOAP integration](/help/soap-api/soap-api.md).
 
 * Click "Test Connection" button. Note there is an OData tab to produce OData from Marketo and we will discuss in a future blog post.
 * Click on "SQL Testing" if you want to inspect the Marketo schema exposed or issue basic SQL queries from within the UI.
@@ -5724,7 +5625,7 @@ processStats(
 );
 ```
 
-As you can see, the web service has simply wrapped the contents of the two output files from our app. We have created a mock web service response using [Mocky](http://www.mocky.io/). An example of the web service the mock is [here.](http://www.mocky.io/v2/5627b2f9270000f2226eec63?month=10&year=2015&account=111-AAA-222&callback=processStats) Creation of this web service is left as an exercise for the reader :) **Dashboard Web Page** So now all we need is a web page that calls our web service and formats the data. To use the JSONP pattern we just need to add a `<script>` tag that invokes the web service:
+As you can see, the web service has simply wrapped the contents of the two output files from our app. We have created a mock web service response using [Mocky](http://www.mocky.io/). An example of the web service the mock is [here.](http://www.mocky.io/v2/5627b2f9270000f2226eec63?month=10&year=2015&account=111-AAA-222&callback=processStats) Creation of this web service is left as an exercise for the reader : **Dashboard Web Page** So now all we need is a web page that calls our web service and formats the data. To use the JSONP pattern we just need to add a `<script>` tag that invokes the web service:
 
 `<script src="http: //<hostname>/stats?month=10&year=2015&account=284-RPR-133&callback=processStats"></script>`
 
@@ -5983,7 +5884,7 @@ Our next class of recoverable errors is related to authentication. When a former
 
 ### Timeouts
 
-In very rare circumstances, a call may return a 604, "Request timed out," after the 30 second timeout period has elapsed. For batched requests, such as [Create/Update Leads](/help/rest-api/createupdate-leads/), the request can be split up into smaller batches and retried until success is returned (if the batch is split to less than 100 records and the request is still timing out, you should probably file a support case). The most common other case is with asset approval calls, where a lock may be held on the current approved record by another user or service, such as the case of an [Email](https://developer.adobe.com/marketo-apis/api/asset/approve-email-by-id/) or [Email Template](https://developer.adobe.com/marketo-apis/api/asset/approve-email-template-by-id/). In these cases, [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) should be used for retries to allow for any existing locks to be resolved. Check back in the coming weeks for the final part of the series where we'll take a closer look at some specific, non-recoverable errors.
+In very rare circumstances, a call may return a 604, "Request timed out," after the 30 second timeout period has elapsed. For batched requests, such as Create/Update Leads, the request can be split up into smaller batches and retried until success is returned (if the batch is split to less than 100 records and the request is still timing out, you should probably file a support case). The most common other case is with asset approval calls, where a lock may be held on the current approved record by another user or service, such as the case of an [Email](https://developer.adobe.com/marketo-apis/api/asset/approve-email-by-id/) or [Email Template](https://developer.adobe.com/marketo-apis/api/asset/approve-email-template-by-id/). In these cases, [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) should be used for retries to allow for any existing locks to be resolved. Check back in the coming weeks for the final part of the series where we'll take a closer look at some specific, non-recoverable errors.
 
 Posted on _2015-10-30_ by _Kenny_
 
@@ -5994,32 +5895,6 @@ At Marketo we take security seriously. As a part of an **[industry-wide initiati
 * End users accessing Marketo.com through modern browsers ([see list](https://www.digicert.com/sha-2-compatibility.htm))
 * Customers using integration partners such as Informatica, Dell Boomi, and Scribe.
 * Customers using Launchpoint partners.
-
-**Rollout schedule** The following rollout schedule is planned:
-
-**Service**
-
-**URL**
-
-**SHA-2 Rollout Date**
-
-API access
-
-mktoapi.com
-
-Dec 12, 2015
-
-API access
-
-mktoresp.com
-
-Dec 12, 2015
-
-Part of MLM Application
-
-marketodesigner.com
-
-Dec 12, 2015
 
 All other Marketo domains already use SHA2 certificates.
 
@@ -6616,7 +6491,7 @@ This article contains code used to implement custom integrations. Due to its cus
 
 Posted on _2014-03-24_ by _Travis Kaufman_
 
-## Sending a transactional email from Marketo using the AP
+## Sending a transactional email from Marketo using the API
 
 You can send a transactional email from Marketo using the [requestCampaign](/help/soap-api/requestcampaign.md) SOAP API. It requires an existing Smart Campaign to be created using the Marketo UI. It also requires the email recipient to exist in Marketo. So before calling the requestCampaign API, use the [getLead API](/help/soap-api/getlead.md to verify if the email exists in Marketo. After you make a call via the [requestCampaign](/help/soap-api/requestcampaign.md) API, you can confirm it by checking to see if the Smart Campaign has run in Marketo. We'll show you first how to create a Smart Campaign, second how to set up a trigger to send a campaign via the API, third how to define an email as part of a flow action, and fourth a code sample that would be used to execute this campaign. **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. You can set up a series of automated actions to take on a smart list of contacts. In the case of sending transactional emails, you set up a trigger in the campaign, as shown below, to send emails using the API. First let's set up the Smart Campaign. 1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset 
 
@@ -6768,7 +6643,7 @@ Posted on _2014-03-27_ by _Murta_
 Imagine you want to automate your call center follow-up emails. After your support rep speaks with a customer, you would like to automatically send an email thanking them for contacting your company. Let's take this a step further, and say you want to include the specific conversation topic discussed with the customer that you track in your CRM. You can do this from Marketo using the [requestCampaign](/help/soap-api/requestcampaign.md) SOAP API to send an email with dynamic content. The requestCampaign API allows you to pass in a lead or leads. It also allows you to pass in Program Tokens that can be used with an existing Campaign to send dynamic content. The requestCampaign SOAP API requires the email recipient to exist in Marketo. So before calling the requestCampaign API, use the [getLead API](/help/soap-api/getlead.md) to verify if the email exists in Marketo. We'll show you first how to create a Smart Campaign, second how to set up a trigger to send a campaign via the API, third how to create an email that accepts dynamic content via Program Tokens, fourth how to define an email as part of a flow action, and fifth a code sample that would be used to execute this campaign. **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. You can set up a series of automated actions to take on a smart list of contacts. In the case of sending transactional emails, you set up a trigger in the campaign, as shown below, to send emails using the API. First let's set up the Smart Campaign. 1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset 
 
 1. Click on Smart Campaign 
-1. Enter smart campaign name and click Create  **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](/help/soap-api/requestcampaign/). 
+1. Enter smart campaign name and click Create  **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](/help/soap-api/requestcampaign.md). 
 1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas. 
 1. In the trigger, select "is" and "Web Service API." 
 
@@ -8296,7 +8171,7 @@ New endpoints for manipulating Guided Landing Page variables. Details can be fou
 
 #### Push Token Removal
 
-Added the ability to remove push tokens via the SDK API. Details can be found here: [iOS](/hemp/mobile/push-notifications/#ios_enable_push_notification_in_app_with_marketo_sdk), [Android](/help/mobile/push-notifications/#android_setup_push).
+Added the ability to remove push tokens via the SDK API. Details can be found here: [iOS](/help/mobile/push-notifications), [Android](/help/mobile/push-notifications).
 
 Posted on _2017-03-01_ by _David_
 
@@ -8306,7 +8181,7 @@ In the Spring 2017 release, we are adding the ability to bulk extract lead and a
 
 ### Bulk Extract of Leads
 
-New endpoints to support extraction of leads in bulk. Specify record selection criteria using a variety of options. Details can be found [here](/help/rest-api/bulk-extract/bulk-lead-extract).
+New endpoints to support extraction of leads in bulk. Specify record selection criteria using a variety of options. Details can be found [here](/help/rest-api/bulk-lead-extract).
 
 ### Bulk Extract of Activities
 
@@ -8323,11 +8198,11 @@ New endpoints to support CRUD operations on Named Account Lists. Details can be 
 
 ### Ionic
 
-You can now use Marketo Mobile MME and with the [Ionic](https://ionicframework.com/) application framework. Details can be found [here](/mobile/ionic/).
+You can now use Marketo Mobile MME and with the [Ionic](https://ionicframework.com/) application framework. Details can be found [here](/help/mobile/ionic.md).
 
 ### Unregister Push Notification Token
 
-A new method was added to the SDK that allows you to unregister the push notification token with Marketo. This is useful for example when a user logs out of your app. For usage see `unregisterPushDeviceToken` (iOS) or `uninitializeMarketoPush` (Android) method [here](/mobile/push-notifications/).
+A new method was added to the SDK that allows you to unregister the push notification token with Marketo. This is useful for example when a user logs out of your app. For usage see `unregisterPushDeviceToken` (iOS) or `uninitializeMarketoPush` (Android) method [here](/help/mobile/push-notifications.md).
 
 Posted on _2017-06-16_ by _David_
 
@@ -8710,7 +8585,7 @@ We have added the [Update Email Full Content](https://developer.adobe.com/market
 
 ### Other Enhancements
 
-* The maximum time span for date range filters has been increased to 31 days. This pertains to [Bulk Lead Extract filters](/help/rest-api/bulk-extract/bulk-lead-extract/#filters) (createdAd or updatedAt), and [Bulk Activity Extract filter](/help/rest-api/bulk-extract/bulk-activity-extract/#filters) (createdAt).
+* The maximum time span for date range filters has been increased to 31 days. This pertains to [Bulk Lead Extract filters](/help/rest-api/bulk-lead-extract.md) (createdAd or updatedAt), and [Bulk Activity Extract filter](/help/rest-api/bulk-activity-extract.md) (createdAt).
 
 Posted on _2017-12-15_ by _David_
 
@@ -8746,22 +8621,22 @@ REST API
 
 ### Static List CRUD
 
-Allows users to remotely Create, Read, Update, and Delete Static List Records. Enables management of the entire lifecycle of a static list through REST APIs, including populating and maintaining membership. Details can be found [here](/help/rest-api/static-lists).
+Allows users to remotely Create, Read, Update, and Delete Static List Records. Enables management of the entire lifecycle of a static list through REST APIs, including populating and maintaining membership. Details can be found [here](/help/rest-api/static-lists.md).
 
 ### Custom Activity Metadata
 
-Allows users to remotely create Custom Activity Records. Enables management of the entire lifecycle of custom activities through REST APIs, including manipulation of types and type attributes . Details can be found [here](/help/rest-api/activities).
+Allows users to remotely create Custom Activity Records. Enables management of the entire lifecycle of custom activities through REST APIs, including manipulation of types and type attributes . Details can be found [here](/help/rest-api/activities.md).
 
 ### Smart List Metadata
 
-Allows users to remotely Read, Clone, and Delete Smart List Records. Enables management of smart lists through REST APIs. Details can be found [here](/help/rest-api/smart-lists).
+Allows users to remotely Read, Clone, and Delete Smart List Records. Enables management of smart lists through REST APIs. Details can be found [here](/help/rest-api/smart-lists.md).
 
 ### Web Tracking Privacy
 
 The Munchkin JavaScript web tracking code has been enhanced to include the following privacy-related enhancements:
 
-* Opt-Out - Ability to allow visitors to permantly opt-out of web tracking. Details can be found [here](/help/javascript-api/lead-tracking#opt_out).
-* IP Address Anonymization - Comply with local and international privacy regulations by providing ability to anonymize the IP addresses of web visitors. See **anonymizeIP** configuration parameter [here](/help/javascript-api/lead-tracking/configuration/).
+* Opt-Out - Ability to allow visitors to permantly opt-out of web tracking. Details can be found [here](/help/javascript-api/lead-tracking.md).
+* IP Address Anonymization - Comply with local and international privacy regulations by providing ability to anonymize the IP addresses of web visitors. See **anonymizeIP** configuration parameter [here](/help/javascript-api/configuration.md).
 
 ### Other Enhancements
 
@@ -8907,10 +8782,10 @@ The Fall 2019 release is primarily a maintenance release comprised of minor enha
 ### Defect Resolutions
 
 * Adjusted [Multiple Branding Domains](https://docs.marketo.com/display/DOCS/Add+Multiple+Branding+Domains) support for [Asset API](/help/rest-api/assets.md). Previously, Multiple Branding Domains settings were not propagated when approving an Email draft, cloning an Email, or cloning a Program. This has been corrected. This change affects the following endpoints: [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST), [Clone Email](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST), [Clone Program.](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
-* Added [apiOnly](/help/javascript-api/lead-tracking/configuration/#apionly) configuration setting. By default, web pages that contain the Munchkin tag fire a "Visits Web Page" event when the web page is loaded in the browser. In some cases, this is undesirable. For example, single page web applications that need full control of when this event is fired. To support this use case, we added a new **apiOnly** configuration setting. When set to true, the Munchkin tag does not generate a "Visits Web Page" activity during page load.
-* Added [domainSelectorV2](/help/javascript-api/lead-tracking/configuration/#domainselectorv2) configuration setting. By default, the Munchkin tag doesn't correctly handle web pages that are hosted on sites with two-letter [country code top-level domains](https://en.wikipedia.org/wiki/Country_code_top-level_domain) (examples: .io, .co, .ly). This causes the Munchkin cookie domain attribute to be set incorrectly. To achieve a better out of box experience, we added a new **domainSelectorV2** configuration setting. When set to true, an improved algorithm is used to automatically set the Munchkin cookie domain attribute.
-* Adjusted [Opt-Out](/help/javascript-api/lead-tracking/#opt_out) cookie domain. In certain cases, the domain attribute of the Munchkin Opt-Out cookie (mkto_opt_out) was set incorrectly. The Munchkin Opt-Out cookie now uses the same logic as the Munchkin cookie (_mkto_trk) to determine the domain cookie attribute, including honoring the **domainLevel** configuration setting.
-* Android application developers can now directly use Google's [Firebase Cloud Messaging](http://firebase.google.com/docs/cloud-messaging/) (FCM) with this SDK. Details can be found [here](/mobile/installation/#android_firebase_cloud_messaging_support).
+* Added [apiOnly](/help/javascript-api/configuration.md) configuration setting. By default, web pages that contain the Munchkin tag fire a "Visits Web Page" event when the web page is loaded in the browser. In some cases, this is undesirable. For example, single page web applications that need full control of when this event is fired. To support this use case, we added a new **apiOnly** configuration setting. When set to true, the Munchkin tag does not generate a "Visits Web Page" activity during page load.
+* Added [domainSelectorV2](/help/javascript-api/configuration.md) configuration setting. By default, the Munchkin tag doesn't correctly handle web pages that are hosted on sites with two-letter [country code top-level domains](https://en.wikipedia.org/wiki/Country_code_top-level_domain) (examples: .io, .co, .ly). This causes the Munchkin cookie domain attribute to be set incorrectly. To achieve a better out of box experience, we added a new **domainSelectorV2** configuration setting. When set to true, an improved algorithm is used to automatically set the Munchkin cookie domain attribute.
+* Adjusted [Opt-Out](/help/javascript-api/lead-tracking.md) cookie domain. In certain cases, the domain attribute of the Munchkin Opt-Out cookie (mkto_opt_out) was set incorrectly. The Munchkin Opt-Out cookie now uses the same logic as the Munchkin cookie (_mkto_trk) to determine the domain cookie attribute, including honoring the **domainLevel** configuration setting.
+* Android application developers can now directly use Google's [Firebase Cloud Messaging](http://firebase.google.com/docs/cloud-messaging/) (FCM) with this SDK. Details can be found [here](/help/mobile/installation.md).
 
 Posted on _2018-12-07_ by _David_
 
@@ -8932,10 +8807,10 @@ The following endpoints return the checksum: [Get Export Lead Job Status](https:
 
 #### Defect Resolutions
 
-1. Fixed issue with [Bulk Custom Object Import](/help/rest-api/bulk-import/bulk-custom-object-import) when importing decimal numbers into integer fields. Before the fix, the decimal number was converted to an integer by assigning the whole number portion and discarding the fractional portion (e.g. 5.432 was converted to 5). Now an "Invalid data type in field Source ID" error is generated for each row that contains a data mismatch. [LM-124228]
-1. Fixed issue where a Email program created using the [Clone Program](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) endpoint did not honor Communication Limits settings in certain cases. [LM-121052]
-1. Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when landing page contained Email Unsubscribe form. [LM-125614]
-1. Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when landing page had been cloned using [Clone Landing Page](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneLandingPageUsingPOST) endpoint. [LM-125614]
+1. Fixed issue with [Bulk Custom Object Import](/help/rest-api/bulk-custom-object-import.md) when importing decimal numbers into integer fields. Before the fix, the decimal number was converted to an integer by assigning the whole number portion and discarding the fractional portion (e.g. 5.432 was converted to 5). Now an "Invalid data type in field Source ID" error is generated for each row that contains a data mismatch.
+1. Fixed issue where a Email program created using the [Clone Program](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) endpoint did not honor Communication Limits settings in certain cases. 
+1. Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when landing page contained Email Unsubscribe form.
+1. Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when landing page had been cloned using [Clone Landing Page](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneLandingPageUsingPOST) endpoint.
 
 #### Deprecations
 
@@ -8971,7 +8846,7 @@ In August 2019 we are releasing new REST APIs, enhancing existing APIs, and reso
 
 ### Enhancements
 
-1. Enhanced Smart Campaign lifecycle capabilities. Added new endpoints to allow you to perform the following operations on Smart Campaigns: get by name, create, update, clone, and delete. Complete information can be found [here](/help/rest-api/asmart-campaigns).
+1. Enhanced Smart Campaign lifecycle capabilities. Added new endpoints to allow you to perform the following operations on Smart Campaigns: get by name, create, update, clone, and delete. Complete information can be found [here](/help/rest-api/smart-campaigns.md).
 1. Enhanced Smart List endpoints to improve query capabilities.
     1. [Get Smart List by Id](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListByIdUsingGET) endpoint now returns Smart List rule descriptions (triggers and filters) when you pass the **includeRules** boolean parameter.
     1. [Get Smart Lists](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListsUsingGET) endpoint now allows you to filter the results by date range when you pass the **earliestUpdatedAt** and **latestUpdatedAt** datetime parameters. Additionally, this endpoint now returns Smart Lists that are members of campaigns and email programs.
@@ -8992,7 +8867,7 @@ In August 2019 we are releasing new REST APIs, enhancing existing APIs, and reso
 1. To align with Adobe's world-class standard for security, we will be deprecating support for Transport Layer Security (TLS) 1.0 and 1.1 starting December 13, 2019. Systems integrating with Marketo that are not compliant with 1.2 protocol could potentially lose access to Marketo Engage services. To maintain your Marketo Engage access, please ensure that all client systems are TLS 1.2 compliant before December 13, 2019. More detailed information can be found [here](https://nation.marketo.com/docs/DOC-7059-tls-10-11-deprecation-faq).
 
 
-1. All Smart Campaign related content now resides in the [Smart Campaigns](/help/rest-api/smart-campaigns/) menu item (underneath REST API > Assets).
+1. All Smart Campaign related content now resides in the [Smart Campaigns](/help/rest-api/smart-campaigns.md) menu item (underneath REST API > Assets).
 
 Posted on _2019-08-16_ by _David_
 
@@ -9009,7 +8884,7 @@ Posted on _2020-01-17_ by _David_
 
 ## How to Retrieve Every Custom Object
 
-We are often asked how to use Marketo's API to get a list of all [custom objects](https://docs.marketo.com/display/public/DOCS/Marketo+Custom+Objects) (COs). Querying for COs requires more than its name: some _a priori_ knowledge about each CO is also required. The methods to get that knowledge may not be obvious since the API provides no method for querying it directly. As with many goals in Marketo Engage, Smart Lists provide an answer for COs linked to Persons (Leads). Smart Lists work differently with Companies and you'll end up with a list of all Persons whose Companies are linked to the type of object for the filter so you may find it necessary to deduplicate companies depending on your goals. Anytime a new Custom Object is approved, an associated filter is created. It will be named in the format "**Has CO NAME**". In the example below, the custom object name is "**Conference Track Subscription"** and its filter is named "**Has Conference Track Subscription**". Once you have created the Smart List, you can retrieve the information necessary to query for associated COs using the [custom objects endpoint](/help/rest-api/custom-objects#query). Export the list ensuring the linked field is included (either ID or email address). You can export using the [Bulk Lead Extract API](/help/rest-api/bulk-extract/bulk-lead-extract) filtering by the **smartListName** or **smartListId** filter or [export from the UI](https://docs.marketo.com/display/public/DOCS/Export+People+to+Excel+from+a+List+or+Smart+List). You'll use each linked field value to query associated custom objects individually in the next step. The custom object's name is **"Conference Track Subscription"** in this example, and its API name is **conferenceTrackSubscription_c**. You'll find the API name both in the UI as "**API Name**" and via the API as "**name**".  Admin | Marketo Custom Objects[/caption] And here's a fragment returned by the [List Custom Objects API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET) endpoint:
+We are often asked how to use Marketo's API to get a list of all [custom objects](https://docs.marketo.com/display/public/DOCS/Marketo+Custom+Objects) (COs). Querying for COs requires more than its name: some _a priori_ knowledge about each CO is also required. The methods to get that knowledge may not be obvious since the API provides no method for querying it directly. As with many goals in Marketo Engage, Smart Lists provide an answer for COs linked to Persons (Leads). Smart Lists work differently with Companies and you'll end up with a list of all Persons whose Companies are linked to the type of object for the filter so you may find it necessary to deduplicate companies depending on your goals. Anytime a new Custom Object is approved, an associated filter is created. It will be named in the format "**Has CO NAME**". In the example below, the custom object name is "**Conference Track Subscription"** and its filter is named "**Has Conference Track Subscription**". Once you have created the Smart List, you can retrieve the information necessary to query for associated COs using the [custom objects endpoint](/help/rest-api/custom-objects#query). Export the list ensuring the linked field is included (either ID or email address). You can export using the [Bulk Lead Extract API](/help/rest-api/bulk-lead-extract.) filtering by the **smartListName** or **smartListId** filter or [export from the UI](https://docs.marketo.com/display/public/DOCS/Export+People+to+Excel+from+a+List+or+Smart+List). You'll use each linked field value to query associated custom objects individually in the next step. The custom object's name is **"Conference Track Subscription"** in this example, and its API name is **conferenceTrackSubscription_c**. You'll find the API name both in the UI as "**API Name**" and via the API as "**name**".  Admin | Marketo Custom Objects[/caption] And here's a fragment returned by the [List Custom Objects API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET) endpoint:
 
 ```json
 {
@@ -9110,7 +8985,7 @@ We get many inquiries about the processes required to retrieve every person (lea
 
 ### Overview
 
-The core technique uses the [Bulk Lead Extract API](/help/rest-api/bulk-extract/bulk-lead-extract). You might expect to be able to create a bulk lead export job with no filter, but you can't: **the API requires a filter**. The available filters are **createdAt**, **staticListName**, **staticListId,** **updatedAt**, **smartListName**, and **smartListId**. Filtering by a Smart List with no filters also seems attractive. Try that and you'll find that the system is smart enough to treat a Smart List with no filter the same: the API requires a filter here too. Since we need a filter, the trustworthy and canonical filter to use is **createdAt**. This filter type permits datetime ranges up to 31 days, so we will need to run multiple jobs and combine the results. We start by finding the oldest possible create date for a lead in the target instance. Starting at that oldest possible date, we'll create jobs spanning 31 days minus one second (more on that later). After creating each job, we will enqueue it and wait for it to complete. Then we'll download the resulting file, and check its integrity using a checksum. And finally, deduplicate leads by ID then write unique leads to an output CSV file.
+The core technique uses the [Bulk Lead Extract API](/help/rest-api/bulk-lead-extract). You might expect to be able to create a bulk lead export job with no filter, but you can't: **the API requires a filter**. The available filters are **createdAt**, **staticListName**, **staticListId,** **updatedAt**, **smartListName**, and **smartListId**. Filtering by a Smart List with no filters also seems attractive. Try that and you'll find that the system is smart enough to treat a Smart List with no filter the same: the API requires a filter here too. Since we need a filter, the trustworthy and canonical filter to use is **createdAt**. This filter type permits datetime ranges up to 31 days, so we will need to run multiple jobs and combine the results. We start by finding the oldest possible create date for a lead in the target instance. Starting at that oldest possible date, we'll create jobs spanning 31 days minus one second (more on that later). After creating each job, we will enqueue it and wait for it to complete. Then we'll download the resulting file, and check its integrity using a checksum. And finally, deduplicate leads by ID then write unique leads to an output CSV file.
 
 ### Find Your Oldest Lead
 
@@ -9240,7 +9115,7 @@ There's no body for this POST, we are simply using the POST HTTP verb here. That
 }
 ```
 
-As I mentioned earlier, you are limited in the number of jobs that can be run at a time. There is also a limit to the number of jobs queued at one time: 10. We need more than 40 so that limit prevents us from creating all the jobs at once. Other integrations can run jobs too, so we need to account for the possibility that all slots are full. Trying to enqueue a new job when there are already 10 queued jobs will generate a [1029](/help/rest-api/error-codes) error. When you get a **1029**, use an exponential backoff until the job can be enqueued. I wait 1 minute and double that value each time I get a **1029** error code up to 4 minutes between requests, but never longer than that. This technique is known as [Truncated Binary Exponential Backoff](https://devopedia.org/binary-exponential-backoff) and is best practice for recoverable errors and status checks.
+As I mentioned earlier, you are limited in the number of jobs that can be run at a time. There is also a limit to the number of jobs queued at one time: 10. We need more than 40 so that limit prevents us from creating all the jobs at once. Other integrations can run jobs too, so we need to account for the possibility that all slots are full. Trying to enqueue a new job when there are already 10 queued jobs will generate a [1029](/help/rest-api/error-codes.md) error. When you get a **1029**, use an exponential backoff until the job can be enqueued. I wait 1 minute and double that value each time I get a **1029** error code up to 4 minutes between requests, but never longer than that. This technique is known as [Truncated Binary Exponential Backoff](https://devopedia.org/binary-exponential-backoff) and is best practice for recoverable errors and status checks.
 
 ### Wait for Job to Complete
 
@@ -9322,7 +9197,7 @@ Posted on _2020-02-26_ by _David_
 
 ## Deprecation of Munchkin Associate Lead Method
 
-With the next release of the Munchkin JavaScript Client, version 159, we will begin deprecation of the Munchkin [Associate Lead method](/help/javascript-api/api-reference). Beginning with this version, when the method is invoked, a warning will be issued in the browser console indicating that the method will be removed in a future release. Once the method has been removed, attempts to use the method will result in failure. Marketo customers which we have identified as having used this method recently will be notified individually of their use. For more information on the Munchkin 159 release, [see this Marketing Nation Post](https://nation.marketo.com/t5/Product-Documents/Munchkin-JavaScript-version-159-amp-Associate-Lead-Deprecation/ta-p/299687).
+With the next release of the Munchkin JavaScript Client, version 159, we will begin deprecation of the Munchkin [Associate Lead method](/help/javascript-api/api-reference.md). Beginning with this version, when the method is invoked, a warning will be issued in the browser console indicating that the method will be removed in a future release. Once the method has been removed, attempts to use the method will result in failure. Marketo customers which we have identified as having used this method recently will be notified individually of their use. For more information on the Munchkin 159 release, [see this Marketing Nation Post](https://nation.marketo.com/t5/Product-Documents/Munchkin-JavaScript-version-159-amp-Associate-Lead-Deprecation/ta-p/299687).
 
 ### FAQs
 
@@ -9330,12 +9205,11 @@ How do I know if I'm affected?
 
 Adobe will notify customers where we have observed usage of this method on their subscription, and will do so several times over the deprecation period.
 
-When will the method be removed?--
+When will the method be removed?
 
 This method will be removed in Munchkin JS v161, scheduled for General Availability alongside the October 2021 Marketo release.
 
 Why is this method being removed?
-
 
 More performant ways of fulfilling the same use cases have been implemented and released since the introduction of this method. In order to improve the performance and health of our services, it is sometimes necessary to remove features which do not perform to acceptable standards.
 
@@ -9345,7 +9219,7 @@ Munchkin Associate Lead has two primary use cases, submission of person data, an
 
 #### Server-Side Submission
 
-If you do not need browser-side submission, the REST API offers many methods for [person data submission](/help/rest-api/leads#create-and-update), and a [purpose-built method for associating cookies to person records](/help/rest-api/leads#associate-web-activity).
+If you do not need browser-side submission, the REST API offers many methods for [person data submission](/help/rest-api/leads.md), and a [purpose-built method for associating cookies to person records](/help/rest-api/leads.md).
 
 When is Version 159 of Munchkin Rolling Out?
 
@@ -9699,9 +9573,9 @@ Posted on _2021-03-17_ by _Kenny_
 In May 2021 we are releasing new REST APIs, enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
 * Added Program Member APIs that allow you to retrieve, update, and delete program membership records. For more information see [REST API > Lead Database > Program Members](/help/rest-api/program-members/).
-* Added Bulk Custom Object Extract APIs that allow you to export first-level Marketo Custom Object records which are associated with leads in a one-to-many relationship. For more information see [REST API > Bulk Extract > Bulk Custom Object Extract](/help/rest-api/bulk-extract/bulk-custom-object-extract/).
+* Added Bulk Custom Object Extract APIs that allow you to export first-level Marketo Custom Object records which are associated with leads in a one-to-many relationship. For more information see [REST API > Bulk Extract > Bulk Custom Object Extract](/help/rest-api/bulk-custom-object-extract/).
 * Added Custom Field Metadata APIs that allow you to create, update, and retrieve metadata for lead fields. For more information see [REST API > Lead Database > Leads](/help/rest-api/leads/#fields).
-* We have enhanced both the [Lead API](/help/rest-api/leads/#adobe_ecid) and the [Bulk Lead Extract API](/help/rest-api/bulk-extract/bulk-lead-extract/#options) to permit users to retrieve the Adobe Experience Cloud Id (ECID). This allows users who [Sync Audiences from Adobe Experience Cloud](https://docs.marketo.com/display/public/DOCS/Sync+an+Audience+From+Adobe+Experience+Cloud) to identify leads that have associated ECIDs. This opens up [integration possibilities](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) with other Adobe Experience Cloud products.
+* We have enhanced both the [Lead API](/help/rest-api/leads/#adobe_ecid) and the [Bulk Lead Extract API](/help/rest-api/bulk-lead-extract/#options) to permit users to retrieve the Adobe Experience Cloud Id (ECID). This allows users who [Sync Audiences from Adobe Experience Cloud](https://docs.marketo.com/display/public/DOCS/Sync+an+Audience+From+Adobe+Experience+Cloud) to identify leads that have associated ECIDs. This opens up [integration possibilities](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) with other Adobe Experience Cloud products.
 * We have enhanced the [Bulk Lead Import API](/help/rest-api/bulk-lead-import.md) to support adding leads to company records during the import process. This is done by including the **externalCompanyId** field to the import file.
 * We have enhanced several Program endpoints to provide parity with functionality found in the Marketo Engage UI. We have enhanced the [Create Programs](/help/rest-api/assets.md#create) and [Clone Programs](/help/rest-api/assets.md) endpoints to permit create, clone, or move operations on event programs. This is for users that organize event programs by "nesting" them underneath other program types. We have also enhanced the [Delete Program](/help/rest-api/assets.md) endpoint to permit deletion of programs that contain the following assets: Push Notifications, In-App Messages, Reports, Landing Pages with Embedded Social Assets.
 * As a Marketo Admin, you can [mark a specific field as "sensitive"](https://docs.marketo.com/display/public/DOCS/Mark+a+Field+as+Sensitive) so its values [never get pre-filled in forms](https://docs.marketo.com/display/public/DOCS/Disable+Pre-fill+for+a+Form+Field), thereby protecting users' sensitive data. We have enhanced several Form Field endpoints to provide parity with this functionality found in the Marketo Engage UI.
@@ -9736,7 +9610,7 @@ Posted on _2021-07-22_ by _David_
 
 In August 2021 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have enhanced the Bulk Activity Extract API to permit users to filter using primary attributes for 6 different activity types. For more information see [Bulk Activity Extract](/help/rest-api/bulk-activity-extract/#filters).
+* We have enhanced the Bulk Activity Extract API to permit users to filter using primary attributes for 6 different activity types. For more information see [Bulk Activity Extract](/help/rest-api/bulk-activity-extract.md).
 * In order to give Marketo Sales Connect users more access to their sales activity data we enabled additional sales activity attributes. We added the following attributes to Send Sales Email, Open Sales Email, and Click Sales Email activities:
 
 
@@ -9795,7 +9669,7 @@ Posted on _2021-10-25_ by _David_
 
 In January 2022 we are enhancing existing REST APIs, and resolving several defects. See the full list of updates below.
 
-* We have enhanced the [Bulk Custom Object Extract](/help/rest-api/bulk-extract/bulk-custom-object-extract/#filters) API to permit users to filter using an **updatedAt** date range.
+* We have enhanced the [Bulk Custom Object Extract](/help/rest-api/bulk-custom-object-extract/#filters) API to permit users to filter using an **updatedAt** date range.
 * Added Program Member field metadata APIs that allow you to create, update, and retrieve metadata for Program Member fields. For more information see [Program Members > Fields](/help/rest-api/program-members/#fields).
 * Added Company field metadata APIs that allow you to retrieve metadata for Company fields. For more information see [Companies > Fields](/help/rest-api/companies/#fields).
 * Added Opportunity field metadata APIs that allow you to retrieve metadata for Opportunity fields. For more information see [Opportunities > Fields](/help/rest-api/opportunities/#fields).
