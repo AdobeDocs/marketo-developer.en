@@ -9482,7 +9482,7 @@ In January 2021 we are releasing new REST APIs and resolving several defects. Se
 ### Defect Resolutions
 
 * Fixed issue where [Delete User](/help/rest-api/user-management.md) endpoint would allow you to delete an API-Only User that was in-use by a Custom Service. Now it returns an error "611, You cannot delete an API user that is being used in API service". [LM-141893]
-* Fixed issue where [Get Users](/help/rest-api/user-management].) endpoint would return deleted users in some cases. [LM-141542]
+* Fixed issue where [Get Users](/help/rest-api/user-management.md) endpoint would return deleted users in some cases. [LM-141542]
 * Fixed issue where [Clone Program](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) endpoint. If you specified a program name that exceeded 255 characters, it would return "611, Unable to clone program error". Now it returns "701, name cannot exceed more than 255 characters". [LM-143436]
 * Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint. When you approved a landing page with mobile version activated, you would see content from mobile version in desktop version in certain cases. [LM-146867]
 * Fixed issue with [Unapprove Landing Page](https://developer.adobe.com/marketo-apis/api/asset/#operation/unapproveLandingPageByIdUsingPOST) endpoint which allowed you to unapprove a landing page that was in use as a follow up page by one or more forms. It now returns an error "709, Unapprove landing page failed. Landing page is in use by one or more forms as a followup page with form IDs:[_formId1,formId2,..._]". [LM-143326]
