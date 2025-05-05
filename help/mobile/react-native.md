@@ -133,7 +133,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
    }
    @ReactMethod
       public void initializeSDK(String frameworkType, String munchkinId, String appSecreteKey){
-          marketoSdk.initializeSDK(munchkinId,appSecreteKey,frameworkType);
+          marketoSdk.initializeSDK(frameworkType,munchkinId,appSecreteKey);
     }
    
 
