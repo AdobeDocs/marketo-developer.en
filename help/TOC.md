@@ -152,7 +152,7 @@ index: yes
    - [Response Mappings](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
 - [Client Libraries](https://github.com/Marketo/Community-Supported-Client-Libraries)
-- [Data Streams](data-streams.md)
+- [Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [Email Scripting](email-scripting.md)
 - [License](api-license.md)
 - [Partner Sandbox](partner-sandbox.md)
