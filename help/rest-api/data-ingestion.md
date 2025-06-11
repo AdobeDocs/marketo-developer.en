@@ -8,7 +8,7 @@ exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
 
 The Data Ingestion API is a high volume, low latency, highly available service designed to handle ingestion of large amounts of person and person related data efficiently and with minimal delays. 
 
-Data is ingested by submitting requests that execute asynchronously. Request status can be retrieved by subscribing to events from the [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/).​
+Data is ingested by submitting requests that execute asynchronously. Request status can be retrieved by subscribing to events from the [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).​
 
 Interfaces are offered for two object types: Persons, Custom Objects. The record operation is "insert or update" only.
 
