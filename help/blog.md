@@ -8975,7 +8975,7 @@ In August 2019 we are releasing new REST APIs, enhancing existing APIs, and reso
 1. Added endpoints for extracting Smart List definitions.
     1. Get [Smart List by Smart Campaign Id](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListBySmartCampaignIdUsingGET) endpoint returns the smart list record for a given smart campaign id.
     1. Get [Smart List by Program Id](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListByProgramIdUsingGET) endpoint returns the smart list record for a given program id.
-1. Enhanced the [Update Email Content](https://developer.adobe.com/marketo-apis/api/asset/#operation/updateEmailContentUsingPOST) endpoint to allow updates to email header fields for emails that have been broken from their template (subject, from name, from email, reply to). Broken from the template is described [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html'sHTML-BreakinganEmailFromitsTemplate).
+1. Enhanced the [Update Email Content](https://developer.adobe.com/marketo-apis/api/asset/#operation/updateEmailContentUsingPOST) endpoint to allow updates to email header fields for emails that have been broken from their template (subject, from name, from email, reply to). Broken from the template is described [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html).
 
 ### Defect Resolutions
 

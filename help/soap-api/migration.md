@@ -27,7 +27,7 @@ The Marketo REST API uses OAuth 2.0 based authentication with the Client Credent
 The SOAP API supports lead data synchronization, [Munchkin cookie association](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/javascriptapi/leadtracking/lead-tracking), and lead merging. If your application calls the SOAP syncLead method and sets the `marketoCookie` parameter, you can migrate by either:
 
 1. Using the [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/syncLeadUsingPOST) REST method, followed by [Associated Lead](https://developer.adobe.com/marketo-apis/api/mapi/#operation/associateLeadUsingPOST)
-2. You can call [Submit Form](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/leads"%20\l%20"submit-form), though this requires configuration of some Marketing Assets and some interaction with the [Forms API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/forms)
+2. You can call [Submit Form](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/leads), though this requires configuration of some Marketing Assets and some interaction with the [Forms API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/forms)
 
 Applications which use the `foreignSysPersonId` key type, should migrate to using a custom lead field to represent this external identifier, and use either [Sync Leads](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/leads#create-and-update) or [Bulk Lead Import](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-import/bulk-lead-import) REST Methods.
 
@@ -87,7 +87,7 @@ REST Documentation:
 
 REST Documentation:
 
-- [Smart Campaigns](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns"%20\h%20HYPERLINK%20"https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns)
+- [Smart Campaigns](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns)
 
 The SOAP API only supports three use cases for smart campaigns: [Triggering Leads to Qualify for a Requestable Smart Campaign](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns#trigger), retrieving those Requestable Campaigns, and [Scheduling a Future Run of a Smart Campaign](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns#schedule).
 
@@ -101,7 +101,7 @@ The SOAP API only supports three use cases for smart campaigns: [Triggering Lead
 
 REST Documentation:
 
-- [Custom Objects](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/custom-objects"%20\h%20HYPERLINK%20"https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/custom-objects)
+- [Custom Objects](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/custom-objects)
 
 The SOAP API only supported CRUD operations for custom objects.
 
