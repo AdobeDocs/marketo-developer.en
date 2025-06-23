@@ -81,7 +81,6 @@ index: yes
    - [Channels](rest-api/channels.md)
    - [Custom Services](rest-api/custom-services.md)
    - [Data Ingestion API](rest-api/data-ingestion.md)
-   - [Download Swagger Definitions](rest-api/swagger.md)
    - [Endpoint Reference](rest-api/endpoint-reference.md)
    - [Error Codes](rest-api/error-codes.md)
    - Lead Database {#lead-database}
