@@ -281,7 +281,9 @@ Each record in a successful request may succeed or fail on an individual basis, 
 
 #### Record-Level Error Codes
 
-<table>
+>[!NOTE]
+>
+><table>
   <tbody>
     <tr>
       <td>Response Code</td>
@@ -424,10 +426,12 @@ Each record in a successful request may succeed or fail on an individual basis, 
       <td><ul>
           <li>Too many jobs in queue</li>
           <li>Export daily quota exceeded</li>
+          <li>Job already queued</li>
         </ul></td>
       <td><ul>
           <li>Subscriptions are allowed a maximum of 10 bulk extract jobs in the queue at any given time.</li>
           <li>By default extract jobs are limited to 500MB per day (resets daily at 12:00AM CST).</li>
+          <li>The export id has already been queued.</li>
         </ul></td>
     </tr>
     <tr>
@@ -480,3 +484,4 @@ Each record in a successful request may succeed or fail on an individual basis, 
     </tr>
   </tbody>
 </table>
+
