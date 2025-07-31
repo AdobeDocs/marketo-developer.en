@@ -482,6 +482,11 @@ Each record in a successful request may succeed or fail on an individual basis, 
       <td>Merge failure, unable to perform merge operation in natively synced CRM
         This is the error msg, which Marketo receives when merging in Salesforce.</td>
     </tr>
+    <tr>
+      <td><a name="1079"></a>1079</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a>  call failed due to Personalized URL conflict in duplicate records</td>
+      <td>A Merge Leads call specified many Leads with the same Personalized URL. To resolve use Marketo Engage user interface to merge these records.</td>
+    </tr>
   </tbody>
 </table>
 
