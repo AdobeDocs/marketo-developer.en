@@ -34,7 +34,7 @@ The Bulk Activity Extract APIs require that the API user have the "Read-Only Act
 | Remove from List | Static list id | [Get Static List by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Static List |
 | Fill Out Form | Form id | [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Web Form |
 
-When using `primaryAttributeValueIds`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in `activityTypeIds`. 
+When using `primaryAttributeValueIds`, the `activityTypeIds` filter must be present and only contain activity ids that match the corresponding asset group. For example, if you are filtering on Web Form assets, only the "Fill Out Form" activity type id is allowed in `activityTypeIds`.
 
 Example Request Body:
 
@@ -68,7 +68,7 @@ Example Request Body:
 | Remove from List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Static List |
 | Fill Out Form | Form name | [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Web Form |
 
-Note that you must use "&lt;<em>program</em>&gt;.&lt;<em>asset</em>&gt;" notation to specify the name for the following asset groups: Marketing Program, Static List, Web Form. For example, a form with the name "MPS Outbound" that resides underneath a program with the name "GL_OP_ALL_2021" would be specified as "GL_OP_ALL_2021.MPS Outbound". 
+Note that you must use "&lt;<em>program</em>&gt;.&lt;<em>asset</em>&gt;" notation to specify the name for the following asset groups: Marketing Program, Static List, Web Form. For example, a form with the name "MPS Outbound" that resides underneath a program with the name "GL_OP_ALL_2021" would be specified as "GL_OP_ALL_2021.MPS Outbound".
 
 Example Request Body:
 
@@ -110,14 +110,14 @@ POST /bulk/v1/activities/export/create.json
 ```
 
 ```json
-{ 
+{
    "format": "CSV",
-   "filter": { 
-      "createdAt": { 
+   "filter": {
+      "createdAt": {
          "startAt": "2017-07-01T23:59:59-00:00",
          "endAt": "2017-07-31T23:59:59-00:00"
       },
-      "activityTypeIds": [ 
+      "activityTypeIds": [
          1,
          12,
          13

@@ -45,7 +45,7 @@ To re-add the plugin, run the following command:
 Once the Cordova Android platform is built, open the app with Android Studio and update the `dirs` value of the `Marketo.gradle` file found in the `com.marketo.plugin` folder.
 
 ```
-repositories{    
+repositories{
   jcenter()
   flatDir{
       dirs '../app/src/main/aar'
@@ -72,19 +72,19 @@ Check the list of platforms added `$cordova platform ls`
         1. Move the downloaded 'google-services.json' file into your Phonegap app module root directory
         1. Remove the file 'MyFirebaseInstanceIDService' from location `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (Deprecated)
         1. Modify the file 'MyFirebaseMessagingService' in location `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` as follows:
-                
+
               ```
               import com.marketo.Marketo;
-              
+
               public class MyFirebaseMessagingService extends FirebaseMessagingService{
-              
+
               @Override
               public void onNewToken(String s){
                 super.onNewToken(s);
                 MarketoExtension.setPushNotificaitonTokens(s);
                 //Add your code here
               }
-              
+
               @Override
               public void onMessageReceived(RemoteMessage remoteMessage) {
                 MarketoExtension.showPushNotificaiton(remoteMessage);
@@ -92,24 +92,24 @@ Check the list of platforms added `$cordova platform ls`
               }
               }
               ```
-                
+
             1. Modify the file 'fcm_config_files_process.js' in location plugins/cordova-plugin-fcm/scripts as follows
-                
+
                 ```
                 //change
                 var strings = fs.readFileSync("platforms/android/res/values/strings.xml").toString();
                 //to
                 var strings = fs.readFileSync("platforms/android/app/src/main/res/values/strings.xml").toString();
-                
+
                 //AND change
                 fs.writeFileSync("platforms/android/res/values/strings.xml", strings);
                 //to
                 fs.writeFileSync("platforms/android/app/src/main/res/values/strings.xml", strings);
-                
-                
-                
+
+
+
                 ```
-                
+
 
 ### 3. Enable Push Notifications in xCode
 
@@ -157,11 +157,11 @@ marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
   function(error) { console.log("an error occurred:" + error); },
   'YOUR_MUNCHKIN_ID',
-  'YOUR_SECRET_KEY', 
+  'YOUR_SECRET_KEY',
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }

@@ -38,11 +38,11 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb",
          "name": "Saas List",
@@ -51,7 +51,7 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
          "type": "default",
          "updateable": true
       },
-      { 
+      {
          "seq": 1,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fc",
          "name": "My Account List",
@@ -77,14 +77,14 @@ POST /rest/v1/namedAccountLists.json
 ```
 
 ```json
-{ 
+{
    "action": "createOnly",
    "dedupeBy": "dedupeFields",
-   "input": [ 
-      { 
+   "input": [
+      {
          "name": "SAAS List"
       },
-      { 
+      {
          "name": "Manufacturing (Domestic)"
       }
    ]
@@ -92,16 +92,16 @@ POST /rest/v1/namedAccountLists.json
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "status": "created",
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      { 
+      {
          "seq": 1,
          "status": "created",
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fc"
@@ -119,16 +119,16 @@ POST /rest/v1/namedAccountLists/delete.json
 ```
 
 ```json
-{ 
+{
    "deleteBy": "dedupeFields",
-   "input": [ 
-      { 
+   "input": [
+      {
          "name": "Saas List"
       },
-      { 
+      {
          "name": "B2C List"
       },
-      { 
+      {
          "name": "Launchpoint Partner List"
       }
    ]
@@ -136,25 +136,25 @@ POST /rest/v1/namedAccountLists/delete.json
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb",
          "status": "deleted"
       },
-      { 
+      {
          "seq": 1,
          "id": "dff23271-f996-47d7-984f-f2676861b5fc",
          "status": "deleted"
       },
-      { 
+      {
          "seq": 2,
          "status": "skipped",
-         "reasons": [ 
-            { 
+         "reasons": [
+            {
                "code": "1013",
                "message": "Record not found"
             }
@@ -183,18 +183,18 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
 ```json
-{ 
+{
    "requestId": "e42b#14272d07d78",
    "success": true,
-   "result": [ 
-      { 
+   "result": [
+      {
          "seq": 0,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb",
          "name": "Saas List",
          "createdAt": "2017-02-01T00:00:00Z",
          "updatedAt": "2017-03-05T17:21:15Z"
       },
-      { 
+      {
          "seq": 1,
          "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fc",
          "name": "My Account List",
@@ -217,7 +217,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 {
     "input": [
         {
-             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb" 
+             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
         },
         {
              "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
@@ -257,7 +257,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 {
     "input": [
         {
-             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb" 
+             "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"
         },
         {
              "marketoGUID": "dff23271-f996-47d7-984f-f2676861b5fb"

@@ -31,20 +31,20 @@ GET /rest/v1/leads/describe.json
 ### Response
 
 ```json
-{  
+{
    "requestId":"37ca#1475b74e276",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":2,
          "displayName":"Company Name",
          "dataType":"string",
          "length":255,
-         "rest":{  
+         "rest":{
             "name":"company",
             "readOnly":false
          },
-         "soap":{  
+         "soap":{
             "name":"Company",
             "readOnly":false
          }
@@ -62,7 +62,7 @@ Optionally you may pass a fields parameter containing a comma-separated list of 
 
 ### Request
 
-```    
+```
 GET /rest/v1/lead/{id}.json
 ```
 
@@ -97,7 +97,7 @@ If the total length of your GET request exceeds 8KB, an HTTP error is returned: 
 
 ### Request
 
-```   
+```
 GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 ```
 
@@ -162,28 +162,28 @@ In addition to retrieving lead data, you can create, update and delete lead reco
 
 ### Request
 
-```   
+```
 POST /rest/v1/leads.json
 ```
 
 ### Body
 
 ```json
-{  
+{
    "action":"createOnly",
    "lookupField":"email",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"kjashaedd-1@klooblept.com",
          "firstName":"Kataldar-1",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-2@klooblept.com",
          "firstName":"Kataldar-2",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-3@klooblept.com",
          "firstName":"Kataldar-3",
          "postalCode":"04828"
@@ -195,19 +195,19 @@ POST /rest/v1/leads.json
 ### Response
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "id":52,
          "status":"created"
       }
@@ -241,7 +241,7 @@ The Get Lead Field by Name endpoint retrieves metadata for a single field on the
 
 ### Request
 
-```   
+```
 GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -273,7 +273,7 @@ The Get Lead Fields endpoint retrieves metadata for all fields on the lead objec
 
 ### Request
 
-```   
+```
 GET /rest/v1/leads/schema/fields.json
 ```
 
@@ -408,7 +408,7 @@ GET /rest/v1/leads/schema/fields.json
     "moreResult": false
 }
 ```
- 
+
 ## Create Fields
 
 The Create Lead Fields endpoint creates one or more custom fields on the lead object. This endpoint provides functionality that is comparable to what is available in the Marketo Engage UI. You can create a maximum of up to 100 custom fields using this endpoint.
@@ -420,7 +420,7 @@ There are a few rules associated with name and `displayName` naming. The name at
 
 ### Request
 
-```  
+```
 POST /rest/v1/leads/schema/fields.json
 ```
 
@@ -547,13 +547,13 @@ The Update Lead Field endpoint updates a single custom field on the lead object.
 <td style="width: 18.8776%;">no</td>
 </tr>
 </tbody>
-</table>            
+</table>
 
 The required `fieldApiName` path parameter specifies the API name of the field to update. The required input parameter is an array that contains a single lead field object.  The field object contains one or more attributes.
 
 ### Request
 
-```    
+```
 POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -569,7 +569,7 @@ POST /rest/v1/leads/schema/fields/{fieldApiName}.json
       }
   ]
 }
-```  
+```
 
 ### Response
 
@@ -596,7 +596,7 @@ Note regarding anonymous activities. If you want to associate prior anonymous ac
 
 ### Request
 
-```    
+```
 POST /rest/v1/leads/push.json
 ```
 
@@ -708,13 +708,13 @@ New leads are created in the primary partition for the workspace in which the fo
 
 ### Request
 
-```    
+```
 POST /rest/v1/leads/submitForm.json
 ```
 
 ### Header
 
-```    
+```
 Content-Type: application/json
 ```
 
@@ -775,7 +775,7 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ### Response
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -791,14 +791,14 @@ Through Lead Tracking (Munchkin), Marketo records web activity for visitors to y
 
 ### Request
 
-```    
+```
 POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marketo.com-1396310362214-46169
 ```
 
 ### Response
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -814,21 +814,21 @@ To access the list id through the Marketo UI, navigate to the list. The list `id
 
 ### Request
 
-```    
+```
 GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ```
 
 ### Response
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
    "nextPageToken":
 "PS5VL5WD4UOWGOUCJR6VY7JQO2KUXL7BGBYXL4XH4BYZVPYSFBAONP4V4KQKN4SSBS55U4LEMAKE6===",
     "result":[
        {
-            "id":50,  
+            "id":50,
             "email":"kjashaedd@klooblept.com",
             "firstName":"Kataldar",
              "postalCode":"04828"
@@ -837,17 +837,17 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
            "id":2343,
            "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
-           "postalCode":"04828" 
+           "postalCode":"04828"
        },
       {
            "id":88498,
-           "email":"kjashaedd@klooblept.com", 
+           "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
          "postalCode":"04828"
          }
     ]
 }
-```  
+```
 
 The Get Lists by Lead Id endpoint takes a lead record `id` path parameter and returns all static list records that the lead is a member of.
 
@@ -971,7 +971,7 @@ The Get Programs by Lead Id endpoint takes a lead record id path parameter and r
 
 ```
 GET /rest/v1/leads/{id}/programMembership.json
-```    
+```
 
 ### Response
 
@@ -1000,7 +1000,7 @@ The Get Smart Campaigns by Lead Id endpoint takes a lead record id path paramete
 
 ### Request
 
-```    
+```
 GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 ```
 
@@ -1038,7 +1038,7 @@ Removing leads is straightforward using the Delete Leads endpoint.  Specify lead
 
 ### Request
 
-```   
+```
 POST /rest/v1/leads/delete.json
 ```
 
@@ -1059,7 +1059,7 @@ POST /rest/v1/leads/delete.json
 
 ### Response
 
-```json    
+```json
 {
   "requestId":"3608#16664333670",
   "result":[
@@ -1093,7 +1093,7 @@ Leads Endpoints have a 30s timeout unless noted below:
 * Sync Leads: 90s
 * Associate Lead: 60s
 * Merge Leads: 180s
-* Update Lead Partition: 60s 
-* Push Lead to Marketo: 90s 
-* Get Leads by Filter Type: 60s 
+* Update Lead Partition: 60s
+* Push Lead to Marketo: 90s
+* Get Leads by Filter Type: 60s
 * Get Leads by List ID: 60s

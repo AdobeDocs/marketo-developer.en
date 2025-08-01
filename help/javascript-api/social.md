@@ -11,12 +11,12 @@ exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
 ## Sample Embedded Share Widget
 
 ```html
-<!-- Marketo Widget Loader Script --> 
+<!-- Marketo Widget Loader Script -->
 
 <script type="text/javascript" src="//b2c-mlm.marketo.com/jsloader/271d8232-1500-4305-b7ed-05d451b9ee0c/loader.php.js">
 </script>
 
- <!-- The Location of the Social Widget --> 
+ <!-- The Location of the Social Widget -->
 
 <divclass='cf_widgetloader cf_w_245d8f3c0955454cbd26abc39d0d874c'="" options="{&quot;outerHeight&quot;:400, &quot;outerWidth&quot;:600}">
 </divclass='cf_widgetloader'>
@@ -82,13 +82,13 @@ This example shows a previously hidden element with id "signedUp" after a user h
 
 ## Basic Events Table
 
-| Event name| Description | Widgets that use this event | Supported Arguments (passed to event callback function) | 
-| --- | --- | --- | --- | 
+| Event name| Description | Widgets that use this event | Supported Arguments (passed to event callback function) |
+| --- | --- | --- | --- |
 | share_sent | Fires every time a share request is sent to the server for processing | All widgets that have the ability to share | 1."share_sent" (String)<br>2. Parameters sent (Object) |
-| share_success | Fires when the share request is successfully processed. | All widgets that have the ability to share. | 1."share_success" (String)<br>2. Share response object, containing message sent and shortened url (Object) | 
-| vote_success | Fires when a user has successfully voted in a poll. | Poll, VS, Vote widgets | 1. "vote_success" (String)<br>2. Item voted for, including title, description, entity identifier (Object) | 
-| offer_enrolled | Fires when a user has successfully enrolled in an offer | All offer widgets | 1."offer_enrolled" (String)<br>2. Changed user properties (Object),<br>3. Changed user attributes (Object) | 
-| profile_saved | Fires when a user has updated their profile from profile capture | All non-offer widgets that have profile capture enabled | 1."profile_saved" (String)<br>2. Changed user properties (Object)<br>3. Changed user attributes (Object) | 
+| share_success | Fires when the share request is successfully processed. | All widgets that have the ability to share. | 1."share_success" (String)<br>2. Share response object, containing message sent and shortened url (Object) |
+| vote_success | Fires when a user has successfully voted in a poll. | Poll, VS, Vote widgets | 1. "vote_success" (String)<br>2. Item voted for, including title, description, entity identifier (Object) |
+| offer_enrolled | Fires when a user has successfully enrolled in an offer | All offer widgets | 1."offer_enrolled" (String)<br>2. Changed user properties (Object),<br>3. Changed user attributes (Object) |
+| profile_saved | Fires when a user has updated their profile from profile capture | All non-offer widgets that have profile capture enabled | 1."profile_saved" (String)<br>2. Changed user properties (Object)<br>3. Changed user attributes (Object) |
 | video_loaded | Fires when an embedded video is fully loaded and initialized. | VideoShare widget | 1. "video_loaded" (String) 2. ".cf_videoshare_wrap" Element that holds the video (jQuery Object) |
 
 ## Replacing the UI with a Custom UI
