@@ -22,8 +22,8 @@ GET /rest/v1/customobjects.json
 {
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"Car",
          "displayName":"Car",
          "description":"Car owner",
@@ -31,16 +31,16 @@ GET /rest/v1/customobjects.json
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
          "dedupeFields":["vin"],
-         "searchableFields":[ 
+         "searchableFields":[
             ["vin"],
             ["marketoGUID"],
             ["siebelId"]
          ],
-         "relationships":[  
-            {  
+         "relationships":[
+            {
                "field":"siebelId",
                "type":"parent",
-               "relatedTo":{  
+               "relatedTo":{
                   "name":"Lead",
                   "field":"siebelId"
                }
@@ -62,11 +62,11 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"Car",
          "displayName":"Car",
          "description":"Car owner",
@@ -74,42 +74,42 @@ GET /rest/v1/customobjects/{apiName}/describe.json
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
          "dedupeFields":["vin"],
-         "searchableFields":[  
+         "searchableFields":[
             ["vin"],
             ["marketoGUID"],
             ["siebelId"]
          ],
-         "relationships":[  
-            {  
+         "relationships":[
+            {
                "field":"siebelId",
                "type":"parent",
-               "object":{  
+               "object":{
                   "name":"Lead",
                   "field":"siebelId"
                }
             }
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"vin",
                "displayName":"VIN",
                "description":"Vehicle Identification Number",
@@ -117,7 +117,7 @@ GET /rest/v1/customobjects/{apiName}/describe.json
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"siebelId",
                "displayName":"External Id",
                "description":"External Id",
@@ -125,14 +125,14 @@ GET /rest/v1/customobjects/{apiName}/describe.json
                "length":36,
                "updateable":true
             },
-            {  
+            {
                "name":"make",
                "displayName":"Make",
                "dataType":"string",
                "length":36,
                "updateable":true
             },
-            {  
+            {
                "name":"model",
                "displayName":"Model",
                "description":"Vehicle Model",
@@ -140,13 +140,13 @@ GET /rest/v1/customobjects/{apiName}/describe.json
                "length":255,
                "updateable":true
             },
-            {  
+            {
                "name":"year",
                "displayName":"Year",
                "dataType":"integer",
                "updateable":true
             },
-            {  
+            {
                "name":"color",
                "displayName":"Color",
                "description":"Vehicle color",
@@ -169,18 +169,18 @@ GET /rest/v1/customobjects/{apiName}.json?filterType=idField&filterValues=dff232
 ```
 
 ```
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa",
          "vin":"19UYA31581L000000",
          "createdAt":"2015-02-23T18:21:53Z",
          "updatedAt":"2015-02-23T18:23:41Z"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "vin":"29UYA31581L000000",
@@ -198,23 +198,23 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType":"dedupeFields",
-   "fields":[  
+   "fields":[
       "marketoGuid",
       "Bedrooms",
       "yearBuilt"
    ],
-   "input":[  
-      {  
+   "input":[
+      {
          "mlsNum":"1962352",
          "houseOwnerId":"42645756"
       },
-      {  
+      {
          "mlsNum":"2962352",
          "houseOwnerId":"52645756"
       },
-      {  
+      {
          "mlsNum":"3962352",
          "houseOwnerId":"62645756"
       }
@@ -224,11 +224,11 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa",
          "Bedrooms":3,
@@ -236,7 +236,7 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
          "createdAt":"2015-02-23T18:21:53Z",
          "updatedAt":"2015-02-23T18:23:41Z"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "Bedrooms":4,
@@ -244,7 +244,7 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
          "createdAt":"2015-02-23T18:21:53Z",
          "updatedAt":"2015-02-23T18:23:41Z"
       },
-      {  
+      {
          "seq":2,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc",
          "Bedrooms":3,
@@ -335,16 +335,16 @@ POST /rest/v1/customobjects/{apiName}/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "vin":"19UYA31581L000000"
       },
-      {  
+      {
          "vin":"29UYA31581L000000"
       },
-      {  
+      {
          "vin":"39UYA31581L000000"
       }
    ]
@@ -884,7 +884,7 @@ The [Add Custom Object Type Fields](https://developer.adobe.com/marketo-apis/api
 
 ### One-To-Many Relationship
 
-For a one-to-many custom object structure, use a link field in a custom object to connect it to a standard object: Lead or Company. Using the car owner example from Marketo product documentation [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure), we create a custom object that contains car-related information to connect with Leads. 
+For a one-to-many custom object structure, use a link field in a custom object to connect it to a standard object: Lead or Company. Using the car owner example from Marketo product documentation [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure), we create a custom object that contains car-related information to connect with Leads.
 
 1. Create a **Car** object
 1. Add fields to **Car** object: dedupe on **VIN**, link to **Lead****/Lead ID**

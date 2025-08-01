@@ -16,7 +16,7 @@ The Web Personalization JavaScript API extends the platform's automated personal
 The RTP tag should be inserted at the header of the personalized page.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 (function(c,h,a,f,e,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 c[a].p=e;c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -70,7 +70,7 @@ To exclude specific browsers from sending data to the Web Personalization platfo
 In the code example below, "Googlebot|msnbot" is used as bot examples to exclude from Web Personalization activities.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
     (function(c,h,a,f,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

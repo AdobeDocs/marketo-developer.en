@@ -12,7 +12,7 @@ There are a very large number of potential activity types, which may vary from s
 
 Marketo also permits the creation of Custom Activity Types through the Custom Activities Metadata API. Adding custom activities is done through the Add Custom Activities API.
 
-Most activities will be purged after some period of time. 
+Most activities will be purged after some period of time.
 
 ## Describe
 
