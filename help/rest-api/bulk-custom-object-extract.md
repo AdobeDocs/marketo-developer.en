@@ -44,7 +44,6 @@ The [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/a
 | `columnHeaderNames` | Object | No | A JSON object containing key-value pairs of field and column header names. The key must be the name of a field included in the export job. The value is the name of the exported column header for that field. |
 | `format` | String | No | Accepts one of: CSV, TSV, SSV. The exported file is rendered as a comma-separated values, tab-separated values, or space-separated values file, respectively if set. Defaults to CSV if unset. |
 
-
 ## Creating a Job
 
 The parameters for the job are defined before kicking off the export using the [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) endpoint.
@@ -56,7 +55,6 @@ As an example, let's assume that we have created a custom object named "Car" wit
 Custom Object Definition
 
 ![Custom Object](assets/custom-object-car.png)
-
 
 Custom Object Fields
 

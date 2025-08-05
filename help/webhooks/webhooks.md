@@ -47,4 +47,4 @@ Webhooks allow the usage of any number of Custom Header fields to be sent along 
 - Webhook execution time is at the mercy of the response time of the service being used and can result in long campaign execution delays. Even if a service only takes 50ms to execute, that is 1.5 hours when executed 100,000 times.
 - Marketo waits up to 30 seconds for a given service call before terminating the call (a.k.a. timing out).
 - Characters embedded in the URL field are passed as written, e.g '&' is sent as '&', '%26' is sent as '%26'
-    - If a character should be percent-encoded when received by the recipient server, it should be passed explicitly as the string representing that character
+  - If a character should be percent-encoded when received by the recipient server, it should be passed explicitly as the string representing that character

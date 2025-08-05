@@ -10,7 +10,7 @@ The SOAP API is being deprecated and will no longer be available after October 3
 
 ## SOAP WSDL
 
-To retrieve the SOAP WSDL document, obtain your SOAP API Endpoint from your **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** menu. 
+To retrieve the SOAP WSDL document, obtain your SOAP API Endpoint from your **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** menu.
 
 ![SOAP Endpoint](assets/endpoint-soap.png)
 

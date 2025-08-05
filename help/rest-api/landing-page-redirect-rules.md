@@ -142,7 +142,6 @@ The `redirectFrom` parameter specifies the source landing page. This is a JSON o
 | 'visitor' | Required | String | Method name. |
 | callback | Required | Function | Callback function to be triggered for each campaign returned. |
 
-
 The `redirectTo` parameter specifies the target landing page. This is a JSON object that contains a type/value pair which determines whether the source is a Marketo landing page, or a non-Marketo landing page. The `type` attribute can be either "landingPageId" or "url".
 
 | Landing Page Type | redirectTo type | Example |

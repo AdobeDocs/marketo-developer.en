@@ -91,7 +91,6 @@ Each job creation endpoint shares some common parameters for configuring the fi
 | format | String | Determines the file format of the imported data with options for comma-separated values, tab-separated values, and semi-colon-separated values. Accepts one of: CSV, SSV, TSV. The format defaults to CSV. |
 | file | String | Data is specified through multipart form-data in the file. |
 
-
 ## Polling Job Status
 
 Determining the status of the job is simple using the [Get Import Lead Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) endpoint.

@@ -116,7 +116,6 @@ There are two main objects that you will interact with using the Forms 2.0 API. 
     </tr>
 </table>
 
-
 ## Form Methods
 
 <table>

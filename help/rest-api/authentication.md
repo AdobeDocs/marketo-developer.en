@@ -53,7 +53,6 @@ The access token must be sent as an HTTP header.
 
 ### Switching to the Authorization header
 
-
 To switch from using the `access_token` query parameter to an Authorization header, a small code change is required.
 
 Using CURL as an example, this code sends the `access_token` value as a form parameter (the -F flag):

@@ -8,7 +8,7 @@ exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
 >[!INFO]
 >
 >This is an archive of the Marketo blog, spanning 2014 to 2023. It is provided here as a historical reference only.
->Some information might be out of date.  Always check the current documentation for the latest functionality. 
+>Some information might be out of date.  Always check the current documentation for the latest functionality.
 >
 
 >[!IMPORTANT]
@@ -148,9 +148,7 @@ As long as the `<remainingCount/>` value is greater than 0, you make subsequent 
 </ns2:paramsGetMultipleLeads>
 ```
 
-
 This logic continues as long as `<remainingCount/>` is greater than zero. **See below a sample Java program that executes the scenario described above.**
-
 
 ```java
 import com.marketo.mktows.\*;
@@ -176,9 +174,9 @@ public class GetMultipleLeads {
         URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
         String marketoUserId = "CHANGE ME";
         String marketoSecretKey = "CHANGE ME";
-        QName serviceName = new QName("<http://www.marketo.com/mktows/>", 
+        QName serviceName = new QName("<http://www.marketo.com/mktows/>",
         "MktMktowsApiService");
-        MktMktowsApiService service = new 
+        MktMktowsApiService service = new
         MktMktowsApiService(marketoSoapEndPoint, serviceName);
         MktowsPort port = service.getMktowsApiSoapPort();
 
@@ -227,7 +225,7 @@ public class GetMultipleLeads {
         attributes.getStringItems().add("Email");
         request.setIncludeAttributes(attributes);
 
-        JAXBElement<Integer> batchSize = new 
+        JAXBElement<Integer> batchSize = new
         ObjectFactory().createParamsGetMultipleLeadsBatchSize(2);
         request.setBatchSize(batchSize);
 
@@ -237,15 +235,15 @@ public class GetMultipleLeads {
 
         do {
         if (count > 0) {
-        // Set the streamPosition on subsequent calls to paginate 
+        // Set the streamPosition on subsequent calls to paginate
         through large result sets
         String pos = result.getResult().getNewStreamPosition();
-        JAXBElement<String> streamPos = new 
+        JAXBElement<String> streamPos = new
         ObjectFactory().createParamsGetMultipleLeadsStreamPosition(pos);
         request.setStreamPosition(streamPos);
         }
 
-        JAXBContext context = 
+        JAXBContext context =
         JAXBContext.newInstance(ParamsGetMultipleLeads.class);
         Marshaller m = context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -268,7 +266,7 @@ public class GetMultipleLeads {
 }
 ```
 
-### Tips & Tricks:
+### Tips & Tricks
 
 When extracting large volumes of contacts out of Marketo, it is recommended to tune the API request along the following parameters:
 
@@ -282,7 +280,7 @@ Posted on _2014-03-05_ by _Travis Kaufman_
 
 ## February 2014 Release Updates
 
-### SOAP API Update:
+### SOAP API Update
 
 * [syncMObjects](/help/soap-api/syncmobjects.md): You can now add and update tags and channels for existing programs.
 
@@ -292,7 +290,7 @@ Posted on _2014-02-26_ by _Travis Kaufman_
 
 ## March 2014 Release Updates
 
-### SOAP API Update:
+### SOAP API Update
 
 * Performance improvements to [syncLead](/help/soap-api/synclead.md) and [syncMultipleLeads](/help/soap-api/syncmultipleleads.md)
 
@@ -320,9 +318,9 @@ Posted on _2014-04-22_ by _Murta_
 
 ## April 2014 Release Updates
 
-### Marketo Forms Security Update:
+### Marketo Forms Security Update
 
-We introduced a limit on the number and frequency of form post submissions from a single IP address. This limit is now enforced at 30 posts per minute to protect our customers from malicious use of programmatic form submissions. The [syncLead API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) is the recommended integration vehicle for programmatic submission of new contacts in Marketo.    
+We introduced a limit on the number and frequency of form post submissions from a single IP address. This limit is now enforced at 30 posts per minute to protect our customers from malicious use of programmatic form submissions. The [syncLead API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) is the recommended integration vehicle for programmatic submission of new contacts in Marketo.
 
 Posted on _2014-04-29_ by _Travis Kaufman_
 
@@ -336,14 +334,14 @@ Posted on _1970-01-01_ by _Travis Kaufman_
 
 Let's say you would like to delete a lead via the Marketo API. You can accomplish this by calling the requestCampaign API on a campaign that has a predefined flow action to delete a lead. We show you first how to create a Smart Campaign, second how to set up a trigger to run a campaign via the API, third how to define deleting a lead as part of a flow action, and fourth a code sample that would be used to execute this campaign. **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. In a Smart Campaign, you can set up a series of automated actions to take on a smart list of contacts. In the case of deleting a lead, you set up a trigger in the campaign as shown below. First let's set up the Smart Campaign.
 
-1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset 1. Click on Smart Campaign  
-1. Enter the smart campaign name and click Create Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the requestCampaign API. 
-1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas.  
-1. In the trigger, select "is" and "Web Service API." 
+1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset 1. Click on Smart Campaign
+1. Enter the smart campaign name and click Create Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the requestCampaign API.
+1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas.
+1. In the trigger, select "is" and "Web Service API."
 
- **How to Create a Delete a Lead Flow Action on a Campaign** Click on Flow in the top menu. From the menu on the right-side, search for Delete Lead, and then drag it to the center to add it as a trigger to the campaign. Note: If you delete a lead from Marketo only and leave it in your CRM, when any of that lead's data is updated, the lead is recreated in Marketo.  **Code Sample to Call the requestCampaign API** After setting up the campaign and triggers in the Marketo interface, we show you how to use the API to run this campaign. The first sample is an XML request, the second is an XML response, and the final one is a Java code sample that can be used to generate the XML request. We also show you how to find the campaign ID that is used when making a call to the requestCampaign API. The API call also requires you to know the ID of the Marketo campaign beforehand. You can determine the campaign ID using either of the following methods: 
- 
- 1. Use the [getCampaignsForSource](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getCampaignsUsingGET) API 
+ **How to Create a Delete a Lead Flow Action on a Campaign** Click on Flow in the top menu. From the menu on the right-side, search for Delete Lead, and then drag it to the center to add it as a trigger to the campaign. Note: If you delete a lead from Marketo only and leave it in your CRM, when any of that lead's data is updated, the lead is recreated in Marketo.  **Code Sample to Call the requestCampaign API** After setting up the campaign and triggers in the Marketo interface, we show you how to use the API to run this campaign. The first sample is an XML request, the second is an XML response, and the final one is a Java code sample that can be used to generate the XML request. We also show you how to find the campaign ID that is used when making a call to the requestCampaign API. The API call also requires you to know the ID of the Marketo campaign beforehand. You can determine the campaign ID using either of the following methods:
+
+ 1. Use the [getCampaignsForSource](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getCampaignsUsingGET) API
  1. Open the Marketo campaign in a browser and look at the URL address bar. The campaign ID (represented as a 4-digit integer) can be found immediately following "SC". For example, `https://app-stage.marketo.com/#SC**1025**A1`. The bolded portion is the campaign ID - "1025." SOAP Request for requestCampaign
 
 ```xml
@@ -403,71 +401,71 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.EMAIL);
             key2.setKeyValue("anotherlead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
             leadKeyList.getLeadKeies().add(key2);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -484,8 +482,8 @@ Posted on _2014-05-16_ by _Murta_
 
 Let's you want to track custom activity in Marketo. For example, you have a video on a webpage, and want to track visitors who watch more than 50% of a video. You can do this using Munchkin's custom activity tracking feature. This would be implemented by listening for an event on the page, which is the video reaching 50%, and then calling the Munchkin API. To do this, we have to set up a custom activity in Marketo to call based on this event on the page. We use YouTube for the video player, and use their [YouTube Iframe API](https://developers.google.com/youtube/iframe_api_reference) to call the method on the Munchkin API.
 
- We show you first how to generate Munchkin tracking code in Marketo, second how to modify your Munchkin sample code to trigger based on page events, third how to set up a campaign with a smart list that is defined by actions on the page with flows steps, and fifth how to verify that a page visit from an anonymous user was recorded in Marketo. ==== This blog post is a live example of the code being explained. Please fill out this form, so you are a known user in Marketo. This way when you watch 50% of the video, it sends you rest of the video, and if you watch 100% of the video it sends you a link to another blog post. === <https://developers.google.com/youtube/iframe_api_reference> 
- 
+ We show you first how to generate Munchkin tracking code in Marketo, second how to modify your Munchkin sample code to trigger based on page events, third how to set up a campaign with a smart list that is defined by actions on the page with flows steps, and fifth how to verify that a page visit from an anonymous user was recorded in Marketo. ==== This blog post is a live example of the code being explained. Please fill out this form, so you are a known user in Marketo. This way when you watch 50% of the video, it sends you rest of the video, and if you watch 100% of the video it sends you a link to another blog post. === <https://developers.google.com/youtube/iframe_api_reference>
+
  **How to Generate Munchkin Tracking Code** The Munchkin tracking code allows you to track visits to your web site. There are three types of Munchkin code described below, but in this example we use the Asynchronous Munchkin tracking code. A) Simple: has the fewest lines of code, but does not optimize for webpage loading time. This code loads the jQuery library each time a webpage is loaded. B) Asynchronous: reduces webpage loading time. This code checks if the jQuery library already exists, loads it if it's missing, and uses it for executing tracking code once the rest of the webpage has loaded. C) Asynchronous jQuery: reduces webpage loading time and also improves system performance. This code assumes that you already have jQuery, and does not check to load it.
 
 1. Click Admin at the top right of the app.
@@ -523,14 +521,14 @@ Let's you want to track custom activity in Marketo. For example, you have a vide
 This code sample would call the Munchkin API after the user has been on the page for 5 seconds and has also scrolled 500 pixels down the page:
 
 ```javascript
-<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script> 
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
  setTimeout(function(){
   $(window).scroll(function() {
       var y_scroll_position = window.pageYOffset;
-      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked        
-  
+      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked
+
   if(y_scroll_position > scroll_position) {
   //Munchkin tracking code
    (function() {
@@ -541,7 +539,7 @@ $(function(){
         Munchkin.init('XXX-XXX-XXX');
       }
      }
-     
+
      var s = document.createElement('script');
      s.type = 'text/javascript';
      s.async = true;
@@ -554,15 +552,15 @@ $(function(){
      s.onload = initMunchkin;
      document.getElementsByTagName('head')[0].appendChild(s);
    })();
-   }   
+   }
  },5000); //Sets time delay before tracking user
 });
 </script>
 ```
 
-**How to Verify Page Visit by Anonymous User Was Recorded in Marketo** 
+**How to Verify Page Visit by Anonymous User Was Recorded in Marketo**
 
-1. Click on Analytics in the top menu, and then click on New Report. Choose Web Page Activity as the report type, and then name your report. 
+1. Click on Analytics in the top menu, and then click on New Report. Choose Web Page Activity as the report type, and then name your report.
 1. After you create a report, click on Smart List. Then select the Visited Web Page filter from the box on the right. Enter the web page where you put the Munchkin tracking code.
 1. Click on Setup. Select Anonymous Visitors from ISPs, and change option to Shown.
 1. Click on Report. You will now see activity tracked on the web page you selected.
@@ -570,17 +568,17 @@ $(function(){
 
 This article contains code used to implement custom integrations. Due to its customized nature, The Marketo Technical Support team is unable to troubleshoot custom work. Please do not attempt to implement the following code sample without appropriate technical experience, or access to an experienced developer.
 
-For pages with multimedia content, for instance, you may wish to do custom tracking. One common example is to add Munchkin tracking code to the page, and also use the Munchkin API to generate events in your Marketo instance for activities such as playing a video or listening to an audio clip. We recommend that you put Munchkin tracking code on most or all of your Web pages. Munchkin tracking code is automatically included in landing pages that you create using Marketo. Use this call to record that the user did something, like visit a page in Ajax, Flash, or other RIA environment. The URL must not contain " or any domain, but it can point to any page -- even pages that don't exist. If you want to add URL parameters, use the params argument. 
+For pages with multimedia content, for instance, you may wish to do custom tracking. One common example is to add Munchkin tracking code to the page, and also use the Munchkin API to generate events in your Marketo instance for activities such as playing a video or listening to an audio clip. We recommend that you put Munchkin tracking code on most or all of your Web pages. Munchkin tracking code is automatically included in landing pages that you create using Marketo. Use this call to record that the user did something, like visit a page in Ajax, Flash, or other RIA environment. The URL must not contain " or any domain, but it can point to any page -- even pages that don't exist. If you want to add URL parameters, use the params argument.
 The event shows up as a Visit Web Page event in the user's activity log under the domain of the calling web page. Note Your first call to `mktoMunchkin()` always creates a Visit Web Page event for the current page. You do not need to call `visitWebPage` unless you want to track an additional web page visit. `mktoMunchkinFunction('visitWebPage', { url: '/MyFlashMovie/Story1', params: 'x=y&2=3' });`  Note Please ensure that you have access to an experienced JavaScript developer. Marketo Technical Support is not set up to assist with troubleshooting custom JavaScript. The Munchkin JavaScript API allows you to integrate a third-party web system with your Marketo Account. With some web development, you can capture new leads or update current leads with existing applications on your web site. Let's say you have a web application for customer registration that captures new customer information. With just a bit of programming, you can also have lead information for those users captured in Marketo, and a Marketo cookie set for future web tracking.
 
 In addition, another feature allows your web developers to capture and track web activity information from rich web environments, such as Flash or Ajax. Note: If you have the appropriate development resources, you should consider using our SOAP API for integration instead of this API. The SOAP API is more robust and has more functionality than the Munchkin API. Marketo SOAP API Requirements You must include the Munchkin JavaScript code on your web page for any of this to work. You can find the needed script tags in the Munchkin Tutorial. Also enable the Munchkin API, which is also described in the Tutorial.
-Under the Hood After you make a Munchkin API call, it automatically cookies the user if they don't have a cookie. In Marketo, it logs the event (click a link, visit a web page, or a new lead) in the person's Activity Log. If you're using the click link or visit a web page call, the event gets added to that lead's Activity Log (known or anonymous). If this is a new lead and you use the associate lead call, that lead becomes a known lead and their activity history will be preserved. If this is an existing lead (based on email address match), any changed or new values will get updated in that lead's record. 
+Under the Hood After you make a Munchkin API call, it automatically cookies the user if they don't have a cookie. In Marketo, it logs the event (click a link, visit a web page, or a new lead) in the person's Activity Log. If you're using the click link or visit a web page call, the event gets added to that lead's Activity Log (known or anonymous). If this is a new lead and you use the associate lead call, that lead becomes a known lead and their activity history will be preserved. If this is an existing lead (based on email address match), any changed or new values will get updated in that lead's record.
 
-Here's the general form of a `munchkinFunction` call. Include it as tags in your web page wherever you want to call it. You can invoke this like any other JavaScript function. However, you must call the Munchkin tracking function `mktoMunchkin()` before making any `mktoMunchkinFunction()` calls: 
+Here's the general form of a `munchkinFunction` call. Include it as tags in your web page wherever you want to call it. You can invoke this like any other JavaScript function. However, you must call the Munchkin tracking function `mktoMunchkin()` before making any `mktoMunchkinFunction()` calls:
 
 ```javascript
 <script src="http://munchkin.marketo.net/munchkin.js" type="text/javascript"> mktoMunchkin("###-###-###"); mktoMunchkinFunction('function', { key: 'value', key2: 'value'}, 'hash');
-``` 
+```
 
 Where: `###-###-###` is the Munchkin account ID for your account function is the call you want to make params be an array of parameters needed for the call hash is only needed for `associateLead`
 
@@ -609,18 +607,18 @@ When you use lead partitions and workspaces, you can:
 1. Restrict access to assets in your organization
 1. Share assets across marketing teams
 
-We show you first how to create a workspace in Marketo via the UI, and second how to write a lead to that workspace using the [syncLead API](/help/soap-api/synclead.md). **Creating a Workspace** A workspace is a set of leads and Marketo assets. In a workspace, you can only see leads from that workspace and assets (emails, campaigns, lists, etc.) in that workspace. Smart campaigns in that workspace only affect leads in that workspace. To see the workspaces in your account: 
+We show you first how to create a workspace in Marketo via the UI, and second how to write a lead to that workspace using the [syncLead API](/help/soap-api/synclead.md). **Creating a Workspace** A workspace is a set of leads and Marketo assets. In a workspace, you can only see leads from that workspace and assets (emails, campaigns, lists, etc.) in that workspace. Smart campaigns in that workspace only affect leads in that workspace. To see the workspaces in your account:
 
 1. Go to the Workspaces & Lead Partitions page of the Admin section. Your workspaces appear in the Workspaces tab. 1. To create a new workspace, click the New Workspace button in the menu bar of the Workspaces tab.
-1. In the dialog, you need to add some information about the new workspace: 
+1. In the dialog, you need to add some information about the new workspace:
 
 * **Workspace Name** - the name of this workspace as it appears in the interface
-* **Description** - an optional text description of the workspace 
+* **Description** - an optional text description of the workspace
 * **Lead Partitions** - which leads are visible in this partition.
-* **All Lead Partitions** - will see leads from all present and future partitions 
-* **Select individual partitions** - only leads from those partitions (and no future partitions) are visible 
+* **All Lead Partitions** - will see leads from all present and future partitions
+* **Select individual partitions** - only leads from those partitions (and no future partitions) are visible
 * **Primary Lead Partition** - leads who visit your landing pages are added to this partition by default
-* **Language** - the business language of the workspace 
+* **Language** - the business language of the workspace
 
 We show you how to use the API write leads to a particular workspace. The first sample is an XML request, the second is an XML response, and the final one is a Ruby code sample that can be used to generate the XML request. 1. After creating lead, Lead Partition is a field on Lead Info. SOAP Request for `requestCampaign`
 
@@ -681,71 +679,71 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.EMAIL);
             key2.setKeyValue("anotherlead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
             leadKeyList.getLeadKeies().add(key2);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -872,9 +870,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 # Create SOAP Header
-headers = { 
- 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,      
- "requestTimestamp"  => requestTimestamp 
+headers = {
+ 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+ "requestTimestamp"  => requestTimestamp
  }
 }
 
@@ -915,7 +913,6 @@ response = client.call(:sync_multiple_leads, message: request)
 
 puts response
 ```
- 
 
 This article contains code used to implement custom integrations. Due to its customized nature, The Marketo Technical Support team is unable to troubleshoot custom work. Please do not attempt to implement the following code sample without appropriate technical experience, or access to an experienced developer.
 
@@ -926,86 +923,86 @@ Posted on _2014-06-27_ by _Murta_
 Let's say a user fills out a Marketo form on your site. What happens? Marketo cookies the user, and associates them with the email they provided. What if the next time the user visits your website, and they fill out the same form again with a different email. What will happen? Marketo will create a new lead record, and overwrite the first cookie on the user's browser. The user is now a new/different lead in Marketo. We show you four ways to update a lead's email address in Marketo including the [syncLead API method](/help/soap-api/synclead.md), the custom field in a form method, the Marketo UI, and by importing a list. **Via the syncLead API** You can use the [syncLead API](/help/soap-api/synclead.md) to update a lead record using their Marketo ID and new email address. Request XML for `syncMultipleLeads` SOAP API Call
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>  
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">  
-  <SOAP-ENV:Header>  
-    <ns1:AuthenticationHeader>  
-      <mktowsUserId>bigcorp1_461839624B16E06BA2D663</mktowsUserId>  
-      <requestSignature>92f05a7be4838ae1c0e5aafe814891ee72968a08</requestSignature>  
-      <requestTimestamp>2013-07-31T12:38:47-07:00</requestTimestamp>  
-    </ns1:AuthenticationHeader>  
-  </SOAP-ENV:Header>  
-  <SOAP-ENV:Body>  
-    <ns1:paramsSyncLead>  
-      <leadRecord>  
-        <leadId>1090240</leadId>  
-        <Email>t@t.com</Email>  
-      </leadRecord>  
-      <returnLead>false</returnLead>  
-    </ns1:paramsSyncLead>  
-  </SOAP-ENV:Body>  
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:ns1="<http://www.marketo.com/mktows/">
+  <SOAP-ENV:Header>
+    <ns1:AuthenticationHeader>
+      <mktowsUserId>bigcorp1_461839624B16E06BA2D663</mktowsUserId>
+      <requestSignature>92f05a7be4838ae1c0e5aafe814891ee72968a08</requestSignature>
+      <requestTimestamp>2013-07-31T12:38:47-07:00</requestTimestamp>
+    </ns1:AuthenticationHeader>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <ns1:paramsSyncLead>
+      <leadRecord>
+        <leadId>1090240</leadId>
+        <Email>t@t.com</Email>
+      </leadRecord>
+      <returnLead>false</returnLead>
+    </ns1:paramsSyncLead>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 Response XML for syncMultipleLeads SOAP API Call
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>  
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:xsi="<http://www.w3.org/2001/XMLSchema-instance>" xmlns:ns1="<http://www.marketo.com/mktows/">  
-  <SOAP-ENV:Body>  
-    <ns1:successSyncLead>  
-      <result>  
-        <leadId>1090240</leadId>  
-        <syncStatus>  
-          <leadId>1090240</leadId>  
-          <status>UPDATED</status>  
-          <error xsi:nil="true" />  
-        </syncStatus>  
-        <leadRecord xsi:nil="true" />  
-      </result>  
-    </ns1:successSyncLead>  
-  </SOAP-ENV:Body>  
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="<http://schemas.xmlsoap.org/soap/envelope/>" xmlns:xsi="<http://www.w3.org/2001/XMLSchema-instance>" xmlns:ns1="<http://www.marketo.com/mktows/">
+  <SOAP-ENV:Body>
+    <ns1:successSyncLead>
+      <result>
+        <leadId>1090240</leadId>
+        <syncStatus>
+          <leadId>1090240</leadId>
+          <status>UPDATED</status>
+          <error xsi:nil="true" />
+        </syncStatus>
+        <leadRecord xsi:nil="true" />
+      </result>
+    </ns1:successSyncLead>
+  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 See below a sample Ruby program that will output the Request XML above.
 
 ```java
-require 'savon' # Use version 2.0 Savon gem  
-require 'date'  
-  
-mktowsUserId = "" # CHANGE ME  
-marketoSecretKey = "" # CHANGE ME  
-marketoSoapEndPoint = "" # CHANGE ME  
-marketoNameSpace = "<http://www.marketo.com/mktows/>"  
-  
-# Create Signature  
-Timestamp = DateTime.now  
-requestTimestamp = Timestamp.to_s  
-encryptString = requestTimestamp + mktowsUserId  
-digest = OpenSSL::Digest.new('sha1')  
-hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptString)  
-requestSignature = hashedsignature.to_s  
-  
-# Create SOAP Header  
-headers = {   
- 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,        
- "requestTimestamp"  => requestTimestamp   
- }  
-}  
-  
-client = Savon.client(wsdl: '<http://app.marketo.com/soap/mktows/2_3?WSDL>', soap_header: headers, endpoint: marketoSoapEndPoint, open_timeout: 90, read_timeout: 90, namespace_identifier: :ns1, env_namespace: 'SOAP-ENV')  
-  
-# Create Request  
-request = {  
- :lead_record => {  
-  :Email => "<t@t.com>",  
-  :lead_id => "1090240",  
- :return_lead => "false"  
-}  
-  
-response = client.call(:sync_lead, message: request)  
-  
+require 'savon' # Use version 2.0 Savon gem
+require 'date'
+
+mktowsUserId = "" # CHANGE ME
+marketoSecretKey = "" # CHANGE ME
+marketoSoapEndPoint = "" # CHANGE ME
+marketoNameSpace = "<http://www.marketo.com/mktows/>"
+
+# Create Signature
+Timestamp = DateTime.now
+requestTimestamp = Timestamp.to_s
+encryptString = requestTimestamp + mktowsUserId
+digest = OpenSSL::Digest.new('sha1')
+hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptString)
+requestSignature = hashedsignature.to_s
+
+# Create SOAP Header
+headers = {
+ 'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+ "requestTimestamp"  => requestTimestamp
+ }
+}
+
+client = Savon.client(wsdl: '<http://app.marketo.com/soap/mktows/2_3?WSDL>', soap_header: headers, endpoint: marketoSoapEndPoint, open_timeout: 90, read_timeout: 90, namespace_identifier: :ns1, env_namespace: 'SOAP-ENV')
+
+# Create Request
+request = {
+ :lead_record => {
+  :Email => "<t@t.com>",
+  :lead_id => "1090240",
+ :return_lead => "false"
+}
+
+response = client.call(:sync_lead, message: request)
+
 puts response
 ```
 
@@ -1025,14 +1022,14 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/leads.json"
 # Replace with your access token
-auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab" 
+auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
 request_url = marketo_instance + endpoint + auth_token
 
 # Build request body
-data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] } 
+data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] }
 
 # Make request
 response = RestClient.post request_url, data.to_json, :content_type => :json, :accept => :json
@@ -1066,10 +1063,10 @@ In the previous section, we created a custom field called `myCustomField` with t
 **Request Body**
 
 ```json
-{  
+{
    "action":"createOrUpdate",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"<example@example.com>",
          "myCustomField":"examplestring"
       }
@@ -1085,10 +1082,10 @@ Posted on _2014-08-19_ by _Murta_
 
 **NOTE: This is a guest blog post by Fab Capodicasa. He is a Marketo-certified consultant at [Hoosh Marketing](http://hooshmarketing.com.au/), a Marketo LaunchPoint agency partner specializing in B2C. He has worked in both SaaS and marketing for the last 13 years. His background is a blend of hardcore IT, direct marketing, and enterprise sales. Fab is also a former Marketo employee.**
 
- **Overview** In this article we demonstrate how to integrate Unbounce, a popular landing page tool, with Marketo. We show you first how to insert Marketo tracking into Unbounce, and second how to modify Unbounce forms to insert data directly into Marketo. The challenge of integrating Unbounce with Marketo is that Unbounce does not allow default fields to be renamed (for example, first_name cannot be changed to FirstName). It also does not allow field labels to be different from field names. This integration involves JavaScript which tweaks the existing forms to make them compatible with Marketo. I recommend that you have at least a beginner level of JavaScript and an intermediate level of Marketo knowledge to complete the tasks in this article. 
- **Part 1: Add Marketo Tracking Code to Unbounce** Adding Marketo's Munchkin tracking script to Unbounce pages is required both for analytics and the form integration to work. Please follow these steps: Copy your Munchkin code from Marketo: Navigate to Admin -> Munchkin and copy the 'Simple' version of the JavaScript. Open the Unbounce landing page and click JavaScript-> Add New JavaScript.  Click Add, call the script 'Munchkin', select 'Before Body End Tag' and then paste the Munchkin code. Click the Done button. For future Unbounce pages, you go to JavaScript and enable the Munchkin script we created. There is no need to recreate it. 
- **Part 2: Convert the Unbounce Form to a Marketo Form** Now we need to modify the Unbounce form by adding some new hidden fields and JavaScript to allow your Unbounce landing pages to submit lead information directly into Marketo. We will first create a Marketo placeholder form. In Marketo, create a blank form and approve it. 
- 
+ **Overview** In this article we demonstrate how to integrate Unbounce, a popular landing page tool, with Marketo. We show you first how to insert Marketo tracking into Unbounce, and second how to modify Unbounce forms to insert data directly into Marketo. The challenge of integrating Unbounce with Marketo is that Unbounce does not allow default fields to be renamed (for example, first_name cannot be changed to FirstName). It also does not allow field labels to be different from field names. This integration involves JavaScript which tweaks the existing forms to make them compatible with Marketo. I recommend that you have at least a beginner level of JavaScript and an intermediate level of Marketo knowledge to complete the tasks in this article.
+ **Part 1: Add Marketo Tracking Code to Unbounce** Adding Marketo's Munchkin tracking script to Unbounce pages is required both for analytics and the form integration to work. Please follow these steps: Copy your Munchkin code from Marketo: Navigate to Admin -> Munchkin and copy the 'Simple' version of the JavaScript. Open the Unbounce landing page and click JavaScript-> Add New JavaScript.  Click Add, call the script 'Munchkin', select 'Before Body End Tag' and then paste the Munchkin code. Click the Done button. For future Unbounce pages, you go to JavaScript and enable the Munchkin script we created. There is no need to recreate it.
+ **Part 2: Convert the Unbounce Form to a Marketo Form** Now we need to modify the Unbounce form by adding some new hidden fields and JavaScript to allow your Unbounce landing pages to submit lead information directly into Marketo. We will first create a Marketo placeholder form. In Marketo, create a blank form and approve it.
+
  This is the proxy form in Marketo which represents the Unbounce form. Add Hidden Fields to the Unbounce Form. These hidden fields are required by Marketo to determine which Marketo instance, which form and user session this form submission will apply to. In Unbounce, open your form by double clicking. Add a hidden field called `_mkt_trk`. Add a second hidden field called `formid`.  233 needs to be replaced with the id of your form, which can be found in the Marketo form embed code in Marketo. In Marketo, Open your form, select Form Actions->Embed Code. Add a hidden field called `returnurl`. `http://hooshmarketing.com.au/thank-you` needs to be replaced with follow-up URL, this is the URL you want users to be redirected to after submitting the form. For example, this could be your thank you page.
  **Part 3: Direct Unbounce Form to Marketo** The follow-up URL is the page which your lead will be redirected to after their lead is submitted to Marketo. In Unbounce, please follow these steps: Click on your form. Modify the Form Confirmation section. Change the Confirmation to Post form data to a URL. Set the URL to the follow-up page you want. `fpmarkets` needs to be replaced with your Marketo account string, which can be found in Marketo under Admin->Landing Pages.
  **Part 4: Add JavaScript to the Unbounce Page** This JavaScript will convert the form to be compatible with Marketo and to submit it to Marketo. In Unbounce, please follow these steps: Open the Unbounce landing page and click JavaScript-> Add New JavaScript. Click Add, call the script 'Marketo Form Convert', select 'Before Body End Tag'. Paste the JavaScript code below:
@@ -1096,9 +1093,9 @@ Posted on _2014-08-19_ by _Murta_
 ```javascript
 var MARKETO_MUNCHKIN_ID='614-CGT-700';
 var MARKETO_ACCOUNT_STRING = 'fpmarkets';
-  
-var UNBOUNCE_MARKETO_FIELD_MAP = new Object(); 
-  
+
+var UNBOUNCE_MARKETO_FIELD_MAP = new Object();
+
 //default field mappings
 UNBOUNCE_MARKETO_FIELD_MAP['first_name'] = 'FirstName';
 UNBOUNCE_MARKETO_FIELD_MAP['email'] = 'Email';
@@ -1108,39 +1105,39 @@ UNBOUNCE_MARKETO_FIELD_MAP['phone_number'] = 'Phone';
 function getMarketoField(k) {
     return UNBOUNCE_MARKETO_FIELD_MAP[k];
 }
-  
-  
+
+
 var formFields = [];
 var hiddenClonedFields = [];
-var firstForm = document.forms[0];  
-  
-//Convert Unbounce form names to Marketo field names  
+var firstForm = document.forms[0];
+
+//Convert Unbounce form names to Marketo field names
 for(i=0; i<firstForm.elements.length; i++){
  var formField = firstForm.elements[i];
  var newFieldName = getMarketoField(formField.name);
-  
+
   if(newFieldName != undefined) {
-        
-    
+
+
     //save original field as hidden field
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
     hiddenField.setAttribute("name", formField.name);
     hiddenField.setAttribute("id", formField.id);
     hiddenClonedFields.push(hiddenField);
-    
+
     //change original field
     console.log ( 'Changed form field name: ' + formField.name + '=>' + newFieldName );
     formField.name = newFieldName;
     formField.id = newFieldName;
     formFields.push(formField);
-    
-    
+
+
   } else {
     console.log ( 'Couldn't map:' + formField.name );
   }
 }
-  
+
 //Add hidden cloned Unbounce fields to form
 //for Unbounce validation
 for(i=0; i<hiddenClonedFields.length; i++){
@@ -1153,8 +1150,8 @@ for(i=0; i<hiddenClonedFields.length; i++){
     }(hiddenClonedFields[i]));
     console.log ( 'Added cloned field: ' + hiddenClonedFields[i].name );
 }
-  
-   
+
+
 //Add MunchkinId to form
 var input = document.createElement("input");
 input.setAttribute("type", "hidden");
@@ -1173,7 +1170,7 @@ UNBOUNCE_MARKETO_FIELD_MAP['first_name'] = 'FirstName';
 UNBOUNCE_MARKETO_FIELD_MAP['email'] = 'Email';
 ```
 
-_comments are the name of the field in Unbounce. _Comments_c_ is the name of the field in Marketo. For future Unbounce pages, you will simply go to JavaScript and enable the Munchkin script we created. There is no need to recreate it. 
+_comments are the name of the field in Unbounce. _Comments_c_ is the name of the field in Marketo. For future Unbounce pages, you will simply go to JavaScript and enable the Munchkin script we created. There is no need to recreate it.
 **Part 5: Testing** The last step is to test this form integration is working. Create a trigger in Marketo which activates on the Marketo form fill out and make sure that leads are being inserted correctly into Marketo. Once the form is submitted, the page should be redirect you to the follow-up URL.
 
 Posted on _2014-08-04_ by _
@@ -1277,8 +1274,7 @@ This guide shows you how to make your first call to the Marketo REST API in ten 
 > As of June 2025, the authentication token is no longer supported. You must use the Authentication header.
 >
 
-
-A Custom Service in Marketo allows you to describe and define what data your application will have access to. You need to be logged in as a Marketo administrator to create a Custom Service and associate that service with a single API-Only user. 
+A Custom Service in Marketo allows you to describe and define what data your application will have access to. You need to be logged in as a Marketo administrator to create a Custom Service and associate that service with a single API-Only user.
 
 1. Navigate to the admin area of the Marketo application.
 1. Click on the Users & Roles node on the left panel.
@@ -1352,10 +1348,10 @@ Posted on _1970-01-01_ by _Murta_
 
 ## Integrate Optimizely with a Marketo Landing Page
 
-[Optimizely](https://www.optimizely.com/) gives you the ability to conduct A/B testing, multipage, and multivariate testing on your site. You can use Optimizely with a Marketo landing page. Here's how to do this: 
+[Optimizely](https://www.optimizely.com/) gives you the ability to conduct A/B testing, multipage, and multivariate testing on your site. You can use Optimizely with a Marketo landing page. Here's how to do this:
 
 1. Find and copy your Optimizely code snippet.** Go to your Dashboard in Optimizely, and click the Project Code link. Copy the line of code that appears in the pop-up.
-1. Log into Marketo, and select your landing page template. Then click "Edit Draft."** 
+1. Log into Marketo, and select your landing page template. Then click "Edit Draft."**
 1. Click Landing Page Actions. Then click Edit Page Meta Tags**
 1. Paste your Optimizely code snippet in the Custom HEAD HTML section, and click Save.
 1. Test your landing page to confirm that the Optimizely snippet is working
@@ -1364,10 +1360,10 @@ Posted on _2014-09-18_ by _Murta_
 
 ## Search by Full Name via Marketo REST API
 
-**Question:** Is there a way to query a lead using Marketo APIs with just a lead's full name? 
-**Answer:** It is not directly possible. However, the workaround described below will allow you to do this. 
+**Question:** Is there a way to query a lead using Marketo APIs with just a lead's full name?
+**Answer:** It is not directly possible. However, the workaround described below will allow you to do this.
 
-1. Create a custom field called "Fullname" in Marketo. 
+1. Create a custom field called "Fullname" in Marketo.
 1. Use either [getMultipleLeads](/help/soap-api/getmultipleleads.md) SOAP API or [Get Multiple Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadByIdUsingGET) to query your lead database. Include your first name and last name as attributes in your request to either REST or SOAP APIs.
 1. After you query your lead database, concatenate "First Name" and "Last Name" for each lead, and store this data in a "Fullname" column. 1. Use [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) SOAP API to push this data to "Fullname" custom field. Alternatively, you can use the [Import Lead](/help/rest-api/leads.md) API, or import a CSV or XLS using the Marketo UI.
 1. Now, you are able to query by full name using the [Get Multiple Leads by Filter Type API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) to search for this custom field. Specify "Fullname" as "filterType" and "filterValue" would be "Joe Johnson" with a Get Multiple Leads by Filter Type REST API call.
@@ -1396,7 +1392,7 @@ Posted on _1970-01-01_ by _Murta_
 
 ## Add Custom Code to a Marketo Landing Pag
 
-Let's say you would like to add a third-party tracking script, such as Google Analytics to your Marketo landing page. This is possible via the Marketo UI. More generally, you can add any custom code (HTML, CSS, JavaScript) to your Marketo landing by following the instructions below. 
+Let's say you would like to add a third-party tracking script, such as Google Analytics to your Marketo landing page. This is possible via the Marketo UI. More generally, you can add any custom code (HTML, CSS, JavaScript) to your Marketo landing by following the instructions below.
 
 1. Select your landing page and click on Edit Draft.
 1. Drag in the HTML element.
@@ -1423,12 +1419,12 @@ This snippet expects a single form load on the page. If there are multiple forms
 ```javascript
 <script>
 //add a callback to the first ready form on the page
-MktoForms2.whenReady( function(form){ 
+MktoForms2.whenReady( function(form){
  //add the tracking field to be submitted
         form.addHiddenFields({"_mkt_trk":""});
         //clear the value during the onSubmit event to prevent tracking association
  form.onSubmit( function(form){
-  form.vals({"_mkt_trk":""}); 
+  form.vals({"_mkt_trk":""});
  })
 })
 </script>
@@ -1440,19 +1436,19 @@ Posted on _2014-09-11_ by _Kenny_
 
 ### Updates to REST API
 
-Added a new optional fields value to the [Get Multiple Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) API which will return the Munchkin cookie values associated with a lead record. Simply add "?fields=cookies" to the request.    
+Added a new optional fields value to the [Get Multiple Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) API which will return the Munchkin cookie values associated with a lead record. Simply add "?fields=cookies" to the request.
 
 Posted on _2014-09-16_ by _Murta_
 
 ## Add Location Data from RTP API to Marketo Form Fill Out
 
-**You need active RTP and MLM subscriptions to implement the use case described in this blog post.** 
+**You need active RTP and MLM subscriptions to implement the use case described in this blog post.**
 Using the [RTP JavaScript APIs](/help/javascript-api/web-personalization.md) and [Marketo Forms 2.0](/help/javascript-api/forms-api-reference.md), you can pull the inferred location data from RTP and push it into Marketo via a form fill out. This allows you to see the user's inferred location (based on IP address) during the most recent form activity. To get started, you need to create three custom string fields in Marketo. You can do this either via your CRM if it has a native integration with Marketo, or from the Field Management menu in Marketo's admin section. I recommend naming these fields 'Most Recent Country', 'Most Recent State', and 'Most Recent City.' We continue this blog using this naming convention. The API names for these fields are 'mostRecentCountry', 'mostRecentState', and 'mostRecentCity'. To retrieve the location data, we are using the [RTP method to get the visitor's location data](/help/javascript-api/web-personalization.md), and then pass it into the form using the [addHiddenFields and vals methods](/help/javascript-api/forms-api-reference.md) from the Marketo Forms 2.0. On your page, add your RTP JS tag and a Marketo form. Then, include the script below. You need to change the names of the target form fields in the example code if you are using a different naming convention than the one described above.
 
 ```javascript
 <script>
 //modify the form and grab the user
-MktoForms2.whenReady( function(form) { 
+MktoForms2.whenReady( function(form) {
         //add the hidden fields to the form
  form.addHiddenFields({
   "mostRecentCountry":"",
@@ -1479,7 +1475,7 @@ Let's say you want to block a Marketo landing page from being crawled and shown 
 
 1. Log into Marketo, and select your landing page. Then click "Edit Draft."
 1. Click Landing Page Actions. Then click Edit Page Meta Tags
-1. Change Robots field to No Index, No Follow. Then click Save. 
+1. Change Robots field to No Index, No Follow. Then click Save.
 
 Posted on _2014-09-19_ by _Murta_
 
@@ -1535,11 +1531,11 @@ Posted on _2014-09-24_ by _Murta_
 
 ## Add Dynamic Content to an Email
 
-Let's say you send out a daily email, and you want to automatically include that day's date in the email template. To do this, you use tokens and email scripting in Marketo. 
+Let's say you send out a daily email, and you want to automatically include that day's date in the email template. To do this, you use tokens and email scripting in Marketo.
 
 1. Create a token.** Navigate to the program where you want to use the token. Click My Tokens.
-1. Double click on Email Script. Then name this token. Then click Edit. 
-1. Paste the email script below in this window. Then click Save. 
+1. Double click on Email Script. Then name this token. Then click Edit.
+1. Paste the email script below in this window. Then click Save.
 
 ## Access Velocity's calendar object
 
@@ -1568,19 +1564,19 @@ Posted on _2014-09-26_ by _Murta_
 It is a best practice to regularly update your [SOAP API](/help/soap-api/soap-api.md) credentials. Currently, there is no way to programmatically do this via the Marketo API. The instructions below will show you how to update your SOAP API credentials via the Marketo UI.
 
 1. Go to the Admin section and click on Web Services.
-1. Set an Encryption Key that is at least 10 characters, click Save Changes. 
+1. Set an Encryption Key that is at least 10 characters, click Save Changes.
 
 Posted on _2014-09-29_ by _Murta_
 
 ## How to Clean Up Your Marketo Database
 
-**NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](https://www.marketingrockstarguides.com/).** Keeping your Marketo database clean is an important part of administering this powerful system. If your Marketo data is dirty or your CRM data is dirty, then your job as a marketing manager becomes a whole lot harder as you explain why campaigns went to the wrong people or your reports are "directional." [A 2011 Gartner study noted](https://www.data.com/export/sites/data/common/assets/pdf/DS_Gartner.pdf) that poor data quality lowered labor productivity by 20%. That's 20% of your time (8 hours/week or 1 day per week) that is wasted because you had to fix data. But this loss pales in comparison to the revenue lost because your targeting was wrong. Here are the top five reasons to invest in keeping your data clean: - Better segmentation of leads and clients can be done, allowing you to focus your message on the right people at the right time. That 20% off coupon should go only to new prospects, not your best clients, right? - Avoid duplicate sending of emails. In spite of all the precautions, it is possible to send multiple emails to the same lead, usually because duplicate records are not merged. - Accurate reporting to your boss. Because the CMO has a seat at the revenue table, you must have accurate, consistent, and repeatable reports…or you cannot be a revenue marketer anymore. - Hurt pending deals if you email the wrong marketing material to key prospects during sales negotiations. 
+**NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](https://www.marketingrockstarguides.com/).** Keeping your Marketo database clean is an important part of administering this powerful system. If your Marketo data is dirty or your CRM data is dirty, then your job as a marketing manager becomes a whole lot harder as you explain why campaigns went to the wrong people or your reports are "directional." [A 2011 Gartner study noted](https://www.data.com/export/sites/data/common/assets/pdf/DS_Gartner.pdf) that poor data quality lowered labor productivity by 20%. That's 20% of your time (8 hours/week or 1 day per week) that is wasted because you had to fix data. But this loss pales in comparison to the revenue lost because your targeting was wrong. Here are the top five reasons to invest in keeping your data clean: - Better segmentation of leads and clients can be done, allowing you to focus your message on the right people at the right time. That 20% off coupon should go only to new prospects, not your best clients, right? - Avoid duplicate sending of emails. In spite of all the precautions, it is possible to send multiple emails to the same lead, usually because duplicate records are not merged. - Accurate reporting to your boss. Because the CMO has a seat at the revenue table, you must have accurate, consistent, and repeatable reports…or you cannot be a revenue marketer anymore. - Hurt pending deals if you email the wrong marketing material to key prospects during sales negotiations.
 
 If your database is not providing that detail on the lifecycle stage, that could sink a deal or two. - Remove bad or old leads to stay below pricing thresholds. Much has been written about the cost of bad data. Your most immediate concern is that too many bad, duplicate, or old leads are pushing you over your Marketo or Salesforce pricing tier, which can result in thousands of fees per year. So, how do you keep your database clean? You can follow these principles of data cleanliness, but how do you get there inside Marketo? I make a few assumptions about your system: - You have a standard Marketo system. - You have a typical Lead-Contact-Account Salesforce setup. - You are syncing all records between systems. - You are not using purposeful duplicates.
 
 Find the Right Leads to Fix** Let's first find the leads that are potential problems. With each client, I go through a series of smart lists to determine the health of their database. I suggest you do the same on a monthly basis. Once the smart lists are working, this takes you no more than 15 minutes per month. This is a great way to demonstrate the ROI of your work and Marketo. Create a table to understand the total impact on your database. The example below includes the criteria that I look for, so be sure to include other fields important to your business. Breakdown each group by Marketo Only, SFDC Leads, and SFDC Contacts.
 
-Use Automation to Correct Data Values: The use of automation rules to correct common misspellings or missing data goes back several decades. In the 1960s, poor data quality when sending direct mail could result in thousands of dollars being wasted. Today, data quality mistakes ruin reputations faster than a misdirected mail piece. Email reputation, choice of language, and customer experience matter and they matter more because mistakes can go publicly viral in minutes. Save your firm's reputation with automated data cleansing. These data management flows are one of the first things I setup in Marketo. Most firms set up similar flows: - Country Corrector (although you should have followed Principle 1 to not need this) - State Corrector or Mapper – often helpful if you have Country and Inferred State. - Count of Employees to Employee Range. - Bad Lead Source to Good Lead Source - Email Invalid to Email is Good if the Email changed. - Translate old field values to a new field (Full to Empty). For example, this flow adjusts Employee Range based on Employee Number. 
+Use Automation to Correct Data Values: The use of automation rules to correct common misspellings or missing data goes back several decades. In the 1960s, poor data quality when sending direct mail could result in thousands of dollars being wasted. Today, data quality mistakes ruin reputations faster than a misdirected mail piece. Email reputation, choice of language, and customer experience matter and they matter more because mistakes can go publicly viral in minutes. Save your firm's reputation with automated data cleansing. These data management flows are one of the first things I setup in Marketo. Most firms set up similar flows: - Country Corrector (although you should have followed Principle 1 to not need this) - State Corrector or Mapper – often helpful if you have Country and Inferred State. - Count of Employees to Employee Range. - Bad Lead Source to Good Lead Source - Email Invalid to Email is Good if the Email changed. - Translate old field values to a new field (Full to Empty). For example, this flow adjusts Employee Range based on Employee Number.
 
 Data Appending Tools Filling in empty fields is critical to segmenting your database better. Leads do not always fill in the right Industry or Function or even Title on a form. Sometimes you have legacy data from an older system. This lack of data means you have to either send that email to fewer people, or possibly the wrong people. To fix this, you need data appending tools.
 
@@ -1588,11 +1584,11 @@ Option 1: Fill it in yourself. You may be able to interpolate data to backfill e
 
 Option 2: Find a data appending/enrichment vendor via LaunchPoint There are [several vendors in Launchpoint](https://exchange.adobe.com/apps/browse/ec?product=MRKTO), such as NetProspex and ReachForce that can help you enrich your lead data. Some ask you for a sheet of your data, which they then clean and send back. The better option is an automated tool in Marketo or Salesforce, which checks the fields you, want, and then pushes back the right data. Most vendors use the [Marketo API or Webhooks](/help/home.md) to accomplish this.
 
-Option 3: Use Marketo APIs to update leads You can use the Marketo APIs to identify leads that need to be cleansed, and then update them via the API. The [Get Multiple Leads by Filter Type REST API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) is a good starting place for pulling out data from Marketo that match certain criteria. To update leads, please look at the [Create/Update Leads REST API](/help/rest-api/leads.md). 
+Option 3: Use Marketo APIs to update leads You can use the Marketo APIs to identify leads that need to be cleansed, and then update them via the API. The [Get Multiple Leads by Filter Type REST API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) is a good starting place for pulling out data from Marketo that match certain criteria. To update leads, please look at the [Create/Update Leads REST API](/help/rest-api/leads.md).
 
 Alternatively, you can set up a [Marketo Webhook](/help/webhooks/webhooks.md) to notify an external system that a certain event has happened, such as a form fill out. You can then respond back with values to update the lead with.
 
-What Should You Automate? I provided some suggestions in Step 1. But if we want to clean up more of the database, we need to go beyond fixing data values. - Competitor Blacklisting: make sure you are automating the collection and blacklisting of your competitors. If you have competitor-partners, it is still good to mark them properly and place them in a list to possibly suppress.  - Multiple Hard Bounces: definitely automate this flow. If a lead hard bounces more than twice in a 30 day period, set them to Suspended or Invalid. Then go in once a month to review if the issue was a typo or something else.  - Multiple Soft Bounces in 30 Days: set these to marketing suspended=TRUE for 30 days.  - Spam Trap suspension/deletion: be careful if your product means people use possible spam trap addresses. See a list of spam traps. The Smart List. 
+What Should You Automate? I provided some suggestions in Step 1. But if we want to clean up more of the database, we need to go beyond fixing data values. - Competitor Blacklisting: make sure you are automating the collection and blacklisting of your competitors. If you have competitor-partners, it is still good to mark them properly and place them in a list to possibly suppress.  - Multiple Hard Bounces: definitely automate this flow. If a lead hard bounces more than twice in a 30 day period, set them to Suspended or Invalid. Then go in once a month to review if the issue was a typo or something else.  - Multiple Soft Bounces in 30 Days: set these to marketing suspended=TRUE for 30 days.  - Spam Trap suspension/deletion: be careful if your product means people use possible spam trap addresses. See a list of spam traps. The Smart List.
 
 **What Not to Automate** Never automate the deletion of leads, because there is too much risk in accidentally mass deletion of the wrong records. Instead, review once a month leads marked as Trash. But if you want to delete trashed leads, run a flow like this with a 30-day wait.
 
@@ -1604,7 +1600,7 @@ Posted on _2014-10-08_ by _Josh_
 
 ### External Page Prefill
 
-Marketo forms do not provide native prefill functionality when loaded outside of a Marketo landing page. However, we can still implement this using the [Marketo APIs](/help/rest-api/rest-api.md) and the [Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md/). The first step is to retrieve the lead data from Marketo via a REST call from your server. Assuming that we do not have an immediate way to crossreference lead IDs or another unique identifier from the server, we need to use the Munchkin cookie, '_mkto_trk', to retrieve data from the Marketo server, using the [Get Leads By Filter Type method](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET). 
+Marketo forms do not provide native prefill functionality when loaded outside of a Marketo landing page. However, we can still implement this using the [Marketo APIs](/help/rest-api/rest-api.md) and the [Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md/). The first step is to retrieve the lead data from Marketo via a REST call from your server. Assuming that we do not have an immediate way to crossreference lead IDs or another unique identifier from the server, we need to use the Munchkin cookie, '_mkto_trk', to retrieve data from the Marketo server, using the [Get Leads By Filter Type method](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET).
 To make this call, we need your Authentication and REST endpoints from your instance. Once you have authenticated with your Marketo instance that we need to make a call to the leads API at `https://<host>/rest/v1/leads.json`. We then need to create a querystring to filter on the Marketo cookie like this `?filterType=cookie&filterValues=`. You need to retrieve the specific value from the '_mkto_trk' key sent to your server by the client. NOTE: The _mkto_trk cookie value includes an ampersand and needs to be URL encoded to `%26` to be properly accepted by the Marketo endpoint. By default the leads API returns four fields: `id`, `email`, `firstName`, and `updatedAt`. To set a specific set of fields, you need to include a `fields` query parameter, with field names separated by commas like this: `&fields=email,firstName,lastName,company`. Ultimately our call is going to look like this:
 
 `https://<host>/rest/v1/leads.json?filterType=cookie&filterValues=<cookie>&fields=email,firstName,lastName,company&access_token=<token>`
@@ -1612,11 +1608,11 @@ To make this call, we need your Authentication and REST endpoints from your inst
 When we make this call, it returns a JSON object which looks this:
 
 ```json
-{  
+{
     "requestId":"e42b#14272d07d78",
     "success":true,
-    "result":[  
-        {  
+    "result":[
+        {
         "id":50,
         "firstName":"Kenny",
  "lastName":"Elkington",
@@ -1631,11 +1627,11 @@ Now that we have our lead details, we can go about mapping these into a Marketo 
 ```javascript
 <script>
 //print your JSON object dynamically as the mktoLead variable
-var mktoLead = {  
+var mktoLead = {
     "requestId":"e42b#14272d07d78",
     "success":true,
-    "result":[  
-        {  
+    "result":[
+        {
         "id":50,
         "firstName":"Kenny",
   "lastName":"Elkington",
@@ -1654,7 +1650,7 @@ MktoForms2.whenReady( function(form) {
  //set the first result as local variable
  var mktoLeadFields = mktoLead.result[0];
     //map your results from REST call to the corresponding field name on the form
- var prefillFields = { 
+ var prefillFields = {
    "Email" : mktoLeadFields.email,
    "FirstName" : mktoLeadFields.firstName,
    "LastName" : mktoLeadFields.lastName,
@@ -1702,7 +1698,7 @@ var value = readCookie('_mkto_trk');
 
 Next, pass the value of the '_mkto_trk' cookie to your server. To retrieve lead data, from your server you make a call to the [Get Multiple Leads REST API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) with this cookie value. You need your Authentication and REST endpoints from your instance. Your call should be structured as follows:
 
-NOTE: The `_mkto_trk` cookie value includes an ampersand and needs to be URL encoded to `%26` to be properly accepted by the Marketo endpoint.  
+NOTE: The `_mkto_trk` cookie value includes an ampersand and needs to be URL encoded to `%26` to be properly accepted by the Marketo endpoint.
 
 ```java
 require 'rest_client'
@@ -1733,14 +1729,14 @@ Posted on _2014-10-30_ by _Murta_
 
 ## When do you need a developer to help with marketing automation
 
-NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](https://www.marketingrockstarguides.com/). 
+NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](https://www.marketingrockstarguides.com/).
 
 Marketing automation platforms are tremendously powerful out of the box and in the hands of an experienced operator. Platforms, by definition, allow the use of extension applications to make the system do even more amazing things for your team. You may think Marketo's logic engine is capable of so much (and it is), but there are limitations. Marketo cannot do everything for you, nor should it.
 
- There are other tools out there that perform their function better than Marketo could build it. Marketo's platform is very open, enabling the [LaunchPoint ecosystem of applications](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) to exist. You can also use this openness to expand the capabilities of your site and Marketo to match your business needs. The great thing about a platform like Marketo is it allows the typical marketer the ability to build pages, emails, and routing logic without being a full-fledged programmer. 
-A marketer these days does need to understand logic, but actual programming is best left to the experts. So, how do you know when you need to call in a developer? I have a few basic rules, or heuristics, to decide when a programmer should get involved: - When Marketo doesn't have an obvious filter, trigger, or feature for the need, it can often be done with some JavaScript or jQuery. - Will this be too complex for Marketo by itself? - Can Marketo even do this? - Is this a website customization not easily supported? - Does Marketo need to talk to a website or other database? - Does it sound like something a computer can do, but Marketo doesn't have a function for it? Remember that while Marketo may not offer an out-of-the-box function, it does connect to many third-party integrations as well as custom connections. 
+ There are other tools out there that perform their function better than Marketo could build it. Marketo's platform is very open, enabling the [LaunchPoint ecosystem of applications](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) to exist. You can also use this openness to expand the capabilities of your site and Marketo to match your business needs. The great thing about a platform like Marketo is it allows the typical marketer the ability to build pages, emails, and routing logic without being a full-fledged programmer.
+A marketer these days does need to understand logic, but actual programming is best left to the experts. So, how do you know when you need to call in a developer? I have a few basic rules, or heuristics, to decide when a programmer should get involved: - When Marketo doesn't have an obvious filter, trigger, or feature for the need, it can often be done with some JavaScript or jQuery. - Will this be too complex for Marketo by itself? - Can Marketo even do this? - Is this a website customization not easily supported? - Does Marketo need to talk to a website or other database? - Does it sound like something a computer can do, but Marketo doesn't have a function for it? Remember that while Marketo may not offer an out-of-the-box function, it does connect to many third-party integrations as well as custom connections.
 
-Take a look at a few of these categories at the [LaunchPoint marketplace](https://exchange.adobe.com/apps/browse/ec?product=MRKTO): - [Analytics Tools](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) - [Data Appending](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) - [Content Management Systems](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) Some third party applications provide intuitive control panels and setup tools right within the platform (GoToWebinar). These are "native" integrations where the most work that you need to do is set up the login and then use it in Marketo. Other extensions, however, require the use of the more complex API that must be programmed more directly. 
+Take a look at a few of these categories at the [LaunchPoint marketplace](https://exchange.adobe.com/apps/browse/ec?product=MRKTO): - [Analytics Tools](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) - [Data Appending](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) - [Content Management Systems](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) Some third party applications provide intuitive control panels and setup tools right within the platform (GoToWebinar). These are "native" integrations where the most work that you need to do is set up the login and then use it in Marketo. Other extensions, however, require the use of the more complex API that must be programmed more directly.
 
 **Marketo's Integration Options** - LaunchPoint Integration – usually a login or easy settings. - API Integration – requires setup of API and programming: (1) [REST API](/help/rest-api/rest-api.md) (2) [SOAP API](/help/soap-api/soap-api.md) (3) [Webhook Integration](/help/webhooks/webhooks.md) – requires setup of special code, but fairly easy. (4) [Email Scripting](./email-scripting.md) (Velocity) - JavaScript and jQuery: (1) [Forms 2.0](/help/javascript-api/forms-api-reference.md) (2) [Lead Tracking (Munchkin)](/help/javascript-api/lead-tracking.md) (3) [Social JS](/help/javascript-api/social.md) (4) [RTP JS](/help/javascript-api/web-personalization.md) Here are a few use cases for using a developer to extend the capabilities of the Marketo platform. Do you have any of these use cases? If so, it might be time to speak with a developer. [Visit the services partner section on LaunchPoint](https://exchange.adobe.com/apps/browse/ec?product=MRKTO).
 
@@ -1748,7 +1744,7 @@ Posted on _2014-11-06_ by _Josh_
 
 ## Integrating Slack with Marketo
 
- [Slack is an enterprise collaboration platform](https://slack.com/). If your team is on Slack, you can easily bring Marketo notifications into your workflow. This post shows you how to add a notification to your chat log when a specific lead activity happens in Marketo. Potential use cases include notifying your entire team about a form fill, a visit to a pricing page, or a lead that has not been contacted in 30 days. The screenshot below shows how the Marketo notification will look like in Slack after following the steps in this help article. 
+ [Slack is an enterprise collaboration platform](https://slack.com/). If your team is on Slack, you can easily bring Marketo notifications into your workflow. This post shows you how to add a notification to your chat log when a specific lead activity happens in Marketo. Potential use cases include notifying your entire team about a form fill, a visit to a pricing page, or a lead that has not been contacted in 30 days. The screenshot below shows how the Marketo notification will look like in Slack after following the steps in this help article.
 
 1. Log in to Slack. Click on Integrations in Slack
 1. Click the Add button for Incoming Webhooks
@@ -1763,7 +1759,7 @@ Posted on _2014-11-06_ by _Josh_
 
 `payload={"text": "DEVELOPER SITE ALERT: {{lead.First Name:default=edit me}} {{lead.Company=edit me}}, {{lead.Email Address:default=no email address}}" }`
 
-1. Set Up Trigger Campaign in Marketo. Flow Step is to Call Webhook to Slack. Smart List is a Web Page Visit. 
+1. Set Up Trigger Campaign in Marketo. Flow Step is to Call Webhook to Slack. Smart List is a Web Page Visit.
 1. Verify It Works.
 
 Please see the [developer documentation](./webhooks/webhooks.md) for more information about webhooks in Marketo.
@@ -1817,7 +1813,7 @@ Posted on _2014-11-18_ by _Murta_
 
 ## Integrating Trello with Marketo
 
-Trello is a [popular web-based project management application](https://trello.com/). If your team uses Trello, you can easily bring Marketo notifications into your workflow. This post shows you how to add a card with a Marketo notification to your Trello board. This card will be added when a specific lead activity happens in Marketo. Potential use cases include notifying your entire team about a form fill, a visit to a pricing page, or a lead that has not been contacted in 30 days. 
+Trello is a [popular web-based project management application](https://trello.com/). If your team uses Trello, you can easily bring Marketo notifications into your workflow. This post shows you how to add a card with a Marketo notification to your Trello board. This card will be added when a specific lead activity happens in Marketo. Potential use cases include notifying your entire team about a form fill, a visit to a pricing page, or a lead that has not been contacted in 30 days.
 
 1. Login into Trello. Navigate to the Trello board that will add Marketo notifications in. Click Add a List, and then name it.
 1. Click Show Sidebar. Click Email-to-board Settings. Note the email in "Your email address for this board" box. This email will be used in Step Six. Choose which list to add the Marketo notification.
@@ -1833,13 +1829,13 @@ Posted on _2014-11-18_ by _Murta_
 
 ## Find Leads by Custom Field Value
 
-Let's say you want to get leads from the Marketo API who match certain activity or inactivity criteria. For example, maybe you want to find a leads whose score has not changed in the past 30 days. By following the steps in this post, you are able to get this list of leads. To do this, we create a smart campaign in Marketo that identifies leads whose score has not changed in the past 30 days, and then store a value on these leads to identify them. We will then query the API with this value. 
+Let's say you want to get leads from the Marketo API who match certain activity or inactivity criteria. For example, maybe you want to find a leads whose score has not changed in the past 30 days. By following the steps in this post, you are able to get this list of leads. To do this, we create a smart campaign in Marketo that identifies leads whose score has not changed in the past 30 days, and then store a value on these leads to identify them. We will then query the API with this value.
 
 1. Create a new custom field called customLeadStatus** Login to Marketo, and go to the Admin panel. Click on Field Management. Click "New Custom Field".  Name the field. Then click Create.
-1. Create a smart campaign with a smart list that looks for leads that have not been updated in 30 days.** Click New Smart Campaign. Name the new smart campaign. Drag Not Score Was Changed from right panel to middle panel. 
+1. Create a smart campaign with a smart list that looks for leads that have not been updated in 30 days.** Click New Smart Campaign. Name the new smart campaign. Drag Not Score Was Changed from right panel to middle panel.
 1. Add a flow step to the smart campaign from Step 3 to update the customLeadStatus field with a new value.** Drag Change Data Value from right panel to middle panel.
 1. Update Smart Campaign to allow leads to run through multiple times.** Click Schedule. Then click Edit.  Select every time. Then click Save. The campaign will now start running.
-1. Query the [Get Multiple Leads by Filter Type REST API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET). Providing the parameters filterType=customLeadStatus & filterValue=needsEnrichment.** 
+1. Query the [Get Multiple Leads by Filter Type REST API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET). Providing the parameters filterType=customLeadStatus & filterValue=needsEnrichment.**
 
 This is an example request that returns this data.
 
@@ -1853,13 +1849,13 @@ Posted on _2014-11-22_ by _Murta_
 
 This post describes how to insert Opportunities into Marketo via the SOAP API and associate them with companies and leads. It starts with an explanation of how this process works and then provides code samples for each of the scenarios.
 
-**Table Structure Diagram** First of all, the diagram below describes the table structure. The Id is auto-generated on creation of a record (sequential number). The field in bold are required: only Opportunity Person Role has required fields. The fields in parentheses are optional and so are the connections with a dotted line.  
+**Table Structure Diagram** First of all, the diagram below describes the table structure. The Id is auto-generated on creation of a record (sequential number). The field in bold are required: only Opportunity Person Role has required fields. The fields in parentheses are optional and so are the connections with a dotted line.
 
-**Basic Opportunity Insertion** You first insert the Opportunity, and then the Opportunity Person Role, which links the Opportunity to the Lead(s). For this example, well use the Lead Id and the Opportunity Id to specify the Opportunity Person Role. You get the Opportunity Id in the SOAP Response when creating the Opportunity. The Lead Id is visible on every Lead in the Marketo Lead database. 
+**Basic Opportunity Insertion** You first insert the Opportunity, and then the Opportunity Person Role, which links the Opportunity to the Lead(s). For this example, well use the Lead Id and the Opportunity Id to specify the Opportunity Person Role. You get the Opportunity Id in the SOAP Response when creating the Opportunity. The Lead Id is visible on every Lead in the Marketo Lead database.
 
-**Company Link** In most cases, you want to link an Opportunity to a Company, in addition to an individual. In Marketo, you can't access the Company records via the SOAP API, only the Lead records (the Lead records contain the company fields). It is still possible to link Opportunities to a Company by adding a unique Company identifier to each Lead, and using that ID in your Opportunity. Step 1 is to create a 'Company Id' field on the lead record and populate it with a unique identifier, usually from a back-end system. Step 2 is to create a 'Company Id' field on the Opportunity: you have to ask Marketo Support or Consulting to create such a field for you. Then populate this field when creating Opportunities, which connects the Opportunity to the Company. This is especially important if you use Marketo Revenue Cycle Analytics and you want to use the Opportunity Influence Analyzer, which depends on Company information. 
+**Company Link** In most cases, you want to link an Opportunity to a Company, in addition to an individual. In Marketo, you can't access the Company records via the SOAP API, only the Lead records (the Lead records contain the company fields). It is still possible to link Opportunities to a Company by adding a unique Company identifier to each Lead, and using that ID in your Opportunity. Step 1 is to create a 'Company Id' field on the lead record and populate it with a unique identifier, usually from a back-end system. Step 2 is to create a 'Company Id' field on the Opportunity: you have to ask Marketo Support or Consulting to create such a field for you. Then populate this field when creating Opportunities, which connects the Opportunity to the Company. This is especially important if you use Marketo Revenue Cycle Analytics and you want to use the Opportunity Influence Analyzer, which depends on Company information.
 
-**Using External Identifiers** In many cases, you may have your own unique identifiers when integrating with a back-end system. It is possible to use these unique identifiers in Marketo through Foreign keys. For Leads, you would typically use the Foreign System Person Id (FSPID), which is used instead of the Marketo Id or email address as unique identifier. The FSPID is a hidden system field, which is not visible inside Marketo. If you're not already doing so, it is necessary for Opportunity sync to also save the FSPID in a custom field, for example "Foreign Id" (you can name the field anything). You can create this field yourself as a Marketo administrator. For Opportunities, you have Marketo Support create another custom field on Opportunity, for example called "Foreign Id" (you can name it anything). Then populate this field when inserting Opportunities. Finally, when you create the Opportunity Person Role, you use both foreign keys to specify the link between Leads and Opportunities, instead of using the Marketo IDs. You can also use the foreign keys to update Leads of Opportunities. At this time, it's not possible to add a foreign key to the Opportunity Person Role records, so you'll have to use the auto-generated Marketo Id for this (which you get in the SOAP response after creating the Opportunity Person Role). 
+**Using External Identifiers** In many cases, you may have your own unique identifiers when integrating with a back-end system. It is possible to use these unique identifiers in Marketo through Foreign keys. For Leads, you would typically use the Foreign System Person Id (FSPID), which is used instead of the Marketo Id or email address as unique identifier. The FSPID is a hidden system field, which is not visible inside Marketo. If you're not already doing so, it is necessary for Opportunity sync to also save the FSPID in a custom field, for example "Foreign Id" (you can name the field anything). You can create this field yourself as a Marketo administrator. For Opportunities, you have Marketo Support create another custom field on Opportunity, for example called "Foreign Id" (you can name it anything). Then populate this field when inserting Opportunities. Finally, when you create the Opportunity Person Role, you use both foreign keys to specify the link between Leads and Opportunities, instead of using the Marketo IDs. You can also use the foreign keys to update Leads of Opportunities. At this time, it's not possible to add a foreign key to the Opportunity Person Role records, so you'll have to use the auto-generated Marketo Id for this (which you get in the SOAP response after creating the Opportunity Person Role).
 
 **Code Example** Steps: 1. Insert/update Lead with Foreign Key & Company Id 1. Insert Opportunity with Foreign Key 1. Insert Opportunity Person Role with Foreign Keys 1. SOAP Request – Updating existing Lead with Foreign Key & Company Id This updates an existing Lead (Marketo Id "6") with the Foreign Key "12346" and the Account/Company Id "C123". We are also saving the Foreign Key in a custom field, because we need that for the Opportunity Person Role. Using a Foreign Key is optional: you can also use the Marketo Id to link this Lead to the Opportunity. Using the Company Id is also optional, but it's required if you want to use the Opportunity Influence Analyzer in RCA. Request:
 
@@ -2256,29 +2252,29 @@ Posted on _2014-12-03_ by _Murta_
 ## Performance Tuning API Requests
 
 This post discusses strategies to improve performance when requesting data from the Marketo API. However, you must weigh the benefits of these strategies against the operating constraint of Marketo API's daily limits.
-**Strategy 1 – Request Less Data in Each API Call** Generally, as you request more data in an API call, the amount of time it takes to look up the data in the database by the Marketo server increases. If you are making an API call with date ranges, such as the [getMultipleLeads SOAP API](/help/soap-api/getmultipleleads.md), shorten the time range per call and compensate with more calls. For example, instead of requesting data from June 1 to July 1, request a single day at a time, such as one call for June 1 to 2, and then another call for June 2 to 1. If you are making an API call that returns data from Marketo lead fields, only request those fields necessary. Every additional lead field incrementally increases the amount of time an API call takes. Another approach is to reduce the batch size, or the number of leads requested per call. 
-**Strategy 2 - Make Concurrent Requests** To improve performance and pull more data at once. You can make concurrent requests to the API. This approach reduces the time on wire API requests spend in aggregate. For example, let's say you are making requests to the Get Multiple Leads by Filter Type. You can make concurrent requests for one request querying leads 1 to 300 and for another request querying leads 301 - 600. 
+**Strategy 1 – Request Less Data in Each API Call** Generally, as you request more data in an API call, the amount of time it takes to look up the data in the database by the Marketo server increases. If you are making an API call with date ranges, such as the [getMultipleLeads SOAP API](/help/soap-api/getmultipleleads.md), shorten the time range per call and compensate with more calls. For example, instead of requesting data from June 1 to July 1, request a single day at a time, such as one call for June 1 to 2, and then another call for June 2 to 1. If you are making an API call that returns data from Marketo lead fields, only request those fields necessary. Every additional lead field incrementally increases the amount of time an API call takes. Another approach is to reduce the batch size, or the number of leads requested per call.
+**Strategy 2 - Make Concurrent Requests** To improve performance and pull more data at once. You can make concurrent requests to the API. This approach reduces the time on wire API requests spend in aggregate. For example, let's say you are making requests to the Get Multiple Leads by Filter Type. You can make concurrent requests for one request querying leads 1 to 300 and for another request querying leads 301 - 600.
 **Strategy 3 - Cache Data** Some data in Marketo is changed less often, such as the list of lead fields, than other data, such as lead activity data. If you cache data that is less often updated, then you reduce the number of API calls you have to make. You will also get better performance because looking up the data locally is generally faster than accessing it from a remote web service.
 
 Posted on _2014-12-05_ by _Murta_
 
 ## Send Marketo Form Data to Google Analytics
 
-In Google Analytics, you can send custom data events, and then utilize the data to segment and analyze your website performance. The JavaScript code snippet below allows you to automatically push Marketo 2.0 Form data to Google Analytics after a visitor submits a web form. Here is how to set this up. 
+In Google Analytics, you can send custom data events, and then utilize the data to segment and analyze your website performance. The JavaScript code snippet below allows you to automatically push Marketo 2.0 Form data to Google Analytics after a visitor submits a web form. Here is how to set this up.
 
 **Step One** Insert the JavaScript tag onto any page that includes Marketo Forms at the bottom of the code (before the tag). The JavaScript only sends only non-hidden fields (sendHiddenFields : false). This can be adjusted by changing sendHiddenFields from false to true. You can also select fields to exclude by adding additional field IDs in the 'fieldsToExclude' array.
 
 ```javascript
 function pushFormDataToGa(a){
 setTimeout(function () {
-document.getElementsByTagName('form')[0].getElementsByClassName(a.submitButton)[0].addEventListener('click', function() { 
+document.getElementsByTagName('form')[0].getElementsByClassName(a.submitButton)[0].addEventListener('click', function() {
   allFields = document.getElementsByTagName('form')[0].getElementsByTagName('input');
   for(i=0;i<allFields.length;i++){
    if( (allFields[i].type !="hidden" && allFields[i].type !="submit" && allFields[i].value !="" && a.fieldsToExclude.indexOf(allFields[i].id) === -1  ) || (allFields[i].type === "hidden" && a.sendHiddenFields) ){
     console.log( allFields[i].name + ": "  + allFields[i].value);
     if(typeof(_gaq) != "undefined"){
     //Classic
-    _trackEvent("Marketo Form Submission", allFields[i].value , allFields[i].name 
+    _trackEvent("Marketo Form Submission", allFields[i].value , allFields[i].name
 {'nonInteraction': 1});
     }else if(typeof(ga) !="undefined"){
     //Universal
@@ -2288,7 +2284,7 @@ document.getElementsByTagName('form')[0].getElementsByClassName(a.submitButton)[
 pushFormDataToGa({
  submitButton: "mktoButton",
  fieldsToExclude: ["Email","LastName", "FirstName"],
- sendHiddenFields : false  
+ sendHiddenFields : false
 });
 ```
 
@@ -2300,10 +2296,10 @@ Posted on _2014-12-16_ by _Yanir_
 
 ## Add a Full Name Field to a Marketo Form
 
-We know that shorter web forms improve conversion rates. The JavaScript code sample below allows you to make your forms even shorter by merging the First and Last Name fields into one Full Name field. When visitors are typing in their full name, the script will automatically break the text into first and last name fields. For known visitors the script joins the first and last names, and then copy them to the new field so they won't have to fill the field again. Here is how to set this up. 
+We know that shorter web forms improve conversion rates. The JavaScript code sample below allows you to make your forms even shorter by merging the First and Last Name fields into one Full Name field. When visitors are typing in their full name, the script will automatically break the text into first and last name fields. For known visitors the script joins the first and last names, and then copy them to the new field so they won't have to fill the field again. Here is how to set this up.
 
-**Step One** Create a new custom field in Marketo called Full Name. No need to create it in your CRM platform, as the script will only use this field to display the full name. 
-**Step Two** Add this field to all your web forms. Set your first name and last name fields as hidden. In the JavaScript, change the "splitFullName" configuration to contain the 3 field names. Note: Please make sure these names do not appear anywhere else on the page. 
+**Step One** Create a new custom field in Marketo called Full Name. No need to create it in your CRM platform, as the script will only use this field to display the full name.
+**Step Two** Add this field to all your web forms. Set your first name and last name fields as hidden. In the JavaScript, change the "splitFullName" configuration to contain the 3 field names. Note: Please make sure these names do not appear anywhere else on the page.
 **Step Three** Insert the JavaScript into all your landing pages at the bottom of the code, before the tag.
 
 ```javascript
@@ -2348,7 +2344,7 @@ Posted on _2014-12-16_ by _Yanir_
 
 ## Use cURL to Import Leads via the REST API
 
-Do you want to import leads from a CSV file through the REST API, but noticed this is challenging to do using the Postman Chrome extension. In this post, we walk through how to do this with cURL. 
+Do you want to import leads from a CSV file through the REST API, but noticed this is challenging to do using the Postman Chrome extension. In this post, we walk through how to do this with cURL.
 
 1. [Download and install cURL](https://curl.se/download.html), a command line tool we use to push data to Marketo's REST API.
 1. Open the command line, and then navigate to the location where the CSV file is located. The column headers in the CSV file must match the API field names, not the Marketo field names.
@@ -2369,7 +2365,7 @@ Let's say when a user click the "Send" button on a Marketo form, you would like 
 <form id="mktoForm_19"></form>
 <script>
 MktoForms2.loadForm("//app-e.marketo.com", "212-RBI-463", 19,function(form){
- 
+
 //Add this function to your Marketo form script
 form.onSubmit(function(){
 alert("Do you really want to submit the form?");
@@ -2474,8 +2470,8 @@ Posted on _2014-12-20_ by _Murta_
 
 ## Lead Tracking and Multiple Domains
 
-Marketo's Munchkin tracking code helps you track visits to your web site. You're likely to want to use Munchkin tracking code to cookie anonymous leads for most or all of the pages on your website. Let's walk through how Munchkin works. Visits to the page are recorded for existing leads, and a visit to the page by a non-cookied visitor will cause a new cookie to be created and stored, and a new anonymous lead to be created in your Marketo database. The Munchkin-tracker will automatically cookie a visitor if they don't already have an existing cookie for the current domain. In Marketo, it logs the event (click a link, visit a web page, or a new lead) in the lead's Activity Log. The value stored within the cookie is unique for a given visitor. The value is a combination of the unique Munchkin account tracking id, domain name, time stamp and random integer. 
-**What happens if I have multiple domains?** Lets say you have two sites that you would like to track: `<www.apples.com>` and `<www.bananas.com>`. You can put the tracking code on both sites, however you need to consider the following. Marketo cookies are 'first-party cookies' and are therefore domain specific. This means that a visitor to site 1 will be created as an anonymous lead in Marketo, if that same lead then goes to site 2 this will create a second separate anonymous lead in Marketo. If the lead fills out a form on site 1 then this record becomes known, the anonymous record for site 2 will remain and continue to accumulate subsequent visits to that site. If the lead then goes on to fill out a form on site 2 with the exact same email address as used on site 1, then both known leads will merge automatically and all past and future behavior will be tracked on one single record in Marketo. Both cookie IDs are tied to the same lead and all web activity (from either domain) will be on that lead. 
+Marketo's Munchkin tracking code helps you track visits to your web site. You're likely to want to use Munchkin tracking code to cookie anonymous leads for most or all of the pages on your website. Let's walk through how Munchkin works. Visits to the page are recorded for existing leads, and a visit to the page by a non-cookied visitor will cause a new cookie to be created and stored, and a new anonymous lead to be created in your Marketo database. The Munchkin-tracker will automatically cookie a visitor if they don't already have an existing cookie for the current domain. In Marketo, it logs the event (click a link, visit a web page, or a new lead) in the lead's Activity Log. The value stored within the cookie is unique for a given visitor. The value is a combination of the unique Munchkin account tracking id, domain name, time stamp and random integer.
+**What happens if I have multiple domains?** Lets say you have two sites that you would like to track: `<www.apples.com>` and `<www.bananas.com>`. You can put the tracking code on both sites, however you need to consider the following. Marketo cookies are 'first-party cookies' and are therefore domain specific. This means that a visitor to site 1 will be created as an anonymous lead in Marketo, if that same lead then goes to site 2 this will create a second separate anonymous lead in Marketo. If the lead fills out a form on site 1 then this record becomes known, the anonymous record for site 2 will remain and continue to accumulate subsequent visits to that site. If the lead then goes on to fill out a form on site 2 with the exact same email address as used on site 1, then both known leads will merge automatically and all past and future behavior will be tracked on one single record in Marketo. Both cookie IDs are tied to the same lead and all web activity (from either domain) will be on that lead.
 **What about multiple subdomains?** Subdomains are not an issue. Let's use Marketo.com as an example. It has multiple subdomains for different languages, such as fr.marketo.com and de.marketo.com. With subdomains all activity will be recorded against the same lead record/cookie.
 
 Posted on _2015-01-13_ by _David_
@@ -2490,7 +2486,7 @@ Let's say you want to change the hint text color (also referred to as the placeh
 ::-webkit-input-placeholder {
   color: blue;
 }
-::-moz-placeholder { 
+::-moz-placeholder {
   color: blue;
 }
 :-ms-input-placeholder {
@@ -2508,13 +2504,13 @@ Let's say you want to change the hint text color (also referred to as the placeh
 ::-webkit-input-placeholder {
   color: blue;
 }
-::-moz-placeholder { 
+::-moz-placeholder {
   color: blue;
 }
 :-ms-input-placeholder {
   color: blue;
 }
-:-moz-placeholder { 
+:-moz-placeholder {
   color: blue;
 }
 </style>
@@ -2527,13 +2523,13 @@ Let's say you want to change the hint text color (also referred to as the placeh
 ::-webkit-input-placeholder {
   color: blue;
 }
-::-moz-placeholder { 
+::-moz-placeholder {
   color: blue;
 }
 :-ms-input-placeholder {
   color: blue;
 }
-:-moz-placeholder { 
+:-moz-placeholder {
   color: blue;
 }
 </style>
@@ -2577,7 +2573,7 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/activities/pagingtoken.json"
 # Replace with your access token
 auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
@@ -2600,7 +2596,7 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/activities.json"
 # Replace with your access token
 auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
@@ -2732,27 +2728,27 @@ Example JSON for [Remove Leads from List](https://developer.adobe.com/marketo-ap
 }
 ```
 
-Define Properties: Before we start calling REST, it's important to externalize and encapsulate the variables you are using. I've defined the following shown below.  
- 
+Define Properties: Before we start calling REST, it's important to externalize and encapsulate the variables you are using. I've defined the following shown below.
+
 * ClientID: Get this from your REST Launchpoint Service
 * Client Secret: Get this from your REST Launchpoint Service
 * AccessToken: We get this from a REST call
 * Static ListID: The LIST ID of the static list we'll operate on. Get this from the URL in Marketo
-* Fields: A comma separated list of fields the rest service gets from Marketo for each lead. Mine is "id, email,firstName,lastName" * IDStringToDelete: Will eventually contain the ID of all the leads in the static list to be used in their removal from the list 
+* Fields: A comma separated list of fields the rest service gets from Marketo for each lead. Mine is "id, email,firstName,lastName" * IDStringToDelete: Will eventually contain the ID of all the leads in the static list to be used in their removal from the list
 * ActivityTypes: Will be used in Part 2 of this blog, where I expand on this!
 * SinceDateTime: Will be used in Part 2 of this blog, where I expand on this!
 * PagingToken: Will be used in Part 2 of this blog, where I expand on this!
-* Folder - Outgoing: The path to the outgoing folder on the SFTP Server. I use "/data/outgoing" in this example. It allows us to parameterize the SFTP Operation to make it generic. 
- 
- The Authentication Token: As I mentioned, we'll place a Connector on the canvas after creating the process with a "No Data" start shape (this is just a personal choice, I like all my connectors looking like British plugs). 
- The Connector should be configured as follows: - Connector is an HTTP GET Client - Connection uses URL: `https://123-ABC-456.mktorest.com` (note no /rest at the end so that we can use this for REST calls as well as using it to get the identity access token. and change 123-ABC-456 to the right one for your Marketo instance) - Operation is "Get oAuth Token" (new!) - Request Profile = None - Response Profile = JSON - New Profile called "Authentication Token Response" - Content Type: Plain - HTTP Method: GET - Resource Path (add 4 without quotation marks): "identity/oAuth/token?grant_type=client_credentials&client_id="; "ClientID (Replacement variable)"; "&client_secret="; "ClientSecret (Replacement variable)" - Set Parameters under Configure —> Parameters —>(+): Set ClientID = Process Property Client ID; Set ClientSecret = Process Property Client Secret After this, store the success token in the Process Properties "AccessToken" variable as shown, extracting it from the jSON response. 
+* Folder - Outgoing: The path to the outgoing folder on the SFTP Server. I use "/data/outgoing" in this example. It allows us to parameterize the SFTP Operation to make it generic.
+
+ The Authentication Token: As I mentioned, we'll place a Connector on the canvas after creating the process with a "No Data" start shape (this is just a personal choice, I like all my connectors looking like British plugs).
+ The Connector should be configured as follows: - Connector is an HTTP GET Client - Connection uses URL: `https://123-ABC-456.mktorest.com` (note no /rest at the end so that we can use this for REST calls as well as using it to get the identity access token. and change 123-ABC-456 to the right one for your Marketo instance) - Operation is "Get oAuth Token" (new!) - Request Profile = None - Response Profile = JSON - New Profile called "Authentication Token Response" - Content Type: Plain - HTTP Method: GET - Resource Path (add 4 without quotation marks): "identity/oAuth/token?grant_type=client_credentials&client_id="; "ClientID (Replacement variable)"; "&client_secret="; "ClientSecret (Replacement variable)" - Set Parameters under Configure —> Parameters —>(+): Set ClientID = Process Property Client ID; Set ClientSecret = Process Property Client Secret After this, store the success token in the Process Properties "AccessToken" variable as shown, extracting it from the jSON response.
  The pattern for this step will be repeated for the next steps, but using new operations with different jSON return profiles. In fact, many of the REST calls will be dealt with in the same way with minor changes! In the next installment, we'll expand on this and get a list of leads from a static list using REST! For now, run the process, but put a stop shape after your "Set Properties" then run in debug to make sure you see the same token that you see in Marketo. They should match up perfectly!
 
 Posted on _2015-01-26_ by _John_
 
 ## Use a Google Font API to Add a Custom Font to a Marketo Landing Page
 
-**Note: This is a blog post by [Murtza Manzur](https://www.linkedin.com/in/murtzam). Murtza is a Marketo Developer Evangelist based out of the San Francisco Bay Area.** 
+**Note: This is a blog post by [Murtza Manzur](https://www.linkedin.com/in/murtzam). Murtza is a Marketo Developer Evangelist based out of the San Francisco Bay Area.**
 Let's say you are creating a landing page in Marketo and would like to use a custom font. This is possible using the Google Font API.  Add an import method to your CSS file with reference to Google Fonts:
 
 `@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);`
@@ -2794,7 +2790,7 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>" 
+marketo_instance = "<https://AAA-BBB-CCC.mktorest.com>"
 endpoint = "/rest/v1/leads.json"
 # Replace with your access token
 auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
@@ -2823,7 +2819,7 @@ Posted on _2015-01-28_ by _Murta_
 
 ## Execute Form Submission Actions from Iframe to Parent Page
 
-We have seen a few cases where users use iframe forms and want to direct visitors that filled in the form to a thank you page or PDF, video, etc. The problem is that since the form is embedded on a landing page which is different from the parent one, the action happens only on the inner page where the form is. To solve that, below are 2 JavaScript tags we created. Insert in as an HTML element to your iframe pages or directly to the landing page template you use for iframes. Place it before the last `</body>` tag. The first tag performs the action on the parent page and the second tag will open it in a new tab. 
+We have seen a few cases where users use iframe forms and want to direct visitors that filled in the form to a thank you page or PDF, video, etc. The problem is that since the form is embedded on a landing page which is different from the parent one, the action happens only on the inner page where the form is. To solve that, below are 2 JavaScript tags we created. Insert in as an HTML element to your iframe pages or directly to the landing page template you use for iframes. Place it before the last `</body>` tag. The first tag performs the action on the parent page and the second tag will open it in a new tab.
 
 **Form Action on a Parent Page**
 
@@ -2887,7 +2883,7 @@ events: {
 
 function onPlayerStateChange(event) {
 switch( event.data ) {
-//Send video started event to Marketo 
+//Send video started event to Marketo
 case YT.PlayerState.PLAYING: Munchkin.munchkinFunction('visitWebPage', {
 url: '/video/'+videoId
 , params: 'video=started'
@@ -2913,18 +2909,18 @@ Posted on _2015-02-02_ by _Murta_
 
 ## Marketo SOAP API Tips and Tricks
 
-NOTE: This is a guest blog post. [Ed Blachman is a Senior Architect](https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fprofile%2Fview%3Fid%3D2777965) at [TIBCO Software, a well-known vendor of enterprise software](https://exchange.adobe.com/apps/browse/ec?product=MRKTO). Ed is working on products that allow what Gartner calls "citizen developers" to integrate the cloud services they use without needing to do any programming themselves. [Marketo's SOAP API](/help/soap-api/soap-api.md) is a powerful tool by which developers can harness the power of Marketo and integrate it with our own applications. Between [the formal documentation](./getting-started.md) and [the community resources](https://nation.marketo.com/), there's much information available regarding how to use it. When I was getting started, I leaned heavily on that information and found it invaluable. However, in that process, I built up some tips and tricks that I hadn't seen in any of those places. Here's some of what I figured out. 
+NOTE: This is a guest blog post. [Ed Blachman is a Senior Architect](https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fprofile%2Fview%3Fid%3D2777965) at [TIBCO Software, a well-known vendor of enterprise software](https://exchange.adobe.com/apps/browse/ec?product=MRKTO). Ed is working on products that allow what Gartner calls "citizen developers" to integrate the cloud services they use without needing to do any programming themselves. [Marketo's SOAP API](/help/soap-api/soap-api.md) is a powerful tool by which developers can harness the power of Marketo and integrate it with our own applications. Between [the formal documentation](./getting-started.md) and [the community resources](https://nation.marketo.com/), there's much information available regarding how to use it. When I was getting started, I leaned heavily on that information and found it invaluable. However, in that process, I built up some tips and tricks that I hadn't seen in any of those places. Here's some of what I figured out.
 
-**The Developers' Sandbox** The Sandbox is, of course, a wonderful resource for API developers: a safe place in which you can experiment with Marketo features, adding and removing objects without interfering with real marketing activities carried on by your organization's actual Marketo users. However, the Sandbox is not a panacea. 
-For example, I needed to share our Sandbox with another development group, and this took some doing, because they had gotten accustomed to the notion that they owned the Sandbox. Eventually, we figured out a couple of best practices for sharing: - Don't write tests that depend on complete knowledge of the contents of your Sandbox. As a shared resource, schemas may be subject to change without notice, as well as entire entries in your leads database or programs or other entities. If your tests assume complete knowledge of the Sandbox, your development cycle creates blackout periods for the groups with whom you're sharing it. Since typically their development cycle will not coincide with yours, this amounts to hogging the resource–not cool. It's also not necessary, if you think it through. - Do use a convention to label all of your stuff–your leads, your lead schema fields, your programs, whatever. If you each can identify your own objects, and if you can agree with your co-tenants that each of you will leave the others' objects alone, you should be on a firm foundation for sharing. For leads, you could create a custom field, and create a convention using this custom field to identify these leads as your test leads. For lists or programs, you might start the names of your objects with some string that identifies those objects as belonging to you. - Consider writing tests that clean up after themselves–that first create the objects you're interested in, then access or update or selectively delete them, then finally remove them. (Note that this is not achievable 100% in the SOAP API because not everything in the Sandbox, or in a real instance for that matter, can be managed via the SOAP API. Even so, it's still worthwhile to do this as much as you can.) 
+**The Developers' Sandbox** The Sandbox is, of course, a wonderful resource for API developers: a safe place in which you can experiment with Marketo features, adding and removing objects without interfering with real marketing activities carried on by your organization's actual Marketo users. However, the Sandbox is not a panacea.
+For example, I needed to share our Sandbox with another development group, and this took some doing, because they had gotten accustomed to the notion that they owned the Sandbox. Eventually, we figured out a couple of best practices for sharing: - Don't write tests that depend on complete knowledge of the contents of your Sandbox. As a shared resource, schemas may be subject to change without notice, as well as entire entries in your leads database or programs or other entities. If your tests assume complete knowledge of the Sandbox, your development cycle creates blackout periods for the groups with whom you're sharing it. Since typically their development cycle will not coincide with yours, this amounts to hogging the resource–not cool. It's also not necessary, if you think it through. - Do use a convention to label all of your stuff–your leads, your lead schema fields, your programs, whatever. If you each can identify your own objects, and if you can agree with your co-tenants that each of you will leave the others' objects alone, you should be on a firm foundation for sharing. For leads, you could create a custom field, and create a convention using this custom field to identify these leads as your test leads. For lists or programs, you might start the names of your objects with some string that identifies those objects as belonging to you. - Consider writing tests that clean up after themselves–that first create the objects you're interested in, then access or update or selectively delete them, then finally remove them. (Note that this is not achievable 100% in the SOAP API because not everything in the Sandbox, or in a real instance for that matter, can be managed via the SOAP API. Even so, it's still worthwhile to do this as much as you can.)
 
-**Real Instances** The problem with the Sandbox is that it's not being used in production, so it's difficult to get a sense of what real usage looks like in a Marketo instance. Now, if you're lucky enough to have a Marketo power user on your team, or if you're doing bespoke development for internal Marketo users, that's not such a problem. But in the case of my team, it was a large deal indeed. None of us were Marketo experts, and since we were being asked to understand a large number of cloud services, we just didn't have the headcount to become experts in anything. Here are some of the insights we gleaned from access to a real instance: - Large lead schemas. The lead schema in the production instance we accessed has over 200 fields. That made it crystal clear to our UI designers that the UI they were designing had to accommodate schemas of that size (or larger). - Bursty usage. We saw two orders of magnitude difference between the highest-usage times and low-usage times (in terms of numbers of leads created or updated). This impacted both the volume of data we'd get back from API calls (obvious) and the time it would take for an API call to respond (possibly less obvious). 
+**Real Instances** The problem with the Sandbox is that it's not being used in production, so it's difficult to get a sense of what real usage looks like in a Marketo instance. Now, if you're lucky enough to have a Marketo power user on your team, or if you're doing bespoke development for internal Marketo users, that's not such a problem. But in the case of my team, it was a large deal indeed. None of us were Marketo experts, and since we were being asked to understand a large number of cloud services, we just didn't have the headcount to become experts in anything. Here are some of the insights we gleaned from access to a real instance: - Large lead schemas. The lead schema in the production instance we accessed has over 200 fields. That made it crystal clear to our UI designers that the UI they were designing had to accommodate schemas of that size (or larger). - Bursty usage. We saw two orders of magnitude difference between the highest-usage times and low-usage times (in terms of numbers of leads created or updated). This impacted both the volume of data we'd get back from API calls (obvious) and the time it would take for an API call to respond (possibly less obvious).
 
-**API Call Response Time** Depending on the time of day, the details of your API call, and the contents of your instance, you may find the SOAP API's response time takes longer than average. On occasion, we had API calls that took a minute and a half to respond. You need to be aware of the possibility to deal with it: - Test. Maybe this is not a problem for your usage. But don't just assume that, do some testing. - Tweak your usage. In our case, the biggest issue was that we set the page size for our calls to [getMultipleLeads](/help/soap-api/getmultipleleads.md) to be as large as the API allows. In our context that makes a certain amount of sense because our goal is to be as efficient as possible with our customer's API quota. But in your context, you may not need to worry so intensely about your users' API call quotas, in which case you'll definitely get better response time by asking for smaller pages of data. 
+**API Call Response Time** Depending on the time of day, the details of your API call, and the contents of your instance, you may find the SOAP API's response time takes longer than average. On occasion, we had API calls that took a minute and a half to respond. You need to be aware of the possibility to deal with it: - Test. Maybe this is not a problem for your usage. But don't just assume that, do some testing. - Tweak your usage. In our case, the biggest issue was that we set the page size for our calls to [getMultipleLeads](/help/soap-api/getmultipleleads.md) to be as large as the API allows. In our context that makes a certain amount of sense because our goal is to be as efficient as possible with our customer's API quota. But in your context, you may not need to worry so intensely about your users' API call quotas, in which case you'll definitely get better response time by asking for smaller pages of data.
 
-**Lead Partitioning** Marketo provides powerful tools–partitions and workspaces–that allow multiple marketing groups to share a single Marketo instance. However, those tools aren't reflected directly in the SOAP API. For instance, when you use getMultipleLeads to get all leads that have been updated or created since some datetime, you get back all the leads in your instance for which that's the case, without regard for (and with nothing to indicate) which partition or workspace contains any given lead. Lead creation and adding leads to lists are other contexts in which lead partitioning may impact what your API calls actually do. Note that this means that partitions and workspaces may not be the solution you need to the problem of Sandbox sharing discussed above. So, how do you figure out whether this is an issue for you? I've found all of these to be helpful: The Developer Evangelists are committed to our success in using the APIs, and where there are questions, they're amazingly good at working to find answers. - [API Documentation](./getting-started.md). The Evangelists have already brought this issue into some of the documentation, and as part of their commitment to our success, they're really good about updating the doc. - Your Own Test Cases. Although using partitions and workspaces for sharing the sandbox may not be a great idea, the Sandbox is a great place to play with partitions and workspaces to figure out whether they pose challenges for your intended usage. (It's also a good way to narrow down your questions for the Evangelists, which are always a good idea.) 
+**Lead Partitioning** Marketo provides powerful tools–partitions and workspaces–that allow multiple marketing groups to share a single Marketo instance. However, those tools aren't reflected directly in the SOAP API. For instance, when you use getMultipleLeads to get all leads that have been updated or created since some datetime, you get back all the leads in your instance for which that's the case, without regard for (and with nothing to indicate) which partition or workspace contains any given lead. Lead creation and adding leads to lists are other contexts in which lead partitioning may impact what your API calls actually do. Note that this means that partitions and workspaces may not be the solution you need to the problem of Sandbox sharing discussed above. So, how do you figure out whether this is an issue for you? I've found all of these to be helpful: The Developer Evangelists are committed to our success in using the APIs, and where there are questions, they're amazingly good at working to find answers. - [API Documentation](./getting-started.md). The Evangelists have already brought this issue into some of the documentation, and as part of their commitment to our success, they're really good about updating the doc. - Your Own Test Cases. Although using partitions and workspaces for sharing the sandbox may not be a great idea, the Sandbox is a great place to play with partitions and workspaces to figure out whether they pose challenges for your intended usage. (It's also a good way to narrow down your questions for the Evangelists, which are always a good idea.)
 
-**TIMTOWTDI and Testing** "There is more than one way to do it"–the Perl programming motto–actually applies in certain contexts to the Marketo SOAP API. For instance, I wanted to combine updating a set of leads with adding those leads to some list. The SOAP API gives you two ways to do this: 1. [importToList](/help/soap-api/importtolist.md) + [getImportToListStatus](/help/soap-api/getimporttoliststatus.md). Reading the documentation, this is obviously the "normal" way to do this. However, the fact that you have to poll for the status of your import operation raised a yellow flag for me. Was this really the way that I wanted to implement my import? 1. [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) + [listOperation](/help/soap-api/listoperation.md). This seems much less elegant than a unitary importToList call, but it doesn't rely on polling. Was it a viable option? Cases like these are hard for the Evangelists to deal with, because they really depend on the nature of the instances that you're dealing with and exactly what you're trying to do. Luckily, if you've set up a robust unit testing environment, you should be able to use it to explore questions like these as well. In this particular case, it turned out that option 2 was better for my use case than option 1–not because of the polling but rather because I ran into field-oriented limitations on importToList, and also because I was trying to write code that could be used in contexts and instances over which I had no control. But your use case may be different–and testing is the only way you find out. 
+**TIMTOWTDI and Testing** "There is more than one way to do it"–the Perl programming motto–actually applies in certain contexts to the Marketo SOAP API. For instance, I wanted to combine updating a set of leads with adding those leads to some list. The SOAP API gives you two ways to do this: 1. [importToList](/help/soap-api/importtolist.md) + [getImportToListStatus](/help/soap-api/getimporttoliststatus.md). Reading the documentation, this is obviously the "normal" way to do this. However, the fact that you have to poll for the status of your import operation raised a yellow flag for me. Was this really the way that I wanted to implement my import? 1. [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) + [listOperation](/help/soap-api/listoperation.md). This seems much less elegant than a unitary importToList call, but it doesn't rely on polling. Was it a viable option? Cases like these are hard for the Evangelists to deal with, because they really depend on the nature of the instances that you're dealing with and exactly what you're trying to do. Luckily, if you've set up a robust unit testing environment, you should be able to use it to explore questions like these as well. In this particular case, it turned out that option 2 was better for my use case than option 1–not because of the polling but rather because I ran into field-oriented limitations on importToList, and also because I was trying to write code that could be used in contexts and instances over which I had no control. But your use case may be different–and testing is the only way you find out.
 
 **Conclusion** I don't think any of this is a huge secret. On the other hand, I'd have been ahead of the game if I'd known all this before I got started. I hope you find it useful.
 
@@ -2932,7 +2928,7 @@ Posted on _2015-02-05_ by _David_
 
 ## Using the Marketo REST API with Boomi: Getting and Deleting Leads from a Static Lists
 
-In part 1 of this series, I discussed how it was possible to start using the REST API through Boomi with the Boomi HTTP connector, specifically getting the authentication token needed to access the REST API, and storing it in a Process Variable. Next up, we'll begin making calls into Marketo, and in this installment, I show you how you can both [Get Multiple Leads By List ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists) and [Remove Leads from List](/help/rest-api/lead-database.md). Pay particular attention to the removal of leads from a list because there is a very "lightly documented" and subtle aspect of Boomi at work there that I expand on when we get there. 
+In part 1 of this series, I discussed how it was possible to start using the REST API through Boomi with the Boomi HTTP connector, specifically getting the authentication token needed to access the REST API, and storing it in a Process Variable. Next up, we'll begin making calls into Marketo, and in this installment, I show you how you can both [Get Multiple Leads By List ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists) and [Remove Leads from List](/help/rest-api/lead-database.md). Pay particular attention to the removal of leads from a list because there is a very "lightly documented" and subtle aspect of Boomi at work there that I expand on when we get there.
 
 In out NEXT installment we expand on this functionality to start doing interesting things like getting Lead activity, but that's a blog for another day. For this installment we'll be looking at the second and third highlighted areas. As a review, I've included the JSON responses we are needing below. Recall that to create a JSON profile in Boomi, all you need to do is create a profile component of type JSON, and click "import" and select the file. Boomi does the rest, extrapolating things like if there should be multiple IDs allowed. Example JSON for [Get Multiple Leads By List ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
 
@@ -3004,7 +3000,7 @@ Example JSON for [Remove Leads from List Response](https://developer.adobe.com/m
 }
 ```
 
-The Get Multiple Leads by List ID** Drop another connector (Get) into your process, using the same connection as defined in the previous article. Create a new operation called "Get Multiple Leads by List ID" (I'm a stickler for consistency) Its attributes are as follows - Request Profile: None (this one uses the request URL) - Response Profile Type: jSON - Response Profile: Create a new profile based on the Get Multiple Leads by List ID Response above. Note that you can change it so that it returns the fields you want, not just the ones listed. It's important to remember that the JSON response profile should really match the list of fields you're asking for from the REST API, and you should request only the fields you need. In the Process Properties object, we defined a property called "fields" which is a comma separated list of the fields you want REST to return. and that's the list that has to match the profile. Content Type: text/plain (this is just a URL request) HTTP Method: GET (you look this up in the REST API docs, it's always listed) Resource Path (add 5) rest/v1/list/ listID (replacement variable) /leads.json?access_token= access_token (replacement variable) &fields= fields (replacement variable). Then in the parameters tab on the connector, you can enter the variable values, all of which we previously populated into the process properties. In the next section I'll talk about how you can avoid populating these manually. Im going to skip the part of the process where I map the response for Get Multiple Leads by List Id into a flat file profile and stick it on an FTP server because that's straightforward Boomi functionality. 
+The Get Multiple Leads by List ID** Drop another connector (Get) into your process, using the same connection as defined in the previous article. Create a new operation called "Get Multiple Leads by List ID" (I'm a stickler for consistency) Its attributes are as follows - Request Profile: None (this one uses the request URL) - Response Profile Type: jSON - Response Profile: Create a new profile based on the Get Multiple Leads by List ID Response above. Note that you can change it so that it returns the fields you want, not just the ones listed. It's important to remember that the JSON response profile should really match the list of fields you're asking for from the REST API, and you should request only the fields you need. In the Process Properties object, we defined a property called "fields" which is a comma separated list of the fields you want REST to return. and that's the list that has to match the profile. Content Type: text/plain (this is just a URL request) HTTP Method: GET (you look this up in the REST API docs, it's always listed) Resource Path (add 5) rest/v1/list/ listID (replacement variable) /leads.json?access_token= access_token (replacement variable) &fields= fields (replacement variable). Then in the parameters tab on the connector, you can enter the variable values, all of which we previously populated into the process properties. In the next section I'll talk about how you can avoid populating these manually. Im going to skip the part of the process where I map the response for Get Multiple Leads by List Id into a flat file profile and stick it on an FTP server because that's straightforward Boomi functionality.
 
 Delete Leads from a List So this one is interesting, one of my coworkers, [Ken Niwa](https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fprofile%2Fview%3Fid%3D7429494) taught me this next technique and it's pretty cool and based on a Boomi article titled "How to Build a POST Request for a RESTful Application," shown below.  ...but first things first. In the process, coming out of the "Get Multiple Leads by List Id" we have the Get Multiple Leads by List Id Response shape, and we need to map that into the "Remove Leads from List Request" that mapping is fairly simple, just mapping the id we got from the leads in the original list into the id list we're passing into the delete jSON. Next, drop another Connector with an action of "Send," using the same Connection Create a new operation called "Remove Leads from List Request". whose attributes are Request Profile: jSON Content Type: application/json Request Profile: [JSON Profile] Remove Leads from List Request (created from the above file) Response Profile Type: jSON Response Profile: [JSON Profile] Remove Leads From List Response (created from the above file) Content Type: application/json HTTP Method: DELETE Resource Path (add 4) rest/v1/lists/ listID (replacement variable) /leads.json?access_token= access_token (replacement variable) Here's the interesting thing about this connector. We're NOT going to explicitly add the parameters in the connector tab. Instead, as the article states, we create dynamic document properties that have the same names as the replacement variables. In this case, those variables listID and access_token. When you do this, the jSON shape flows into the REST call and the parameters appear in their proper place on the URL. We can't do this with the previous call because it's a GET not a POST. So, at this point you've seen a GET and a POST REST API call and you can start to see the pattern for making these REST calls. In the next installment we'll start looking at Lead Activity export through the REST API, which is a bit more involved.
 
@@ -3018,7 +3014,7 @@ In a previous blog post, I described how to segment leads in Marketo based on if
 1. Name the landing page. Assign a page URL. Select a template. Then click Create.
 1. After the landing page is created, click Edit Draft.
 1. From the right panel, drag the HTML button to the main canvas on the left.
-1. In the Custom HTML Editor box that pops up. Then click Save. 
+1. In the Custom HTML Editor box that pops up. Then click Save.
 1. Adjust the size of an HTML element by dragging the box outline. Then click Approve and Close.
 1. Test the live version of the landing page by clicking View Approved Page. A landing page with the YouTube opens in a new window. The video started and finished will show up on the lead's activity log as shown in the first and second screenshot below. After the data is in Marketo, you can then create a smart list and segment leads that have started or finished a video, as shown in the screenshot below. For more information about the YouTube Iframe API, [please visit YouTube's API documentation](https://developers.google.com/youtube/iframe_api_reference). For more information about Munchkin, [please review the Marketo developer documentation](/help/javascript-api/lead-tracking.md).
 
@@ -3049,14 +3045,14 @@ require 'json'
 
 # Build request URL
 # Replace AAA-BBB-CCC with your Marketo instance
-marketo_instance = "https://AAA-BBB-CCC.mktorest.com" 
+marketo_instance = "https://AAA-BBB-CCC.mktorest.com"
 endpoint = "/rest/v1/leads.json"
 # Replace with your access token
-auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab" 
+auth_token =  "?access_token=" + "ac756f7a-d54d-41ac-8c3c-f2d2a39ee325:ab"
 request_url = marketo_instance + endpoint + auth_token
 
 # Build request body
-data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] } 
+data = { "action" => "updateOnly", "input" => [ { "email" => "<example@email.com>", "leadScore" => "30" } ] }
 
 # Make request
 response = RestClient.post request_url, data.to_json, :content_type => :json, :accept => :json
@@ -3080,9 +3076,9 @@ Posted on _2015-02-20_ by _Murta_
 Many marketers are interested in placing a Marketo Form into a Marketo Real-Time Personalization (RTP) campaign. Whether it's a Dialog, In Zone or Widget RTP campaign type, you can copy your Form HTML code and paste it into RTP's campaign editor. I've seen these examples of this being used: - Getting visitors to sign up to your newsletter after a 2nd or 3rd click on your site - Quick, effective sign-up form for webinars - Downloading a gated case study - Offering leads that unsubscribed in the past to re-subscribe Fill out a form in the campaign and receive the thank you or content requested, resulting in one less clicks to get to your goals. So, here goes the explanation of how to do this and embed a Marketo Form 2.0 into a Marketo RTP campaign. See a great example below from eMarketer, RTP users that took it one step further and instead of directing the visitors to a thank you page - decided to display a Thank You message within the RTP campaign. The code for this option is also below. Enjoy and I are happy to hear about your experience with it!
 
 1. Right click on an approved form. Select **Embed Code.**
-1. Copy the **Code.** 
+1. Copy the **Code.**
 1. In Marketo RTP, go to **Campaigns**.
-1. Click **CREATE NEW CAMPAIGN**. 
+1. Click **CREATE NEW CAMPAIGN**.
 1. In the Rich Text Editor, click on the **HTML icon**.
 1. Paste the form embed code into the HTML Source Editor. Click **Update**.
 1. The form will not display in the editor view, but you can preview it to see how it will render in a campaign.
@@ -3124,8 +3120,8 @@ This custom JavaScript allows RTP users to show campaigns a few seconds after th
 <script>
 function sendCustomRTPEvent(a){
  var eventValue="t="+a;
- setTimeout(function(){ 
-  rtp('send', 'event', {value: eventValue}); 
+ setTimeout(function(){
+  rtp('send', 'event', {value: eventValue});
   rtp('get', 'campaign',true);
  }, 1000 \* a);
 }
@@ -3191,7 +3187,7 @@ The sample code takes two command line arguments that simulate the "id" and "ema
 1. args[0] = Account Id
 1. args[1] = Email Address
 
-Pass actual values from your instance as arguments to the program. Here is a project configuration screenshot from Intellij IDEA. 
+Pass actual values from your instance as arguments to the program. Here is a project configuration screenshot from Intellij IDEA.
 
  **SyncEmailUnsubscribe.java**
 
@@ -3214,7 +3210,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class SyncEmailUnsubscribe {
-    // Define Marketo instance meta data here.  
+    // Define Marketo instance meta data here.
     // Each row contains three elements: Account Id, Client Id, Client Secret.
     // For example:
     //  public static String instanceData[][] = {
@@ -3410,7 +3406,7 @@ Perform the following steps for each Marketo instance that you would like to syn
 1. Create a Webhook that calls your external web service. If you are unfamiliar with creating Webhooks, click [here](/help/webhooks/webhooks.md).
 1. Add Webhook as a flow step in Smart Campaign.
 
-The screenshot below shows how to create a webhook to invoke the service specified above using tokens to automatically populate the query parameters. Now that we have created our webhook, we can add it to a Smart Campaign as a flow action.  The Smart List should contain an "Unsubsubscribes from Email" trigger. 
+The screenshot below shows how to create a webhook to invoke the service specified above using tokens to automatically populate the query parameters. Now that we have created our webhook, we can add it to a Smart Campaign as a flow action.  The Smart List should contain an "Unsubsubscribes from Email" trigger.
 
 ### Validation
 
@@ -3491,7 +3487,7 @@ The idea is that you could then pass this JSON as the request payload to an exte
 }
 ```
 
-When either of these two types of activities are returned, we store the associated Lead Id in a list. Once we have our list, we can iterate through it calling Get Lead by Id for each item. This will retrieve the latest lead data for each lead in the list. For this example we retrieve the following lead fields: `leadId`, `updatedAt`, `firstName`, `lastName`, and `email`. You are free to select any combination of fields for your purposes. This is done by specifying the fields parameter to Get Lead by Id. And finally we JSONify the results as an array of lead objects as described above. 
+When either of these two types of activities are returned, we store the associated Lead Id in a list. Once we have our list, we can iterate through it calling Get Lead by Id for each item. This will retrieve the latest lead data for each lead in the list. For this example we retrieve the following lead fields: `leadId`, `updatedAt`, `firstName`, `lastName`, and `email`. You are free to select any combination of fields for your purposes. This is done by specifying the fields parameter to Get Lead by Id. And finally we JSONify the results as an array of lead objects as described above.
 
  **Program Code**
 
@@ -3705,9 +3701,9 @@ Note: Role permissions were added to provide access to the Opportunity endpoints
 
 * Asset API - Snippets. New [asset endpoints for snippets](https://developer.adobe.com/marketo-apis/api/asset/#snippet_endpoints) have been introduced to allow you to programmatically manipulate snippet objects. Snippets can be used as dynamic content blocks in Emails and Landing Pages.
 * Leads API - Update Leads Partition. A new [lead endpoint for partitions](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updatePartitionsUsingPOST) has been added to allow you to update the partition for one or more leads.
-* Fixed issue where Lead-related APIs were missing time zone offset in "createdAt" and "updatedAt" attributes. 
-* Fixed issue where Schedule Campaign was not returning the proper error code when the daily maximum number of calls had been exceeded. 
-* Fixed issue where Get Folder by Id would sometimes return null for "parent" and "description" attributes. 
+* Fixed issue where Lead-related APIs were missing time zone offset in "createdAt" and "updatedAt" attributes.
+* Fixed issue where Schedule Campaign was not returning the proper error code when the daily maximum number of calls had been exceeded.
+* Fixed issue where Get Folder by Id would sometimes return null for "parent" and "description" attributes.
 * Fixed issue where Approve Email by Id would give a system error in certain cases.
 * Fixed issue where Create Token by Folder Id would produce a token that was unusable in certain cases.
 
@@ -3789,7 +3785,6 @@ to this:
 
 "**folderType**": "Marketing Folder"
 
-
 ### Mobile Engagement SDK
 
 iOS 0.3.5
@@ -3815,7 +3810,7 @@ Several of our customers provide web app solutions for their users and we receiv
 
 `rtp('set', 'customVar1', 'Enterprise');`
 
-**Create a New RTP Segment** Go to **Segments**, click **CREATE NEW**. 
+**Create a New RTP Segment** Go to **Segments**, click **CREATE NEW**.
 
 1. Drag the **User Context API** filter to the segment builder.
 1. Select the **Custom Variable 1** (Subscription Type) that **value** is **Enterprise**.
@@ -3849,7 +3844,7 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -3902,7 +3897,7 @@ public class RequestCampaign {
  private Auth auth;
  public ArrayList leads = new ArrayList();
  public ArrayList tokens = new ArrayList();
- 
+
  public RequestCampaign(Auth auth, int campaignId) {
   this.auth = auth;
   this.endpoint = this.auth.marketoInstance + "/rest/v1/campaigns/" + campaignId + "/trigger.json";
@@ -3931,7 +3926,7 @@ public class RequestCampaign {
    JsonObject requestBody = buildRequest(); //builds the Json Request Body
    String s = endpoint + "?access_token=" + auth.getToken(); //takes the endpoint URL and appends the access_token parameter to authenticate
    System.out.println("Executing RequestCampaign calln" + "Endpoint: " + s + "nRequest Body:n"  + requestBody);
-   URL url = new URL(s); 
+   URL url = new URL(s);
    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection(); //Return a URL connection and cast to HttpsURLConnection
    urlConn.setRequestMethod("POST");
    urlConn.setRequestProperty("Content-type", "application/json");
@@ -3951,7 +3946,7 @@ public class RequestCampaign {
   }
   return result;
  }
- 
+
  private JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
   JsonObject input = new JsonObject();
@@ -3999,7 +3994,7 @@ public class Auth {
  private String idEndpoint; //idEndpoint constructed to authenticate with service when constructor is used
  private String token; //token is stored for reuse until expiration
  private Long expiry; //used to store time of expiration
- 
+
  //Creates an instance of Auth which is used to Authenticate with a particular service on a particular instance
  public Auth(String id, String secret, String instanceUrl) {
   this.clientId = id;
@@ -4069,7 +4064,7 @@ public class Leads {
  public Integer batchSize;
  public String nextPageToken;
  public ArrayList fields = new ArrayList();
- 
+
  public Leads(Auth a) {
   this.auth = a;
   this.endpoint = new StringBuilder(this.auth.marketoInstance + "/rest/v1/leads.json");
@@ -4151,7 +4146,7 @@ package dev.marketo.blog_leads;
 
 import com.eclipsesource.json.JsonObject;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -4248,12 +4243,12 @@ import com.eclipsesource.json.JsonObject;
 
 public class UpsertCompanies {
  public List<JsonObject> input; //a list of Companies to use for input.  Each must have a member "externalCompanyId".
- public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate 
+ public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate
  public String dedupeBy; //select mode of Deduplication, dedupeFields for all dedupe parameters(externalCompanyId), idField for marketoId
  private String endpoint; //endpoint URL created with Constructor
  private Auth auth; //Marketo Auth Object
- 
- 
+
+
  //Constructs an UpsertOpportunities with Auth, but with no input set
  public UpsertCompanies(Auth auth){
   this.auth = auth;
@@ -4275,13 +4270,13 @@ public class UpsertCompanies {
   }
   return this;
  }
- 
+
  public JsonObject postData(){
   JsonObject result = null;
   try {
    JsonObject requestBody = buildRequest(); //builds the Json Request Body
    String s = endpoint + "?access_token=" + auth.getToken(); //takes the endpoint URL and appends the access_token parameter to authenticate
-   URL url = new URL(s); 
+   URL url = new URL(s);
    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection(); //Return a URL connection and cast to HttpsURLConnection
    urlConn.setRequestMethod("POST");
    urlConn.setRequestProperty("Content-type", "application/json");
@@ -4301,7 +4296,7 @@ public class UpsertCompanies {
   }
   return result;
  }
- 
+
  private JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
   JsonArray in = new JsonArray(); //Create a JsonArray for the "input" member to hold Opp records
@@ -4341,7 +4336,7 @@ public class UpsertCompanies {
   this.dedupeBy = dedupeBy;
   return this;
  }
- 
+
 }
 ```
 
@@ -4381,12 +4376,12 @@ import com.eclipsesource.json.JsonObject;
 
 public class UpsertOpportunities {
  public List<JsonObject> input; //a list of Opportunities to use for input.  Each must have a member "externalopportunityid".  Each can optionally include "externalCompanyId" for company association
- public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate 
+ public String action; //specify the action to be undertaken, createOnly, updateOnly, createOrUpdate
  public String dedupeBy; //select mode of Deduplication, dedupeFields for all dedupe parameters, idField for marketoId
  private String endpoint; //endpoint URL created with Constructor
  private Auth auth; //Marketo Auth Object
- 
- 
+
+
  //Constructs an UpsertOpportunities with Auth, but with no input set
  public UpsertOpportunities(Auth auth){
   this.auth = auth;
@@ -4407,13 +4402,13 @@ public class UpsertOpportunities {
   }
   return this;
  }
- 
+
  public JsonObject postData(){
   JsonObject result = null;
   try {
    JsonObject requestBody = buildRequest(); //builds the Json Request Body
    String s = endpoint + "?access_token=" + auth.getToken(); //takes the endpoint URL and appends the access_token parameter to authenticate
-   URL url = new URL(s); 
+   URL url = new URL(s);
    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection(); //Return a URL connection and cast to HttpsURLConnection
    urlConn.setRequestMethod("POST");
    urlConn.setRequestProperty("Content-type", "application/json");
@@ -4433,7 +4428,7 @@ public class UpsertOpportunities {
   }
   return result;
  }
- 
+
  private JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
   JsonArray in = new JsonArray(); //Create a JsonArray for the "input" member to hold Opp records
@@ -4472,7 +4467,7 @@ public class UpsertOpportunities {
   this.dedupeBy = dedupeBy;
   return this;
  }
- 
+
 }
 ```
 
@@ -4527,7 +4522,7 @@ public class UpsertOpportunityRoles {
  public String dedupeBy;//select mode of Deduplication, dedupeFields for all dedupe parameters, idField for marketoId
  private String endpoint; //endpoint URL created with Constructor
  private Auth auth; //Marketo Auth Object
- 
+
  //Constructs an UpsertOpportunityRoles with Auth, but with no input set
  public UpsertOpportunityRoles(Auth auth) {
   this.auth = auth;
@@ -4574,7 +4569,7 @@ public class UpsertOpportunityRoles {
   }
   return result;
  }
- 
+
  public JsonObject buildRequest(){
   JsonObject requestBody = new JsonObject();
   JsonArray in = new JsonArray();
@@ -4613,7 +4608,7 @@ public class UpsertOpportunityRoles {
   this.dedupeBy = dedupeBy;
   return this;
  }
- 
+
 }
 ```
 
@@ -4638,7 +4633,6 @@ JsonObject rolesResult = upsertRoles.postData();
 System.out.println(rolesResult);
 ```
 
-
 Here we're creating the new JsonObjects for our 2 example roles, and adding their required dedupeFields, pulling the externalopportunityid from the opportunities we already created, then pushing them down to Marketo.
 
 ### Putting It All Together
@@ -4650,19 +4644,19 @@ package dev.marketo.opportunities;
 
 import com.eclipsesource.json.JsonObject;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
-     //create an Instance of Auth 
+     //create an Instance of Auth
         Auth auth = new Auth("CLIENT_ID_CHANGE_ME", "CLIENT_SECRET_CHANGE_ME", "MARKETO_HOST_CHANGE_ME");
-        
+
         //Create a new company to associate to
         JsonObject myCompany = new JsonObject().add("externalCompanyId", "myCompany");
         UpsertCompanies upsertCompanies = new UpsertCompanies(auth).addCompanies(myCompany);
         JsonObject companiesResult = upsertCompanies.postData();
         System.out.println(companiesResult);
-        
+
         //Create some JsonObjects for Opportunity Data
         JsonObject opp1 = new JsonObject().add("name", "opportunity1")
            .add("externalopportunityid", "Opportunity1Test")
@@ -4679,7 +4673,7 @@ public class App
                                 .addOpportunities(opp1, opp2);
         JsonObject oppsResult = upsertOpps.postData();
         System.out.println(oppsResult);
-        
+
         //Create Some opp roles now
         JsonObject opp1Role = new JsonObject()
            .add("role", "Captain")
@@ -4689,7 +4683,7 @@ public class App
            .add("role", "Commander")
            .add("externalopportunityid", opp2.get("externalopportunityid").asString())
            .add("leadId", 318795);
-        
+
         //Create an Instance of UpsertOpportunityRoles and POST it
         UpsertOpportunityRoles upsertRoles = new UpsertOpportunityRoles(auth)
            .setAction("createOnly")
@@ -4722,22 +4716,22 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
      //Create an instance of Auth so that we can authenticate with our Marketo instance
         Auth auth = new Auth("Client ID - CHANGE ME", "Client Secret - CHANGE ME", "Host - CHANGE ME");
-        
+
         //Create and parameterize an instance of Leads
         Leads leadsRequest = new Leads(auth).setFilterType("email").addFilterValue("requestCampaign.test@marketo.com");
-        
+
         //get the inner results array of the response
         JsonArray leadsResult = leadsRequest.getData().get("result").asArray();
-        
+
         //get the id of the record indexed at 0
         int lead = leadsResult.get(0).asObject().get("id").asInt();
-        
+
         //Set the ID of our campaign from Marketo
         int campaignId = 1578;
         RequestCampaign rc = new RequestCampaign(auth, campaignId).addLead(lead);
@@ -4980,7 +4974,6 @@ Posted on _2015-08-14_ by _David_
 
 ## Add SalesPerson Data to Marketo
 
-
 With the new SalesPerson APIs, you can freely associate Marketo leads with SalesPerson records in instances without a native CRM integration. This allows usage of {{lead.Lead Owner Email Address}} and related fields and tokens within Marketo.
 
 ### Creating SalesPerson records
@@ -4995,13 +4988,13 @@ class SalesPerson{
  private $action;// string designating request action, createOnly, updateOnly, createOrUpdate
  private $dedupeBy;//dedupeFields or idField
  private $input;//array of salesperson objects for input
- 
+
  //takes an Auth object as the first argument
  public function _construct($auth, $input){
   $this->auth = $auth;
   $this->input = $input;
  }
- 
+
  //constructs the json request body
  private function bodyBuilder(){
   $body = new stdClass();
@@ -5057,7 +5050,7 @@ class SalesPerson{
  public function getInput(){
   return $this->input;
  }
- 
+
 }
 ```
 
@@ -5165,7 +5158,7 @@ class Leads{
  public function getPartitionName() {
   return $this->partitionName;
  }
- 
+
 }
 ```
 
@@ -5238,7 +5231,7 @@ class Auth{
  private $clientSecret;//client secret
  private $token;//access_token
  private $expiry;
- 
+
  function _construct($host, $clientId, $clientSecret){
   $this->host = $host;
   $this->clientId = $clientId;
@@ -5299,7 +5292,7 @@ Posted on _2015-08-28_ by _Kenny_
 
 ## How to Specify Lead Partitions Using the REST APII
 
-**Lead Partitioning** Marketo Lead Partitions provide a convenient way to isolate leads. Partitions can allow different marketing groups within your organization to share a single Marketo instance. For more information, see [Understanding Workspaces and Lead Partitions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions). Suppose that you are using lead partitions and creating leads programmatically using the Marketo REST API. How do you ensure the leads that you create will end up in the correct partition? This post shows you how! For the sake of this example, we'll use Workspaces and Partitions to isolate our leads based on geography. 
+**Lead Partitioning** Marketo Lead Partitions provide a convenient way to isolate leads. Partitions can allow different marketing groups within your organization to share a single Marketo instance. For more information, see [Understanding Workspaces and Lead Partitions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions). Suppose that you are using lead partitions and creating leads programmatically using the Marketo REST API. How do you ensure the leads that you create will end up in the correct partition? This post shows you how! For the sake of this example, we'll use Workspaces and Partitions to isolate our leads based on geography.
 
 First we'll define a workspace called "Country". Next, we create two partitions within that workspace called "Mexico" and "Canada".  **Create Lead in Partition** Suppose now that we want to create two leads in the "Mexico" partition. To create leads, we call the. To specify the partition, we must include the "partitionName" attribute in the request body. How do we know what to use for the partitionName value? We can retrieve a list of valid partition name values for our instance by calling the [Get Lead Partitions](https://developer.adobe.com/marketo-apis/api/mapi/#operation/describeProgramMemberUsingGET) API as follows:
 
@@ -5359,7 +5352,7 @@ Here are our newly created leads in Marketo.  **Update Lead in Partition** To up
 }
 ```
 
-Here are our newly updated leads in Marketo. 
+Here are our newly updated leads in Marketo.
  **Identify Partition for a Lead** How do we know which partition that a lead is in? For this we use the [Get Lead by Id](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadByIdUsingGET) API and specify "leadPartitionId" in the "fields" query parameter. In this case we will retrieve the information for lead id 318816 that we created above.
 
 `GET /rest/v1/lead/318816.json?fields=leadPartitionId,email,firstName,lastName,title`
@@ -5406,8 +5399,8 @@ Many Marketo customers, particularly those focused on cross-selling, have multip
 ### As I want to compare 2 numbers I need to convert my field values to integers
 
 ```
-#set ($score1 = $math.toInteger(${lead.Apple_Score})) 
-#set ($score2 = $math.toInteger(${lead.Banana_Score})) 
+#set ($score1 = $math.toInteger(${lead.Apple_Score}))
+#set ($score2 = $math.toInteger(${lead.Banana_Score}))
 ##check if the lead score is greater than feature score
 #if($score1 >= $score2)
                 ##if Apple score is greater
@@ -5488,9 +5481,9 @@ Background form submission is one of the recommended replacement methods for Mun
         </script>
 </head>
 
-<body> 
+<body>
   <!--
-    Start Embed code.  
+    Start Embed code.
     Pasted from Form Actions -> Embed Code except for addition of 'style="display:none"' to the form tag in order to hide it, and instance-specific codes redacted
     Replace with your own code for testing
   -->
@@ -5515,11 +5508,11 @@ Background form submission is one of the recommended replacement methods for Mun
 
             //the addHiddenFields methods lets us add arbitrary fields to the form as well as their values
             form.addHiddenFields(values);
-            
+
             //submit the form
             form.submit();
-            
-            
+
+
         })
     </script>
 </body>
@@ -5552,7 +5545,7 @@ Posted on _2015-10-09_ by _Kenny_
 
 ## Guest Post - Direct SQL Connectors to the Marketo Database
 
-**This is a guest post from Sumit Sarkar of Progress, Inc.** 
+**This is a guest post from Sumit Sarkar of Progress, Inc.**
 
 **SQL connectors to Marketo database** Marketo has well documented APIs for accessing data. However, sometimes organizations need direct SQL access. We are seeing the lines blur at Marketo shops between Marketing and IT which is increasing the demand for standards based SQL connectivity. Direct SQL connectors to Marketo are available through [Progress DataDirect Cloud](https://www.progress.com/connectors/cloud-data-integration). DataDirect Cloud is a data connectivity service that exposes Marketo data through open industry standards for SQL access across ODBC ("Open Database Connectivity") or JDBC ("Java Database Connectivity"); and REST with OData ("Open Data Protocol"). Below are some popular use cases for connecting Marketo data out-of-box using DataDirect Cloud:
 
@@ -5610,15 +5603,15 @@ Posted on _2015-12-07_ by _Kenny_
 
 ## Create a Dashboard for API Usage and Error Counts
 
-As a Marketo API consumer, this is useful information that you should keep an eye on. What if you could get historical usage data to help detect trends over time? What if you could get a summary of API error codes to help measure the health of your integration? As a Marketo Technology Partner, what if you could get usage and error data across all of your customer accounts in one dashboard? This post will provide an approach to answering the questions above. Buckle up, here we go! 
+As a Marketo API consumer, this is useful information that you should keep an eye on. What if you could get historical usage data to help detect trends over time? What if you could get a summary of API error codes to help measure the health of your integration? As a Marketo Technology Partner, what if you could get usage and error data across all of your customer accounts in one dashboard? This post will provide an approach to answering the questions above. Buckle up, here we go!
 **Scheduled Job for Stats Retrieval** Let's create an app that retrieves usage and error data using [Get Daily Usage](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLast7DaysErrorsUsingGET) and [Get Daily Errors](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getDailyErrorsUsingGET) endpoints. The app is designed to be scheduled to run once per day. Each time the app runs, it appends a day's worth of usage data to one file, and a day's worth of error data to another file. At the beginning of each month, a new pair of files is created. These files will serve as a historical record that we can access at any time. Here is the app logic …
 
 * Read Marketo account information (Munchkin id and Client credentials) from an external source. Note: This source must be secure to keep others from accessing account data.
 * Iterate through each account and...
-    * Call Get Daily Usage to retrieve usage data for one day
-    * Append daily usage data to a monthly "usage" file
-    * Call Get Daily Errors to retrieve errors data for one day
-    * Append daily errors data to a monthly "errors" file
+  * Call Get Daily Usage to retrieve usage data for one day
+  * Append daily usage data to a monthly "usage" file
+  * Call Get Daily Errors to retrieve errors data for one day
+  * Append daily errors data to a monthly "errors" file
 
 Output File Format The format for the output files is JSON which matches up with the "result" array returned from the respective API calls (Usage and Error). Each element of the "result" array is a JSON object that contains data for one day. Output File Naming The output files are named as follows:
 
@@ -5631,9 +5624,9 @@ Where,
 Output File Examples usage_2015_10_111-AAA-222.json
 
 ```json
-[ 
-    { "date": "2015-10-15", "total": 0, "users" : [] }, 
-    { "date": "2015-10-16", "total": 9, "users": [ { "userId": "some.body@yahoo.com", "count": 9 } ] }, 
+[
+    { "date": "2015-10-15", "total": 0, "users" : [] },
+    { "date": "2015-10-16", "total": 9, "users": [ { "userId": "some.body@yahoo.com", "count": 9 } ] },
     { "date": "2015-10-17", "total": 1120, "users": [ { "userId": "some.body@yahoo.com", "count": 200 }, { "userId": "some.body@marketo.com", "count": 200 }, { "userId": "some.body@gmail.com", "count": 720 } ] },
 ]
 ```
@@ -5686,7 +5679,6 @@ Example Request
 
 The web service reads "usage" and "error" files, and combines them together and returns them in this format:
 
-
 ```html
 **<Name of Callback here>**
 
@@ -5727,7 +5719,6 @@ function processStats(usage, errors) {
     document.body.appendChild(prettyPrint(errors, cfg));
 ;
 ```
-
 
 This function is automatically called after the web service call. In this example, we call a simple JavaScript "variable dumper" called [prettyPrint.js](https://github.com/padolsey-archive/prettyprint.js/tree/master) on each array. The prettyPrint function simply produces an HTML table using the contents of the array. Here is a screenshot of the HTML tables. Voilà, that is our dashboard! Granted this isn't very elegant, but it should give you an idea of what is possible. There is nothing stopping you from transforming the data any way you like to make your own eye catching visualizations. The HTML page is below (Index.html) You can view the tables above live in your browser using the following steps:
 
@@ -5963,7 +5954,7 @@ For the most part, errors received back from the Marketo REST API will not be au
 
 ### Request-Size Errors
 
-As we looked at in the last post of this series, Marketo will emit HTTP Status code 414 if your URI exceeds 8KiB in length, or 413 if your request body exceeds 1MB, or 10MB for Import Lead. Though 414s will be rare, you might see them if you're using the Get Leads By Filter type to request records based on 300 separate GUIDs or similar criteria. Say you have the following request: `<https://AAA-BBB-CCC.mktorest.com/rest/v1/leads.json?filterType=customGUID&fields=email`, company...firstName, lastName> When you submit the request, Marketo returns a status of 414 because the URI exceeds 8KiB. 
+As we looked at in the last post of this series, Marketo will emit HTTP Status code 414 if your URI exceeds 8KiB in length, or 413 if your request body exceeds 1MB, or 10MB for Import Lead. Though 414s will be rare, you might see them if you're using the Get Leads By Filter type to request records based on 300 separate GUIDs or similar criteria. Say you have the following request: `<https://AAA-BBB-CCC.mktorest.com/rest/v1/leads.json?filterType=customGUID&fields=email`, company...firstName, lastName> When you submit the request, Marketo returns a status of 414 because the URI exceeds 8KiB.
 
 To handle this, we need to alter the pattern of this request, and submit a POST instead of a GET, append '_method=GET' to the URI, and pass the query string in the request body as an x-www-form-urlencoded request instead: URI: `<https://AAA-BBB-CCC.mktorest.com/rest/v1/leads.json?_method=GET>` Request Body: filterType=customGUID&fields=email,company...firstName, lastName Instead of catching this exception from the HTTP response, however, we can just check the total length of the request at runtime, and deploy this alternative pattern if the URI exceeds 8k. Alternatively, you could use the POST Method in all cases for batch retrievals of records. For 413s, we can follow a similar pattern, checking the length of the request body when adding records during the serialization step, and splitting the request into multiple parts if this limit would be is exceeded.
 
@@ -6002,7 +5993,7 @@ Activities are a core object in the Marketo Platform. Activities are the behavio
 
 As the diagram below shows, for this example we have chosen to capture email-related activities.
 
-**Program Input** By default the program goes back in time one day from the current date to look for changes. So, you could run this program at the same time each day for example. To go farther back in time, you can specify the number of days as a command line argument, effectively increasing the window of time. The program contains several variables that you can modify: CUSTOM_SERVICE_DATA – This contains your Marketo Custom Service data (Account Id, Client Id, Client Secret). READ_BATCH_SIZE – This is the number of records to retrieve at a time. Use this to tune the response to body size. LEAD_FIELDS – This contains a list of lead fields that we want to collect. ACTIVITY_TYPES – This contains a list of activity types that we want to collect. 
+**Program Input** By default the program goes back in time one day from the current date to look for changes. So, you could run this program at the same time each day for example. To go farther back in time, you can specify the number of days as a command line argument, effectively increasing the window of time. The program contains several variables that you can modify: CUSTOM_SERVICE_DATA – This contains your Marketo Custom Service data (Account Id, Client Id, Client Secret). READ_BATCH_SIZE – This is the number of records to retrieve at a time. Use this to tune the response to body size. LEAD_FIELDS – This contains a list of lead fields that we want to collect. ACTIVITY_TYPES – This contains a list of activity types that we want to collect.
 
 **Program Logic** First we establish our time window, compose our REST endpoint URLS, and obtain our Authentication access token. Next we fire up a Get Paging Token/Get Lead Activities loop which runs until we exhaust the supply of activities. The purpose of this loop is to retrieve activity records, and extract fields of interest from those records. We tell Get Lead Activities to look only for the following activity types:
 
@@ -6479,7 +6470,7 @@ public class SyncMultipleLeadsExample {
       // Create Signature
       DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
       String text = df.format(new Date());
-      String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);      
+      String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
       String encryptString = requestTimestamp + marketoUserId ;
 
       SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
@@ -6487,7 +6478,7 @@ public class SyncMultipleLeadsExample {
       mac.init(secretKey);
       byte[] rawHmac = mac.doFinal(encryptString.getBytes());
       char[] hexChars = Hex.encodeHex(rawHmac);
-      String signature = new String(hexChars); 
+      String signature = new String(hexChars);
 
       // Set Authentication Header
       AuthenticationHeader header = new AuthenticationHeader();
@@ -6521,7 +6512,7 @@ public class SyncMultipleLeadsExample {
         LeadRecord leadRec = new LeadRecord();
 
         JAXBElement email = objectFactory.createLeadRecordEmail(c.email);
-        leadRec.setEmail(email);      
+        leadRec.setEmail(email);
 
         Attribute attr1 = new Attribute();
         attr1.setAttrName("FirstName");
@@ -6548,7 +6539,7 @@ public class SyncMultipleLeadsExample {
 
       }
 
-      request.setLeadRecordList(arrayOfLeadRecords);      
+      request.setLeadRecordList(arrayOfLeadRecords);
 
       JAXBContext context = JAXBContext.newInstance(SuccessSyncMultipleLeads.class);
       Marshaller m = context.createMarshaller();
@@ -6578,7 +6569,7 @@ public class SyncMultipleLeadsExample {
 }
 
 ```
- 
+
 This article contains code used to implement custom integrations. Due to its customized nature, The Marketo Technical Support team is unable to troubleshoot custom work. Please do not attempt to implement the following code sample without appropriate technical experience, or access to an experienced developer.
 
 Posted on _2014-03-24_ by _Travis Kaufman_
@@ -6588,16 +6579,16 @@ Posted on _2014-03-24_ by _Travis Kaufman_
 It requires an existing Smart Campaign to be created using the Marketo UI. It also requires the email recipient to exist in Marketo. So before calling the requestCampaign API, use the [getLead API](/help/soap-api/getlead.md to verify if the email exists in Marketo. After you make a call via the requestCampaign API, you can confirm it by checking to see if the Smart Campaign has run in Marketo. We show you first how to create a Smart Campaign, second how to set up a trigger to send a campaign via the API, third how to define an email as part of a flow action, and fourth a code sample that would be used to execute this campaign.
 **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. You can set up a series of automated actions to take on a smart list of contacts. In the case of sending transactional emails, you set up a trigger in the campaign, as shown below, to send emails using the API. First let's set up the Smart Campaign. 1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset.
 
-1. Click on Smart Campaign 
-1. Enter a smart campaign name and click Create 
+1. Click on Smart Campaign
+1. Enter a smart campaign name and click Create
 
- **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/triggerCampaignUsingPOST). 1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas. 
+ **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/triggerCampaignUsingPOST). 1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas.
 
-1. In the trigger, select "is" and "Web Service API."  
+1. In the trigger, select "is" and "Web Service API."
 
-**How to Create Email Flow Action on a Campaign** The association of an email with a Smart Campaign allows marketers to manage how they want an email to look, and allows the third-party application to determine who receives it and when. After creating an email as a new Local Asset, you can set it as a flow action in a campaign.  Find and select the email you want to send. 
+**How to Create Email Flow Action on a Campaign** The association of an email with a Smart Campaign allows marketers to manage how they want an email to look, and allows the third-party application to determine who receives it and when. After creating an email as a new Local Asset, you can set it as a flow action in a campaign.  Find and select the email you want to send.
 
-**Code Sample to Call the requestCampaign API** After setting up the campaign and triggers in the Marketo interface, we show you how to use the API to send an email. The first sample is an XML request, the second is an XML response, and the final one is a Java code sample that can be used to generate the XML request. We also show you how to find the campaign ID that is used when making a call to the `requestCampaign` API. 
+**Code Sample to Call the requestCampaign API** After setting up the campaign and triggers in the Marketo interface, we show you how to use the API to send an email. The first sample is an XML request, the second is an XML response, and the final one is a Java code sample that can be used to generate the XML request. We also show you how to find the campaign ID that is used when making a call to the `requestCampaign` API.
 The API call also requires you to know the ID of the Marketo campaign beforehand. You can determine the campaign ID using either of the following methods: 1. Use the [getCampaignsForSource](/help/soap-api/getcampaignsforsource.md) API 1. Open the Marketo campaign in a browser and look at the URL address bar. The campaign ID (represented as a 4-digit integer) can be found immediately following "SC". For example, `<https://app-stage.marketo.com/#SC**1025**A1>`. The bolded portion is the campaign ID - "1025." SOAP Request for `requestCampaign`
 
 ```xml
@@ -6657,71 +6648,71 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.EMAIL);
             key2.setKeyValue("anotherlead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
             leadKeyList.getLeadKeies().add(key2);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -6736,17 +6727,17 @@ Posted on _2014-03-27_ by _Murta_
 
 ## Sending an Email with Dynamic Content from Marketo using the AP-
 
-Imagine you want to automate your call center follow-up emails. After your support rep speaks with a customer, you would like to automatically send an email thanking them for contacting your company. Let's take this a step further, and say you want to include the specific conversation topic discussed with the customer that you track in your CRM. You can do this from Marketo using the requestCampaign SOAP API to send an email with dynamic content. The requestCampaign API allows you to pass in a lead or leads. It also allows you to pass in Program Tokens that can be used with an existing Campaign to send dynamic content. The requestCampaign SOAP API requires the email recipient to exist in Marketo. So before calling the requestCampaign API, use the [getLead API](/help/soap-api/getlead.md) to verify if the email exists in Marketo. We show you first how to create a Smart Campaign, second how to set up a trigger to send a campaign via the API, third how to create an email that accepts dynamic content via Program Tokens, fourth how to define an email as part of a flow action, and fifth a code sample that would be used to execute this campaign. **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. You can set up a series of automated actions to take on a smart list of contacts. In the case of sending transactional emails, you set up a trigger in the campaign, as shown below, to send emails using the API. First let's set up the Smart Campaign. 1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset 
+Imagine you want to automate your call center follow-up emails. After your support rep speaks with a customer, you would like to automatically send an email thanking them for contacting your company. Let's take this a step further, and say you want to include the specific conversation topic discussed with the customer that you track in your CRM. You can do this from Marketo using the requestCampaign SOAP API to send an email with dynamic content. The requestCampaign API allows you to pass in a lead or leads. It also allows you to pass in Program Tokens that can be used with an existing Campaign to send dynamic content. The requestCampaign SOAP API requires the email recipient to exist in Marketo. So before calling the requestCampaign API, use the [getLead API](/help/soap-api/getlead.md) to verify if the email exists in Marketo. We show you first how to create a Smart Campaign, second how to set up a trigger to send a campaign via the API, third how to create an email that accepts dynamic content via Program Tokens, fourth how to define an email as part of a flow action, and fifth a code sample that would be used to execute this campaign. **How to Create a New Smart Campaign in Marketo** Smart Campaigns in Marketo execute all of your marketing activities. You can set up a series of automated actions to take on a smart list of contacts. In the case of sending transactional emails, you set up a trigger in the campaign, as shown below, to send emails using the API. First let's set up the Smart Campaign. 1. In Marketing Activities, choose a Program and then under the New dropdown, click on New Local Asset
 
-1. Click on Smart Campaign 
-1. Enter the smart campaign name and click Create  **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/triggerCampaignUsingPOST). 
-1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas. 
-1. In the trigger, select "is" and "Web Service API." 
+1. Click on Smart Campaign
+1. Enter the smart campaign name and click Create  **Add Triggers to a Smart Campaign** Adding Triggers to a Smart Campaign allows you to make a Smart Campaign run on one person at a time based on a live event, which in this case is a request via the [requestCampaign API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/triggerCampaignUsingPOST).
+1. Search for the "Campaign is Requested" trigger and then drag and drop it to the canvas.
+1. In the trigger, select "is" and "Web Service API."
 
-**How to Pass in Dynamic Content Using the API** In Marketo, My Tokens are variables that you can use in your Program. My Tokens enable you to enter information pertaining to your Program in one place, replace that information with a value you specify, and retrieve this information in other parts of the application, such as an email template. Using the requestCampaign SOAP API, you can pass an array of Program Tokens, which will override existing tokens. After the campaign runs, the tokens are discarded. You create My Tokens at either the Campaign folder level, or at the Program level. My Tokens at the Campaign folder level will inherit down to all Programs contained within the Campaign folder. If you create My Tokens at the Campaign folder level, you can overwrite the inherited value at the Program level. For example, if you define tokens for the Program Date and the Program Description at the Campaign folder level, you can overwrite these values at the individual Program level. 
+**How to Pass in Dynamic Content Using the API** In Marketo, My Tokens are variables that you can use in your Program. My Tokens enable you to enter information pertaining to your Program in one place, replace that information with a value you specify, and retrieve this information in other parts of the application, such as an email template. Using the requestCampaign SOAP API, you can pass an array of Program Tokens, which will override existing tokens. After the campaign runs, the tokens are discarded. You create My Tokens at either the Campaign folder level, or at the Program level. My Tokens at the Campaign folder level will inherit down to all Programs contained within the Campaign folder. If you create My Tokens at the Campaign folder level, you can overwrite the inherited value at the Program level. For example, if you define tokens for the Program Date and the Program Description at the Campaign folder level, you can overwrite these values at the individual Program level.
 
-Here's how to do this. 1. From the Marketing Activities tree, select the Campaign folder or Program where you want to create the tokens. From the top menu bar, select My Tokens. Then the My Tokens canvas displays. From the right hand side tree, drag a Token Type to the canvas, which in this case is "Text." In the Token Name field, highlight My Token and enter a unique Token Name, which in this case is "my.conversationtopic." In the Value field, enter a relevant Value for the token, which in this case is "Thank you for calling us today." Note that by using the API we will override the default My Token value. Click "Save" to save the custom token.  1. Create a New Email by clicking New. Then click on New Local Assets and select Email. Next fill out the relevant fields to name your email. When drafting your email, click the Token icon to include tokens in your email. Now that you have created your template email with Tokens, we will add the email as a flow action for the Campaign in the subsequent step. So when you call the campaign via the API, the email will be sent out.  
-**How to Create Email Flow Action on a Campaign** The association of an email with a Smart Campaign allows marketers to manage how they want an email to look, and allows the third-party application to determine who receives it and when. After creating an email as a new Local Asset, you can set it as a flow action in a campaign. Find and select the email you want to send. 
+Here's how to do this. 1. From the Marketing Activities tree, select the Campaign folder or Program where you want to create the tokens. From the top menu bar, select My Tokens. Then the My Tokens canvas displays. From the right hand side tree, drag a Token Type to the canvas, which in this case is "Text." In the Token Name field, highlight My Token and enter a unique Token Name, which in this case is "my.conversationtopic." In the Value field, enter a relevant Value for the token, which in this case is "Thank you for calling us today." Note that by using the API we will override the default My Token value. Click "Save" to save the custom token.  1. Create a New Email by clicking New. Then click on New Local Assets and select Email. Next fill out the relevant fields to name your email. When drafting your email, click the Token icon to include tokens in your email. Now that you have created your template email with Tokens, we will add the email as a flow action for the Campaign in the subsequent step. So when you call the campaign via the API, the email will be sent out.
+**How to Create Email Flow Action on a Campaign** The association of an email with a Smart Campaign allows marketers to manage how they want an email to look, and allows the third-party application to determine who receives it and when. After creating an email as a new Local Asset, you can set it as a flow action in a campaign. Find and select the email you want to send.
 **Code Sample to Call the requestCampaign API** After setting up the campaign and triggers in the Marketo interface, we show you how to use the API to send an email. The first sample is an XML request, the second is an XML response, and the final one is a Java code sample that can be used to generate the XML request. We also show you how to find the campaign ID that is used when making a call to the requestCampaign API. The API call also requires you to know the ID of the Marketo campaign beforehand. You can determine the campaign ID using either of the following methods: 1. Use the [getCampaignsForSource](/help/soap-api/getcampaignsforsource.md) API 1. Open the Marketo campaign in a browser and look at the URL address bar. The campaign ID (represented as a 4-digit integer) can be found immediately following "SC". For example, `<https://app-stage.marketo.com/#SC**1025**A1>`. The bolded portion is the campaign ID - "1025." SOAP Request for requestCampaign
 
 ```xml
@@ -6808,77 +6799,77 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class RequestCampaign {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing Request Campaign");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsRequestCampaign request = new ParamsRequestCampaign();
-             
+
             request.setSource(ReqCampSourceType.MKTOWS);
-             
+
             ObjectFactory objectFactory = new ObjectFactory();
             JAXBElement<Integer> campaignId = objectFactory.createParamsRequestCampaignCampaignId(4496);
             request.setCampaignId(campaignId);
-             
+
             ArrayOfLeadKey leadKeyList = new ArrayOfLeadKey();
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.EMAIL);
             key.setKeyValue("lead@company.com");
-             
+
             leadKeyList.getLeadKeies().add(key);
-             
+
             JAXBElement<ArrayOfLeadKey> arrayOfLeadKey = objectFactory.createParamsRequestCampaignLeadList(leadKeyList);
             request.setLeadList(arrayOfLeadKey);
 
             ArrayOfAttrib aoa = new ArrayOfAttrib();
-             
+
             Attrib attrib = new Attrib();
             attrib.setName("{{my.conversationtopic}}");
             attrib.setValue("Thank you for calling about adding a line of service to your current plan.");
-             
+
             aoa.getAttribs().add(attrib);
-             
+
             JAXBElement<ArrayOfAttrib> arrayOfAttrib = objectFactory.createParamsRequestCampaignProgramTokenList(aoa);
             request.setProgramTokenList(arrayOfAttrib);
- 
+
             SuccessRequestCampaign result = port.requestCampaign(request, header);
- 
+
             JAXBContext context = JAXBContext.newInstance(SuccessRequestCampaign.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -6928,14 +6919,14 @@ Imagine you want to track users who visit a specific post on your company blog. 
 This code sample would call the Munchkin API after the user has been on the page for 5 seconds and has also scrolled 500 pixels down the page:
 
 ```javascript
-<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script> 
+<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
  setTimeout(function(){
   $(window).scroll(function() {
       var y_scroll_position = window.pageYOffset;
-      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked        
-  
+      var scroll_position = 500; //Sets number of pixels user must scroll to be tracked
+
   if(y_scroll_position > scroll_position) {
   //Munchkin tracking code
    (function() {
@@ -6946,7 +6937,7 @@ $(function(){
         Munchkin.init('XXX-XXX-XXX');
       }
      }
-     
+
      var s = document.createElement('script');
      s.type = 'text/javascript';
      s.async = true;
@@ -6959,19 +6950,19 @@ $(function(){
      s.onload = initMunchkin;
      document.getElementsByTagName('head')[0].appendChild(s);
    })();
-   }   
+   }
  },5000); //Sets time delay before tracking user
 });
 </script>
 ```
 
-**How to Verify Page Visit by Anonymous User Was Recorded in Marketo** 
+**How to Verify Page Visit by Anonymous User Was Recorded in Marketo**
 
-1. Click on Analytics in the top menu, and then click on New Report. Choose Web Page Activity as the report type, and then name your report. 
+1. Click on Analytics in the top menu, and then click on New Report. Choose Web Page Activity as the report type, and then name your report.
 1. After you create a report, click on Smart List. Then select the Visited Web Page filter from the box on the right. Enter the web page where you put the Munchkin tracking code.
 1. Click on Setup. Select Anonymous Visitors from ISPs, and change option to Shown.
 1. Click on Report. You will now see activity tracked on the web page you selected.
-1. Double click on the lead record, which will then show the activity log where you can see the specific page the anonymous user visited. 
+1. Double click on the lead record, which will then show the activity log where you can see the specific page the anonymous user visited.
 
 This article contains code used to implement custom integrations. Due to its customized nature, The Marketo Technical Support team is unable to troubleshoot custom work. Please do not attempt to implement the following code sample without appropriate technical experience, or access to an experienced developer.
 
@@ -7008,7 +6999,7 @@ For example, here are sample values for configuration settings:
 
 Finally, insert an HTML anchor tag that contains an id matching one of the ids in **divIds** (from step 2 above). For example, if you specified "phoneId1" in **divIds**, then your HTML anchor tag would look like this:
 
-`  <a href="tel:+1800229933" id="phoneId1">+1800229933</a>`
+`<a href="tel:+1800229933" id="phoneId1">+1800229933</a>`
 
 The script checks if there is a match in this order: cityPhone > statePhone > countryPhone > defaultPhone You can also replace the phone numbers with text (Example: "Join our San Francisco User Group!") or HTML code and dynamically change the content based on the geo-location. Enjoy!
 
@@ -7033,7 +7024,7 @@ The script checks if there is a match in this order: cityPhone > statePhone > co
                         document.getElementById(d[i]).href= "tel:" + p;
                     }
                     console.log(p);
-                }                
+                }
             }
             loop = false;
             phoneChanged = true;
@@ -7066,7 +7057,7 @@ The script checks if there is a match in this order: cityPhone > statePhone > co
     mobileLink: true,  //if you use click to call link (with href="tel:") you can also change its number
 
     cityPhone: {
-        "<a href='#'>yanir</a>": ["San Mateo", "San Francisco"],        
+        "<a href='#'>yanir</a>": ["San Mateo", "San Francisco"],
         "+353.1.242.3000": ["tel-aviv"]
     },
     statePhone: {
@@ -7088,8 +7079,8 @@ Posted on _2016-02-02_ by _Yanir_
 ### Custom Objects
 
 * [Custom Objects N:N relationships now supported](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
-    * Lead or Account records may now have many-to-many relationships through custom objects via the definition of intermediate objects. After creating a standalone custom object type, and intermediate object type can be created with link fields to both the standalone object and either leads or accounts.
-    * There are no new API calls for this capability, but the object definitions must be configured correctly to leverage these relationships through the API.
+  * Lead or Account records may now have many-to-many relationships through custom objects via the definition of intermediate objects. After creating a standalone custom object type, and intermediate object type can be created with link fields to both the standalone object and either leads or accounts.
+  * There are no new API calls for this capability, but the object definitions must be configured correctly to leverage these relationships through the API.
 * `getLeadActivities` and `getLeadChanges` will no longer return activities of anonymous leads. See the [Next Generation Munchkin Tracking FAQ](https://experienceleague.adobe.com/en/docs/marketo/using/home) for more information
 
 Posted on _2016-02-05_ by _Kenny_
@@ -7233,12 +7224,12 @@ This article explains in detail how to integrate Marketo with potentially over 5
 
 ### Prerequisites
 
-**Sign-up for a free account with Zapier** [Zapier](https://zapier.com/) is a web app Automation Service that lets you easily automate tasks between other online apps without the need for programmers or any IT resources. A brief introduction can be found [here](https://zapier.com/api/v4/helpdocs/category/redirect/what-is-zapier). Today Zapier supports more than 500 apps in many different domains such as Marketing, CRM, CMS, Customer Support, Electronic Signature, Forms, etc. A single integration between one app and another is called a Zap. Check Zapier's [zapbook](https://zapier.com/apps) for an exhaustive list of supported web apps.  Sign up for a free account [here](https://zapier.com/sign-up/). You get access to up to 100 tasks/month, 5 zaps, and zaps running every 15 minutes. You can of course get much more by subscribing to Zapier's paid plans (basic, business, business plus, etc.) 
+**Sign-up for a free account with Zapier** [Zapier](https://zapier.com/) is a web app Automation Service that lets you easily automate tasks between other online apps without the need for programmers or any IT resources. A brief introduction can be found [here](https://zapier.com/api/v4/helpdocs/category/redirect/what-is-zapier). Today Zapier supports more than 500 apps in many different domains such as Marketing, CRM, CMS, Customer Support, Electronic Signature, Forms, etc. A single integration between one app and another is called a Zap. Check Zapier's [zapbook](https://zapier.com/apps) for an exhaustive list of supported web apps.  Sign up for a free account [here](https://zapier.com/sign-up/). You get access to up to 100 tasks/month, 5 zaps, and zaps running every 15 minutes. You can of course get much more by subscribing to Zapier's paid plans (basic, business, business plus, etc.)
 
 **Access to a Marketo Instance as Administrator or with a provided API User account** Our Zapier connector will use the Marketo REST API to push Lead data to Marketo. In order to use this API, you need an API User and a Custom Service that you can create yourself if you are administrator of your Marketo instance. If not, then an administrator will need to provide those to you. There is also a Webhook to create, only accessible to a Marketo Administrator. A step by step explanation of how to create the Marketo API User and the Custom Service can be found [here](http://rest-api/custom-services/). Once you're done, you should have the following credentials to invoke the Marketo REST API: Client Id, Client Secret, Munchkin Account Id, Munchkin Account Id
 
-You can get the Munchkin Account Id from the Munchkin or the Web Services Admin screens. Its pattern looks like this: `000-XXX-000`.  No need to get an access token as it would be only valid for a single hour. The Connector will generate tokens for you automatically. 
-**Sign-up for a free account with Google Docs, Sheets, and Slides are productivity apps that let you create different kinds of online documents, work on them in real time with other people, and store them in your Google Drive online. Our use case needs a Google Sheet. Different features of Google Docs and creation of an account with Google can be found [here](https://workspace.google.com/products/docs/). 
+You can get the Munchkin Account Id from the Munchkin or the Web Services Admin screens. Its pattern looks like this: `000-XXX-000`.  No need to get an access token as it would be only valid for a single hour. The Connector will generate tokens for you automatically.
+**Sign-up for a free account with Google Docs, Sheets, and Slides are productivity apps that let you create different kinds of online documents, work on them in real time with other people, and store them in your Google Drive online. Our use case needs a Google Sheet. Different features of Google Docs and creation of an account with Google can be found [here](https://workspace.google.com/products/docs/).
 **Sign-up for a free account with FullContact** FullContact keeps you fully connected to the people who matter most by pulling in all your contacts and continuously syncing them with changes to social profiles, photos, email signatures, company information, and more. They offer a mobile business cards reader that can scan cards into 250+ Web Apps, including Zapier. You can sign up for a free account [here](https://app.fullcontact.com/login). You may also subscribe to a premium paid account with more features and capacity. The mobile app can be downloaded from the [Apple AppStore](https://apps.apple.com/us/app/fullcontact-business-card/id576780807), or from [Google Play](https://play.google.com/store/apps/details?id=com.fullcontact.cardreader). The FullContact Zaps are documented [here](https://zapier.com/apps/contacts-plus/integrations).
 
 ### Implementation of the Marketo Connector for Zapier
@@ -7254,7 +7245,7 @@ Edit the 'Authentication Settings':
 
 * Access Token Placement**:** Token in Querystring
 
-Once a Marketo custom service has been created, client id and client secret become available. We use the client id and client secret to generate an access token via the REST API [Authentication](/help/rest-api/authentication.md) endpoint. We can then use this access token to make subsequent requests to the REST API. The token expires after an hour and must be generated again to proceed calling the REST API. We chose authentication Type = 'Session Auth' as it allows us to execute a custom authentication script every time our session token is expired. We'll see in the section 'Scripting API' how to implement this mechanism that can only work with this type of authentication. 
+Once a Marketo custom service has been created, client id and client secret become available. We use the client id and client secret to generate an access token via the REST API [Authentication](/help/rest-api/authentication.md) endpoint. We can then use this access token to make subsequent requests to the REST API. The token expires after an hour and must be generated again to proceed calling the REST API. We chose authentication Type = 'Session Auth' as it allows us to execute a custom authentication script every time our session token is expired. We'll see in the section 'Scripting API' how to implement this mechanism that can only work with this type of authentication.
 **Triggers** Zapier Triggers are there to bring data into Zapier. We do not need one for our use cases as we will leverage a Marketo Webhook instead. However, we still need to write a dummy Trigger as a mandatory test for our Marketo connector. We are going to create a Test Trigger calling the Marketo REST API [Get Daily Usage](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getDailyUsageUsingGET) endpoint. Click **Add New Trigger** to start the wizard and fill-up the following fields (fields not mentioned can be left blank): Name and Description
 
 * Name: Test Trigger
@@ -7301,16 +7292,16 @@ Zapier's scripting feature allows you to manipulate the requests and responses t
 
 ```javascript
 var Zap = {
-     
+
     get_session_info: function(bundle) {
-  
+
        console.log('Entering get_session_info method ...');
-    
+
          var access_token,
             access_token_request_payload,
             access_token_response;
 
-    
+
         // Assemble the meta data for our Access Token swap request
          console.log('building Request with client_id=' + bundle.auth_fields.client_id + ', and client_secret=' + bundle.auth_fields.client_secret);
         access_token_request_payload = {
@@ -7323,7 +7314,7 @@ var Zap = {
             },
             headers: {
                 'Content-Type': 'application/json',  // Could be anything.
-                Accept: 'application/json' 
+                Accept: 'application/json'
             }
         };
 
@@ -7333,55 +7324,55 @@ var Zap = {
         // Extract the Access Token from returned JSON.
         access_token = JSON.parse(access_token_response.content).access_token;
         console.log('New Access_Token=' + access_token);
-   
+
         // This will be mixed into bundle.auth_fields in future calls.
         //bundle.auth_fields.access_token=access_token;
         return {'access_token': access_token};
     },
-  
-  
+
+
     test_trigger_pre_poll: function(bundle) {
-     
+
          console.log('Entering test_trigger_pre_poll method ...');
-         
+
          bundle.request.params = {
          'access_token':bundle.auth_fields.access_token
          };
-         
+
          return bundle.request;
-        
+
     },
-  
+
 
     test_trigger_post_poll: function(bundle) {
-    
+
         console.log('Entering test_trigger_post_poll method ...');
-        
+
         var data = JSON.parse(bundle.response.content);
         if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
             console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
-            
+
            throw new InvalidSessionException(); // Calling get_session_info() to regenerate Access Token
         }
 
         return JSON.parse(bundle.response.content);
     },
-     
+
     create_update_lead_pre_write: function(bundle) {
-    
-       bundle.request.params = {'access_token':bundle.auth_fields.access_token};  
+
+       bundle.request.params = {'access_token':bundle.auth_fields.access_token};
        return bundle.request;
     },
 
     create_update_lead_post_write: function(bundle) {
-         
+
          var data = JSON.parse(bundle.response.content);
          if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
             console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
             throw new InvalidSessionException(); // Calling get_session_info() to regenerate Access Token
         }
         return JSON.parse(bundle.response.content);
-    } 
+    }
 };
 ```
 
@@ -7402,11 +7393,11 @@ var Zap = {
 * We must create a 'post-write' method on any Action we have created, for the same reason.
 * If such an error has occurred, we throw an InvalidSessionException that will tell Zapier to replay the authentication and execute again the get_session_info method.
 
-Note that you can access the Bundle logs from the Scripting API from the 'Quick links' menu on the top right corner of the screen. This is really useful to debug the scripts. 
+Note that you can access the Bundle logs from the Scripting API from the 'Quick links' menu on the top right corner of the screen. This is really useful to debug the scripts.
 
 Use Case 1: Integration of Marketo with FullContact Card Reader
 
-For this integration we create one single Zap from FullContact to Marketo. With this Zap, you are able to scan business cards with the FullContact Mobile Card Reader and push the leads to Marketo.   **Zap FullContact -> Marketo** From the Zapier Dashboard click the button 'Make a new Zap'. 
+For this integration we create one single Zap from FullContact to Marketo. With this Zap, you are able to scan business cards with the FullContact Mobile Card Reader and push the leads to Marketo.   **Zap FullContact -> Marketo** From the Zapier Dashboard click the button 'Make a new Zap'.
 
 **Trigger in Zapier**
 
@@ -7497,8 +7488,8 @@ For testing purpose we are going to create a campaign that triggers our Webhook 
 
 **Zap Google Sheets -> Marketo**
 
- From the Zapier Dashboard click the button 'Make a new Zap'. 
- 
+ From the Zapier Dashboard click the button 'Make a new Zap'.
+
  **Trigger in Zapier**
 
 * Pick the 'Google Sheets' Trigger App
@@ -7535,52 +7526,52 @@ Posted on _2016-04-17_ by _David_
 **REST API**
 
 * Asset API - Web Pages
-    * **Landing Pages** are now exposed via fifteen new endpoints which will allowing creating, updating, deleting, cloning and draft management for landing pages. Landing Page templates now also have draft management endpoints exposed
-        * Get Landing Pages
-        * Get Landing Page by ID
-        * Get Landing Page by Name
-        * Create Landing Page
-        * Update Landing Page Metadata
-        * Get Landing Page Content
-        * Add Landing Page Content Section
-        * Update Landing Page Content Section
-        * Delete Landing Page Content Section
-        * Get Dynamic Content Section
-        * Update Dynamic Content Section
-        * Discard Landing Page Draft
-        * Approve Landing Page
-        * Unnaprove Landing Page Draft
-        * Delete Landing Page
-    * **Landing Page Templates**
-        * Discard Landing Page Template Draft
-        * Approve Landing Page Template
-        * Unnaprove Landing Page Template
-        * Delete Landing Page Template
-    * **Forms** have 21 new endpoints released which provide full creation, editing and management capabilities via the API. The APIs will not support changes to Forms 1.0 forms.
-        * Get Forms
-        * Get Form by ID
-        * Get Form by Name
-        * Get Form Fields List
-        * Update Form Fields List
-        * Create Form
-        * Get Form Thank You Page
-        * Update Form Thank You Page
-        * Update Form
-        * Discard Form Draft
-        * Approve Form
-        * Unapprove Form
-        * Clone Form
-        * Delete Form
-        * Update Form Field
-        * Remove Form Field
-        * Update Form Field Visibility Rules
-        * Add Rich Text Form Field
-        * Add Fieldset
-        * Remove Field from Fieldset
-        * Get Available Form Fields
-        * Change Form Field Positions
-        * Update Submit Button
-    * When using **Get or Browse Programs**, SFDC Campaign ID will be returned for Programs which are linked to an SFDC Campaign
+  * **Landing Pages** are now exposed via fifteen new endpoints which will allowing creating, updating, deleting, cloning and draft management for landing pages. Landing Page templates now also have draft management endpoints exposed
+    * Get Landing Pages
+    * Get Landing Page by ID
+    * Get Landing Page by Name
+    * Create Landing Page
+    * Update Landing Page Metadata
+    * Get Landing Page Content
+    * Add Landing Page Content Section
+    * Update Landing Page Content Section
+    * Delete Landing Page Content Section
+    * Get Dynamic Content Section
+    * Update Dynamic Content Section
+    * Discard Landing Page Draft
+    * Approve Landing Page
+    * Unnaprove Landing Page Draft
+    * Delete Landing Page
+  * **Landing Page Templates**
+    * Discard Landing Page Template Draft
+    * Approve Landing Page Template
+    * Unnaprove Landing Page Template
+    * Delete Landing Page Template
+  * **Forms** have 21 new endpoints released which provide full creation, editing and management capabilities via the API. The APIs will not support changes to Forms 1.0 forms.
+    * Get Forms
+    * Get Form by ID
+    * Get Form by Name
+    * Get Form Fields List
+    * Update Form Fields List
+    * Create Form
+    * Get Form Thank You Page
+    * Update Form Thank You Page
+    * Update Form
+    * Discard Form Draft
+    * Approve Form
+    * Unapprove Form
+    * Clone Form
+    * Delete Form
+    * Update Form Field
+    * Remove Form Field
+    * Update Form Field Visibility Rules
+    * Add Rich Text Form Field
+    * Add Fieldset
+    * Remove Field from Fieldset
+    * Get Available Form Fields
+    * Change Form Field Positions
+    * Update Submit Button
+  * When using **Get or Browse Programs**, SFDC Campaign ID will be returned for Programs which are linked to an SFDC Campaign
 
 **Custom Objects** Custom Objects will now support Text Area datatypes, allowing for string fields of up to 2000 characters to be stored in custom object fields of this type. **IP Address Whitelisting** Admin users will now be able to manage a whitelist of IP addresses to prevent unauthorized access via the APIs. [You can read more about this feature here](https://experienceleague.adobe.com/en/docs/marketo/using/home). **Custom Activity UI** Admin users will now be able to define Custom Activity types in their admin menu, and add records to leads via the [Add Custom Activities](https://developer.adobe.com/marketo-apis/api/mapi/#operation/addCustomActivityUsingPOST) API. [You can read about defining custom activity types here](https://experienceleague.adobe.com/en/docs/marketo/using/home).
 
@@ -7636,7 +7627,7 @@ $client_id = "client_id_example";
 $client_secret = "client_secret_example";
 $grant_type = "grant_type_example";
 
-try { 
+try {
     $result = $api_instance->identityOauthTokenGet($client_id, $client_secret, $grant_type);
     print_r($result->getAccessToken);
 } catch (Exception $e) {
@@ -7644,7 +7635,6 @@ try {
 }
 ?>
 ```
-
 
 ```c#
   public static void Main(string[] args)
@@ -7708,11 +7698,11 @@ Marketo has a Daily Request Limit for its API and this limit can be found in the
 
 ### Power Query Workbook Creation
 
-Let start with a new Excel workbook. We create a specific configuration worksheet for declaring all the Marketo REST API Settings. In this worksheet, we create three tables: 
+Let start with a new Excel workbook. We create a specific configuration worksheet for declaring all the Marketo REST API Settings. In this worksheet, we create three tables:
 
- Table '**REST_API_Authentication**' with the columns: **URL**: your Marketo REST API Endpoint. **Client ID**: from your Marketo REST API OAuth2.0 credential. **Client Secret**: from your Marketo REST API OAuth2.0 credential. 
+ Table '**REST_API_Authentication**' with the columns: **URL**: your Marketo REST API Endpoint. **Client ID**: from your Marketo REST API OAuth2.0 credential. **Client Secret**: from your Marketo REST API OAuth2.0 credential.
 Table '**Scoping**' with the columns: **Paging Token SinceDatetime**: a date following the ISO 8601 standard date notation (for example "2016-10-06T13:22:17-08:00," "2016-10-06" are valid date/time) that is used to fetch Marketo activities since a given period, thanks to an initial 'date-based' paging token. This date is mainly used to limit the amount of data to import into the workbook. **List ID**: the ID of a static list in Marketo that reference all the leads/contacts we are dealing with. This static list can be managed freely in Marketo (e.g. a smart campaign can feed it periodically or in real time with leads and contacts).
-In order to get the ID of a static list, open it in Marketo and get its numerical ID from the URL, e.g. `<https://myorg.marketo.com/#ST3517A1LA1>`, List ID=3511. **Max Records Pages**: this is used for our pseudo-recursive algorithms that iterate through the Marketo output data, using 'position-based' paging tokens, with a capacity of 300 max records per page. Since this is our interest to get as many records per page as possible, we'll stick to 300. So typically a Max Records Pages set to 33.333 means a capacity of 33.333 X 300 = 9.9999 million records; but it also means 33.333 K on your Marketo API Daily Request Limit. The algorithms will stop anyway as soon as all data from the queries are obtained, so this parameter is just a safety limit for a loop. 
+In order to get the ID of a static list, open it in Marketo and get its numerical ID from the URL, e.g. `<https://myorg.marketo.com/#ST3517A1LA1>`, List ID=3511. **Max Records Pages**: this is used for our pseudo-recursive algorithms that iterate through the Marketo output data, using 'position-based' paging tokens, with a capacity of 300 max records per page. Since this is our interest to get as many records per page as possible, we'll stick to 300. So typically a Max Records Pages set to 33.333 means a capacity of 33.333 X 300 = 9.9999 million records; but it also means 33.333 K on your Marketo API Daily Request Limit. The algorithms will stop anyway as soon as all data from the queries are obtained, so this parameter is just a safety limit for a loop.
 
 Table `Leads` with the column: **Lead Fields**: comma separated lead fields to gather from Marketo when querying the leads and contacts. Declaring a table in Excel is simple. Enter two rows in the spreadsheet with the columns names and values, highlight with the mouse the perimeter of the table, and select the icon Table in the 'Insert' menu, and then give it a name. The names given to the tables and their columns are important as they will be called directly by our scripts.
 
@@ -7720,7 +7710,7 @@ Table `Leads` with the column: **Lead Fields**: comma separated lead fields to g
 
 ### About Marketo REST API Authentication
 
-Marketo's REST APIs are authenticated with 2-legged OAuth 2.0. Client IDs and Client Secrets are provided by custom services that you define. Each custom service is owned by an API-Only user which has a set of roles and permissions which authorize the service to perform specific actions. An access token is associated with a single custom service. 
+Marketo's REST APIs are authenticated with 2-legged OAuth 2.0. Client IDs and Client Secrets are provided by custom services that you define. Each custom service is owned by an API-Only user which has a set of roles and permissions which authorize the service to perform specific actions. An access token is associated with a single custom service.
 The full Authentication mechanism is documented [here](/help/rest-api/authentication.md) on the Marketo Developer site. When an access token is originally created, its lifespan is 3600 seconds or 1 hour. Each consecutive authentication call for the same custom service returns the current access token with its remaining lifespan. Once the token is expired, the authentication returns a brand new access token. Managing access token expiration is important to ensure that your integration works smoothly and prevents unexpected authentication errors from occurring during normal operation.
 
 #### Create Query
@@ -7735,12 +7725,12 @@ let
     clientSecretStr = Excel.CurrentWorkbook(){[Name="REST_API_Authentication"]}[Content]{0}[Client Secret],
 
     // Calling Marketo API Get Access Token
-    getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr, 
+    getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr,
     TokenJson = try Json.Document(Web.Contents(getAccessTokenUrl)) otherwise "Marketo REST API Authentication failed, please check your credentials",
 
     // Parsing access token
     accessTokenStr = TokenJson [access_token]
-       
+
 in
     accessTokenStr
 ```
@@ -7762,14 +7752,14 @@ let
             clientSecretStr = Excel.CurrentWorkbook(){[Name="REST_API_Authentication"]}[Content]{0}[Client Secret],
 
             // Calling Marketo API Get Access Token
-           getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr, 
+           getAccessTokenUrl = mktoUrlStr & "/identity/oauth/token?grant_type=client_credentials&client_id=" & clientIdStr & "&client_secret=" & clientSecretStr,
            TokenJson = try Json.Document(Web.Contents(getAccessTokenUrl)) otherwise "Marketo REST API Authentication failed, please check your credentials",
 
-            // Parsing access token from Json 
+            // Parsing access token from Json
            accessTokenStr = TokenJson [access_token]
-       
+
         in
-            accessTokenStr 
+            accessTokenStr
 
 in FnMktoGetAccessToken
 ```
@@ -7800,7 +7790,7 @@ let
 
     // Build Multiple Leads by List Id URL
     getMultipleLeadsByListIdUrl = mktoUrlStr & "/rest/v1/list/" & listIdStr & "/leads.json?fields=" & LeadFieldsStr,
-   
+
     // Build Marketo Access Token URL parameter
     accessTokenParamStr = "&access_token=" & FnMktoGetAccessToken(),
 
@@ -7810,16 +7800,16 @@ let
     FnProcessOnePage =
     (accessTokenParamStr, pagingTokenParamStr) as record =>
         let
-        
-            // Send REST API Request             
+
+            // Send REST API Request
             content = Web.Contents(getMultipleLeadsByListIdUrl & accessTokenParamStr & pagingTokenParamStr),
-            
+
             // Recover Json output and watch if token is expired, in that case, regenerate access token
             newAccessTokenParamStr = if Json.Document(content)[success]=true then accessTokenParamStr else "?access_token=" & FnMktoGetAccessToken(),
             getMultipleLeadsByListIdJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(getMultipleLeadsByListIdUrl & newAccessTokenParamStr & pagingTokenParamStr)),
-            
-            // Parse Json outputs: data and next page token     
-            data = try getMultipleLeadsByListIdJson[result] otherwise null,          
+
+            // Parse Json outputs: data and next page token
+            data = try getMultipleLeadsByListIdJson[result] otherwise null,
             next  = try  "&nextPageToken=" & getMultipleLeadsByListIdJson[nextPageToken] otherwise null,
             res = [Data=data, Next=next, Access=newAccessTokenParamStr]
         in
@@ -7862,7 +7852,7 @@ Now the question is, where to send the result data? Hover over your query with t
 * 'Table' if you want to send all the shaped data to a worksheet (new or existing one),
 * 'Only Create Connection' if your goal is to do further analysis in the Power Pivot.
 
-The check box 'Add this to the Data Model allows you to exploit the data in the Power Pivot; this is what we want for the second part of this article. 
+The check box 'Add this to the Data Model allows you to exploit the data in the Power Pivot; this is what we want for the second part of this article.
 
 ### Managing Pagination
 
@@ -7873,7 +7863,7 @@ let
     FnMktoGetPagedData =(url, accessTokenParamStr, pagingTokenParamStr)=>
 
     let
-    
+
         // Get the number of iterations (pages of 300 records) - Table Scoping
         iterationsNum = Excel.CurrentWorkbook(){[Name="Scoping"]}[Content]{0}[Max Records Pages],
 
@@ -7881,16 +7871,16 @@ let
         FnProcessOnePage =
         (accessTokenParamStr, pagingTokenParamStr) as record =>
             let
-        
-                // Send REST API Request             
+
+                // Send REST API Request
                 content = Web.Contents(url& accessTokenParamStr & pagingTokenParamStr),
-            
+
                 // Recover Json output and watch if token is expired, in that case, regenerate access token
                 newAccessTokenParamStr = if Json.Document(content)[success]=true then accessTokenParamStr else "?access_token=" & FnMktoGetAccessToken(),
                 contentJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(url & newAccessTokenParamStr & pagingTokenParamStr)),
-            
-                // Parse Json outputs: data and next page token     
-                data = try contentJson[result] otherwise null,          
+
+                // Parse Json outputs: data and next page token
+                data = try contentJson[result] otherwise null,
                 next  = try  "&nextPageToken=" & contentJson[nextPageToken] otherwise null,
                 res = [Data=data, Next=next, Access=newAccessTokenParamStr]
             in
@@ -7927,7 +7917,7 @@ let
 
     // Build Multiple Leads by List Id URL
     getMultipleLeadsByListIdUrl = mktoUrlStr & "/rest/v1/list/" & listIdStr & "/leads.json?fields=" & LeadFieldsStr,
-   
+
     // Build Marketo Access Token URL parameter
     accessTokenParamStr = "&access_token=" & FnMktoGetAccessToken(),
 
@@ -7935,8 +7925,8 @@ let
     pagingTokenParamStr = "",
 
     // Invoke the multiple REST API calls through the FnMktoGetPagedData function
-    result = FnMktoGetPagedData (getMultipleLeadsByListIdUrl , accessTokenParamStr, pagingTokenParamStr) 
-        
+    result = FnMktoGetPagedData (getMultipleLeadsByListIdUrl , accessTokenParamStr, pagingTokenParamStr)
+
 in
     result
 ```
@@ -7947,7 +7937,7 @@ As you can see, our query is now really simple to read and to maintain. We are g
 
 #### get Activities with pagination
 
-Marketo permits a huge variety of activity types related to lead records. Nearly every change, action or flow step is recorded against a lead's activity log and can be retrieved via the API or leveraged in Smart List and Smart Campaign filters and triggers. Activities are always related back to the lead record via the leadId, corresponding to the Id of the record, and also have a unique integer id of its own. You find the complete REST API documentation [here](/help/rest-api/activities.md). 
+Marketo permits a huge variety of activity types related to lead records. Nearly every change, action or flow step is recorded against a lead's activity log and can be retrieved via the API or leveraged in Smart List and Smart Campaign filters and triggers. Activities are always related back to the lead record via the leadId, corresponding to the Id of the record, and also have a unique integer id of its own. You find the complete REST API documentation [here](/help/rest-api/activities.md).
 
 There are a very large number of potential activity types, which may vary from subscription to subscription, and have unique definitions for each. While every activity will have its own unique id, leadId and activityDate, the primaryAttributeValueId and primaryAttributeValue will vary in their meaning. We are going to focus on the Interesting Moments, one kind of Marketo tracked activities with the ID 41. The new challenges that we are going to resolve are:
 
@@ -7970,20 +7960,20 @@ let
             mktoPTSinceDatetimeStr = DateTime.ToText(Excel.CurrentWorkbook(){[Name="Scoping"]}[Content]{0}[Paging Token SinceDatetime], "yyyy-MM-ddThh:mm:ss"),
 
             // Building URL for API Call
-            getPagingTokenUrl = mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & accessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr, 
+            getPagingTokenUrl = mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & accessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr,
 
             // Calling Marketo API Get Paging Token
             content = Web.Contents(getPagingTokenUrl),
 
             // Recover Json output and watch if access token is expired, in that case, regenerate it
             newAccessTokenStr = if Json.Document(content)[success]=true then accessTokenStr else "?access_token=" & FnMktoGetAccessToken(),
-            pagingTokenJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & newAccessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr)),           
+            pagingTokenJson = if Json.Document(content)[success]=true then Json.Document(content) else Json.Document(Web.Contents(mktoUrlStr & "/rest/v1/activities/pagingtoken.json?access_token=" & newAccessTokenStr & "&sinceDatetime=" & mktoPTSinceDatetimeStr)),
 
             // Parsing Paging Token
             pagingTokenStr = pagingTokenJson[nextPageToken]
-       
+
         in
-            pagingTokenStr 
+            pagingTokenStr
 
 in FnMktoGetPagingToken
 ```
@@ -7996,7 +7986,7 @@ Let's now write the query 'MktoInterestingMomentsActivities' which will be calli
 
 ```
 let
-    
+
     // Get Url from config worksheet - Table REST_API_Authentication
     mktoUrlStr = Excel.CurrentWorkbook(){[Name="REST_API_Authentication"]}[Content]{0}[URL],
     // Get the List id - Table Scoping
@@ -8004,7 +7994,7 @@ let
 
     // Build Get Activities URL
     getActivitiesUrl = mktoUrlStr & "/rest/v1/activities.json?ListId=" & listIdStr & "&activityTypeIds=46",
-   
+
     // Build Marketo Access Token URL parameter
     accessTokenStr = FnMktoGetAccessToken(),
     accessTokenParamStr = "&access_token=" & accessTokenStr,
@@ -8014,7 +8004,7 @@ let
 
     // Invoke the multiple REST API calls through the FnMktoGetPagedData function
     result = FnMktoGetPagedData (getActivitiesUrl , accessTokenParamStr, pagingTokenParamStr)
-   
+
 in
     result
 ```
@@ -8053,7 +8043,7 @@ You should be able now to design all the queries you need to access any specific
 * [Power Query – Overview and Learning](https://support.microsoft.com/en-us/article/Power-Query-Overview-and-Learning-ed614c81-4b00-4291-bd3a-55d80767f81d)
 * [Power Query Formula Reference](http://msdn.microsoft.com/query-bi/m/power-query-m-reference)
 * [Matt Masson Blog](http://www.mattmasson.com/tag/power-query/) provides some good resources about Power Query
-* [DataChant Blog](https://datachant.com/2016/06/27/cursor-based-pagination-power-query/) is very useful for the implementation of the pagination mechanism 
+* [DataChant Blog](https://datachant.com/2016/06/27/cursor-based-pagination-power-query/) is very useful for the implementation of the pagination mechanism
 
 Posted on _2016-10-18_ by _Philippe_
 
@@ -8064,18 +8054,18 @@ In the Fall 2016 release, we are adding CRUD support for Email v2 variables and 
 ### Lead Database APIs
 
 * [**Named Accounts**](/help/rest-api/named-accounts.md)
-    * New endpoints for reading, updating, and deleting Named Accounts
-    * Known Issues:
-        * As of the Fall 2016 release, leads cannot be associated with named accounts via the API
+  * New endpoints for reading, updating, and deleting Named Accounts
+  * Known Issues:
+    * As of the Fall 2016 release, leads cannot be associated with named accounts via the API
 
 ### Asset APIs
 
 * [**Email**](https://developer.adobe.com/marketo-apis/api/asset/#operation/describeUsingGET_5)
-    * New endpoints for manipulating Email v2 variables
-    * New endpoints for manipulating Email v2 modules
-    * Known Issues:
-        * Queries and updates for sections that contain predictive tokens will return an error
-        * Emails with content sections that contain predictive tokens may not be approved using the API
+  * New endpoints for manipulating Email v2 variables
+  * New endpoints for manipulating Email v2 modules
+  * Known Issues:
+    * Queries and updates for sections that contain predictive tokens will return an error
+    * Emails with content sections that contain predictive tokens may not be approved using the API
 
 Posted on _2016-12-07_ by _Kenny_
 
@@ -8124,9 +8114,9 @@ Fill in all of the required information from the Marketo configuration worksheet
 * **Marketo REST API Authentication:** required
 * **Scoping:** set the Paging Token SinceDatetime and the Id of your Marketo static list containing all the leads that you want to analyze
 * **Leads:** for the reports to come, you must at least specify the following Lead fields: `id`, `firstName`, `lastName`, `email`, create`edAt`, `updatedAt`, `title`, `company`, `industry`, `inferredCountry`, `inferredCity`
-    * If the city information is more accurate in one of your custom fields, then you can use your own field instead
+  * If the city information is more accurate in one of your custom fields, then you can use your own field instead
 * **Activities:** Activity types to fetch from the Marketo database are specified here for each Activity set, no need to change this now.
-    * Note that we provided a utility query on the workbook that lists, right in the Excel workbook, all the existing Activity types if you want to adjust this information later on
+  * Note that we provided a utility query on the workbook that lists, right in the Excel workbook, all the existing Activity types if you want to adjust this information later on
 
 Note that you may see some security related pop-ups. Trust external connections and set them to 'Public'. If you see the pop-up below, stay with 'Anonymous' web access content. The authentication to Marketo is directly managed by our custom queries, so no need to enable any other kind of access.
 
@@ -8156,19 +8146,19 @@ We'll not use all of these relationships and objects in our reports, only the Le
 
 ### Emails Performance Pivot Chart
 
-This first report is showing email performance KPIs based on a standard Excel Pivot Chart. It allows us to filter data by Industry and/or Campaign. You can create a Pivot Chart right from the Power Pivot menu by selecting 'Pivot Chart' from the 'Pivot Table' selector.  An alternative is to create a Pivot Chart directly from the Excel spreadsheet, ticking the option 'Use this workbook's Data Model'.  Drag and drop the fields from the **MktoEmailActivities** and the **MktoLeads** tables, like the figure below: **MktoEmailActivities.Activity →** **Legend** (this use the DAX calculated column we implemented on **MktoEmailActivities** earlier) **MktoEmailActivities.Date →** **Axis** (this use the DAX calculated column we implemented on **MktoEmailActivities** earlier) **MktoEmailActivities.Id →** **∑ Values** **MktoEmailActivities.Campaign →** **Filter** **MktoLeads.industry →** **Filter**  
+This first report is showing email performance KPIs based on a standard Excel Pivot Chart. It allows us to filter data by Industry and/or Campaign. You can create a Pivot Chart right from the Power Pivot menu by selecting 'Pivot Chart' from the 'Pivot Table' selector.  An alternative is to create a Pivot Chart directly from the Excel spreadsheet, ticking the option 'Use this workbook's Data Model'.  Drag and drop the fields from the **MktoEmailActivities** and the **MktoLeads** tables, like the figure below: **MktoEmailActivities.Activity →** **Legend** (this use the DAX calculated column we implemented on **MktoEmailActivities** earlier) **MktoEmailActivities.Date →** **Axis** (this use the DAX calculated column we implemented on **MktoEmailActivities** earlier) **MktoEmailActivities.Id →** **∑ Values** **MktoEmailActivities.Campaign →** **Filter** **MktoLeads.industry →** **Filter**
 
 You can create a custom name by selecting 'Value Field Settings' on each dropped field. In this case, we dropped the Email Activity id field into the '∑ Values' section and edited its custom name as 'Number of Activities'. Now let's configure the Pivot Chart. Right click directly on the chart and select the 'Change Chart Type' option in the contextual menu. And this is how we selected the different chart type for all data series.
 
 ### Leads Map with Power View
 
-The second report displays your Leads and Contacts by geography on a world map and by Industry. We need Power View for this report. Please follow the reference link below to turn on the menu in Excel. Or you can just type 'power view' in the Excel search box. Select 'Insert a Power View Report'.  On the blank Power View report, select the **MktoLeads** table on the right panel and drag & drop the lead location field (e.g. **inferredCity**). Now the menu 'Design' appear in the main menu.  
+The second report displays your Leads and Contacts by geography on a world map and by Industry. We need Power View for this report. Please follow the reference link below to turn on the menu in Excel. Or you can just type 'power view' in the Excel search box. Select 'Insert a Power View Report'.  On the blank Power View report, select the **MktoLeads** table on the right panel and drag & drop the lead location field (e.g. **inferredCity**). Now the menu 'Design' appear in the main menu.
 
 Switch to the Map visualization by selecting 'Map' in the Power View 'Design' menu. Drag and drop the fields from the **MktoLeads** table, like the figure below: **MktoLeads.industry →** **Color** **MktoLeads.inferredCity →** **Locations** **MktoLeads.Leads Count →** **∑ Size** (this use the DAX measure we implemented on **MktoLeads** earlier) And your Leads map is ready! You just need to adjust the size of the map, customize the title and legends. Power View allows you to build advanced dashboards with multiple graphs on one single spreadsheet. Check out the referenced tutorial below '[Create Amazing Power View Reports](https://support.microsoft.com/en-us/article/Tutorial-Create-Amazing-Power-View-Reports-Part-1-e2842c8f-585f-4a07-bcbd-5bf8ff2243a7)' to see how to proceed with more dashboard components with Power View.
 
 ### Web Activities Animated on a 3D Map
 
-This third report displays your Lead web activities, by industry, on a 3D world map. We need a 3D Map for this report. Just type '3D' in the Excel search box and select '3D Map'. Create a new tour from the pop-up window.  Select the Bubble Chart on the right panel. Drag and drop the fields, from the **MktoLeads** and the **MktoWebActivities** tables, like the figure below: **MktoLeads.industry →** **Category** **MktoLeads.inferredCity →** **Location** **MktoWebActivities.Activity →** **Time** (this use the DAX calculated column we implemented on **MktoWebActivities** earlier. The id field could also be used for counting activities.) **MktoWebActivities.Date →** **Time** (this use the DAX calculated column we implemented on **MktoWebActivities** earlier) **MktoWebActivities.Activity** can also be used as a filter to filter out the different types of web activities. 
+This third report displays your Lead web activities, by industry, on a 3D world map. We need a 3D Map for this report. Just type '3D' in the Excel search box and select '3D Map'. Create a new tour from the pop-up window.  Select the Bubble Chart on the right panel. Drag and drop the fields, from the **MktoLeads** and the **MktoWebActivities** tables, like the figure below: **MktoLeads.industry →** **Category** **MktoLeads.inferredCity →** **Location** **MktoWebActivities.Activity →** **Time** (this use the DAX calculated column we implemented on **MktoWebActivities** earlier. The id field could also be used for counting activities.) **MktoWebActivities.Date →** **Time** (this use the DAX calculated column we implemented on **MktoWebActivities** earlier) **MktoWebActivities.Activity** can also be used as a filter to filter out the different types of web activities.
 
  Use the 'Themes' button to change the color scheme of your 3D Map. Open the 'Scene Options' to customize your animations.
  And you're done with the 3D World Map, now you can have fun animating the globe and creating video from it.
@@ -8195,12 +8185,11 @@ Posted on _2017-02-02_ by _Philippe_
 
 **Note: This post will be updated to reflect changes made to activity records returned by the API due to migration to new infrastructure.** **Last Update: September 13, 2018** With the rollout of Marketo's next-generation Activity Service beginning in September 2017, we will be unable to enforce the uniqueness or presence of the integer "id" field in activities, data value changes, or lead deletion records returned by Marketo's APIs. To avoid service disruptions for integrations which retrieve activity records, the id field should be treated as optional. Cutover of this change will begin to affect subscriptions and upcoming release. This change will affect the following endpoints: REST API
 
- 
 The affected SOAP types are `ActivityRecord` and `LeadChangeRecord`.
 
 ### Examples
 
-The following examples show the record types which will be affected. In both examples, the effected field is called "id." 
+The following examples show the record types which will be affected. In both examples, the effected field is called "id."
 
 **Example REST Field: id**
 
@@ -8333,11 +8322,11 @@ The Internet of Things (IoT) is the inter-networking of connected devices, appli
 * Cheering up your Sales team each time a deal is won by automatically firing up a bell plugged to a connected power plug
 * Automatically post Marketing success milestones on social networks such as LinkedIn, Facebook, Slack, etc. …
 * Automatically launch a Marketing Campaign based on:
-    * when a weather alert occurs (wind, temperature, rain, etc.)
-    * when a new article is published by a newspaper such as the New York Times, matching some specific criteria
-    * when the U.S. Senate or House of Representatives votes
-    * when the International Space Station passes over a certain location
-    * etc. …
+  * when a weather alert occurs (wind, temperature, rain, etc.)
+  * when a new article is published by a newspaper such as the New York Times, matching some specific criteria
+  * when the U.S. Senate or House of Representatives votes
+  * when the International Space Station passes over a certain location
+  * etc. …
 
 You might find those scenarios fun but useless, but they are here to demonstrate a new conceptual way to do Marketing not only with people, but also with things in our connected world. Another interesting point covered in this article, is how to leverage an open web integration platform such as Zapier as a "serving hatch" between a 3rd party system and Marketo, to manage the authentication for example.
 
@@ -8398,16 +8387,16 @@ No need to define a response mapping.
 
 ### IFTTT Applet
 
-In the IFTTT web portal, select "My Applets" in the main menu.  Click the button "New Applet" and click on the section **+this**.  Search for the Maker service.  Create the Trigger that will fire every time the Maker service receives a web request to notify it of an event. Use the same Event Name as the one specified in the URL of your Marketo Webhook, for example "MarketoProgramSuccess" and click the "Create trigger" button.  Now it is time to specify the Action Service by clicking the section **+that**.  We are going to start with a simple action service that anyone would be able to test without having to invest in any IoT devices, the Notifications Service. Search for and select the Notifications Service. 
- Choose the action "Send a notification" that sends a notification to your devices.  You can leverage the 3 values you have sent from Marketo by adding them as Ingredients to deliver a meaningful notification to the user, just like the example below …  And then click the button "Create action". Review and finish the IFTTT Applet. Make sure it is enabled. 
+In the IFTTT web portal, select "My Applets" in the main menu.  Click the button "New Applet" and click on the section **+this**.  Search for the Maker service.  Create the Trigger that will fire every time the Maker service receives a web request to notify it of an event. Use the same Event Name as the one specified in the URL of your Marketo Webhook, for example "MarketoProgramSuccess" and click the "Create trigger" button.  Now it is time to specify the Action Service by clicking the section **+that**.  We are going to start with a simple action service that anyone would be able to test without having to invest in any IoT devices, the Notifications Service. Search for and select the Notifications Service.
+ Choose the action "Send a notification" that sends a notification to your devices.  You can leverage the 3 values you have sent from Marketo by adding them as Ingredients to deliver a meaningful notification to the user, just like the example below …  And then click the button "Create action". Review and finish the IFTTT Applet. Make sure it is enabled.
 
 ### Testing the IFTTT Applet
 
-If you want to get notified on your Mobile, you must first download the IFTTT app for your device.  You can trigger a Marketo Program Success event by using the Webhook in a Marketo Smart Campaign Flow. Remember that Marketo Webhooks work exclusively with triggered Smart Campaigns (e.g. trigger once a contact filled-out form, was added to a list, etc.).  And here is an example of an IFTTT notification on your mobile phone. 
+If you want to get notified on your Mobile, you must first download the IFTTT app for your device.  You can trigger a Marketo Program Success event by using the Webhook in a Marketo Smart Campaign Flow. Remember that Marketo Webhooks work exclusively with triggered Smart Campaigns (e.g. trigger once a contact filled-out form, was added to a list, etc.).  And here is an example of an IFTTT notification on your mobile phone.
 
 ### Let's Get Creative with IFTTT
 
-IFTTT offers Applet Actions with over 300 partners, so your portfolio of apps and appliances together with your imagination are the limits …  Let's take an example with the [Hue lights from Philips](https://www.philips-hue.com/en-us) that you can buy anywhere in electronics shops or online. The following applets would blink one of your lights with its current assigned color when Marketo triggers a program success, that could boost your marketing team in the office. We create a new Applet, following the same steps as before, where Marketo is triggered with a webhook, but this time we choose the action from the Philips Hue service. 
+IFTTT offers Applet Actions with over 300 partners, so your portfolio of apps and appliances together with your imagination are the limits …  Let's take an example with the [Hue lights from Philips](https://www.philips-hue.com/en-us) that you can buy anywhere in electronics shops or online. The following applets would blink one of your lights with its current assigned color when Marketo triggers a program success, that could boost your marketing team in the office. We create a new Applet, following the same steps as before, where Marketo is triggered with a webhook, but this time we choose the action from the Philips Hue service.
 
 Let's select the "Blink lights" action. The app will request from Philips Hue all your available lights, so you can pick the one to blink. You would need to set up an account with Philips Hue first, the Hue bridge and of course at least one Hue bulb, light strip, projector or lamp.  We just added a new Applet that will blink a colored light each time a lead is registered to a roadshow or webinar. Your Marketing team will cheer up every day with that setup in the office.
 
@@ -8427,19 +8416,18 @@ Recover the access token from the JSON response. **Campaign kick-off step:**
 
 ### Intermediate Zapier Custom Connector to Launch the Marketo Campaign
 
-We need to build a custom Zapier connector that authenticates with the Marketo REST API and kicks off our Smart Campaign. 
+We need to build a custom Zapier connector that authenticates with the Marketo REST API and kicks off our Smart Campaign.
 
 * Prerequisites
 * Implementation of the Marketo Connector for Zapier
 * Use a different title such as "Marketo Campaign"
-    * Do the "Authentication" step
-    * Do the "Triggers" step (required for Zapier testing purpose)
-    * Do the following specific "Actions" step, responsible to launch a Marketo campaign, explained below:
-
+  * Do the "Authentication" step
+  * Do the "Triggers" step (required for Zapier testing purpose)
+  * Do the following specific "Actions" step, responsible to launch a Marketo campaign, explained below:
 
 Where to Send Data Action Endpoint URL :
 
-` https://{{munchkin_account_id}}.mktorest.com/rest/v1/campaigns/{{CampaignId}}/schedule.json`
+`https://{{munchkin_account_id}}.mktorest.com/rest/v1/campaigns/{{CampaignId}}/schedule.json`
 
 Leave blank the other optional fields.
 
@@ -8449,16 +8437,16 @@ Zapier's scripting feature allows you to manipulate the requests and responses t
 
 ```javascript
 var Zap = {
- 
+
  get_session_info: function(bundle) {
- 
+
  console.log('Entering get_session_info method ...');
- 
+
  var access_token,
  access_token_request_payload,
  access_token_response;
 
- 
+
  // Assemble the meta data for our Access Token swap request
  console.log('building Request with client_id=' + bundle.auth_fields.client_id + ', and client_secret=' + bundle.auth_fields.client_secret);
  access_token_request_payload = {
@@ -8471,7 +8459,7 @@ var Zap = {
  },
  headers: {
  'Content-Type': 'application/json', // Could be anything.
- Accept: 'application/json' 
+ Accept: 'application/json'
  }
  };
 
@@ -8481,46 +8469,46 @@ var Zap = {
  // Extract the Access Token from returned JSON.
  access_token = JSON.parse(access_token_response.content).access_token;
  console.log('New Access_Token=' + access_token);
- 
+
  // This will be mixed into bundle.auth_fields in future calls.
  //bundle.auth_fields.access_token=access_token;
  return {'access_token': access_token};
  },
- 
+
  test_trigger_pre_poll: function(bundle) {
- 
+
  console.log('Entering test_trigger_pre_poll method ...');
- 
+
  bundle.request.params = {
  'access_token':bundle.auth_fields.access_token
  };
- 
+
  return bundle.request;
- 
+
  },
- 
+
  test_trigger_post_poll: function(bundle) {
- 
+
  console.log('Entering test_trigger_post_poll method ...');
- 
+
  var data = JSON.parse(bundle.response.content);
  if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
  console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
- 
+
  throw new InvalidSessionException(); // Calling get_session_info() to regenerate Access Token
  }
 
  return JSON.parse(bundle.response.content);
  },
- 
+
  launch_campaign_pre_write: function(bundle) {
- 
- bundle.request.params = {'access_token':bundle.auth_fields.access_token}; 
+
+ bundle.request.params = {'access_token':bundle.auth_fields.access_token};
  return bundle.request;
  },
 
  launch_campaign_post_write: function(bundle) {
- 
+
  var data = JSON.parse(bundle.response.content);
  if ((!data.success)&&((data.errors[0].code=="601")||(data.errors[0].code=="600"))){
  console.log('Access Token expired or invalid, requesting new one - data.success=' + data.success + ', data.errors[0].code=' + data.errors[0].code);
@@ -8528,7 +8516,7 @@ var Zap = {
  }
  return JSON.parse(bundle.response.content);
  }
- 
+
 };
 ```
 
@@ -8607,17 +8595,17 @@ You need a Google Cloud account. You can try GCP for free with a credit that is 
 1. Enable the Cloud Functions API: [ENABLE THE API](https://accounts.google.com/InteractiveLogin?continue=https://console.cloud.google.com/flows/enableapi?apiid%3Dcloudfunctions%26redirect%3Dhttps://cloud.google.com/functions/docs/tutorials/http&followup=https://console.cloud.google.com/flows/enableapi?apiid%3Dcloudfunctions%26redirect%3Dhttps://cloud.google.com/functions/docs/tutorials/http&osid=1&passive=1209600&service=cloudconsole&ifkv=ASKV5Mh81NGNsqcJqhx7hst0KFnyA0MJ-2zay8ovyluBfpvDoM820nF9Wq_SKbC1m_sjQvvRNoKSuA)
 1. [Install and initialize the Cloud SDK](https://cloud.google.com/sdk/docs/)
 1. Update and install Gcloud components
-    
+
     **gcloud components update &&** **Gcloud components install beta**
-    
+
 1. Prepare your environment for Node.js development: [GO TO THE SETUP GUIDE](https://cloud.google.com/nodejs/docs/setup)
 
 ### Implementation of the scoreCompare Cloud Function
 
 1. Create a Cloud Storage bucket to stage your Cloud Functions files. You can do it with the command line:
-    
-   ` gsutil mb gs://[YOUR_STAGING_BUCKET_NAME]`
-    
+
+   `gsutil mb gs://[YOUR_STAGING_BUCKET_NAME]`
+
     or from the Google Cloud web interface, by selecting your project and clicking the Storage menu:
     * Give your Storage bucket a unique name
     * Select the default storage class
@@ -8635,7 +8623,7 @@ You need a Google Cloud account. You can try GCP for free with a credit that is 
      \*/
     exports.scoreCompare = function scoreCompare (req, res) {
      var onlineScore=parseInt(req.body.onlineScore);
-     var offlineScore=parseInt(req.body.offlineScore); 
+     var offlineScore=parseInt(req.body.offlineScore);
      console.log('/scoreCompare: got values onlineScore =' + onlineScore + ', offlineScore =' + offlineScore);
      var result;
      if (onlineScore>offlineScore) {result = 'online';} else {result = 'offline';}
@@ -8651,13 +8639,13 @@ Deploy the function scoreCompare with an HTTP trigger. Run the following command
 Where [YOUR_STAGING_BUCKET_NAME] is the name of your staging Cloud Storage bucket. In our example:
 
 **gcloud beta functions deploy scoreCompare --stage-bucket mktostorage --trigger-http**
-    
+
 1. Note the Cloud Function URL (httpsTrigger URL) from the console output, that looks like this: `https://[YOUR_REGION]-[YOUR_PROJECT_ID].cloudfunctions.net/[FUNCTION]` where
-    
+
     * [YOUR_REGION] is the region where your function is deployed. This is visible in your terminal when your function finishes deploying.
     * [YOUR_PROJECT_ID] is your Cloud project ID. This is visible in your terminal when your function finishes deploying.
     * [FUNCTION] is your function name.
-    
+
     In our example: [**https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare**](https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare)
 1. Test your function with a tool like [Postman](https://www.postman.com/):
     * HTTP Verb: POST
@@ -8774,10 +8762,10 @@ The Summer 2018 release is primarily a maintenance release comprised of minor en
 ### REST API
 
 * Added support for Email Disposition fields that were unnecessarily omitted originally. These fields will now be available for reading and writing over REST, as appropriate.
-    * Black Listed
-    * Marketing Suspended
-    * Email Suspended
-    * Relative Urgency
+  * Black Listed
+  * Marketing Suspended
+  * Email Suspended
+  * Relative Urgency
 * The [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/lead-database-endpoint-reference/#/Leads/getLeadsByFilterUsingGET) endpoint now supports leadPartionId as a filterType.
 
 ### Defect Resolutions
@@ -8930,7 +8918,7 @@ The following endpoints return the checksum: [Get Export Lead Job Status](https:
 #### Defect Resolutions
 
 1. Fixed issue with [Bulk Custom Object Import](/help/rest-api/bulk-custom-object-import.md) when importing decimal numbers into integer fields. Before the fix, the decimal number was converted to an integer by assigning the whole number portion and discarding the fractional portion (e.g. 5.432 was converted to 5). Now an "Invalid data type in field Source ID" error is generated for each row that contains a data mismatch.
-1. Fixed issue where an Email program created using the [Clone Program](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) endpoint did not honor Communication Limits settings in certain cases. 
+1. Fixed issue where an Email program created using the [Clone Program](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST) endpoint did not honor Communication Limits settings in certain cases.
 1. Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when the landing page contained the Email Unsubscribe form.
 1. Fixed issue with [Approve Landing Page Draft](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveLandingPageUsingPOST) endpoint where it would return 611. "System error" when the landing page had been cloned using the [Clone Landing Page](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneLandingPageUsingPOST) endpoint.
 
@@ -8938,9 +8926,9 @@ The following endpoints return the checksum: [Get Export Lead Job Status](https:
 
 1. As part of the [Email Editor 1.0 Deprecation](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666), 1.0 Email Assets will become read-only at the end of 2019. All 1.0 Email Assets must be converted to 2.0 as descriDiscard Email Draft, bed [here](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666). To help developers prepare for that event, we have added warnings to all Email-related endpoints that attempt to modify 1.0 Email Assets. Here is an example response that contains the warning:
 
-`{` `"success": true,` `"errors": [],` `"requestId": "15c57#16b338d6e75",` `"warnings": [` `"This is a v1 email asset. API support for modifying v1 emails is being dropped, and this operation will not work on v1 emails in the future. To avoid service interruptions, upgrade this and related assets by editing them in the User Interface."` `],` `"result": [` `"{\"service\":\"sendTestEmail\",\"result\":true}"` `]` `}` 
+`{` `"success": true,` `"errors": [],` `"requestId": "15c57#16b338d6e75",` `"warnings": [` `"This is a v1 email asset. API support for modifying v1 emails is being dropped, and this operation will not work on v1 emails in the future. To avoid service interruptions, upgrade this and related assets by editing them in the User Interface."` `],` `"result": [` `"{\"service\":\"sendTestEmail\",\"result\":true}"` `]` `}`
 
-The following Email-related endpoints return the warning: 
+The following Email-related endpoints return the warning:
 
 * Update Email Full Content
 * Update Email Content
@@ -8954,7 +8942,6 @@ The following Email-related endpoints return the warning:
 * Approve Program
 
 Email Scripting (Apache Velocity)
-
 
 #### Deprecations
 
@@ -8988,7 +8975,6 @@ In August 2019 we are releasing new REST APIs, enhancing existing APIs, and reso
 1. API support for Email Editor 1.0 is scheduled to be deprecated in January 2020. Please remember to convert your assets to 2.0 before then. Attempts to write to or clone Email 1.0 assets after January will result in errors instead of warnings. Learn more about Email APIs [here](https://nation.marketo.com:443/t5/knowledgebase/email-2-0-and-email-api-faq-s/ta-p/251423).
 1. To align with Adobe's world-class standard for security, we will be deprecating support for Transport Layer Security (TLS) 1.0 and 1.1 starting December 13, 2019. Systems integrating with Marketo that are not compliant with 1.2 protocol could potentially lose access to Marketo Engage services. To maintain your Marketo Engage access, please ensure that all client systems are TLS 1.2 compliant before December 13, 2019. More detailed information can be found [here](https://nation.marketo.com:443/t5/knowledgebase/tls-1-0-1-1-deprecation-faq/ta-p/249085).
 
-
 1. All Smart Campaign related content now resides in the [Smart Campaigns](/help/rest-api/smart-campaigns.md) menu item (underneath REST API > Assets).
 
 Posted on _2019-08-16_ by _David_
@@ -8997,7 +8983,7 @@ Posted on _2019-08-16_ by _David_
 
 In January 2020 we are releasing new REST APIs, enhancing existing APIs, and resolving defects. See the full list of updates below.
 
-* Added the ability to programmatically create of Custom Object schema definitions. This allows you to define a custom object once and provision it to as many instances as needed. This allows you to enable users to effectively leverage sandbox and center-of-excellence models. Also allows ISVs to simplify the customer onboarding process. You need an appropriate subscription type to access the Custom Object Metadata API. 
+* Added the ability to programmatically create of Custom Object schema definitions. This allows you to define a custom object once and provision it to as many instances as needed. This allows you to enable users to effectively leverage sandbox and center-of-excellence models. Also allows ISVs to simplify the customer onboarding process. You need an appropriate subscription type to access the Custom Object Metadata API.
 * Added the ability to import and export of Program Members in bulk. This new set of endpoints follow the existing Marketo REST API pattern for creating asynchronous bulk processing jobs. Program Member records can contain Program Member custom fields, and/or Lead fields.
 * Added Get Available Form Program Member Fields endpoint to support the use of Program Member Custom Fields as Form Fields. This returns a list of all program member custom fields that can be used in a Marketo Form.
 * Added [Get Email Template Used By an](/help/rest-api/email-templates.md) endpoint that returns a list of email assets that depend on a given email template. This allows you to quickly understand the impact of a potential email template change, and more easily address these dependencies.
@@ -9093,7 +9079,7 @@ In this example, this custom object is linked to Persons by the **leadID** field
     }
 ```
 
-You now have the values for each custom object directly associated with the Persons in your Smart List and beyond retrieving the values, you can use the **marketoGUID** to [Update](/help/rest-api/custom-objects.md) or [Delete](/help/rest-api/custom-objects.md) these objects. For custom objects associated with Persons in a many to many relationship (N:N), the above technique returns the first level object which is the intermediary object connecting each Person to multiple second level COs. 
+You now have the values for each custom object directly associated with the Persons in your Smart List and beyond retrieving the values, you can use the **marketoGUID** to [Update](/help/rest-api/custom-objects.md) or [Delete](/help/rest-api/custom-objects.md) these objects. For custom objects associated with Persons in a many to many relationship (N:N), the above technique returns the first level object which is the intermediary object connecting each Person to multiple second level COs.
 
 To retrieve those 2nd level COs, start a new set of queries for the 2nd level CO type by filtering on the link field and the values extracted from the 1st level intermediary object. For example, the above "**Conference Track Subscription"** object could have another level of objects representing sessions called **"Session"** which would probably be linked by the **subscriptionID**. The request to retrieve Sessions linked to the above Conference Track Subscriptions would then look like this:
 
@@ -9411,9 +9397,9 @@ Background form submission is one of the recommended replacement methods for Mun
         </script>
 </head>
 
-<body> 
+<body>
   <!--
-    Start Embed code.  
+    Start Embed code.
     Pasted from Form Actions -> Embed Code except for addition of 'style="display:none"' to the form tag in order to hide it, and instance-specific codes redacted
     Replace with your own code for testing
   -->
@@ -9442,18 +9428,18 @@ Background form submission is one of the recommended replacement methods for Mun
             //pass the same set of values to associateLead
             //hashString: secret + email
             Munchkin.munchkinFunction('associateLead', values, "CHANGE ME");
-            
+
             //submit the form
             form.submit();
-            
-            
+
+
         })
     </script>
 </body>
 
 </html>
 ```
-   
+
 Posted on _2020-05-26_ by _Kenny_
 
 ## July 2020 Updates
@@ -9524,7 +9510,6 @@ Custom objects allow you to compile and use unique data that is relevant to a co
 * Marketo API's support CRUD (Create, Read, Update, and Delete) operation on custom objects.
 * You can use this custom object data for email personalization using Velocity Script.
 * You can find all Custom object related endpoints [here](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getExportProgramMembersStatusUsingGET).
-
 
 ### Custom Object Terminology
 
@@ -9597,8 +9582,6 @@ Custom objects tell you the fact. i.e. present value.
 
 Custom Activities tell you the events that have happened in the past.
 
- 
-
 Posted on _2020-10-18_ by _Amit_
 
 ## January 2021 Updates
@@ -9621,7 +9604,7 @@ Posted on _2021-01-15_ by _David_
 
 ## Munchkin 160 Beta and Beacon API
 
-**Jan 27th 2021:** Some Marketo users who will be affected by Associate Lead deprecation received an email notification in error indicating that they have the Munchkin Beta setting enabled on one or more of their instances. This release will be held until the correct audience can be notified. Beginning with version 160 of the Munchkin JavaScript, the [Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API) becomes the default way that Munchkin communicates with the Marketo backend. This became available as an option in Summer 2020 with the release of version 159 via the **useBeaconAPI** configuration parameter. The Beacon API has several advantages over using the old XMLHttpRequest method, but the principal improvement is that it is a non-blocking asynchronous API for HTTP communication which is available for use in all modern Internet browsers. While most users of Munchkin will not notice a change in website behavior, this update will prevent Munchkin from blocking navigation while waiting to submit a click event to the backend, or more simply, this all but eliminates the possibility of Munchkin causing a browser to "hang" after clicking a link to a new page. This has been a rare but frustrating occurrence for some Marketo customers. 
+**Jan 27th 2021:** Some Marketo users who will be affected by Associate Lead deprecation received an email notification in error indicating that they have the Munchkin Beta setting enabled on one or more of their instances. This release will be held until the correct audience can be notified. Beginning with version 160 of the Munchkin JavaScript, the [Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API) becomes the default way that Munchkin communicates with the Marketo backend. This became available as an option in Summer 2020 with the release of version 159 via the **useBeaconAPI** configuration parameter. The Beacon API has several advantages over using the old XMLHttpRequest method, but the principal improvement is that it is a non-blocking asynchronous API for HTTP communication which is available for use in all modern Internet browsers. While most users of Munchkin will not notice a change in website behavior, this update will prevent Munchkin from blocking navigation while waiting to submit a click event to the backend, or more simply, this all but eliminates the possibility of Munchkin causing a browser to "hang" after clicking a link to a new page. This has been a rare but frustrating occurrence for some Marketo customers.
 
 As of Jan 27th 2021, the rollout of this version is on hold pending rescheduling. While no problems related to this change are anticipated, and none have been identified while testing, it is impossible for Marketo to test all possible deployment configurations of Munchkin and you may wish to test these changes beforehand or forego this change until general availability of this version. Instructions for various scenarios are presented below.
 
@@ -9708,17 +9691,16 @@ In May 2021 we are releasing new REST APIs, enhancing existing REST APIs, and re
 
 ### Defect Resolutions
 
-* Fixed issue with Delete Program endpoint. If you tried to delete a program in a shared folder, it would return "611, System Error". Now it returns " "Target program is in a shared folder and cannot be deleted. The folder must be unshared before attempting deletion." 
-* Fixed issue with Clone Program endpoint. If you tried to clone a program that contained a DateTime in a flow step, it would return "611, System Error". Now it successfully clones the program. 
+* Fixed issue with Delete Program endpoint. If you tried to delete a program in a shared folder, it would return "611, System Error". Now it returns " "Target program is in a shared folder and cannot be deleted. The folder must be unshared before attempting deletion."
+* Fixed issue with Clone Program endpoint. If you tried to clone a program that contained a DateTime in a flow step, it would return "611, System Error". Now it successfully clones the program.
 * Fixed issue with Create Programs endpoint that inadvertently allowed you to create a program underneath an email program (which is not allowed).
 * Fixed issue with Clone Program endpoint. If you cloned a program that contained a landing page, the name of the landing page in the target program was missing an underscore between program name and landing page name. e.g. `http://<_pod_\>.marketo.com/lp/<_munchkin_\>/<_program name_\>**_**<_LP name_\>.html`
-
 
 Posted on _2021-05-07_ by _David_
 
 ## Limited Time Offer to Join Adobe Exchang
 
-Marketo Engage partner community support is one of the pillars of our customers' success. We want to ensure the Marketo Engage Integration ecosystem is well represented in the Exchange Marketplace, and have a special offer for LaunchPoint partners. For a very limited time that will not be extended we are offering our LaunchPoint partners a free Innovate partnership in the Exchange program through the end of 2022 (approximately $15k value). We designed this offer to encourage LaunchPoint partners to create their integration listings in the Exchange Partner Portal, which will then be publicly searchable in the Adobe Exchange Marketplace. To see a full list of the Innovate partnership benefits that you receive for no charge through December 2022. 
+Marketo Engage partner community support is one of the pillars of our customers' success. We want to ensure the Marketo Engage Integration ecosystem is well represented in the Exchange Marketplace, and have a special offer for LaunchPoint partners. For a very limited time that will not be extended we are offering our LaunchPoint partners a free Innovate partnership in the Exchange program through the end of 2022 (approximately $15k value). We designed this offer to encourage LaunchPoint partners to create their integration listings in the Exchange Partner Portal, which will then be publicly searchable in the Adobe Exchange Marketplace. To see a full list of the Innovate partnership benefits that you receive for no charge through December 2022.
 
 1. Go to [Adobe Exchange Partner Support Center](https://adobeexchangeec.zendesk.com/hc/en-us?mkt_tok=NjA4LURIVi05MTUAAAF-P5lIeVWOuBmKMS_uE_NpgFKtC0ukt7z_ksnq_Sbzb6mzXUuXpqpqQeujtPdZ24WcjMdptygQSR9XrYt_Cw)
 1. Click on "Submit a request" in the top right corner
@@ -9739,7 +9721,6 @@ In August 2021 we are enhancing existing REST APIs, and resolving several defect
 * We have enhanced the Bulk Activity Extract API to permit users to filter using primary attributes for 6 different activity types. For more information see [Bulk Activity Extract](/help/rest-api/bulk-activity-extract.md).
 * In order to give Marketo Sales Connect users more access to their sales activity data we enabled additional sales activity attributes. We added the following attributes to Send Sales Email, Open Sales Email, and Click Sales Email activities:
 
-
 * Marketo Sales Person ID - Unique ID for person record in Sales Connect
 * Sales Campaign Name - Name of sales campaign, if email was part of a sales campaign
 * Sales Campaign URL - Sales Connect URL for sales campaign if email was part of a sales campaign
@@ -9753,12 +9734,12 @@ In August 2021 we are enhancing existing REST APIs, and resolving several defect
 
 ### Defect Resolutions
 
-* Fixed issue with the Get Users endpoint. Users that had been issued a [Marketing Calendar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license) license were not being returned. Marketing Calendar users are now correctly returned. 
-* Fixed issue with Submit Form endpoint. In the event of duplicate lead records, Submit Form is used to issue a "1007, Multiple lead match lookup criteria" error. Submit Form now updates the most recently updated record in the same way that the [Forms 2.0 API](/help/javascript-api/forms-api-reference.md) does. 
+* Fixed issue with the Get Users endpoint. Users that had been issued a [Marketing Calendar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license) license were not being returned. Marketing Calendar users are now correctly returned.
+* Fixed issue with Submit Form endpoint. In the event of duplicate lead records, Submit Form is used to issue a "1007, Multiple lead match lookup criteria" error. Submit Form now updates the most recently updated record in the same way that the [Forms 2.0 API](/help/javascript-api/forms-api-reference.md) does.
 * Improved several misleading error messages returned by Update Lead Field and Create Lead Fields endpoints. [LM-151890, LM-151888, LM-151889]
 * Fixed issue with Get Lead Field by Name and Get Lead Fields endpoints. Both endpoints could potentially return slightly out of date information. They now always return current information.
-* Fixed issue with [Bulk Extract API](/help/rest-api/bulk-extract.md) when using the "range" HTTP header for partial retrieval where the last byte in the range was not returned. 
-* Fixed issue with Update Snippet Metadata endpoint. When updating the snippet name or description, the snippet status was changed to "approved with draft". Now the snipped status remains unchanged after updating the snippet name or description. 
+* Fixed issue with [Bulk Extract API](/help/rest-api/bulk-extract.md) when using the "range" HTTP header for partial retrieval where the last byte in the range was not returned.
+* Fixed issue with Update Snippet Metadata endpoint. When updating the snippet name or description, the snippet status was changed to "approved with draft". Now the snipped status remains unchanged after updating the snippet name or description.
 * Fixed issue with Add Email Module endpoint. When adding a module that contained a snippet, it returned a "611, System Error". It now correctly adds the module to the email.
 * Fixed issue with Delete Program endpoint. When deleting a program that contained an In-App Message local asset, it returned a "611, System Error". It now correctly deletes the program.
 
@@ -9826,7 +9807,6 @@ In March 2022 we are enhancing existing REST APIs, and resolving several defects
 
 * Fixed issue with [Get Email Dynamic Content](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET) endpoint. When trying to retrieve subject lines with dynamic content from emails that had broken template relationships, an error was returned, 709, ""API only allows operations on emails with a template". The endpoint now returns the dynamic content. [LM-152331]
 * Fixed issue with [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/syncLeadUsingPOST) endpoint. When using externalSalesPersonId to associate Sales Person with a lead using externalSalesPersonId and using action = createDuplicate, then the Sales Person association would not occur. [LM-158990]
-
 
 ### Adobe IMS Integration
 

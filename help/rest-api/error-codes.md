@@ -53,7 +53,6 @@ The [Identity](https://developer.adobe.com/marketo-apis/api/identity/) endpoint 
   </tbody>
 </table>
 
-
 #### Response-Level errors
 
 Response level errors are present when the `success` parameter of the response is set to false, and are structured like:
@@ -245,28 +244,27 @@ An API call that returns this response code is not counted against your daily qu
 
 ### Record-Level {#record_level_errors}
 
-Record level errors indicate that an operation could not be completed for an individual record, but the request itself was valid. A response with record-level errors follows this pattern: 
-
+Record level errors indicate that an operation could not be completed for an individual record, but the request itself was valid. A response with record-level errors follows this pattern:
 
 #### Response
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "status":"skipped",
-         "reasons":[  
-            {  
+         "reasons":[
+            {
                "code":"1005",
                "message":"Lead already exists"
             }
@@ -484,4 +482,3 @@ Each record in a successful request may succeed or fail on an individual basis, 
     </tr>
   </tbody>
 </table>
-

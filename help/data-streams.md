@@ -13,8 +13,8 @@ Our customer's marketing organizations rely on timely and focused Marketing Camp
 
 Aside from the benefit of near real-time data, there are product-related benefits:
 
-- Relieves the bottleneck of API limits because streaming is used instead. 
-- Reduces the scenario of API limits, generating fewer alert messaging. 
+- Relieves the bottleneck of API limits because streaming is used instead.
+- Reduces the scenario of API limits, generating fewer alert messaging.
 - No must perform bulk exports to extract data due to the Data Streaming capability.
 
 Data Streams are available to those that have purchased a [Marketo Engage Performance Tier Package](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
@@ -118,7 +118,7 @@ Example of User Audit Event:
             "munchkinId": "123-ABC-456",
             "imsOrgId": "ADOBEORGID@AdobeOrg",
             "user": 253,
-            "userId": "example@marketo.com"          
+            "userId": "example@marketo.com"
         }
     }
 }

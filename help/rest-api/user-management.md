@@ -13,8 +13,8 @@ Marketo provides a set of User Management endpoints allow you to perform CRUD op
 Unlike other Marketo REST APIs, when using the User Management APIs:
 
 - You must use the HTTP header method to send the access token to authenticate. You cannot pass access token as a query string parameter. More information on authentication is [here](authentication.md).
-- You must select a role permission from two different groups when creating the user role for [Custom Service](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) for REST API: 
-  1. "Access Users" permission from the [Access Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) group 
+- You must select a role permission from two different groups when creating the user role for [Custom Service](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) for REST API:
+  1. "Access Users" permission from the [Access Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) group
   1. "Access User Management Api" from the [Access API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) group
 - Response bodies do not contain the "success" boolean attribute indicating success or failure of a call. Instead you must evaluate the HTTP response status code. If a call succeeds, a 200 status code is returned. If a call fails, a non-200 level status code is returned and the response body contains the standard "errors" array with error code and descriptive error message.
 - The format of datetime strings is `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`. This applies to the following attributes: `createdAt`, `updatedAt`, `expiresAt`.
