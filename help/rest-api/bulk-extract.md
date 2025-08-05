@@ -117,7 +117,6 @@ Each job creation endpoint shares some common parameters for configuring the fi
 | columnHeaderNames | Object | Allows setting the names of column headers in the returned file. Each member key is the name of the column header to rename, and the value is the new name of the column header. For example,  "columnHeaderNames": { "firstName": "First Name", "lastName": "Last Name" }, |
 | filter | Object | Filter applied to the extract job. Types and options vary between job types. |
 
-
 ## Retrieving Jobs
 
 Sometimes, you may must retrieve your recent jobs. This is easily done with the Get Export Jobs for the corresponding object type. Each Get Export Jobs endpoint supports a `status` filter field, a  `batchSize` to limit number of jobs returned, and `nextPageToken` for paging through large result sets. The status filter supports each valid status for an export job: Created, Queued, Processing, Canceled, Completed, and Failed. The batchSize has a maximum and default of 300. Let's get the list of Lead Export Jobs:

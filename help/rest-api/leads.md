@@ -424,7 +424,6 @@ There are a few rules associated with name and `displayName` naming. The name at
 POST /rest/v1/leads/schema/fields.json
 ```
 
-
 ### Body
 
 ```json
@@ -445,7 +444,6 @@ POST /rest/v1/leads/schema/fields.json
   ]
 }
 ```
-
 
 ### Response
 

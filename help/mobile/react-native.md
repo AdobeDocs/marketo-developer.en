@@ -388,7 +388,7 @@ const { RNMarketoModule } = NativeModules;
 
 Once the above files are placed correctly, we can import the js module in any js class and call its methods directly. For example:
 
-Note that we must pass "reactNative" as framework type for React native apps. 
+Note that we must pass "reactNative" as framework type for React native apps.
 
 ```
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
@@ -484,7 +484,6 @@ RNMarketoModule.registerForRemoteNotifications();
 
 export { requestPermission, registerForRemoteNotifications };
 ```
-
 
 Add `App.tsx` to allow push notifications
 
@@ -590,7 +589,7 @@ Add "MarketoActivity" to `AndroidManifest.xml` file inside application tag.
 
 1. Include `application:openURL:sourceApplication:annotation:` to `AppDelegate.m` file (Objective-C)
 
-**iOS - Handle Custom Url Type/Deeplinks in AppDelegate** 
+**iOS - Handle Custom Url Type/Deeplinks in AppDelegate**
 
 ```
 - (BOOL)application:(UIApplication *)app

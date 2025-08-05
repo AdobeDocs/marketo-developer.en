@@ -384,5 +384,5 @@ Content-Type: application/json
 ## Timeouts
 
 - Named Account endpoints have a timeout of 30s unless noted below
-    - Sync Named Accounts: 120s 
-    - Delete Named Accounts: 60s
+  - Sync Named Accounts: 120s
+  - Delete Named Accounts: 60s

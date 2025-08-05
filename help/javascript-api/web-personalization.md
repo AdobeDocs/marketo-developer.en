@@ -35,7 +35,6 @@ This method is called automatically on the tag level to set the relevant account
 | 'setAccount' | Required          | String | Method name. |
 | accountId    | Required          | String | Account Id. |
 
-
 ```javascript
 var accountId = '561-HYG-937';
 rtp('setAccount', accountId);
@@ -52,7 +51,6 @@ By passing the optional "page" parameter in this method, the current page can be
 | 'send'    | Required          | String | Method action.                 |
 | 'view'    | Required          | String | Method name.                   |
 | page      | Optional          | String | Relative path or full page URL. |
-
 
 ```javascript
 // Example for Default Page
@@ -97,7 +95,6 @@ Description of JavaScript that is added to a website when using Web Personalizat
 | jquery.min.js             | v1.8.3      | Can be disabled by contacting Marketo Customer Support |
 | jquery-custom-ui-min.js   | v1.9.2      | Can be disabled by contacting Marketo Customer Support |
 | query-ui-1.8.17-dialog.js | v1.9.2*     | Can be disabled by contacting Marketo Customer Support |
-
 
 *Used only if jQuery UI is missing dialog
 

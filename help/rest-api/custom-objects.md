@@ -222,7 +222,6 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 }
 ```
 
-
 ```json
 {
    "requestId":"e42b#14272d07d78",
@@ -293,7 +292,6 @@ POST /rest/v1/customobjects/{apiName}.json
    ]
 }
 ```
-
 
 ```json
 {
@@ -1449,7 +1447,6 @@ The [Get Custom Object Dependent Assets](https://developer.adobe.com/marketo-api
 GET /rest/v1/customobjects/schema/{apiName}/dependentAssets.json
 ```
 
-
 ```json
 {
     "requestId": "71cf#16a21f30ed6",
@@ -1479,5 +1476,5 @@ GET /rest/v1/customobjects/schema/{apiName}/dependentAssets.json
 ## Timeouts
 
 * Custom Objects endpoints have a timeout of 30s unless noted below
-  * Sync Custom Objects: 120s 
+  * Sync Custom Objects: 120s
   * Delete Custom Objects: 60s

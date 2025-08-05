@@ -281,12 +281,12 @@ The following is a Marketo activity log from Marketo that shows app events, and 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     ```
 
-1. Setting up FCM with HTTPv1 (Google has [deprecated XMPP protocol](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) on 12th June, 2023 and will be removed in June 2024) 
+1. Setting up FCM with HTTPv1 (Google has [deprecated XMPP protocol](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) on 12th June, 2023 and will be removed in June 2024)
 
 - Enable MME FCM HTTPv1 in Marketo feature manager ![](assets/feature-manager.png)
-    - Upload Service Account Json file for the app in MLM.
-    - You can download the Service Account Json file from Firebase Console.   ![](assets/fcm-console.png)
-    - Wait for an hour after uploading Service Account Json file in Marketo before sending push notifications.  
+  - Upload Service Account Json file for the app in MLM.
+  - You can download the Service Account Json file from Firebase Console.   ![](assets/fcm-console.png)
+  - Wait for an hour after uploading Service Account Json file in Marketo before sending push notifications.  
 
 ## Android Test Devices
 
@@ -386,7 +386,6 @@ Add Marketo Activity in manifest file inside application tag.
 ```
 
 1. Initialize Marketo Push After saving the configuration above, you must initialize Marketo Push Notification. Create or open your Application class and copy/paste the code below. You can get your sender ID from the Firebase console.
-
 
     ```java
     Marketo marketoSdk = Marketo.getInstance(getApplicationContext());

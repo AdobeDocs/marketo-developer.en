@@ -302,7 +302,6 @@ When editing fields, or their behavior inside a form, the field list should alwa
 | Checkbox     | single_checkbox |
 | Slider       | range           |
 
-
 ### Dependencies
 
 The [Get Form Used By](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) endpoint takes a form `id` as path parameter and returns the list of assets that depend on the form. Forms may be used by the following asset types: Landing Pages, Smart Lists, Smart Campaigns, Reports, Email Programs.
@@ -789,8 +788,6 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
   ]
 }
 ```
-
- 
 
 To determine how to format a complex form field, look at the response from Add Field to Form.
 

@@ -148,9 +148,7 @@ As long as the `<remainingCount/>` value is greater than 0, you make subsequent 
 </ns2:paramsGetMultipleLeads>
 ```
 
-
 This logic continues as long as `<remainingCount/>` is greater than zero. **See below a sample Java program that executes the scenario described above.**
-
 
 ```java
 import com.marketo.mktows.\*;
@@ -268,7 +266,7 @@ public class GetMultipleLeads {
 }
 ```
 
-### Tips & Tricks:
+### Tips & Tricks
 
 When extracting large volumes of contacts out of Marketo, it is recommended to tune the API request along the following parameters:
 
@@ -282,7 +280,7 @@ Posted on _2014-03-05_ by _Travis Kaufman_
 
 ## February 2014 Release Updates
 
-### SOAP API Update:
+### SOAP API Update
 
 * [syncMObjects](/help/soap-api/syncmobjects.md): You can now add and update tags and channels for existing programs.
 
@@ -292,7 +290,7 @@ Posted on _2014-02-26_ by _Travis Kaufman_
 
 ## March 2014 Release Updates
 
-### SOAP API Update:
+### SOAP API Update
 
 * Performance improvements to [syncLead](/help/soap-api/synclead.md) and [syncMultipleLeads](/help/soap-api/syncmultipleleads.md)
 
@@ -320,9 +318,9 @@ Posted on _2014-04-22_ by _Murta_
 
 ## April 2014 Release Updates
 
-### Marketo Forms Security Update:
+### Marketo Forms Security Update
 
-We introduced a limit on the number and frequency of form post submissions from a single IP address. This limit is now enforced at 30 posts per minute to protect our customers from malicious use of programmatic form submissions. The [syncLead API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) is the recommended integration vehicle for programmatic submission of new contacts in Marketo.    
+We introduced a limit on the number and frequency of form post submissions from a single IP address. This limit is now enforced at 30 posts per minute to protect our customers from malicious use of programmatic form submissions. The [syncLead API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) is the recommended integration vehicle for programmatic submission of new contacts in Marketo.
 
 Posted on _2014-04-29_ by _Travis Kaufman_
 
@@ -915,7 +913,6 @@ response = client.call(:sync_multiple_leads, message: request)
 
 puts response
 ```
- 
 
 This article contains code used to implement custom integrations. Due to its customized nature, The Marketo Technical Support team is unable to troubleshoot custom work. Please do not attempt to implement the following code sample without appropriate technical experience, or access to an experienced developer.
 
@@ -1277,7 +1274,6 @@ This guide shows you how to make your first call to the Marketo REST API in ten 
 > As of June 2025, the authentication token is no longer supported. You must use the Authentication header.
 >
 
-
 A Custom Service in Marketo allows you to describe and define what data your application will have access to. You need to be logged in as a Marketo administrator to create a Custom Service and associate that service with a single API-Only user.
 
 1. Navigate to the admin area of the Marketo application.
@@ -1440,7 +1436,7 @@ Posted on _2014-09-11_ by _Kenny_
 
 ### Updates to REST API
 
-Added a new optional fields value to the [Get Multiple Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) API which will return the Munchkin cookie values associated with a lead record. Simply add "?fields=cookies" to the request.    
+Added a new optional fields value to the [Get Multiple Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET) API which will return the Munchkin cookie values associated with a lead record. Simply add "?fields=cookies" to the request.
 
 Posted on _2014-09-16_ by _Murta_
 
@@ -3789,7 +3785,6 @@ to this:
 
 "**folderType**": "Marketing Folder"
 
-
 ### Mobile Engagement SDK
 
 iOS 0.3.5
@@ -4638,7 +4633,6 @@ JsonObject rolesResult = upsertRoles.postData();
 System.out.println(rolesResult);
 ```
 
-
 Here we're creating the new JsonObjects for our 2 example roles, and adding their required dedupeFields, pulling the externalopportunityid from the opportunities we already created, then pushing them down to Marketo.
 
 ### Putting It All Together
@@ -4979,7 +4973,6 @@ public class CreateUpdateLeads {
 Posted on _2015-08-14_ by _David_
 
 ## Add SalesPerson Data to Marketo
-
 
 With the new SalesPerson APIs, you can freely associate Marketo leads with SalesPerson records in instances without a native CRM integration. This allows usage of {{lead.Lead Owner Email Address}} and related fields and tokens within Marketo.
 
@@ -5615,10 +5608,10 @@ As a Marketo API consumer, this is useful information that you should keep an ey
 
 * Read Marketo account information (Munchkin id and Client credentials) from an external source. Note: This source must be secure to keep others from accessing account data.
 * Iterate through each account and...
-    * Call Get Daily Usage to retrieve usage data for one day
-    * Append daily usage data to a monthly "usage" file
-    * Call Get Daily Errors to retrieve errors data for one day
-    * Append daily errors data to a monthly "errors" file
+  * Call Get Daily Usage to retrieve usage data for one day
+  * Append daily usage data to a monthly "usage" file
+  * Call Get Daily Errors to retrieve errors data for one day
+  * Append daily errors data to a monthly "errors" file
 
 Output File Format The format for the output files is JSON which matches up with the "result" array returned from the respective API calls (Usage and Error). Each element of the "result" array is a JSON object that contains data for one day. Output File Naming The output files are named as follows:
 
@@ -5686,7 +5679,6 @@ Example Request
 
 The web service reads "usage" and "error" files, and combines them together and returns them in this format:
 
-
 ```html
 **<Name of Callback here>**
 
@@ -5727,7 +5719,6 @@ function processStats(usage, errors) {
     document.body.appendChild(prettyPrint(errors, cfg));
 ;
 ```
-
 
 This function is automatically called after the web service call. In this example, we call a simple JavaScript "variable dumper" called [prettyPrint.js](https://github.com/padolsey-archive/prettyprint.js/tree/master) on each array. The prettyPrint function simply produces an HTML table using the contents of the array. Here is a screenshot of the HTML tables. Voilà, that is our dashboard! Granted this isn't very elegant, but it should give you an idea of what is possible. There is nothing stopping you from transforming the data any way you like to make your own eye catching visualizations. The HTML page is below (Index.html) You can view the tables above live in your browser using the following steps:
 
@@ -6578,7 +6569,7 @@ public class SyncMultipleLeadsExample {
 }
 
 ```
- 
+
 This article contains code used to implement custom integrations. Due to its customized nature, The Marketo Technical Support team is unable to troubleshoot custom work. Please do not attempt to implement the following code sample without appropriate technical experience, or access to an experienced developer.
 
 Posted on _2014-03-24_ by _Travis Kaufman_
@@ -7008,7 +6999,7 @@ For example, here are sample values for configuration settings:
 
 Finally, insert an HTML anchor tag that contains an id matching one of the ids in **divIds** (from step 2 above). For example, if you specified "phoneId1" in **divIds**, then your HTML anchor tag would look like this:
 
-`  <a href="tel:+1800229933" id="phoneId1">+1800229933</a>`
+`<a href="tel:+1800229933" id="phoneId1">+1800229933</a>`
 
 The script checks if there is a match in this order: cityPhone > statePhone > countryPhone > defaultPhone You can also replace the phone numbers with text (Example: "Join our San Francisco User Group!") or HTML code and dynamically change the content based on the geo-location. Enjoy!
 
@@ -7088,8 +7079,8 @@ Posted on _2016-02-02_ by _Yanir_
 ### Custom Objects
 
 * [Custom Objects N:N relationships now supported](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
-    * Lead or Account records may now have many-to-many relationships through custom objects via the definition of intermediate objects. After creating a standalone custom object type, and intermediate object type can be created with link fields to both the standalone object and either leads or accounts.
-    * There are no new API calls for this capability, but the object definitions must be configured correctly to leverage these relationships through the API.
+  * Lead or Account records may now have many-to-many relationships through custom objects via the definition of intermediate objects. After creating a standalone custom object type, and intermediate object type can be created with link fields to both the standalone object and either leads or accounts.
+  * There are no new API calls for this capability, but the object definitions must be configured correctly to leverage these relationships through the API.
 * `getLeadActivities` and `getLeadChanges` will no longer return activities of anonymous leads. See the [Next Generation Munchkin Tracking FAQ](https://experienceleague.adobe.com/en/docs/marketo/using/home) for more information
 
 Posted on _2016-02-05_ by _Kenny_
@@ -7535,52 +7526,52 @@ Posted on _2016-04-17_ by _David_
 **REST API**
 
 * Asset API - Web Pages
-    * **Landing Pages** are now exposed via fifteen new endpoints which will allowing creating, updating, deleting, cloning and draft management for landing pages. Landing Page templates now also have draft management endpoints exposed
-        * Get Landing Pages
-        * Get Landing Page by ID
-        * Get Landing Page by Name
-        * Create Landing Page
-        * Update Landing Page Metadata
-        * Get Landing Page Content
-        * Add Landing Page Content Section
-        * Update Landing Page Content Section
-        * Delete Landing Page Content Section
-        * Get Dynamic Content Section
-        * Update Dynamic Content Section
-        * Discard Landing Page Draft
-        * Approve Landing Page
-        * Unnaprove Landing Page Draft
-        * Delete Landing Page
-    * **Landing Page Templates**
-        * Discard Landing Page Template Draft
-        * Approve Landing Page Template
-        * Unnaprove Landing Page Template
-        * Delete Landing Page Template
-    * **Forms** have 21 new endpoints released which provide full creation, editing and management capabilities via the API. The APIs will not support changes to Forms 1.0 forms.
-        * Get Forms
-        * Get Form by ID
-        * Get Form by Name
-        * Get Form Fields List
-        * Update Form Fields List
-        * Create Form
-        * Get Form Thank You Page
-        * Update Form Thank You Page
-        * Update Form
-        * Discard Form Draft
-        * Approve Form
-        * Unapprove Form
-        * Clone Form
-        * Delete Form
-        * Update Form Field
-        * Remove Form Field
-        * Update Form Field Visibility Rules
-        * Add Rich Text Form Field
-        * Add Fieldset
-        * Remove Field from Fieldset
-        * Get Available Form Fields
-        * Change Form Field Positions
-        * Update Submit Button
-    * When using **Get or Browse Programs**, SFDC Campaign ID will be returned for Programs which are linked to an SFDC Campaign
+  * **Landing Pages** are now exposed via fifteen new endpoints which will allowing creating, updating, deleting, cloning and draft management for landing pages. Landing Page templates now also have draft management endpoints exposed
+    * Get Landing Pages
+    * Get Landing Page by ID
+    * Get Landing Page by Name
+    * Create Landing Page
+    * Update Landing Page Metadata
+    * Get Landing Page Content
+    * Add Landing Page Content Section
+    * Update Landing Page Content Section
+    * Delete Landing Page Content Section
+    * Get Dynamic Content Section
+    * Update Dynamic Content Section
+    * Discard Landing Page Draft
+    * Approve Landing Page
+    * Unnaprove Landing Page Draft
+    * Delete Landing Page
+  * **Landing Page Templates**
+    * Discard Landing Page Template Draft
+    * Approve Landing Page Template
+    * Unnaprove Landing Page Template
+    * Delete Landing Page Template
+  * **Forms** have 21 new endpoints released which provide full creation, editing and management capabilities via the API. The APIs will not support changes to Forms 1.0 forms.
+    * Get Forms
+    * Get Form by ID
+    * Get Form by Name
+    * Get Form Fields List
+    * Update Form Fields List
+    * Create Form
+    * Get Form Thank You Page
+    * Update Form Thank You Page
+    * Update Form
+    * Discard Form Draft
+    * Approve Form
+    * Unapprove Form
+    * Clone Form
+    * Delete Form
+    * Update Form Field
+    * Remove Form Field
+    * Update Form Field Visibility Rules
+    * Add Rich Text Form Field
+    * Add Fieldset
+    * Remove Field from Fieldset
+    * Get Available Form Fields
+    * Change Form Field Positions
+    * Update Submit Button
+  * When using **Get or Browse Programs**, SFDC Campaign ID will be returned for Programs which are linked to an SFDC Campaign
 
 **Custom Objects** Custom Objects will now support Text Area datatypes, allowing for string fields of up to 2000 characters to be stored in custom object fields of this type. **IP Address Whitelisting** Admin users will now be able to manage a whitelist of IP addresses to prevent unauthorized access via the APIs. [You can read more about this feature here](https://experienceleague.adobe.com/en/docs/marketo/using/home). **Custom Activity UI** Admin users will now be able to define Custom Activity types in their admin menu, and add records to leads via the [Add Custom Activities](https://developer.adobe.com/marketo-apis/api/mapi/#operation/addCustomActivityUsingPOST) API. [You can read about defining custom activity types here](https://experienceleague.adobe.com/en/docs/marketo/using/home).
 
@@ -7644,7 +7635,6 @@ try {
 }
 ?>
 ```
-
 
 ```c#
   public static void Main(string[] args)
@@ -8053,7 +8043,7 @@ You should be able now to design all the queries you need to access any specific
 * [Power Query – Overview and Learning](https://support.microsoft.com/en-us/article/Power-Query-Overview-and-Learning-ed614c81-4b00-4291-bd3a-55d80767f81d)
 * [Power Query Formula Reference](http://msdn.microsoft.com/query-bi/m/power-query-m-reference)
 * [Matt Masson Blog](http://www.mattmasson.com/tag/power-query/) provides some good resources about Power Query
-* [DataChant Blog](https://datachant.com/2016/06/27/cursor-based-pagination-power-query/) is very useful for the implementation of the pagination mechanism 
+* [DataChant Blog](https://datachant.com/2016/06/27/cursor-based-pagination-power-query/) is very useful for the implementation of the pagination mechanism
 
 Posted on _2016-10-18_ by _Philippe_
 
@@ -8064,18 +8054,18 @@ In the Fall 2016 release, we are adding CRUD support for Email v2 variables and 
 ### Lead Database APIs
 
 * [**Named Accounts**](/help/rest-api/named-accounts.md)
-    * New endpoints for reading, updating, and deleting Named Accounts
-    * Known Issues:
-        * As of the Fall 2016 release, leads cannot be associated with named accounts via the API
+  * New endpoints for reading, updating, and deleting Named Accounts
+  * Known Issues:
+    * As of the Fall 2016 release, leads cannot be associated with named accounts via the API
 
 ### Asset APIs
 
 * [**Email**](https://developer.adobe.com/marketo-apis/api/asset/#operation/describeUsingGET_5)
-    * New endpoints for manipulating Email v2 variables
-    * New endpoints for manipulating Email v2 modules
-    * Known Issues:
-        * Queries and updates for sections that contain predictive tokens will return an error
-        * Emails with content sections that contain predictive tokens may not be approved using the API
+  * New endpoints for manipulating Email v2 variables
+  * New endpoints for manipulating Email v2 modules
+  * Known Issues:
+    * Queries and updates for sections that contain predictive tokens will return an error
+    * Emails with content sections that contain predictive tokens may not be approved using the API
 
 Posted on _2016-12-07_ by _Kenny_
 
@@ -8124,9 +8114,9 @@ Fill in all of the required information from the Marketo configuration worksheet
 * **Marketo REST API Authentication:** required
 * **Scoping:** set the Paging Token SinceDatetime and the Id of your Marketo static list containing all the leads that you want to analyze
 * **Leads:** for the reports to come, you must at least specify the following Lead fields: `id`, `firstName`, `lastName`, `email`, create`edAt`, `updatedAt`, `title`, `company`, `industry`, `inferredCountry`, `inferredCity`
-    * If the city information is more accurate in one of your custom fields, then you can use your own field instead
+  * If the city information is more accurate in one of your custom fields, then you can use your own field instead
 * **Activities:** Activity types to fetch from the Marketo database are specified here for each Activity set, no need to change this now.
-    * Note that we provided a utility query on the workbook that lists, right in the Excel workbook, all the existing Activity types if you want to adjust this information later on
+  * Note that we provided a utility query on the workbook that lists, right in the Excel workbook, all the existing Activity types if you want to adjust this information later on
 
 Note that you may see some security related pop-ups. Trust external connections and set them to 'Public'. If you see the pop-up below, stay with 'Anonymous' web access content. The authentication to Marketo is directly managed by our custom queries, so no need to enable any other kind of access.
 
@@ -8194,7 +8184,6 @@ Posted on _2017-02-02_ by _Philippe_
 ## Important Change to Activity Records in Marketo API
 
 **Note: This post will be updated to reflect changes made to activity records returned by the API due to migration to new infrastructure.** **Last Update: September 13, 2018** With the rollout of Marketo's next-generation Activity Service beginning in September 2017, we will be unable to enforce the uniqueness or presence of the integer "id" field in activities, data value changes, or lead deletion records returned by Marketo's APIs. To avoid service disruptions for integrations which retrieve activity records, the id field should be treated as optional. Cutover of this change will begin to affect subscriptions and upcoming release. This change will affect the following endpoints: REST API
-
 
 The affected SOAP types are `ActivityRecord` and `LeadChangeRecord`.
 
@@ -8333,11 +8322,11 @@ The Internet of Things (IoT) is the inter-networking of connected devices, appli
 * Cheering up your Sales team each time a deal is won by automatically firing up a bell plugged to a connected power plug
 * Automatically post Marketing success milestones on social networks such as LinkedIn, Facebook, Slack, etc. …
 * Automatically launch a Marketing Campaign based on:
-    * when a weather alert occurs (wind, temperature, rain, etc.)
-    * when a new article is published by a newspaper such as the New York Times, matching some specific criteria
-    * when the U.S. Senate or House of Representatives votes
-    * when the International Space Station passes over a certain location
-    * etc. …
+  * when a weather alert occurs (wind, temperature, rain, etc.)
+  * when a new article is published by a newspaper such as the New York Times, matching some specific criteria
+  * when the U.S. Senate or House of Representatives votes
+  * when the International Space Station passes over a certain location
+  * etc. …
 
 You might find those scenarios fun but useless, but they are here to demonstrate a new conceptual way to do Marketing not only with people, but also with things in our connected world. Another interesting point covered in this article, is how to leverage an open web integration platform such as Zapier as a "serving hatch" between a 3rd party system and Marketo, to manage the authentication for example.
 
@@ -8432,14 +8421,13 @@ We need to build a custom Zapier connector that authenticates with the Marketo R
 * Prerequisites
 * Implementation of the Marketo Connector for Zapier
 * Use a different title such as "Marketo Campaign"
-    * Do the "Authentication" step
-    * Do the "Triggers" step (required for Zapier testing purpose)
-    * Do the following specific "Actions" step, responsible to launch a Marketo campaign, explained below:
-
+  * Do the "Authentication" step
+  * Do the "Triggers" step (required for Zapier testing purpose)
+  * Do the following specific "Actions" step, responsible to launch a Marketo campaign, explained below:
 
 Where to Send Data Action Endpoint URL :
 
-` https://{{munchkin_account_id}}.mktorest.com/rest/v1/campaigns/{{CampaignId}}/schedule.json`
+`https://{{munchkin_account_id}}.mktorest.com/rest/v1/campaigns/{{CampaignId}}/schedule.json`
 
 Leave blank the other optional fields.
 
@@ -8616,7 +8604,7 @@ You need a Google Cloud account. You can try GCP for free with a credit that is 
 
 1. Create a Cloud Storage bucket to stage your Cloud Functions files. You can do it with the command line:
 
-   ` gsutil mb gs://[YOUR_STAGING_BUCKET_NAME]`
+   `gsutil mb gs://[YOUR_STAGING_BUCKET_NAME]`
 
     or from the Google Cloud web interface, by selecting your project and clicking the Storage menu:
     * Give your Storage bucket a unique name
@@ -8774,10 +8762,10 @@ The Summer 2018 release is primarily a maintenance release comprised of minor en
 ### REST API
 
 * Added support for Email Disposition fields that were unnecessarily omitted originally. These fields will now be available for reading and writing over REST, as appropriate.
-    * Black Listed
-    * Marketing Suspended
-    * Email Suspended
-    * Relative Urgency
+  * Black Listed
+  * Marketing Suspended
+  * Email Suspended
+  * Relative Urgency
 * The [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/lead-database-endpoint-reference/#/Leads/getLeadsByFilterUsingGET) endpoint now supports leadPartionId as a filterType.
 
 ### Defect Resolutions
@@ -8955,7 +8943,6 @@ The following Email-related endpoints return the warning:
 
 Email Scripting (Apache Velocity)
 
-
 #### Deprecations
 
 1. A subset of Velocity Script functionality was disabled for security purposes. This includes the following methods and variables: getClass(), $class, $context, $text. More information can be found [here](https://nation.marketo.com:443/t5/knowledgebase/unsupported-velocity-tools-disabled-in-june-2019-release/ta-p/251177).
@@ -8987,7 +8974,6 @@ In August 2019 we are releasing new REST APIs, enhancing existing APIs, and reso
 
 1. API support for Email Editor 1.0 is scheduled to be deprecated in January 2020. Please remember to convert your assets to 2.0 before then. Attempts to write to or clone Email 1.0 assets after January will result in errors instead of warnings. Learn more about Email APIs [here](https://nation.marketo.com:443/t5/knowledgebase/email-2-0-and-email-api-faq-s/ta-p/251423).
 1. To align with Adobe's world-class standard for security, we will be deprecating support for Transport Layer Security (TLS) 1.0 and 1.1 starting December 13, 2019. Systems integrating with Marketo that are not compliant with 1.2 protocol could potentially lose access to Marketo Engage services. To maintain your Marketo Engage access, please ensure that all client systems are TLS 1.2 compliant before December 13, 2019. More detailed information can be found [here](https://nation.marketo.com:443/t5/knowledgebase/tls-1-0-1-1-deprecation-faq/ta-p/249085).
-
 
 1. All Smart Campaign related content now resides in the [Smart Campaigns](/help/rest-api/smart-campaigns.md) menu item (underneath REST API > Assets).
 
@@ -9453,7 +9439,7 @@ Background form submission is one of the recommended replacement methods for Mun
 
 </html>
 ```
-   
+
 Posted on _2020-05-26_ by _Kenny_
 
 ## July 2020 Updates
@@ -9525,7 +9511,6 @@ Custom objects allow you to compile and use unique data that is relevant to a co
 * You can use this custom object data for email personalization using Velocity Script.
 * You can find all Custom object related endpoints [here](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getExportProgramMembersStatusUsingGET).
 
-
 ### Custom Object Terminology
 
 **Custom Object**: A container that holds a grouping of all the custom object records. Formally known as a data card set or custom table. **Custom Object Record**: Data record holding additional field information that can be tied to a lead or company. A record can be made up of standard lead or company fields, and custom object record fields. Formally known as a data card or data table row. **Custom Object Record Field**: Completely customizable fields to collect unique or temporary information. These fields are created and housed inside the custom object itself. Formally known as a data card field or database table field/column. **Link Field**: Special type of custom object record field to define the relationship between custom object record and linked Lead/Company object record. When you create custom objects, you must provide link fields to connect the custom object record to the correct parent record.
@@ -9596,8 +9581,6 @@ Use custom activities when tracking moments that occurred, and their details can
 Custom objects tell you the fact. i.e. present value.
 
 Custom Activities tell you the events that have happened in the past.
-
- 
 
 Posted on _2020-10-18_ by _Amit_
 
@@ -9713,7 +9696,6 @@ In May 2021 we are releasing new REST APIs, enhancing existing REST APIs, and re
 * Fixed issue with Create Programs endpoint that inadvertently allowed you to create a program underneath an email program (which is not allowed).
 * Fixed issue with Clone Program endpoint. If you cloned a program that contained a landing page, the name of the landing page in the target program was missing an underscore between program name and landing page name. e.g. `http://<_pod_\>.marketo.com/lp/<_munchkin_\>/<_program name_\>**_**<_LP name_\>.html`
 
-
 Posted on _2021-05-07_ by _David_
 
 ## Limited Time Offer to Join Adobe Exchang
@@ -9738,7 +9720,6 @@ In August 2021 we are enhancing existing REST APIs, and resolving several defect
 
 * We have enhanced the Bulk Activity Extract API to permit users to filter using primary attributes for 6 different activity types. For more information see [Bulk Activity Extract](/help/rest-api/bulk-activity-extract.md).
 * In order to give Marketo Sales Connect users more access to their sales activity data we enabled additional sales activity attributes. We added the following attributes to Send Sales Email, Open Sales Email, and Click Sales Email activities:
-
 
 * Marketo Sales Person ID - Unique ID for person record in Sales Connect
 * Sales Campaign Name - Name of sales campaign, if email was part of a sales campaign
@@ -9826,7 +9807,6 @@ In March 2022 we are enhancing existing REST APIs, and resolving several defects
 
 * Fixed issue with [Get Email Dynamic Content](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET) endpoint. When trying to retrieve subject lines with dynamic content from emails that had broken template relationships, an error was returned, 709, ""API only allows operations on emails with a template". The endpoint now returns the dynamic content. [LM-152331]
 * Fixed issue with [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#operation/syncLeadUsingPOST) endpoint. When using externalSalesPersonId to associate Sales Person with a lead using externalSalesPersonId and using action = createDuplicate, then the Sales Person association would not occur. [LM-158990]
-
 
 ### Adobe IMS Integration
 

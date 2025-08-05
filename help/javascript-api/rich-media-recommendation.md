@@ -60,7 +60,6 @@ This method populates all the rich media `<divs>` on the page with recommendatio
 | 'rcmd' | Required | String | Method name. |
 | 'richmedia' | Required | String | Sub method name. |
 
-
 ## Change Template Configuration
 
 This method changes the default configuration for template.
@@ -78,7 +77,6 @@ Note: When using this method it must be called before calling rtp('get','rcmd', 
 | 'richmedia' | Required | String | Sub Method name. |
 | template_id | Optional | String | The template id for configuration changes. Use to specify settings change for only one template. |
 | conf_obj | Required | Object | The new configuration. The object holds all the configurations as key/value pair. |
-
 
 ### Examples
 
@@ -144,7 +142,6 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.font.color | "rcmd.cta.font.color" : "rgb(90, 84, 164)" | Changes the button font color. This property supports all the font color values (rgb, hex, …) |
 | rcmd.cta.text | "rcmd.cta.text" : "Push" | Changes the button text. The text is the same for all the buttons. |
 | category | "category" : ["one category"] | Changes the recommendation category this template supports. The template displays only recommendations with one of the categories set by this configuration. |
-
 
 Note: The configuration support can change per template.
 

@@ -110,7 +110,6 @@ Check the list of platforms added `$cordova platform ls`
 
                 ```
 
-
 ### 3. Enable Push Notifications in xCode
 
 Turn on push notification capability in xCode project.

@@ -208,7 +208,6 @@ Android app developers can now directly use Google's [Firebase Cloud Messaging](
         </receiver>
         ```
 
-
 ### FCM FAQ
 
 Frequently asked questions regarding Firebase Cloud Messaging support.

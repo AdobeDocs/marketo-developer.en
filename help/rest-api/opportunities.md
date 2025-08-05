@@ -333,5 +333,5 @@ POST /rest/v1/opportunities/delete.json
 ## Timeouts
 
 - Opportunity endpoints have a timeout of 30s unless noted below
-   - Sync Opportunities: 60s 
-   - Delete Opportunities: 60s
+  - Sync Opportunities: 60s
+  - Delete Opportunities: 60s

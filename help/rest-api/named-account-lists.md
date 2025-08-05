@@ -28,7 +28,6 @@ Named Account Lists have a limited number of standard fields, and are not exten
 | updatedAt | Datetime | False | Datetime of the most recent update to the list. This field is system managed, and is not permitted as a field when creating or updating a record. |
 | type | String | False | Type of the list. May have a value of either "default" or "external". External lists are those created by CRM Account View. |
 
-
 ## Query
 
 Querying account lists is simple and easy. Currently, there are only two valid filterTypes for querying named account lists: "dedupeFields" and "idField". The field to filter on is set in the `filterType` parameter of the query, and the values are set in `filterValues as` a comma-separated list. The `nextPageToken` and `batchSize` filters are also optional parameters.
@@ -288,9 +287,9 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ## Timeouts
 
 - Named Account List endpoints have a timeout of 30s unless noted below
-   - Sync Named Account Lists: 60s 
-   - Delete Named Account Lists: 60s 
-   - Get Named Account Lists: 60s 
-   - Add Named Account List Members: 60s 
-   - Remove Named Account List Members: 60s 
-   - Get Named Account List Members: 60s
+  - Sync Named Account Lists: 60s
+  - Delete Named Account Lists: 60s
+  - Get Named Account Lists: 60s
+  - Add Named Account List Members: 60s
+  - Remove Named Account List Members: 60s
+  - Get Named Account List Members: 60s

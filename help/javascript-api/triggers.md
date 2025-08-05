@@ -19,7 +19,6 @@ You must be a Web Personalization customer and have the [RTP tag deployed](https
 | 'triggerName'       | Required          | String   | Method name.        |
 | function_to_trigger | Required          | Function | Function to trigger. |
 
-
 ### User Context Ready Trigger
 
 Sets a custom variable based on user location. This function is called when the "rtpUserContext" global object is ready.

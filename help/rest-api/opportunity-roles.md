@@ -224,5 +224,5 @@ POST /rest/v1/opportunities/roles/delete.json
 ## Timeouts
 
 - Opportunity Role endpoints have a timeout of 30s unless noted below
-    - Sync Opportunity Roles: 60s 
-    - Delete Opportunity Roles: 60s
+  - Sync Opportunity Roles: 60s
+  - Delete Opportunity Roles: 60s

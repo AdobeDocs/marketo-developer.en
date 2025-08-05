@@ -354,5 +354,5 @@ POST /rest/v1/companies/delete.json
 ## Timeouts
 
 - Companies endpoints have a timeout of 30s unless noted below
-    - Sync Companies: 60s 
-    - Delete Companies: 60s
+  - Sync Companies: 60s
+  - Delete Companies: 60s

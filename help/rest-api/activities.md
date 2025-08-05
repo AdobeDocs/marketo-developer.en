@@ -125,7 +125,7 @@ If the `moreResult` attribute is true, this means more results are available. Co
 
 In some cases, this API may respond with fewer than 300 activity items, but also have the `moreResult` attribute set to true.  This indicates that there are more activities that can be returned and that the endpoint can be queried for more recent activities by including the returned `nextPageToken` in a subsequent call.
 
-Note that within each result array item, the `id` integer attribute is being replaced by the `marketoGUID` string attribute as unique identifier. 
+Note that within each result array item, the `id` integer attribute is being replaced by the `marketoGUID` string attribute as unique identifier.
 
 ### Data value changes
 
@@ -429,7 +429,6 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 Types can be managed with the Approve Custom Activity Type, Discard Custom Activity Type Draft, and Delete Custom Activity Type, just like standard Marketo assets.
 
-
 ## Custom Activity Type Attributes
 
 Each custom activity type can have from 0-20 secondary attributes. Secondary attributes may have any valid field type for a Marketo field. They are added, updated, and removed separately from the parent type, but may be edited while an activity type is in use and then approved. When fields are edited on a live type, then all activities of that type created after approval has the new secondary attribute set. Changes will not be applied retroactively to existing activities sharing that type.
@@ -444,7 +443,7 @@ When changing the primary attribute of an activity type, any existing primary at
 
 ### Create Attributes
 
-Creating an attribute takes a required `apiName` path parameter. Also required are the `name` and `dataType` parameters.` The description and` `isPrimary` parameters are optional.
+Creating an attribute takes a required `apiName` path parameter. Also required are the `name` and `dataType` parameters.`The description and` `isPrimary` parameters are optional.
 
 ```
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
@@ -703,5 +702,5 @@ POST /rest/v1/activities/external.json
 
 Activities endpoints have a timeout of 30s unless noted below.
 
-* Get Paging Token: 300s 
+* Get Paging Token: 300s
 * Add Custom Activity: 90s

@@ -23,7 +23,6 @@ Tokens can be created with the following data types:
 | sfdc campaign | Used in Salesforce campaign management integration |
 | text          | A text string                                      |
 
-
 These are the only data types that can used when creating a token via API.
 
 ## Query

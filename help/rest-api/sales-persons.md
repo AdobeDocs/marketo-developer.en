@@ -233,5 +233,5 @@ POST /rest/v1/salespersons/delete.json
 ## Timeouts
 
 - Sales Person Endpoints have a timeout of 30s unless noted below
-    - Sync Sales Persons: 60s
-    - Delete Sales Persons: 60s
+  - Sync Sales Persons: 60s
+  - Delete Sales Persons: 60s

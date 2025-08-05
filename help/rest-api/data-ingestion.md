@@ -218,7 +218,6 @@ If a link field to a Person is specified in the request and that Person does not
 
 `POST /subscriptions/{munchkinId}/customobjects/{customObjectAPIName}`
 
-
 #### Headers
 
 `Content-Type: application/json`
