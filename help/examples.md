@@ -2,6 +2,7 @@
 title: Email Scripting Examples
 feature: Email Programs
 description: Examples of Marketo email scripting
+exl-id: 7c801f1c-0ab3-49f0-8577-0c4dccc80d0b
 ---
 # Examples
 

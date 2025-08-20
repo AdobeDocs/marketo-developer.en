@@ -2,6 +2,7 @@
 title: Marketo Objects
 feature: Email Programs
 description: An overview of using Marketo Objects with Velocity scripting
+exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
 ---
 # Marketo Objects
 
