@@ -1,6 +1,6 @@
 ---
 title: Marketo Objects
-feature: Marketo Objects
+feature: Email Programs
 description: An overview of using Marketo Objects with Velocity scripting
 ---
 # Marketo Objects

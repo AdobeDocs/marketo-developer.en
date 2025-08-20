@@ -1,6 +1,6 @@
 ---
 title: Email Scripting Examples
-feature: Email Scripting
+feature: Email Programs
 description: Examples of Marketo email scripting
 ---
 # Examples
