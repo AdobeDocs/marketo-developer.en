@@ -153,6 +153,8 @@ index: yes
 - [Client Libraries](https://github.com/Marketo/Community-Supported-Client-Libraries)
 - [Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams)
 - [Email Scripting](email-scripting.md)
+- [Email Scripting Examples](examples.md)
+- [Marketo Objects](marketo-objects.md )
 - [License](api-license.md)
 - [Partner Sandbox](partner-sandbox.md)
 - [Self-Service Flow Steps](self-service-flow-steps.md)
