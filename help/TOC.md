@@ -25,7 +25,6 @@ index: yes
   - [Predictive Content](javascript-api/predictive-content.md)
   - [Redirects](javascript-api/redirect.md)
   - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
-  - [Social](javascript-api/social.md)
   - [Triggers](javascript-api/triggers.md)
   - [Web Personalization](javascript-api/web-personalization.md)
 - Mobile {#mobile}

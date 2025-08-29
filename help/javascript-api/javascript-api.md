@@ -22,10 +22,7 @@ Marketo's [Munchkin JavaScript tracking code](lead-tracking.md) is key to the ca
 
 [Marketo Web Personalization](web-personalization.md) is a Targeting & Personalization platform that helps you engage thousands of prospects on your web site in real-time based on who they are and what they do.
 
-## Predictive  Content
+## Predictive Content
 
-[Marketo Predictive Content](predictive-content.md) allows you to engage your web visitors with the most relevant content, powered by machine learning and predictive analytics. Enhance your content with text descriptions and images and embed multiple content recommendations on your website.
+[Marketo Predictive Content](predictive-content.md) allows you to engage your web visitors with the most relevant content, powered by machine learning and predictive analytics. Enhance your content with text descriptions and images and embed multiple content recommendations on your website.
 
-## Social Marketing
-
-[Marketo Social Marketing](social.md) allows marketers to embed social widgets within websites and landing pages. Social widgets include polls, social share buttons, videos, sweepstakes, and promotions like referral offers. The display of these widgets can be customized as well as events captured to create unique user experiences.
