@@ -86,6 +86,11 @@ An API call that returns this response code is not counted against your daily qu
   </thead>
   <tbody>
     <tr>
+      <td><a name="500"></a>500</td>
+      <td>Internal Server error</td>
+      <td>The server encountered an unexpected condition that prevented it from fulfilling the request.  Within Marketo, this may include improperly formed REST API request URLs.</td>
+    </tr>
+    <tr>
       <td><a name="502"></a>502</td>
       <td>Bad Gateway</td>
       <td>The remote server returned an error. Likely a timeout. The request should be retried with exponential backoff.</td>
