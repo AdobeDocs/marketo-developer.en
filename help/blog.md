@@ -12,11 +12,11 @@ exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
 >
 
 >[!IMPORTANT]
->The SOAP API is being deprecated and will no longer be available after October 31, 2025. All new development should be done with the Marketo REST API, and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the [SOAP API Migration Guide](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) for information on how to migrate.
+>The SOAP API is being deprecated and will no longer be available after January 31, 2026. All new development should be done with the Marketo REST API, and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the [SOAP API Migration Guide](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) for information on how to migrate.
 >
 
 >[!IMPORTANT]
->Support for authentication using the `access_token` query parameter is being removed on October 31, 2025. If your project uses a query parameter to pass the access token, it should be updated to use the [Authorization header](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) as soon as possible. New development should use the Authorization header exclusively.
+>Support for authentication using the `access_token` query parameter is being removed on January 31, 2026. If your project uses a query parameter to pass the access token, it should be updated to use the [Authorization header](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) as soon as possible. New development should use the Authorization header exclusively.
 >
 
 ## Welcome to the Marketo Developer Blog
