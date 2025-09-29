@@ -15,13 +15,13 @@ MObjects can be one of three types: Standard, Custom or Virtual. Standard and Cu
 MObjects consist of:
 
 - A small set of fixed attributes that are common to all MObjects
-    - Required type
-    - Optional externalKey
-    - read-only id, createdAt, updatedAt
+  - Required type
+  - Optional externalKey
+  - read-only id, createdAt, updatedAt
 - A list of one or more object-specific attributes, as name/value pairs, some of which may be required. For example, name on Opportunity.
 - A list of associated object references, as object-name plus
-    - Marketo ID or
-    - External-key as an attribute-name/attribute-value pair.
+  - Marketo ID or
+  - External-key as an attribute-name/attribute-value pair.
 
 ### External-Keys
 

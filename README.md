@@ -40,7 +40,7 @@ See the [Adobe Docs Contributor Guide](https://experienceleague.adobe.com/docs/c
 
 ## Internal contributors
 
-If you are a technical writer, program manager, or developer from the product team for an Adobe Experience Cloud solution and it's your job to contribute to or author technical articles, use the [private repository](https://git.corp.adobe.com/AdobeDocs). 
+If you are a technical writer, program manager, or developer from the product team for an Adobe Experience Cloud solution and it's your job to contribute to or author technical articles, use the [private repository](https://git.corp.adobe.com/AdobeDocs).
 
 ## Format your topic
 

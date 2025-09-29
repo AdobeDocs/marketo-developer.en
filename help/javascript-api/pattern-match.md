@@ -19,7 +19,6 @@ You must become a Web Personalization customer and have the [RTP tag deployed](h
 | check_against | Required | String | String to match the pattern against. For example: current page url, product name. |
 | pattern | Required | String | Add % for wildcard. The pattern can be:start withend withcontainsfull match |
 
-
 ## Examples
 
 Set custom variable in index 1 if current page URL ends with "productA".

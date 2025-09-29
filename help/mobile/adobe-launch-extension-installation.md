@@ -59,7 +59,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 1. Select **[!UICONTROL Project]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL Types]**.
 1. Add identifier: ${PRODUCT_NAME}
-1. Set URL Schemes: mkto-<S_ecret Key_> 
+1. Set URL Schemes: mkto-<S_ecret Key_>
 1. Include `application:openURL:sourceApplication:annotation:` to `AppDelegate.m file` (Objective-C)
 
 ### Handle Custom Url Type in AppDelegate
@@ -70,8 +70,8 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ```
 #ifdef __IPHONE_10_0
--(BOOL)application:(UIApplication *)application 
-           openURL:(NSURL *)url 
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
            options:(NSDictionary *)options{
     return [[ALMarketo sharedInstance] application:application
                                          openURL:url
@@ -160,7 +160,7 @@ Android app developers can now directly use Google's [Firebase Cloud Messaging](
         1. In the Firebase welcome screen, select **[!UICONTROL Add Firebase to your Android App]**.
         1. Provide your package name and SHA-1, and select **[!UICONTROL Add App]**. A new `google-services.json` file for your Firebase app is downloaded.
         1. Select **[!UICONTROL Continue]** and follow the detailed instructions for adding the Google Services plugin in Android Studio.
-            
+
     1. Navigate to **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
         1. Click **[!UICONTROL General]** tab. Download the `google-services.json` file.
         1. Click on **[!UICONTROL Cloud Messaging]** tab. Copy [!UICONTROL Server Key] & [!UICONTROL Sender ID]. Provide these [!UICONTROL Server Key] & [!UICONTROL Sender ID] to Marketo.
@@ -168,7 +168,7 @@ Android app developers can now directly use Google's [Firebase Cloud Messaging](
         1. Switch to the Project view in Android Studio to see your project root directory
             1. Move the downloaded `google-services.json` file into your Android app module root directory
             1. In Project-level `build.gradle` add the following:
-                
+
                 ```
                 buildscript {
                   dependencies {
@@ -176,27 +176,27 @@ Android app developers can now directly use Google's [Firebase Cloud Messaging](
                   }
                 }
                 ```
-                
+
             1. In App-level build.gradle, add the following:
-                
+
                 ```
                 dependencies {
                   compile 'com.google.firebase:firebase-core:17.4.0'
-                } 
-                // Add to the bottom of the file 
+                }
+                // Add to the bottom of the file
                 apply plugin: 'com.google.gms.google-services'
                 ```
-                
+
             1. Finally, click on **[!UICONTROL Sync now]** in the bar that appears in the ID
     1. Edit your app's manifest The FCM SDK automatically adds all required permissions and the required receiver functionality. Make sure to remove the following obsolete (and potentially harmful, as they may cause message duplication) elements from your app's manifest:
-        
+
         ```xml
         <uses-permission android:name="android.permission.WAKE_LOCK" />
         <permission android:name="<your-package-name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
         <uses-permission android:name="<your-package-name>.permission.C2D_MESSAGE" />
-        
+
         ...
-        
+
         <receiver>
           android:name="com.google.android.gms.gcm.GcmReceiver"
           android:exported="true"
@@ -204,10 +204,9 @@ Android app developers can now directly use Google's [Firebase Cloud Messaging](
           <intent-filter>
             <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             <category android:name="<your-package-name> />
-          </intent-filter> 
+          </intent-filter>
         </receiver>
         ```
-        
 
 ### FCM FAQ
 

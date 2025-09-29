@@ -38,7 +38,6 @@ After creating a role, you must create an 'API-Only' user. API-Only users are a 
 >
 >To create an API-Only user, go to the **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** menu and click [!UICONTROL Invite New User].
 
-
 ![New User Information](assets/new-user-info.png)
 
 Give your user a descriptive name and email address (it doesn't must be valid), based on the service and application that it will be used for. Fill in the required fields in the dialog menu, click the "API Only" checkbox, and award one of your API roles to the user. This assigns that role's permissions set to the user.

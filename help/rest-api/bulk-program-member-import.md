@@ -135,7 +135,7 @@ If the job has completed, you have a listing of the number of rows processed, fa
 
 Failures are indicated by the `numOfRowsFailed` attribute in [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) response. If numOfRowsFailed is greater than zero, then that value indicates the number of failures that occurred.
 
-Use the [Get Import Program Member Failures](http://TODO) endpoint to retrieve records and causes of failed rows by passing the `batchId` path parameter.
+Use the Get Import Program Member Failures endpoint to retrieve records and causes of failed rows by passing the `batchId` path parameter.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/failures.json

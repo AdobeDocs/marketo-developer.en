@@ -27,56 +27,56 @@ GET /rest/v1/salespersons/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"SalesPerson",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"id",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalSalesPersonId"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "email"
             ],
-            [  
+            [
                "id"
             ],
             [
                "externalSalesPersonId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"id",
                "displayName":"Marketo Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"email",
                "displayName":"Email",
                "dataType":"string",
                "length":255,
                "updateable":false
             },
-            {  
+            {
                "name":"externalSalesPersonId",
                "displayName":"External Sales Person Id",
                "dataType":"string",
@@ -100,18 +100,18 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 ```
 
 ```json
- {  
+ {
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "id":53453,
          "externalSalesPersonId":"sam@test.com",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:23Z"
       },
-      {  
+      {
          "seq":1,
          "id":53454,
          "externalSalesPersonId":"david@test.com",
@@ -184,16 +184,16 @@ POST /rest/v1/salespersons/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalSalesPersonId":"sam@test.com"
       },
-      {  
+      {
          "externalSalesPersonId":"david@test.com"
       },
-      {  
+      {
          "externalSalesPersonId":"raj@test.com"
       }
    ]
@@ -233,5 +233,5 @@ POST /rest/v1/salespersons/delete.json
 ## Timeouts
 
 - Sales Person Endpoints have a timeout of 30s unless noted below
-    - Sync Sales Persons: 60s
-    - Delete Sales Persons: 60s
+  - Sync Sales Persons: 60s
+  - Delete Sales Persons: 60s

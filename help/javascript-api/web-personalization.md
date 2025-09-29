@@ -16,7 +16,7 @@ The Web Personalization JavaScript API extends the platform's automated personal
 The RTP tag should be inserted at the header of the personalized page.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 (function(c,h,a,f,e,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 c[a].p=e;c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -35,7 +35,6 @@ This method is called automatically on the tag level to set the relevant account
 | 'setAccount' | Required          | String | Method name. |
 | accountId    | Required          | String | Account Id. |
 
-
 ```javascript
 var accountId = '561-HYG-937';
 rtp('setAccount', accountId);
@@ -53,7 +52,6 @@ By passing the optional "page" parameter in this method, the current page can be
 | 'view'    | Required          | String | Method name.                   |
 | page      | Optional          | String | Relative path or full page URL. |
 
-
 ```javascript
 // Example for Default Page
 rtp('send', 'view');
@@ -70,7 +68,7 @@ To exclude specific browsers from sending data to the Web Personalization platfo
 In the code example below, "Googlebot|msnbot" is used as bot examples to exclude from Web Personalization activities.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
     (function(c,h,a,f,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -97,7 +95,6 @@ Description of JavaScript that is added to a website when using Web Personalizat
 | jquery.min.js             | v1.8.3      | Can be disabled by contacting Marketo Customer Support |
 | jquery-custom-ui-min.js   | v1.9.2      | Can be disabled by contacting Marketo Customer Support |
 | query-ui-1.8.17-dialog.js | v1.9.2*     | Can be disabled by contacting Marketo Customer Support |
-
 
 *Used only if jQuery UI is missing dialog
 

@@ -107,7 +107,7 @@ Landing Pages follow the standard draft-approved model, where there can be a dra
 
 ## Delete
 
-To delete a landing page, it must first be out of use and not referenced by any other Marketo assets, as well as be unapproved. Pages are deleted individually with the [Delete Landing Page](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) endpoint. Landing pages with embedded social buttons cannot be deleted through this API. 
+To delete a landing page, it must first be out of use and not referenced by any other Marketo assets, as well as be unapproved. Pages are deleted individually with the [Delete Landing Page](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) endpoint. Landing pages with embedded social buttons cannot be deleted through this API.
 
 ## Clone
 

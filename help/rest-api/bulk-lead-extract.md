@@ -27,7 +27,6 @@ Leads support various filter options. Certain filters, including the `updatedAt`
 | smartListName* | String | Accepts the name of a smart list. Jobs with this filter type return all accessible records which are members of the smart lists at the time that the job begins processing. Retrieve smart list names using theGet Smart Lists endpoint. |
 | smartListId* | Integer | Accepts the id of a smart list. Jobs with this filter type return all accessible records which are members of the smart lists at the time that the job begins processing. Retrieve smart list ids using theGet Smart Lists endpoint. |
 
-
 Filter type is unavailable for some subscriptions. If unavailable for your subscription, you receive an error when calling the Create Export Lead Job endpoint ("1035, Unsupported filter type for target subscription"). Customers may contact Marketo Support to have this functionality enabled in their subscription.
 
 ## Options
@@ -39,7 +38,6 @@ The Create Export Lead Job endpoint provides several formatting options, giving 
 | fields | Array[String] | Yes | The fields parameter accepts a JSON array of strings. Each string must be the REST API name of a Marketo lead field. The listed fields are included in the exported file. The column header for each field will be the REST API name of each field, unless overridden with columnHeader. Note: When the [!DNL Adobe Experience Cloud Audience Sharing] feature is enabled, a cookie sync process occurs that associates [!DNL Adobe Experience Cloud] ID (ECID) with Marketo leads. You can specify the "ecids" field to include ECIDs in the export file. |
 | columnHeaderNames | Object | No | A JSON object containing key-value pairs of field and column header names. The key must be the name of a field included in the export job. This is the API name of the field which can be retrieved by calling Describe Lead. The value is the name of the exported column header for that field. |
 | format | String | No | Accepts one of: CSV, TSV, SSV. The exported file is rendered as a comma-separated values, tab-separated values, or space-separated values file, respectively if set. Defaults to CSV if unset. |
-
 
 ## Creating a Job
 

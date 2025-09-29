@@ -47,12 +47,12 @@ Custom Var Restrictions
 ```javascript
 // Set and get customVars
 rtp('set', 'customVar1', 'foo');
- 
-// Read location 
+
+// Read location
 if (rtp.userContext.location.state == 'CA')  {
     // Do something
 }
- 
+
 // Check if user viewed campaign id 45:
 // The campaign id is exposed in the RTP UI when hovering over a campaign name.
 if (rtp.userContext.viewedCampaign('45')) {

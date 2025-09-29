@@ -134,14 +134,14 @@ $marketoSoapEndPoint    = "";  // CHANGE ME
 $marketoUserId      = ""; // CHANGE ME
 $marketoSecretKey   = ""; // CHANGE ME
 $marketoNameSpace   = "http://www.marketo.com/mktows/";
- 
+
 // Create Signature
 $dtzObj = new DateTimeZone("America/Los_Angeles");
 $dtObj  = new DateTime('now', $dtzObj);
 $timeStamp = $dtObj->format(DATE_W3C);
 $encryptString = $timeStamp . $marketoUserId;
 $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
 // Create SOAP Header
 $attrs = new stdClass();
 $attrs->mktowsUserId = $marketoUserId;
@@ -152,16 +152,16 @@ $options = array("connection_timeout" => 15, "location" => $marketoSoapEndPoint)
 if ($debug) {
   $options["trace"] = 1;
 }
- 
+
 // Create Request
 ////////////////////////////////
 $params = prepareUpdateProgramRequest();
-// -or- 
+// -or-
 //$params = prepareCreateOpptyRequest();
 // -or-
 //$params= prepareCreateOpptyPersonRoleRequest();
 ////////////////////////////////
-            
+
 $soapClient = new SoapClient($marketoSoapEndPoint ."?WSDL", $options);
 try {
   $leads = $soapClient->__soapCall('syncMObjects', array($params), $options, $authHdr);
@@ -185,16 +185,16 @@ function prepareUpdateProgramRequest() {
   $attrib1 = new stdClass();
   $attrib1->name="Month";
   $attrib1->value="2013-06";
-        
+
   $attrib2 = new stdClass();
   $attrib2->name="Amount";
   $attrib2->value="2000";
-        
+
   $attrib3 = new stdClass();
   $attrib3->name="Id";
   $attrib3->value="153";
   $attribList = array ($attrib1, $attrib2, $attrib3);
-        
+
   $costAttrib = new stdClass();
   $costAttrib->attrType="Cost";
   $costAttrib->attrList = $attribList;
@@ -216,11 +216,11 @@ function prepareCreateOpptyRequest() {
   $attrib1 = new stdClass();
   $attrib1->name="Name";
   $attrib1->value="Q1 2014";
-        
+
   $attrib2 = new stdClass();
   $attrib2->name="Amount";
   $attrib2->value="2000";
-        
+
   $attrib3 = new stdClass();
   $attrib3->name="Probability";
   $attrib3->value="80%";
@@ -233,7 +233,7 @@ function prepareCreateOpptyRequest() {
   $params->mObjectList = array($mObj);
 
   $params->operation="INSERT";
-  
+
   return $params;
 }
 
@@ -246,11 +246,11 @@ function prepareCreateOpptyPersonRoleRequest() {
   $attrib1 = new stdClass();
   $attrib1->name="OpportunityId";
   $attrib1->value="64";
-        
+
   $attrib2 = new stdClass();
   $attrib2->name="PersonId";
   $attrib2->value="19";
-        
+
   $attrib3 = new stdClass();
   $attrib3->name="Role";
   $attrib3->value="Influencer/Champion";
@@ -282,32 +282,32 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class SyncMObjects {
     public static void main(String[] args) {
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);            
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-            
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-            
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
@@ -317,25 +317,25 @@ public class SyncMObjects {
             // Create Request
             ////////////////////////////////
             ParamsSyncMObjects request = prepareUpdateProgramRequest();
-            // -or- 
+            // -or-
             //ParamsSyncMObjects request = prepareCreateOpptyRequest();
             // -or-
             //ParamsSyncMObjects request = prepareCreateOpptyPersonRoleRequest();
             ////////////////////////////////
-             
+
             SuccessSyncMObjects result = port.syncMObjects(request, header);
-            
+
             JAXBContext context = JAXBContext.newInstance(SuccessSyncMObjects.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-            
+
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     private static ParamsSyncMObjects prepareUpdateProgramRequest() {
         ParamsSyncMObjects request = new ParamsSyncMObjects();
         request.setOperation(SyncOperationEnum.UPDATE);
@@ -343,102 +343,102 @@ public class SyncMObjects {
         MObject mobj = new MObject();
         mobj.setType("Program");
         mobj.setId(1970);
-        
+
         TypeAttrib typeAttrib = new TypeAttrib();
         typeAttrib.setAttrType("Cost");
-        
+
         Attrib attrib = new Attrib();
         attrib.setName("Month");
         attrib.setValue("2013-06");
-        
+
         Attrib attrib2 = new Attrib();
         attrib1.setName("Amount");
         attrib1.setValue("2000");
-        
+
         Attrib attrib3 = new Attrib();
         attrib1.setName("Id");
         attrib1.setValue("153");
-        
+
         ArrayOfAttrib attribList = new ArrayOfAttrib();
         attribList.getAttribs().add(attrib);
         attribList.getAttribs().add(attrib2);
         attribList.getAttribs().add(attrib3);
         typeAttrib.setAttrList(attribList);
-        
+
         ArrayOfTypeAttrib typeAttribList = new ArrayOfTypeAttrib();
         typeAttribList.getTypeAttribs().add(typeAttrib);
         mobj.setTypeAttribList(typeAttribList);
-        
+
         ArrayOfMObject objList = new ArrayOfMObject();
         objList.getMObjects().add(mobj);
         request.setMObjectList(objList);
-        
+
         return request;
     }
 
     private static ParamsSyncMObjects prepareCreateOpptyRequest() {
         ParamsSyncMObjects request = new ParamsSyncMObjects();
         request.setOperation(SyncOperationEnum.INSERT);
-        
+
         MObject mobj = new MObject();
         mobj.setType("Opportunity");
-        
+
         Attrib attrib = new Attrib();
         attrib.setName("Name");
         attrib.setValue("Q1 2014");
 
-        Attrib attrib2 = new Attrib();        
+        Attrib attrib2 = new Attrib();
         attrib1.setName("Amount");
         attrib1.setValue("2000");
-        
+
         Attrib attrib3 = new Attrib();
         attrib1.setName("Probability");
         attrib1.setValue("80%");
-        
+
         ArrayOfAttrib attribList = new ArrayOfAttrib();
         attribList.getAttribs().add(attrib);
         attribList.getAttribs().add(attrib2);
         attribList.getAttribs().add(attrib3);
         mobj.setAttribList(attribList);
-        
+
         ArrayOfMObject objList = new ArrayOfMObject();
         objList.getMObjects().add(mobj);
         request.setMObjectList(objList);
-        
+
         return request;
     }
     private static ParamsSyncMObjects prepareCreateOpptyPersonRoleRequest() {
         ParamsSyncMObjects request = new ParamsSyncMObjects();
         request.setOperation(SyncOperationEnum.INSERT);
-        
+
         MObject mobj = new MObject();
         mobj.setType("OpportunityPersonRole");
-        
+
         Attrib attrib = new Attrib();
         attrib.setName("OpportunityId");
         attrib.setValue("64"); // Id of the opportunity created earlier
-        
+
         Attrib attrib2 = new Attrib();
         attrib1.setName("PersonId");
         attrib1.setValue("19");
-        
+
         Attrib attrib3 = new Attrib();
         attrib1.setName("Role");
         attrib1.setValue("Influencer/Champion");
-        
+
         ArrayOfAttrib attribList = new ArrayOfAttrib();
         attribList.getAttribs().add(attrib);
         attribList.getAttribs().add(attrib2);
         attribList.getAttribs().add(attrib3);
         mobj.setAttribList(attribList);
-        
+
         ArrayOfMObject objList = new ArrayOfMObject();
         objList.getMObjects().add(mobj);
         request.setMObjectList(objList);
-        
+
         return request;
     }
-            
+
 }
 
 ```
@@ -463,9 +463,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

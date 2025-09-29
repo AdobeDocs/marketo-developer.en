@@ -20,10 +20,10 @@ Custom objects are supported on all Marketo editions except Spark. When the Mark
 Custom objects consist of:
 
 - A small set of fixed attributes that are common to all custom objects:
-    - Object Name (aka the Object Type Name)
-    - Object Description
-    - Custom Object to Marketo Lead Link Field Name - this is a field on the Lead (Person) object that the Custom Object references
-    - Object Key Field Name - the primary key used by your object
+  - Object Name (aka the Object Type Name)
+  - Object Description
+  - Custom Object to Marketo Lead Link Field Name - this is a field on the Lead (Person) object that the Custom Object references
+  - Object Key Field Name - the primary key used by your object
 - One or more object specific fields (we support a max of 50 such fields)
 
 ## Custom Object Operations

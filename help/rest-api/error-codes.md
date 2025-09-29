@@ -53,7 +53,6 @@ The [Identity](https://developer.adobe.com/marketo-apis/api/identity/) endpoint 
   </tbody>
 </table>
 
-
 #### Response-Level errors
 
 Response level errors are present when the `success` parameter of the response is set to false, and are structured like:
@@ -245,28 +244,27 @@ An API call that returns this response code is not counted against your daily qu
 
 ### Record-Level {#record_level_errors}
 
-Record level errors indicate that an operation could not be completed for an individual record, but the request itself was valid. A response with record-level errors follows this pattern: 
-
+Record level errors indicate that an operation could not be completed for an individual record, but the request itself was valid. A response with record-level errors follows this pattern:
 
 #### Response
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "status":"skipped",
-         "reasons":[  
-            {  
+         "reasons":[
+            {
                "code":"1005",
                "message":"Lead already exists"
             }
@@ -281,7 +279,9 @@ Each record in a successful request may succeed or fail on an individual basis, 
 
 #### Record-Level Error Codes
 
-<table>
+>[!NOTE]
+>
+><table>
   <tbody>
     <tr>
       <td>Response Code</td>
@@ -424,10 +424,12 @@ Each record in a successful request may succeed or fail on an individual basis, 
       <td><ul>
           <li>Too many jobs in queue</li>
           <li>Export daily quota exceeded</li>
+          <li>Job already queued</li>
         </ul></td>
       <td><ul>
           <li>Subscriptions are allowed a maximum of 10 bulk extract jobs in the queue at any given time.</li>
           <li>By default extract jobs are limited to 500MB per day (resets daily at 12:00AM CST).</li>
+          <li>The export id has already been queued.</li>
         </ul></td>
     </tr>
     <tr>
@@ -477,6 +479,11 @@ Each record in a successful request may succeed or fail on an individual basis, 
       <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to deleted entity, not a lead/contact, or field filter criteria doesn't match.</td>
       <td>Merge failure, unable to perform merge operation in natively synced CRM
         This is the error msg, which Marketo receives when merging in Salesforce.</td>
+    </tr>
+    <tr>
+      <td><a name="1079"></a>1079</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a>  call failed due to Personalized URL conflict in duplicate records</td>
+      <td>A Merge Leads call specified many Leads with the same Personalized URL. To resolve use Marketo Engage user interface to merge these records.</td>
     </tr>
   </tbody>
 </table>

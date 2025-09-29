@@ -222,7 +222,7 @@ The optional `fields` query parameter accepts a comma-separated list of field AP
 
 By default, a maximum of 300 records are returned. You can use the `batchSize` query parameter to reduce this number. If the **moreResult** attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
-If the total length of your GET request exceeds 8KB, an HTTP error is returned: "414, URI too long" (per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc72316.5.12)). As a workaround, you may change your GET to POST, add `_method=GET` parameter, and place query string in the request body.
+If the total length of your GET request exceeds 8KB, an HTTP error is returned: "414, URI too long". As a workaround, you may change your GET to POST, add `_method=GET` parameter, and place query string in the request body.
 
 ```
 GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValues=Influenced

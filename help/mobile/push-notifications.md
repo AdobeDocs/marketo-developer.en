@@ -103,7 +103,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 ```
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            
+
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound,    .badge]) { granted, error in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -113,7 +113,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                 }
             }
         }
-        
+
         return true
 }
 ```
@@ -212,7 +212,7 @@ By using this method you can either present alert, sound or increase badge while
 >[!TAB Swift]
 
 ```
-func userNotificationCenter(_ center: UNUserNotificationCenter, 
+func userNotificationCenter(_ center: UNUserNotificationCenter,
             willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (
     UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert, .sound,.badge])
@@ -220,7 +220,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 ```
 
 >[!ENDTABS]
- 
+
  Handle newly received Push notification in AppDelegate
 
 The method will be called on the delegate when the user responded to the notification by opening the application, dismissing the notification or choosing a UNNotificationAction. The delegate must be set before the application returns from applicationDidFinishLaunching:.
@@ -270,7 +270,7 @@ The following is a Marketo activity log from Marketo that shows app events, and 
     ```xml
     <uses‐permission android:name="android.permission.INTERNET"/>
     <uses‐permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    
+
     <!‐‐Following permissions are required for push notification.‐‐>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <!‐‐Keeps the processor from sleeping when a message is received.‐‐>
@@ -281,12 +281,12 @@ The following is a Marketo activity log from Marketo that shows app events, and 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     ```
 
-1. Setting up FCM with HTTPv1 (Google has [deprecated XMPP protocol](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) on 12th June, 2023 and will be removed in June 2024) 
+1. Setting up FCM with HTTPv1 (Google has [deprecated XMPP protocol](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) on 12th June, 2023 and will be removed in June 2024)
 
 - Enable MME FCM HTTPv1 in Marketo feature manager ![](assets/feature-manager.png)
-    - Upload Service Account Json file for the app in MLM.
-    - You can download the Service Account Json file from Firebase Console.   ![](assets/fcm-console.png)
-    - Wait for an hour after uploading Service Account Json file in Marketo before sending push notifications.  
+  - Upload Service Account Json file for the app in MLM.
+  - You can download the Service Account Json file from Firebase Console.   ![](assets/fcm-console.png)
+  - Wait for an hour after uploading Service Account Json file in Marketo before sending push notifications.  
 
 ## Android Test Devices
 
@@ -387,7 +387,6 @@ Add Marketo Activity in manifest file inside application tag.
 
 1. Initialize Marketo Push After saving the configuration above, you must initialize Marketo Push Notification. Create or open your Application class and copy/paste the code below. You can get your sender ID from the Firebase console.
 
-
     ```java
     Marketo marketoSdk = Marketo.getInstance(getApplicationContext());
 
@@ -426,13 +425,13 @@ Add Marketo Activity in manifest file inside application tag.
     config.setNotificationLargeIcon(bitmap);
 
     // Required icon Resource ID
-    config.setNotificationSmallIcon(R.drawable.notification_small_icon); 
+    config.setNotificationSmallIcon(R.drawable.notification_small_icon);
 
-    // Set the configuration 
+    // Set the configuration
     //Use the static methods on ALMarketo class when using Adobe Extension
-    Marketo.getInstance(context).setNotificationConfig(config); 
+    Marketo.getInstance(context).setNotificationConfig(config);
 
-    // Get the configuration set 
+    // Get the configuration set
     Marketo.getInstance(context).getNotificationConfig();
     ```
 

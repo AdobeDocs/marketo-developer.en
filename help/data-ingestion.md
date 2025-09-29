@@ -5,7 +5,7 @@ description: "Data Ingestion API overview"
 
 # Data Ingestion
 
-The Data Ingestion API is a high volume, low latency, highly available service designed to handle ingestion of large amounts of person and person-related data efficiently and with minimal delays. 
+The Data Ingestion API is a high volume, low latency, highly available service designed to handle ingestion of large amounts of person and person-related data efficiently and with minimal delays.
 
 Data is ingested by submitting requests that execute asynchronously. Request status can be retrieved by subscribing to events from the [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/).​
 

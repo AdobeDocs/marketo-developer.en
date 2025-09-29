@@ -35,7 +35,6 @@ When called, this checks to see a `_mkto_trk` cookie exists in the browser, and 
 | --- | --- | --- | --- |
 | forceCreate  |   Required  |   Boolean   |  Create cookie even if `cookieAnon` is set to false.|
 
-
 ```javascript
 Munchkin.createTrackingCookie(true);
 ```
