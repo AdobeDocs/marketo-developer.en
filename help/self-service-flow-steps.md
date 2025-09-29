@@ -1,6 +1,6 @@
 ---
 title: Self-Service Flow Steps
-description: Self-Service Flow steps overview
+description: Self-Service Flow Steps let integrators deploy web APIs as Marketo Flow Steps to process lead data, call services, and write lead and activity data back
 exl-id: f4353692-9e6c-431c-b8b7-3ae96040cf3a
 ---
 # Self-service Flow Steps

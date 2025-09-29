@@ -1,7 +1,7 @@
 ---
 title: Tags
 feature: REST API, Tags
-description: Manage tags for programs in Marketo.
+description: Query tag types, get allowable values by name, update or delete program tags in Marketo via REST Asset API, with request examples.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
 ---
 # Tags

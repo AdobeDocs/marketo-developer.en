@@ -1,7 +1,7 @@
 ---
 title: Reference Architectures
 feature: REST API
-description: Reference material discussing the Marketo architecture.
+description: Explore Marketo reference architectures with best practices for syncing data to external systems, including CRM and data warehouse integrations.
 exl-id: ba413814-d81a-4c55-a5d0-4386d87038fe
 ---
 # Reference Architecture

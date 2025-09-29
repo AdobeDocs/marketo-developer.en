@@ -1,7 +1,7 @@
 ---
 title: Performance
 feature: REST API
-description: Performance tips for working with the Marketo API.
+description: Boost Marketo REST API performance with HTTP compression. Enable gzip to cut bandwidth; bulk APIs unsupported and under 1024 bytes not compressed.
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
 ---
 # Performance

@@ -1,7 +1,7 @@
 ---
 title: Programs
 feature: REST API, Programs
-description: Create and edit program information.
+description: Marketo Programs guide for the Asset REST API covering types, channels, tags, member statuses, and endpoints to get by id or name, browse, and filter by status.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
 ---
 # Programs

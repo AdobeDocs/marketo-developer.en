@@ -1,7 +1,7 @@
 ---
 title: describeMObject
 feature: SOAP
-description: describeMObjects SOAP calls
+description: Learn to use describeMObject in Marketo SOAP to retrieve metadata and field attributes for ActivityRecord, LeadRecord, Opportunity, and OpportunityPersonRole.
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
 ---
 # describeMObject

@@ -1,7 +1,7 @@
 ---
 title: Endpoint Reference
 feature: REST API
-description: Marketo API endpoint references
+description: Comprehensive Marketo REST API endpoint list with methods, URIs, and required permissions across activities, bulk export, identity, leads, assets, users.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
 ---
 # Endpoint Reference

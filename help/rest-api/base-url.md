@@ -1,7 +1,7 @@
 ---
 title: Base URL
 feature: REST API
-description: Describes how to URLs for Marketo.
+description: Learn to build Marketo REST API requests, understand base URL path resource and parameters, and find your unique base URL.
 exl-id: 6c3f122c-3ace-4ed3-bed0-a6b89cedc99a
 ---
 # Base URL

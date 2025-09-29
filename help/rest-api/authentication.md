@@ -1,7 +1,7 @@
 ---
 title: Authentication
 feature: REST API
-description: Authenticating Marketo users for API usage.
+description: Authenticate Marketo REST APIs with 2 legged OAuth 2.0, create and use access tokens, switch to Authorization header, manage expiry, handle 601 and 602 errors.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
 ---
 # Authentication

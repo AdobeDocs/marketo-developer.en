@@ -1,7 +1,7 @@
 ---
 title: Marketo Integration Best Practices
 feature: REST API
-description: Best Practices for using Marketo APIs.
+description: Best practices for Marketo API integrations covering quotas, rate and concurrency limits, batching, bulk import and export, caching, and latency planning.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
 ---
 # Marketo Integration Best Practices

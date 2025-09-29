@@ -1,7 +1,7 @@
 ---
 title: Bulk Lead Import
 feature: REST API
-description: Batch importing of lead data.
+description: Create and monitor asynchronous bulk lead imports in Marketo with CSV TSV or SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
 ---
 # Bulk Lead Import

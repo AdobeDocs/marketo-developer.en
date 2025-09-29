@@ -1,7 +1,7 @@
 ---
 title: Mobile
 feature: Mobile Marketing
-description: Using Marketo Mobile
+description: Learn how Marketo Mobile Engagement uses a Mobile SDK and Mobile Marketing to send push and in-app messages, target audiences, and track analytics.
 exl-id: d5fa5640-01f5-49a1-944a-9f81a1f83617
 ---
 # Mobile

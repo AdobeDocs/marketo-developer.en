@@ -1,6 +1,6 @@
 ---
 title: JavaScript API
-description: Javascript API
+description: Learn how to use the Marketo JavaScript API with embed code for Munchkin lead tracking, Forms 2.0, Web Personalization, and Predictive Content.
 feature: Munchkin Tracking Code, Forms, Web Personalization, Predictive Content, Social, Javascript
 exl-id: 6129a467-be44-44bd-9e02-62009070c318
 ---

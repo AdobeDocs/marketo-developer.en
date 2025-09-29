@@ -1,7 +1,7 @@
 ---
 title: Paging Tokens
 feature: REST API
-description: View paging tokens data.
+description: Use Marketo REST API paging tokens to retrieve activities and leads, covering date-based and position-based tokens, ISO 8601 sinceDatetime, and 414 errors.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
 ---
 # Paging Tokens

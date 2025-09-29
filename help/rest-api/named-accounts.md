@@ -1,7 +1,7 @@
 ---
 title: Named Accounts
 feature: REST API
-description: Manipulate named accounts through the API.
+description: Marketo REST guide to CRUD on named accounts for ABM, with describe, query, create update examples, searchable fields, dedupe rules, and no lead linking.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
 ---
 # Named Accounts

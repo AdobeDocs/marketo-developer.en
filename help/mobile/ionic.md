@@ -1,7 +1,7 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: Using [!DNL Ionic] with Marketo for mobile devices
+description: Step-by-step guide to integrate the Marketo Cordova Plugin with Ionic, enable push notifications, initialize SDK, track sessions, and associate leads.
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 ---
 # Ionic

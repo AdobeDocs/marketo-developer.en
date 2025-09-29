@@ -1,7 +1,7 @@
 ---
 title: Assets
 feature: REST API
-description: An API for working with Marketo assets.
+description: Overview of Marketo Asset REST APIs for querying by id or name, browsing with paging, and creating or updating folders, emails, forms, templates, files, tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
 ---
 # Assets

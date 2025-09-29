@@ -1,7 +1,7 @@
 ---
 title: REST API
 feature: REST API
-description: REST API overview
+description: Learn how to use Marketo REST API, set up API users and LaunchPoint, view quotas and limits, authenticate with Authorization header, and retrieve leads.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
 ---
 # REST API

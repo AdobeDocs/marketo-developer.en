@@ -1,7 +1,7 @@
 ---
 title: Landing Page Templates
 feature: REST API, Landing Pages
-description: Build and edit landing page templates.
+description: Manage Marketo Landing Page Templates via REST API endpoints for free form and guided types, query by id or name, create, update HTML, clone, Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
 ---
 # Landing Page Templates

@@ -1,6 +1,6 @@
 ---
 title: Examples
-description: Examples of Marketo code for configuring form actions
+description: Marketo Forms 2.0 JavaScript examples to hide or redirect on submit, set and read fields, validate with custom errors, lightbox, and external triggers.
 feature: Javascript
 exl-id: dc5f0cc5-ff5a-48b0-be36-52c10e56f798
 ---

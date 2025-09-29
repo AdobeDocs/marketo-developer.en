@@ -1,7 +1,7 @@
 ---
 title: Opportunities
 feature: REST API
-description: ' Configure opportunities with the Marketo API.'
+description: Marketo REST API to describe, query, create, and update opportunities, dedupe and searchable fields, limits, and read-only behavior with SFDC or Dynamics sync.
 exl-id: 46451285-4125-4857-890a-575069a68288
 ---
 # Opportunities

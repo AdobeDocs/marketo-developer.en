@@ -1,6 +1,6 @@
 ---
 title: Redirect
-description: Redirect
+description: Implement the RTP Redirect API to send segmented visitors to targeted URLs using fields like ABM, organization, location, and segments, with examples and tips.
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
 ---

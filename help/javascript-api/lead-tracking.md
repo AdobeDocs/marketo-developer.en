@@ -1,6 +1,6 @@
 ---
 title: Lead Tracking
-description: Lead Tracking API
+description: Learn how to embed Marketo Munchkin JavaScript, track visits and clicks, manage known vs anonymous leads, cross-domain cookies, and opt-out for Smart Campaigns.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
 ---

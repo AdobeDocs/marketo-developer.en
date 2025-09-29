@@ -1,7 +1,7 @@
 ---
 title: getTags
 feature: SOAP, Tags
-description: getTags SOAP calls
+description: Marketo SOAP getTags retrieves non-channel tag types and values with optional tag filters, plus request fields and full XML request response samples.
 exl-id: 4fd9de1a-9362-479a-afe1-09ef0aaf5e6e
 ---
 # getTags

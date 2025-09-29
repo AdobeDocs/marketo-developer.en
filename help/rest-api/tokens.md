@@ -1,7 +1,7 @@
 ---
 title: Tokens
 feature: REST API, Tokens
-description: Manage tokens in Marketo.
+description: Manage Marketo My Tokens with Asset REST API. See supported data types, get by folder or program, create or update via form-encoded POST, and delete by name.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
 ---
 # Tokens

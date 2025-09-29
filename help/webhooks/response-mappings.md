@@ -1,7 +1,7 @@
 ---
 title: Response Mappings
 feature: Webhooks
-description: Response Mappings for Marketo
+description: Marketo Webhooks response mappings for JSON and XML, map attributes to lead fields with SOAP API names, dot and array notation, and type compatibility.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
 ---
 # Response Mappings

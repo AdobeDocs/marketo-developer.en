@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Getting started with Marketo Engage APIs
+description: Get started with Marketo Engage APIs and data model including leads, activities, programs, tags, lists, REST guidance and SOAP deprecation notice.
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
 ---
 # Getting Started

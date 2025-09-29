@@ -1,7 +1,7 @@
 ---
 title: Smart Lists
 feature: REST API
-description: Create and edit smart lists.
+description: Learn how to use Marketo REST APIs to query, clone, and delete user-created Smart Lists, including endpoints by id, name, campaign, and program with rules.
 exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
 ---
 # Smart Lists

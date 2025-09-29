@@ -1,7 +1,7 @@
 ---
 title: importToList
 feature: SOAP
-description: importToList SOAP calls
+description: Learn how to use importToList in Marketo SOAP to import leads to a Static List with CSV headers, token overrides, XML examples, and status checks.
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
 ---
 # importToList

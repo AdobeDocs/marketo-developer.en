@@ -1,7 +1,7 @@
 ---
 title: '[!DNL Adobe Launch] Extension Installation'
 feature: Mobile Marketing
-description: '[!DNL Adobe Launch] extension installation overview'
+description: Install the Adobe Launch Marketo extension for mobile. Follow iOS and Android setup, test devices, permissions, and FCM steps for push and in-app.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
 ---
 # [!DNL Adobe Launch] Extension Installation

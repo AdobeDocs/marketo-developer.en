@@ -1,6 +1,6 @@
 ---
 title: API License
-description: API license for Marketo
+description: Marketo API License Agreement for internal development and testing, detailing API limits, interoperability with Marketo Solution, and non-commercial use.
 exl-id: f0720ba7-b15d-40c8-9145-d3fa3e064a0b
 ---
 # API License

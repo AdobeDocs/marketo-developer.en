@@ -1,7 +1,7 @@
 ---
 title: Files
 feature: REST API
-description: Storing and manipulating Marketo files.
+description: Guide to Marketo REST API files query by id or name, browse with folder and offset, create or update via multipart upload, insertOnly, MIME types, no streaming
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
 ---
 # Files

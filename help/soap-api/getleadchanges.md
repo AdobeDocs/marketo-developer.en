@@ -1,7 +1,7 @@
 ---
 title: getLeadChanges
 feature: SOAP
-description: getLeadChanges SOAP calls
+description: Learn how to use the Marketo SOAP getLeadChanges API to retrieve lead change activities with filters, leadSelector, pagination, and XML examples.
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
 ---
 # getLeadChanges

@@ -1,7 +1,7 @@
 ---
 title: Errors
 feature: Webhooks
-description: Error codes for Webhooks
+description: Learn Marketo webhook error codes, why 2xx responses are required to update lead fields, and how to catch and handle errors with Webhook is Called.
 exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
 ---
 # Errors

@@ -1,7 +1,7 @@
 ---
 title: SOAP API
 feature: SOAP
-description: Marketo SOAP overview
+description: Marketo SOAP API is deprecated after Oct 31 2025. Learn to migrate to REST, retrieve your WSDL, see quotas, rate limits, and auth setup.
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
 ---
 # SOAP API

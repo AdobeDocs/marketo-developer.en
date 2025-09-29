@@ -1,7 +1,7 @@
 ---
 title: Dynamic Content
 feature: REST API, Dynamic Content
-description: Configure dynamic content with Marketo APIs.
+description: Configure section-level Marketo dynamic content via REST APIs using segmentations to personalize emails, landing pages, and snippets with endpoints and examples
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
 ---
 # Dynamic Content

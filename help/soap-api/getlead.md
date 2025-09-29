@@ -1,7 +1,7 @@
 ---
 title: getLead
 feature: SOAP
-description: getLead SOAP calls
+description: Use Marketo SOAP getLead to fetch a single lead and all field values by IDNUM, email, cookie, or SFDC IDs, with request and response XML plus PHP sample.
 exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
 ---
 # getLead

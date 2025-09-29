@@ -1,7 +1,7 @@
 ---
 title: Activities
 feature: REST API
-description: An API for managing Marketo Engage activities.
+description: Use the Marketo Engage Activities REST API to list activity types, fetch lead activities with paging tokens, and handle custom and data value changes.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
 ---
 # Activities

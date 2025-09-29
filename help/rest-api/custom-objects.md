@@ -1,7 +1,7 @@
 ---
 title: Custom Objects
 feature: REST API, Custom Objects
-description: Create and manipulate custom Marketo objects.
+description: Learn how to create and manage Marketo Custom Objects via REST API, including list and describe endpoints, metadata, relationships, fields, and queries.
 exl-id: 88e8829b-f8f1-46d7-a753-5aa6e20e2c40
 ---
 # Custom Objects

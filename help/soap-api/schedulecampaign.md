@@ -1,7 +1,7 @@
 ---
 title: scheduleCampaign
 feature: SOAP, Smart Campaigns
-description: scheduleCampaign SOAP calls
+description: Use scheduleCampaign to run Marketo batch Smart Campaigns now or later, override tokens, clone programs, and implement via SOAP XML with PHP and Java samples.
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
 ---
 # scheduleCampaign

@@ -1,7 +1,7 @@
 ---
 title: syncMultipleLeads
 feature: SOAP
-description: syncMultipleLeads SOAP calls
+description: Learn how to use syncMultipleLeads to upsert multiple Marketo leads via SOAP, keys and dedup rules, batch size limits, and sample XML, PHP, and Java code.
 exl-id: 91980b82-dff9-48a7-b03e-20dce9d0d046
 ---
 # syncMultipleLeads

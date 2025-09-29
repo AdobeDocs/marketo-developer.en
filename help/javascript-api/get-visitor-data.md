@@ -1,6 +1,6 @@
 ---
 title: Get Visitor Data
-description: Get Visitor Data
+description: Get real-time visitor identification using the RTP User Context API with params, callback example, and sample responses for segments, ABM, and location.
 feature: Javascript
 exl-id: 39a2446d-8a31-461e-bbe6-a7edf24b4d52
 ---

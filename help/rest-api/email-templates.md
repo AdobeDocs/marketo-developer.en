@@ -1,7 +1,7 @@
 ---
 title: Email Templates
 feature: REST API
-description: Create email templates with Marketo APIs.
+description: Learn how to create and manage Marketo REST API email templates, including HTML requirements, querying by id or name, and browsing folders
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
 ---
 # Email Templates

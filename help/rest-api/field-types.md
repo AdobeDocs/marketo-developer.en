@@ -1,7 +1,7 @@
 ---
 title: Field Types
 feature: REST API
-description: A list of Marketo field types
+description: Comprehensive list of Marketo field types with definitions, examples, and formats, including ISO 8601 datetime, text area limits, currency, and boolean.
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
 ---
 # Field Types

@@ -1,7 +1,7 @@
 ---
 title: Smart Campaigns
 feature: REST API, Smart Campaigns
-description: Smart campaign overview
+description: Learn how to use Marketo REST APIs for Smart Campaigns, including query by id or name, browse filters, create clone delete, and schedule or request triggers
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
 ---
 # Smart Campaigns

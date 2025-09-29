@@ -1,6 +1,6 @@
 ---
 title: Blog Archive
-description: An archive of the Marketo Developers blog from 2014-2023
+description: Marketo Developer Blog archive 2014–2023 offering historical posts on Forms 2.0, Zapier, API updates, SOAP deprecation and migration to REST.
 exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
 ---
 # Blog Archive

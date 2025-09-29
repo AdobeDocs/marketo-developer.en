@@ -1,7 +1,7 @@
 ---
 title: Leads
 feature: REST API
-description: Details on the Leads API calls
+description: Explore Marketo Leads REST API features including Describe, query by ID or filter, default fields, limits, and retrieving ECIDs.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
 ---
 # Leads

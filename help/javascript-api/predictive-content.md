@@ -1,6 +1,6 @@
 ---
 title: Predictive Content
-description: Predictive Content
+description: Learn how the Predictive Content JavaScript API enables dynamic webpage customization using Rich Media Recommendations to enhance relevance.
 feature: Predictive Content, Javascript
 exl-id: 14c80ed6-01b3-4dfc-9073-e6b881bb0fb8
 ---

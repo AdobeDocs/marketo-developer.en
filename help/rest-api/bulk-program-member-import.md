@@ -1,7 +1,7 @@
 ---
 title: Bulk Program Member Import
 feature: REST API
-description: Batch importing of member data.
+description: Learn how to import program members in bulk via Marketo REST API using CSV TSV or SSV files under 10MB, queue limits, required params, and polling job status.
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
 ---
 # Bulk Program Member Import

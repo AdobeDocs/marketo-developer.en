@@ -1,7 +1,7 @@
 ---
 title: Migrating to REST API
 feature: SOAP
-description: Migrating from SOAP to REST APIs
+description: Step-by-step guide to migrate Marketo Engage from SOAP to REST by Jan 31, 2026, with endpoint mappings, OAuth, lead sync methods, and reference architectures.
 exl-id: c2956db3-defe-4163-99f3-58654ce8ee2b
 ---
 # Migrating to REST API

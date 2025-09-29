@@ -1,7 +1,7 @@
 ---
 title: Sales Persons
 feature: REST API
-description: Read data around sales persons.
+description: Marketo REST API guide to Sales Person records with SFDC or Dynamics sync, using externalSalesPersonId to relate to leads and perform query, upsert, delete.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
 ---
 # Sales Persons

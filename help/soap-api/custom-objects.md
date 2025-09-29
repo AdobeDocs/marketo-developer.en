@@ -1,7 +1,7 @@
 ---
 title: Custom Objects
 feature: SOAP
-description: Creating custom objects.
+description: Learn how Marketo Custom Objects link one lead to many records, with structure, limits, and SOAP API calls for get, sync, delete, plus Smart List and email use.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
 ---
 # Custom Objects

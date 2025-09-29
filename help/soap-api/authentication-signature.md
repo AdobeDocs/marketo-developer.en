@@ -1,7 +1,7 @@
 ---
 title: Authentication Signature
 feature: SOAP
-description: API security with Authentication Signatures
+description: Guide to Marketo SOAP API authentication using HMAC-SHA1 over HTTPS, required header fields, timestamp format, and sample request and error responses
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
 ---
 # Authentication Signature

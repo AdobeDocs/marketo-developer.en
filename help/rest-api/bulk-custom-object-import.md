@@ -1,7 +1,7 @@
 ---
 title: Bulk Custom Object Import
 feature: Custom Objects
-description: Batch importing of custom objects.
+description: Learn how to bulk import Marketo custom objects via REST using CSV, TSV, or SSV files.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
 ---
 # Bulk Custom Object Import

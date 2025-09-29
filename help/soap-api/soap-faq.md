@@ -1,7 +1,7 @@
 ---
 title: SOAP FAQ
 feature: SOAP
-description: SOAP FAQ
+description: Learn how to list programs with getMObjects, optimize getMultipleLeads, create opportunities, and send or schedule personalized emails via the Marketo SOAP API.
 exl-id: a2d8f144-cd5f-41bc-8231-29c42af935b8
 ---
 # SOAP FAQ

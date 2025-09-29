@@ -1,7 +1,7 @@
 ---
 title: Folders
 feature: REST API
-description: Manipulating folders with the Marketo API.
+description: Marketo REST API guide for folders covering create, update, delete, query by id and name, bulk browse with root, workspace, maxDepth, and pagination.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
 ---
 # Folders

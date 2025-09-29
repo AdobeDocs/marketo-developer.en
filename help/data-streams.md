@@ -1,6 +1,6 @@
 ---
 title: Data Streams
-description: Data Steams overview
+description: Overview of Marketo Engage Data Streams enabling near real-time lead activity and user audit events, easing API limits for Performance Tier customers
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
 ---
 # Data Streams

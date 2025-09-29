@@ -1,7 +1,7 @@
 ---
 title: Bulk Activity Extract
 feature: REST API
-description: Batch processing Activity data from Marketo.
+description: Marketo Bulk Activity Extract REST API to export high-volume activity data using a 31-day date range, activity and primary attribute filters for ETL and CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
 ---
 # Bulk Activity Extract

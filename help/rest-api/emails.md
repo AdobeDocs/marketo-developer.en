@@ -1,7 +1,7 @@
 ---
 title: Emails
 feature: REST API
-description: APIs for manipulating email assets.
+description: Learn how to use Marketo Asset REST API to query and manage email assets by ID, name, or folder browse, with notes on predictive content and A/B test limits.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
 ---
 # Emails

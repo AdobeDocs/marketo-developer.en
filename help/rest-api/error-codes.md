@@ -1,7 +1,7 @@
 ---
 title: Error Codes
 feature: REST API
-description: Marketo error code descriptions.
+description: Learn Marketo REST API error handling with HTTP 413 and 414, response 6xx 7xx, record-level statuses, logging best practices, retries, and limits.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
 ---
 # Error Codes

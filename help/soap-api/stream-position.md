@@ -1,7 +1,7 @@
 ---
 title: Stream Position
 feature: SOAP
-description: Steam Position overview
+description: Explains stream position for paginating time sequenced data in SOAP, simple and complex formats, and use in getLeadChanges, getLeadActivity, and more
 exl-id: c3a3fc1e-086b-4822-b2c7-2a7959db557c
 ---
 # Stream Position

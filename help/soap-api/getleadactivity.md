@@ -1,7 +1,7 @@
 ---
 title: getLeadActivity
 feature: SOAP
-description: getLeadActivity SOAP calls
+description: Use getLeadActivity SOAP to fetch lead activity history by key, filter activity types, set batch size, paginate via stream position with XML examples.
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
 ---
 # getLeadActivity

@@ -1,7 +1,7 @@
 ---
 title: Email Scripting
 feature: Email Programs
-description: Email Scripting overview
+description: Learn to script dynamic Marketo emails using Apache Velocity tokens, variables, Velocity Tools, and test with Send Sample and Email Preview.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
 ---
 # Email Scripting
