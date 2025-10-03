@@ -762,7 +762,12 @@ Here we can see the corresponding "Fill Out Form" activity details from within t
 
 ## Merge
 
-Sometimes it is necessary to merge duplicate records and Marketo facilitates this through the Merge Leads API. Merging leads will combine their activity logs, program, campaign, and list memberships and CRM information, as well as merge all of their field values into a single record. Merge Leads takes a lead id as a path parameter, and either a single `leadId` as a query parameter, or a list of comma-separated ids in the `leadIds` parameter.
+>[!NOTE]
+>Beginning 31 March 2026, calls which include more than 25 IDs in the `leadIds` parameter of a Merge Leads API call will result in a 1080 error code, and the call will be skipped. Jobs requiring the merger of more than 25 records into one, should be split into multiple jobs to ensure the success of those calls. 
+>
+
+Sometimes it is necessary to merge duplicate records and Marketo facilitates this through the Merge Leads API. Merging leads will combine their activity logs, program, campaign, and list memberships and CRM information, as well as merge all of their field values into a single record. Merge Leads takes a lead id as a path parameter, and either a single `leadId` as a query parameter, or a list of 25 or fewer comma-separated ids in the `leadIds` parameter
+
 
 ### Request
 
