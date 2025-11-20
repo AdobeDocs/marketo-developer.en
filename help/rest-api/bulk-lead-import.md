@@ -12,13 +12,13 @@ For large amounts of lead records, leads can be imported asynchronously with the
 
 ## Processing Limits
 
-You are allowed to submit more than one bulk import request, with limitations. Each request is added as a job to a FIFO queue to be processed. A maximum of two jobs are processed at the same time. A maximum of ten jobs are allowed in the queue at any given time (including the 2 currently being processed). If you exceed the ten job maximum, then a "1016, Too many imports" error is returned.
+You are allowed to submit more than one bulk import request, with limitations. Each request is added as a job to a FIFO queue to be processed. A maximum of two jobs are processed at the same time. A maximum of ten jobs are allowed in the queue at any given time (including the 2 currently being processed). If you exceed the ten job maximum, then a `1016, Too many imports` error is returned.
 
 ## Import File
 
 The first row of the file must be a header which lists the corresponding REST API fields to map the values of each row into. A typical file would follow this basic pattern:
 
-```
+```csv
 email,firstName,lastName
 test@example.com,John,Doe
 ```
@@ -31,7 +31,7 @@ This request type can be difficult to implement, so it is highly recommended tha
 
 ## Creating a Job
 
-To make a bulk import request, you must set your content-type header to "multipart/form-data" and include at least a file parameter with your file content, and a format parameter with the value "csv", "tsv", or "ssv" denoting your file format.
+To make a bulk import request, you must set your content-type header to `multipart/form-data` and include at least a `file` parameter with your file content, and a `format` parameter with the value `csv`, `tsv`, or `ssv`, denoting your file format.
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -48,7 +48,7 @@ Host: <munchkinId>.mktorest.com
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
 
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -69,16 +69,16 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-This endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). This can be tricky to get right, so best practice is to use an HTTP support library for your language of choice. A simple way to do this with cURL from the command line looks like this:
+This endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). This can be tricky to get right, so the best practice is to use an HTTP support library for your language of choice. A simple way to do this with cURL from the command line looks like this:
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
-Where the import file "lead_data.csv" contains the following:
+Where the import file `lead_data.csv` contains the following:
 
 ```
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -125,19 +125,19 @@ If the job has completed, you have a listing of the number of rows processed, fa
 
 ## Failures
 
-Failures are indicated by the "numOfRowsFailed" attribute in Get Import Lead Status response. If "numOfRowsFailed" is greater than zero, then that value indicates the number of failures that occurred.
+Failures are indicated by the `numOfRowsFailed` attribute in Get Import Lead Status response. If `numOfRowsFailed` is greater than zero, then that value indicates the number of failures that occurred.
 
-To retrieve the records and causes of failed rows, you'll must retrieve the failure file:
+To retrieve the records and causes of failed rows, you  must retrieve the failure file:
 
 ```
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
-The API responds with a file indicating which rows failed, along with a message indicating why the record failed. The format of the file is the same as specified in "format" parameter during job creation. An additional field is appended to each record with a description of the failure.
+The API responds with a file indicating which rows failed, along with a message indicating why the record failed. The format of the file is the same as specified in `format` parameter during job creation. An additional field is appended to each record with a description of the failure.
 
 ## Warnings
 
-Warnings are indicated by the "numOfRowsWithWarning" attribute in Get Import Lead Status response. If "numOfRowsWithWarning" is greater than zero, then that value indicates the number of warnings that occurred.
+Warnings are indicated by the `numOfRowsWithWarning` attribute in Get Import Lead Status response. If `numOfRowsWithWarning` is greater than zero, then that value indicates the number of warnings that occurred.
 
 To retrieve the records and causes of warning rows, retrieve the warning file:
 
@@ -145,4 +145,4 @@ To retrieve the records and causes of warning rows, retrieve the warning file:
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 
-The API responds with a file indicating which rows produced warnings, along with a message indicating why the record failed. The format of the file is the same as specified in "format" parameter during job creation. An additional field is appended to each record with a description of the warning.
+The API responds with a file indicating which rows produced warnings, along with a message indicating why the record failed. The format of the file is the same as specified in `format` parameter during job creation. An additional field is appended to each record with a description of the warning.
