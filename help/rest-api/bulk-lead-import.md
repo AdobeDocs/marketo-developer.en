@@ -12,7 +12,7 @@ For large amounts of lead records, leads can be imported asynchronously with the
 
 ## Processing Limits
 
-You are allowed to submit more than one bulk import request, with limitations. Each request is added as a job to a FIFO queue to be processed. A maximum of two jobs are processed at the same time. A maximum of ten jobs are allowed in the queue at any given time (including the 2 currently being processed). If you exceed the ten job maximum, then a `1016, Too many imports` error is returned.
+You are allowed to submit more than one bulk import request, with limitations. Each request is added as a job to a FIFO queue to be processed. A maximum of two jobs are processed at the same time. A maximum of 10 jobs are allowed in the queue at any given time (including the two currently being processed). If you exceed the ten job maximum, then a `1016, Too many imports` error is returned.
 
 ## Import File
 
@@ -69,7 +69,7 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-This endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). This can be tricky to get right, so the best practice is to use an HTTP support library for your language of choice. A simple way to do this with cURL from the command line looks like this:
+This endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). It is a  best practice is to use an HTTP support library for your language of choice to ensure the correct usage. The following example is a simple way to do this with cURL from the command line:
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
@@ -137,7 +137,7 @@ The API responds with a file indicating which rows failed, along with a message 
 
 ## Warnings
 
-Warnings are indicated by the `numOfRowsWithWarning` attribute in Get Import Lead Status response. If `numOfRowsWithWarning` is greater than zero, then that value indicates the number of warnings that occurred.
+Warnings are indicated by the `numOfRowsWithWarning` attribute in a Get Import Lead Status response. If `numOfRowsWithWarning` is greater than zero, that value indicates the number of warnings that occurred.
 
 To retrieve the records and causes of warning rows, retrieve the warning file:
 
