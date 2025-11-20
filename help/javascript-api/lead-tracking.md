@@ -1,6 +1,6 @@
 ---
 title: Lead Tracking
-description: Learn how to embed Marketo Munchkin JavaScript, track visits and clicks, manage known vs anonymous leads, cross-domain cookies, and opt-out for Smart Campaigns.
+description: Learn how to embed Marketo Munchkin JavaScript, track visits and clicks, manage known vs anonymous leads, cross-domain cookies, and opt out for Smart Campaigns.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
 ---
@@ -64,13 +64,13 @@ The behavior of Munchkin can be modified through the usage of Munchkin [Configur
 
 ## Known and Anonymous Leads
 
-On a lead's first visit to a page on your domain, a new anonymous lead record is created in Marketo. The primary key for this record is the Munchkin cookie (`_mkto_trk`) which is created in the user's browser. All subsequent web activity on that browser is recorded against this anonymous record. To be associated to a known record in Marketo, one of the following things must occur:
+On a lead's first visit to a page on your domain, a new anonymous lead record is created in Marketo. The primary key for this record is the Munchkin cookie (`_mkto_trk`) which is created in the user's browser. All subsequent web activity on that browser is recorded against this anonymous record. To be associated with a known record in Marketo, one of the following things must occur:
 
 - The lead must visit a Munchkin-tracked page with an `mkt_tok` parameter in the query string from a tracked Marketo email link.
 - The lead must fill out a Marketo Form.
 - A REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) call must be sent.
 
-Once one of these conditions is fulfilled, the cookie and all associated web activity is associated to the known lead.
+When one of these conditions is fulfilled, the cookie and all associated web activity is associated with the known lead.
 
 A new anonymous web activity record is created for each individual browser, so if a lead visits your domain for the first time using a new computer and/or browser, then this association must take place again.
 
@@ -84,11 +84,11 @@ In the case that your top-level domain is two parts, such as `.co.uk`, then add 
 
 The Munchkin cookie uses the key `_mkto_trk`, and has a value following this pattern:
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-1374552656411\-90718`
+`id:561-HYG-937&token:_mch-marketo.com-1374552656411-90718`
 
-or
+Or
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-97bf4361ef4433921a6da262e8df45a`
+`id:561-HYG-937&token:_mch-marketo.com-97bf4361ef4433921a6da262e8df45a`
 
 Munchkin cookies are specific to each second-level domain, that is, `example.com`. The default lifespan of the cookie is 2 years (730 days).
 
