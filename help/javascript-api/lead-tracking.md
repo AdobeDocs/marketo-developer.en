@@ -70,7 +70,7 @@ On a lead's first visit to a page on your domain, a new anonymous lead record is
 - The lead must fill out a Marketo Form.
 - A REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) call must be sent.
 
-Once one of these conditions is fulfilled, the cookie and all associated web activity is associated with the known lead.
+When one of these conditions is fulfilled, the cookie and all associated web activity is associated with the known lead.
 
 A new anonymous web activity record is created for each individual browser, so if a lead visits your domain for the first time using a new computer and/or browser, then this association must take place again.
 
