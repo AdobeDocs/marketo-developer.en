@@ -1,7 +1,7 @@
 ---
 title: Leads
 feature: SOAP
-description: Leads SOAP calls
+description: Overview of SOAP operations for Leads including getLead, getMultipleLeads, syncLead, syncMultipleLeads, and mergeLeads to retrieve, sync, and merge records.
 exl-id: 412fa16c-bd6e-4344-83ed-33dd5381fda4
 ---
 # Leads

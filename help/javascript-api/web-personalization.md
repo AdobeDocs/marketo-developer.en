@@ -1,6 +1,6 @@
 ---
 title: Web Personalization
-description: Web Personalization
+description: Guide to the Web Personalization JavaScript API and RTP tag, covering page view events, account setup, bot exclusions, and core and on-demand scripts
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
 ---

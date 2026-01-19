@@ -1,6 +1,6 @@
 ---
 title: Partner Sandbox
-description: Partner Sandbox overview
+description: Overview of Marketo Engage partner sandboxes, with provisioning info and limits on API calls, records, email sends, custom objects, and users.
 exl-id: a8f36cb5-d288-4b8b-b4bf-037faa3fe73f
 ---
 # Partner Sandbox

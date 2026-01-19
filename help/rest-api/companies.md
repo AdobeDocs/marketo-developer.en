@@ -1,7 +1,7 @@
 ---
 title: Companies
 feature: REST API
-description: Configure company data with Marketo APIs.
+description: Use the Marketo Companies REST API to describe, query, and sync company records, manage fields and dedupe by externalCompanyId, and note CRM sync read-only.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
 ---
 # Companies

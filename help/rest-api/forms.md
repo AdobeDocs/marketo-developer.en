@@ -1,7 +1,7 @@
 ---
 title: Forms
 feature: REST API, Forms
-description: Create and manage forms through the API.
+description: Marketo Forms REST API guide to create and manage forms, retrieve by id or name, browse with status filters, and manage fields, fieldsets, and rules.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
 ---
 # Forms

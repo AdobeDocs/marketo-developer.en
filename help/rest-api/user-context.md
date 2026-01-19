@@ -1,7 +1,7 @@
 ---
 title: User Context
 feature: REST API
-description: User context overview and API descriptions
+description: Learn how to enable and use Marketo RTP User Context API to set custom variables, read user data across visits, and track viewed and clicked campaigns.
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
 ---
 # User Context

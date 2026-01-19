@@ -1,7 +1,7 @@
 ---
 title: listOperation
 feature: SOAP
-description: listOperation SOAP calls
+description: Marketo SOAP listOperation to add remove or check static list membership. Supports up to 1000 leads per call with strict mode, XML examples, PHP and Java code.
 exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
 ---
 # listOperation

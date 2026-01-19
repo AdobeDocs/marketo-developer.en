@@ -1,7 +1,7 @@
 ---
 title: Fields
 feature: REST API, Field Management
-description: A list of supported field names.
+description: Learn REST and SOAP lead field naming, list fields via REST Describe Lead, feature mapping, why sfdcId is null, and use sfdcLeadId or sfdcContactId.
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
 ---
 # Fields

@@ -1,7 +1,7 @@
 ---
 title: Standard Fields
 feature: REST API, Field Management
-description: A table of standard Marketo fields.
+description: Browse the full list of Marketo standard lead fields with REST and SOAP names, labels, and descriptions, plus how to retrieve them via the Describe Lead API.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
 ---
 # Standard Fields

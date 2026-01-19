@@ -1,7 +1,7 @@
 ---
 title: Activity Type Filters
 feature: SOAP
-description: Activity Type filters for SOAP calls.
+description: Browse all supported Activity Type filters for SOAP calls, from email clicks and form fills to SFDC campaign changes and opportunity updates.
 exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
 ---
 # Activity Type Filters

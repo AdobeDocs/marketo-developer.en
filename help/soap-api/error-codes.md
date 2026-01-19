@@ -1,7 +1,7 @@
 ---
 title: Error Codes
 feature: SOAP
-description: Error codes for SOAP calls
+description: Reference guide to Marketo SOAP API error codes with messages and notes, covering authentication failures, rate and concurrency limits, and request issues.
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
 ---
 # Error Codes

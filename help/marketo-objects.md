@@ -1,7 +1,7 @@
 ---
 title: Marketo Objects
 feature: Email Programs
-description: An overview of using Marketo Objects with Velocity scripting
+description: Guide to using Marketo Velocity with Leads, Opportunities, and Custom Objects, loading fields, top 10 list access, SFDC relationships, and $TriggerObject.
 exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
 ---
 # Marketo Objects

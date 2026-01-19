@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: Use the Configuration Javascript API to set configuration values when using Munchkin.
+description: Configure Marketo Munchkin with the JavaScript API. Learn Munchkin.init settings like altIds, anonymizeIP, asyncOnly, cookie life, domainLevel, Beacon API.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
 ---

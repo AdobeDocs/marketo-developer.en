@@ -1,7 +1,7 @@
 ---
 title: Custom Actions
 feature: Mobile Marketing
-description: Custom Actions overview
+description: Learn to send and report custom actions with the Marketo Mobile SDK for iOS and Android, queue offline, trigger Smart Campaigns, and meet the 20-character…
 exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
 ---
 # Custom Actions

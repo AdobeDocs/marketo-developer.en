@@ -1,7 +1,7 @@
 ---
 title: Named Account Lists
 feature: REST API
-description: Configure named account lists.
+description: Learn how to manage Marketo Named Account Lists with the REST API, including permissions, fields, filtering, and endpoints to query, create, update, and delete.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
 ---
 # Named Account Lists

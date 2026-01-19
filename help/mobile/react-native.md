@@ -1,7 +1,7 @@
 ---
 title: React Native
 feature: Mobile Marketing
-description: Installing React Native for Marketo
+description: Install and set up the Marketo SDK in React Native apps with Android Gradle and iOS CocoaPods steps, native module bridging, push, and lead association.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
 ---
 # React Native

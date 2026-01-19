@@ -1,7 +1,7 @@
 ---
 title: Transactional Email
 feature: REST API
-description: Handle transactional emails for Request campaigns.
+description: Learn how to configure Marketo for transactional emails and trigger them via REST API Request Campaign, with setup steps and Java code examples.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
 ---
 # Transactional Email

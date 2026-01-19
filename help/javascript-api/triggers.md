@@ -1,6 +1,6 @@
 ---
 title: Triggers
-description: Triggers
+description: Use RTP triggers in Web Personalization to run functions on rtp state, including userContextReady, with syntax, parameters, and a location example.
 feature: Javascript
 exl-id: 588836fa-1e4d-41f3-aec5-5cd17eb16071
 ---

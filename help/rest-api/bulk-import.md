@@ -1,7 +1,7 @@
 ---
 title: Bulk Import
 feature: REST API
-description: Batch importing person data.
+description: Marketo Bulk Import for loading leads, custom objects, and program members via multipart uploads, creating async jobs, polling status, and handling failures.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
 ---
 # Bulk Import

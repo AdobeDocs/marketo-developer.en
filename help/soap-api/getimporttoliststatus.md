@@ -1,7 +1,7 @@
 ---
 title: getImportToListStatus
 feature: SOAP
-description: getImportToListStatus SOAP calls
+description: Use getImportToListStatus to check Marketo static list import status, required fields, XML request and response, PHP and Java code, and polling best practices.
 exl-id: 17a62f65-dfa0-4f40-89b2-154f7734a2dc
 ---
 # getImportToListStatus

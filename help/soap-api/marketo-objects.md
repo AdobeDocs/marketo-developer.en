@@ -1,7 +1,7 @@
 ---
 title: Marketo Objects
 feature: SOAP
-description: Marketo Objects overview
+description: Overview of Marketo MObjects including types, attributes, external-key behavior, and supported SOAP APIs for Opportunity, Program, and related records.
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
 ---
 # Marketo Objects

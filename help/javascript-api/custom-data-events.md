@@ -1,6 +1,6 @@
 ---
 title: Custom Data Events
-description: Use the Custom Data Events Javascript API for tracking your unique events.
+description: Send custom events with the RTP JavaScript API for Web Personalization, with parameters, string or array data up to four items, and click-based triggers.
 feature: Javascript
 exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
 ---

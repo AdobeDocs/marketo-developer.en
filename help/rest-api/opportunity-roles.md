@@ -1,7 +1,7 @@
 ---
 title: Opportunity Roles
 feature: REST API
-description: Handling opportunity roles in Marketo.
+description: Manage Marketo opportunity roles via REST API including describe, queries with compound dedupe fields, create update delete, timeouts, and no CRM sync.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
 ---
 # Opportunity Roles

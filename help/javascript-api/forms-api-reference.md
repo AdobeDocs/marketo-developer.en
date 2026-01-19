@@ -1,6 +1,6 @@
 ---
 title: Forms API Reference
-description: Forms API Reference
+description: Comprehensive reference for Marketo Forms 2.0 API, detailing MktoForms2 and Form methods, parameters, callbacks, and returns for loading and rendering forms.
 feature: Forms, Javascript
 exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
 ---

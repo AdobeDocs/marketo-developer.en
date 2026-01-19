@@ -1,7 +1,7 @@
 ---
 title: getMultipleLeads
 feature: SOAP
-description: getMultipleLeads SOAP calls
+description: Learn how to use Marketo SOAP getMultipleLeads to fetch up to 1000 leads by key, static list, or update date, paginate with stream position, and filter fields.
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
 ---
 # getMultipleLeads

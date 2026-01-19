@@ -1,7 +1,7 @@
 ---
 title: Lead Database
 feature: REST API, Database
-description: Manipulate the main lead database.
+description: Guide to Marketo Lead Database APIs covering objects, CRUD and Describe methods, query patterns, batch limits, and CRM integration restrictions.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
 ---
 # Lead Database

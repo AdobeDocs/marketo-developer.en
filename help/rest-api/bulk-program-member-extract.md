@@ -1,7 +1,7 @@
 ---
 title: Bulk Program Member Extract
 feature: REST API
-description: Batch processing of Member data extraction.
+description: Use Marketo Bulk Program Member Extract REST APIs to export large member records for ETL, data warehousing, and archiving, with permissions and field metadata.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
 ---
 # Bulk Program Member Extract

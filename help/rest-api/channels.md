@@ -1,7 +1,7 @@
 ---
 title: Channels
 feature: REST API
-description: Configuring Channels data with Marketo APIs.
+description: Learn how to query Marketo Channels via Asset REST API, browse with pagination or fetch by name, view progression statuses, and understand program type rules.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
 ---
 # Channels

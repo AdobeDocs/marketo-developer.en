@@ -1,6 +1,6 @@
 ---
 title: Pattern Match
-description: Pattern Match
+description: Use the RTP rtp.checkPattern utility to test string patterns with percent wildcards, see sync limitations, usage and URL examples, and required RTP tag setup.
 feature: Javascript
 exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
 ---

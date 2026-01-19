@@ -1,7 +1,7 @@
 ---
 title: Webhooks
 feature: Webhooks
-description: Overview of Webhooks
+description: Learn how to configure Marketo webhooks to call third-party services, set payload templates, encoding, response mappings, tokens, custom headers, and tips.
 exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
 ---
 # Webhooks

@@ -1,7 +1,7 @@
 ---
 title: Landing Pages
 feature: REST API, Landing Pages
-description: Query landing pages in Marketo.
+description: Use the Marketo REST API to query metadata and content, create, update, approve, delete, and clone landing pages, including guided and free-form types.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
 ---
 # Landing Pages

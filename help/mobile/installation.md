@@ -1,7 +1,7 @@
 ---
 title: Installation
 feature: Mobile Marketing
-description: How to install SDKs for Mobile Marketo
+description: Guide to install and initialize the Marketo Mobile SDK on iOS and Android using CocoaPods, Swift Package Manager, or Gradle, enabling push and in-app messages.
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
 ---
 # Installation

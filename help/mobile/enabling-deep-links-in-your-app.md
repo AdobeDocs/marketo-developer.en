@@ -1,7 +1,7 @@
 ---
 title: Enabling Deep Links
 feature: Mobile Marketing
-description: Instructions for enabling Deep Links
+description: Learn how to enable deep links in your app for Marketo push messages using custom URI schemes, with iOS, Android, and PhoneGap guidance and best practices.
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
 ---
 # Enabling Deep Links

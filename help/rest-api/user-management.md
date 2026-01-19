@@ -1,7 +1,7 @@
 ---
 title: User Management
 feature: REST API
-description: Perform CRUD operations on user records.
+description: Guide to Marketo User Management APIs for CRUD on users, header-based auth, roles and workspaces, status code handling, datetime format, and query endpoints.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
 ---
 # User Management

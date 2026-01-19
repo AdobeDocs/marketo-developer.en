@@ -1,7 +1,7 @@
 ---
 title: Bulk Custom Object Extract
 feature: REST API, Custom Objects
-description: Batch processing custom Marketo objects.
+description: Guide to Marketo Bulk Custom Object Extract REST APIs for exporting lead-linked custom objects with updatedAt and list filters, selected fields, and…
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
 ---
 # Bulk Custom Object Extract

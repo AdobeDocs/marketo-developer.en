@@ -1,7 +1,7 @@
 ---
 title: Program Members
 feature: REST API
-description: Create and manage program members.
+description: Use the Marketo REST API to read, create, update, and delete program members, manage standard and custom fields, and query using searchable fields.
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
 ---
 # Program Members

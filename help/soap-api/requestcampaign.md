@@ -1,7 +1,7 @@
 ---
 title: requestCampaign
 feature: SOAP, Smart Campaigns
-description: requestCampaign SOAP calls
+description: Run leads in a Marketo Smart Campaign via SOAP requestCampaign, including parameter sets, token handling, 100 lead limit, XML requests, and PHP Java examples.
 exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
 ---
 # requestCampaign

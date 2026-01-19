@@ -1,6 +1,6 @@
 ---
 title: Munchkin API Reference
-description: Use the Munchkin Javascript API to customize your Munchkin data.
+description: Use the Munchkin Javascript API to track page visits, link clicks, and custom events with init, createTrackingCookie, and munchkinFunction methods.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
 ---

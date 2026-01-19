@@ -1,7 +1,7 @@
 ---
 title: In-App Messages
 feature: Mobile Marketing
-description: Overview of In-App Messages
+description: Set up Marketo In-App Messages with the Mobile SDK, configure custom event triggers, track tap activity, and fix first app open initialization issues.
 exl-id: 73c9f862-d154-4b37-94ce-92311aa756e8
 ---
 # In-App Messages

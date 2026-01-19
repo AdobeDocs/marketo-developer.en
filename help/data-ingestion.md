@@ -1,6 +1,6 @@
 ---
 title: "Data Ingestion"
-description: "Data Ingestion API overview"
+description: Marketo Data Ingestion API for high volume low latency upserts of persons and custom objects, async status via Observability, OAuth header auth, private beta.
 ---
 
 # Data Ingestion

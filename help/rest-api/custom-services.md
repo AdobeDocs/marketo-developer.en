@@ -1,7 +1,7 @@
 ---
 title: Custom Services
 feature: REST API
-description: Authentication credentials with Marketo.
+description: Create Marketo Custom Services, set API-only roles and permissions, obtain Client Id and Client Secret in LaunchPoint, and get access tokens.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
 ---
 # Custom Services

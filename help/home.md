@@ -1,6 +1,6 @@
 ---
 title: Home
-description: Marketo Engage API homepage
+description: Master Marketo Engage APIs with docs for Getting Started, REST, Webhooks, client libraries, email scripting, lead tracking, mobile, and web personalization.
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
 ---
 
