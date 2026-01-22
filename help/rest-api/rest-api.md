@@ -11,7 +11,7 @@ Marketo exposes a REST API which allows for remote execution of many of the syst
 These APIs generally fall into two broad categories: [Lead Database](https://developer.adobe.com/marketo-apis/api/mapi/), and [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead Database APIs allow for retrieval of, and interaction with Marketo person records and associated object types, such as Opportunities and Companies. Asset APIs allow interaction with marketing collateral and workflow-related records.
 
 >[!NOTE]
->The SOAP API is being deprecated and will no longer be available after January 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
+>The SOAP API is being deprecated and will no longer be available after March 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
 >
 
 >[!IMPORTANT]

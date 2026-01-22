@@ -12,7 +12,7 @@ exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
 >
 
 >[!IMPORTANT]
->The SOAP API is being deprecated and will no longer be available after January 31, 2026. All new development should be done with the Marketo REST API, and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the [SOAP API Migration Guide](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) for information on how to migrate.
+>The SOAP API is being deprecated and will no longer be available after March 31, 2026. All new development should be done with the Marketo REST API, and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the [SOAP API Migration Guide](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) for information on how to migrate.
 >
 
 >[!IMPORTANT]
