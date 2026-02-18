@@ -8,26 +8,7 @@ exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
 
 NOTE: It is highly recommended that you read the [Velocity User Guide](https://velocity.apache.org/engine/devel/user-guide.html) for a deep-dive into the behavior of the Velocity Template Language.
 
-[Apache Velocity](https://velocity.apache.org/) is a language built on Java which is designed for templating and scripting HTML content. Marketo allows it to be used in the context of Emails by using scripting tokens. This gives access to data stored in Opportunities and Custom Objects, and allowing the creation of dynamic content in emails. Velocity offers standard high-level control flow with if/else, for, and for each to allow conditional and iterative manipulation of content. Here's a simple example to print a greeting with the correct salutation:
-
-```java
-##check if the lead is male
-#if(${lead.MarketoSocialGender} == "Male")
-    ##if the lead is male, use the salutation 'Mr.'
-    #set($greeting = "Dear Mr. ${lead.LastName},")
-##check is the lead is female
-#elseif(${lead.MarketoSocialGender} == "Female")
-    ##if female, use the salutation 'Ms.'
-    #set($greeting = "Dear Ms. ${lead.LastName},")
-#else
-    ##otherwise, use the first name
-    #set($greeting = "Dear ${lead.FirstName},")
-#end
-##print the greeting and some content
-${greeting}
-
-    Lorem ipsum dolor sit amet...
-```
+[Apache Velocity](https://velocity.apache.org/) is a language built on Java which is designed for templating and scripting HTML content. Marketo allows it to be used in the context of Emails by using scripting tokens. This gives access to data stored in Opportunities and Custom Objects, and allowing the creation of dynamic content in emails. Velocity offers standard high-level control flow with if/else, for, and for each to allow conditional and iterative manipulation of content. 
 
 ## Variables
 
