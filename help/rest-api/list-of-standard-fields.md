@@ -41,33 +41,6 @@ You can retrieve the list of all supported field names available on your lead re
 | mainPhone | MainPhone | Main Phone | Primary phone number of the lead's company |
 | jigsawContactId | Marketo Jigsaw Contact Id | Marketo Data.com ID | Lead's Data.com ID if available |
 | jigsawContactStatus | Marketo Jigsaw Contact Status | Marketo Data.com Status | Lead's Data.com status if available |
-| facebookDisplayName | MarketoSocialFacebookDisplayName | Marketo Social Facebook Display Name | Lead's Facebook display name. System populated during social sign-in |
-| facebookId | MarketoSocialFacebookId | Marketo Social Facebook Id | Lead's Facebook Id. System populated during social sign-in |
-| facebookPhotoURL | MarketoSocialFacebookPhotoURL | Marketo Social Facebook Photo URL | URL of lead's Facebook profile photo. System populated during social sign-in |
-| facebookProfileURL | MarketoSocialFacebookProfileURL | Marketo Social Facebook Profile URL | URL of lead's Facebook profile. System populated during social sign-in |
-| facebookReach | MarketoSocialFacebookReach | Marketo Social Facebook Reach | The Facebook reach of the lead. System populated during social sign-in |
-| facebookReferredEnrollments | MarketoSocialFacebookReferredEnrollments | Marketo Social Facebook Referred Enrollments | Number of referred enrollments attributed to the lead through Facebook. System managed |
-| facebookReferredVisits | MarketoSocialFacebookReferredVisits | Marketo Social Facebook Referred Visits | Number of referred visits attributed to the lead through Facebook. System managed |
-| gender | MarketoSocialGender | Marketo Social Gender | Gender of the lead. System populated during social sign-in |
-| lastReferredEnrollment | MarketoSocialLastReferredEnrollment | Marketo Social Last Referred Enrollment | Date of last completed referral. System managed |
-| lastReferredVisit | MarketoSocialLastReferredVisit | Marketo Social Last Referred Visit | Date of last referred visit. System managed |
-| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Marketo Social LinkedIn Display Name | Lead's LinkedIn display name. System populated during social sign-in |
-| linkedInId | MarketoSocialLinkedInId | Marketo Social LinkedIn Id | Lead's LinkedIn Id. System populated during social sign-in |
-| linkedInPhotoURL | MarketoSocialLinkedInPhotoURL | Marketo Social LinkedIn Photo URL | Lead's LinkedIn photo URL. System populated during social sign-in |
-| linkedInProfileURL | MarketoSocialLinkedInProfileURL | Marketo Social LinkedIn Profile URL | Lead's LinkedIn profile. System populated during social sign-in |
-| linkedInReach | MarketoSocialLinkedInReach | Marketo Social LinkedIn Reach | Lead's LinkedIn reach. System populated during social sign-in |
-| linkedInReferredEnrollments | MarketoSocialLinkedInReferredEnrollments | Marketo Social LinkedIn Referred Enrollments | Number of referred enrollments attributed to the lead through LinkedIn. System managed |
-| linkedInReferredVisits | MarketoSocialLinkedInReferredVisits | Marketo Social LinkedIn Referred Visits | Number of referred visits attributed to the lead through LinkedIn. System managed |
-| syndicationId |  - | Marketo Social Syndication ID | Lead's internal Marketo Social Id. System managed |
-| totalReferredEnrollments | MarketoSocialTotalReferredEnrollments | Marketo Social Total Referred Enrollments | Total number of completed referral enrollments attributed to the lead |
-| totalReferredVisits | MarketoSocialTotalReferredVisits | Marketo Social Total Referred Visits | Total number of referred visits attributed to the lead |
-| twitterDisplayName | MarketoSocialTwitterDisplayName | Marketo Social Twitter Display Name | Lead's Twitter display name. System populated during social sign-in |
-| twitterId | MarketoSocialTwitterId | Marketo Social Twitter Id | Lead's Twitter Id. System populated during social sign-in |
-| twitterPhotoURL | MarketoSocialTwitterPhotoURL | Marketo Social Twitter Photo URL | Lead's Twitter photo URL. System populated during social sign-in |
-| twitterProfileURL | MarketoSocialTwitterProfileURL | Marketo Social Twitter Profile URL | Lead's Twitter profile URL. System populated during social sign-in |
-| twitterReach | MarketoSocialTwitterReach | Marketo Social Twitter Reach | Lead's Twitter reach. System populated during social sign-in |
-| twitterReferredEnrollments | MarketoSocialTwitterReferredEnrollments | Marketo Social Twitter Referred Enrollments | Number of referred enrollments attributed to the lead through Twitter. System managed |
-| twitterReferredVisits | MarketoSocialTwitterReferredVisits | Marketo Social Twitter Referred Visits | Number of referred visits attributed to the lead through Twitter. System managed |
 | middleName | MiddleName | Middle Name | Lead's Middle Name |
 | mobilePhone | MobilePhone | Mobile Phone Number | Lead's mobile phone number |
 | numberOfEmployees | NumberOfEmployees | Num Employees | Number of employees of lead's company |
