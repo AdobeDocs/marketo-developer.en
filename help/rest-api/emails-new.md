@@ -279,7 +279,7 @@ GET /rest/asset/v1/email/ccFields.json
 
 ## Create and Update
 
-[Emails are created](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) based from a source template, and have a list of editable sections derived from each separate HTML element in that template with a class of "mktEditable" and a unique id property. Creating an email with the API creates a record based on the template along with any additional metadata passed. The following parameters are required for a successful Create Email call: name, template, folder.
+[Emails are created](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) based from a source template, and have a list of editable sections derived from each separate HTML element in that template with a class of `mktEditable` and a unique id property. Creating an email with the API creates a record based on the template along with any additional metadata passed. The following parameters are required for a successful Create Email call: name, template, folder.
 
 The following parameters are optional for creation: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. If unset, `subject` will be empty, `fromName`, `fromEmail` and `replyEmail` will be set to instance defaults, and `operational` and `isOpenTrackingDisabled` will be false. `isOpenTrackingDisabled` determines whether the open-tracking pixel is included in an email when sent.
 
@@ -415,7 +415,7 @@ description=This is an Email&name=Updated Email
 
 ### Content Section, Type, and Update
 
-The content for each section of an email must be updated individually, apart from the subject, fromName, fromEmail, and replyEmail, which are updated using the [Update Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) endpoint. When using this endpoint, these values can also be set to use dynamic content instead of static content. Each parameter is a type/value JSON object, where type is either "Text" or "DynamicContent" and value is either the appropriate text value, or the id of the segmentation to use for the dynamic content. Data is passed as POST x-www-form-urlencoded, not as JSON.  isOpenTrackingDisabled may be set with Update Email Content
+The content for each section of an email must be updated individually, apart from the subject, fromName, fromEmail, and replyEmail, which are updated using the [Update Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) endpoint. When using this endpoint, these values can also be set to use dynamic content instead of static content. Each parameter is a `type`/`value` JSON object, where `type` is either "Text" or "DynamicContent" and `value` is either the appropriate text value, or the id of the segmentation to use for the dynamic content. Data is passed as POST x-www-form-urlencoded, not as JSON.  `isOpenTrackingDisabled` may be set with Update Email Content
 
 ```
 POST /rest/asset/v1/email/{id}/content.json
@@ -447,7 +447,7 @@ If setting a section to use dynamic content, the section ID must be retrieved vi
 
 ### Update Editable Section
 
-Editable sections are updated by their individual htmlIds. Only the id of the email and htmlId of the section are required as path parameters, while type, value, and textValue are optional. Type may be one of "Text," "DynamicContent," or "Snippet" and will affect what is passed in the value. If the type is Text, then the value is a string containing the HTML content of the section. If it is DynamicContent, then it is a JSON block, with three members, type, which will be "DynamicContent", segmentation which is the id of the segmentation to use for the content, and default, which is a string containing the default HTML content of the section. The optional textValue parameter is a string containing the text version of the section. Data is passed as POST x-www-form-urlencoded, not as JSON.
+Editable sections are updated by their individual htmlIds. Only the id of the email and `htmlId` of the section are required as path parameters, while `type`, `value`, and `textValue` are optional. Type may be one of "Text," "DynamicContent," or "Snippet" and will affect what is passed in the value. If the type is Text, then the value is a string containing the HTML content of the section. If it is DynamicContent, then it is a JSON block, with three members, `type`, which will be "DynamicContent", segmentation which is the id of the segmentation to use for the content, and default, which is a string containing the default HTML content of the section. The optional `textValue` parameter is a string containing the text version of the section. Data is passed as POST x-www-form-urlencoded, not as JSON.
 
 ```
 POST /rest/asset/v1/email/{id}/content/{htmlId}.json
@@ -481,7 +481,7 @@ Note: If autocopy to text is disabled for a snippet embedded in an email, then 
 
 In Email Editor 1.0, a module is a section of your email that is defined in the template. Modules may contain any combination of elements, variables, and other HTML content as described [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo offers a set of APIs for managing modules within an email. For module-related endpoints that require the HTTP POST method, the body is formatted as "application/x-www-form-urlencoded" (not as JSON).
 
-Most of the module-related endpoints require a "moduleId" as a path parameter. This is a string that describes the module. moduleIds are returned by [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) endpoint as the "htmlId" attribute (see [Query](#modules_query) section below).
+Most of the module-related endpoints require a `moduleId` as a path parameter. This is a string that describes the module. moduleIds are returned by [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) endpoint as the `htmlId` attribute (see [Query](#modules_query) section below).
 
 ### Query
 
@@ -700,7 +700,7 @@ GET /rest/asset/v1/email/{moduleId}/content.json
 }
 ```
 
-The result array contains elements that describe both modules and HTML elements intermixed. Module elements contain a "contentType": "Module" attribute, and an "index" attribute. The moduleId is stored in the "htmlId" attribute.
+The result array contains elements that describe both modules and HTML elements intermixed. Module elements contain a `contentType`: "Module" attribute, and an `index` attribute. The moduleId is stored in the `htmlId` attribute.
 
 Continuing with the "Skeleton" example above, the following table contains a summary of moduleIds and their corresponding indexes contained in the email.
 
@@ -1071,13 +1071,13 @@ GET /rest/asset/v1/email/{id}/variables.json
 
 The result array contains elements describing variables, one variable per element.
 
-Variables can be scoped globally to the entire email, or locally to a specific module. Variables of either scope contain "name", "value", and "moduleScope" attributes. The "moduleScope" attribute is boolean, where false indicates global and true indicates local. Local variables contain an additional "moduleId" attribute that specifies the module that the variable is associated with.
+Variables can be scoped globally to the entire email, or locally to a specific module. Variables of either scope contain `name`, `value`, and `moduleScope` attributes. The `moduleScope` attribute is boolean, where false indicates global and true indicates local. Local variables contain an additional `moduleId` attribute that specifies the module that the variable is associated with.
 
 #### Update
 
 [Update a variable](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateVariableUsingPOST) in an email by passing the new desired value via the value parameter. Specify the email id, and the variable name as path parameters. If you are updating a module variable, then you must also pass the moduleId parameter to specify the module that the variable is associated with.
 
-In the following example we update a global variable named "hrBorderSize" to a value of 1.
+In the following example we update a global variable named `hrBorderSize` to a value of 1.
 
 ```
 POST /rest/asset/v1/email/{id}/variable/{name}.json
@@ -1107,7 +1107,7 @@ value=2
 }
 ```
 
-In the following example we update a local variable named "ctaLinkText" to a value of "Click this button!" in moduleId "CTA".
+In the following example we update a local variable named `ctaLinkText` to a value of "Click this button!" in `moduleId`:`CTA`.
 
 ```
 POST /rest/asset/v1/email/1032/variable/ctaLinkText.json
@@ -1232,7 +1232,7 @@ POST /rest/asset/v1/email/{id}/delete.json
 
 ## Clone
 
-Marketo provides a simple method for cloning an Email. This type of request is made with an application/x-www-url-urlencoded POST, and takes two required parameters, name, and folder, an embedded JSON object with id and type. description is also an optional parameter. If no approved version exists, then the draft version is cloned.
+Marketo provides a simple method for cloning an Email. This type of request is made with an application/x-www-url-urlencoded POST, and takes two required parameters: `name`, and `folder`, an embedded JSON object with `id` and `type`. `description` is also an optional parameter. If no approved version exists, then the draft version is cloned.
 
 ```
 POST /rest/asset/v1/email/{id}/clone.json
@@ -1356,19 +1356,19 @@ GET /rest/asset/v1/email/{id}/fullContent.json
 
 Marketo provides the [Update Email Full Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailFullContentUsingPOST) endpoint to replace the entire contents of an email asset. This endpoint can only be used on Version 1.0 Emails which have had the UI "Edit Code" function used on them, and have had the relationship to their parent template broken. This API is primarily intended for use on assets that have been cloned as part of a program, and cannot be modified with the standard content endpoints. Emails with dynamic content are not supported. Also, if you try to replace HTML on an email where the relationship is intact, then an error is returned.
 
-This endpoint expects a Content-Type : multipart/form-data with the id parameter in the path, the id of the email, and one parameter in the body, content as a complete HTML email document with the Content-Type "text/html.". A malformed HTML document emits a warning, but may not permit approval, while inclusion of JavaScript and/or `<script>`tags in the document cause the call to fail and emit an error.
+This endpoint expects a `Content-Type : multipart/form-data` header with the `id` parameter in the path, the `id` of the email, and one parameter in the body, content as a complete HTML email document with the Content-Type "text/html.". A malformed HTML document emits a warning, but may not permit approval, while inclusion of JavaScript and/or `<script>`tags in the document cause the call to fail and emit an error.
 
 ```
 POST /rest/asset/v1/email/{id}/fullContent.json
 ```
 
 ```
-content-type: multipart/form-data; boundary=--------------------------116301888604800085728247
+content-type: multipart/form-data; boundary=----116301888604800085728247
 content-length: 599
 ```
 
 ```html
-----------------------------116301888604800085728247
+----116301888604800085728247
 Content-Disposition: form-data; name="content"; filename="email_content.html"
 Content-Type: text/html
 
@@ -1384,7 +1384,7 @@ Content-Type: text/html
  </div>
  </body>
  </html>
-----------------------------116301888604800085728247--
+----116301888604800085728247--
 
 ```
 
