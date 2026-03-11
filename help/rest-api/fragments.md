@@ -1,13 +1,9 @@
 ---
 title: Fragments
 feature: REST API, Fragments
-description: Marketo Asset REST API for the new fragment endpoints, covering query by id, filtering, create/update, clone, delete, state transitions, and dependency lookup.
+description: Marketo Asset REST API for the fragments, covering query by id, filtering, create/update, clone, delete, state transitions, and dependency lookup.
 ---
 # Fragments
-
-[Snippet Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Fragments-(New))
-
-The new fragment endpoints in `swagger-new.json` use `/rest/asset/v2/fragment*` paths and JSON request bodies. The older snippet examples on this page used `v1` form-encoded endpoints and separate content-management calls; those do not map cleanly to the new spec and were removed.
 
 All endpoints shown below also require:
 
@@ -211,7 +207,3 @@ Content-Type: application/json
   "type": "all"
 }
 ```
-
-## Notes
-
-The new swagger does not define the older fragment content, dynamic content, or separate metadata-update endpoints that existed in the legacy docs. Those examples were removed to keep this page aligned with `swagger-new.json`.

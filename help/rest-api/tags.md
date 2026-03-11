@@ -91,7 +91,7 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Tags can be updated en mass using the [Update Program Metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) endpoint. An example of that can be found [here](programs.md#update).
+Tags can be updated en masse using the [Update Program Metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) endpoint. An example is available in the [Programs update section](programs.md#update).
 
 ## Delete
 

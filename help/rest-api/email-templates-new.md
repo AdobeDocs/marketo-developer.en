@@ -7,8 +7,6 @@ description: Learn how to use the new Marketo Asset REST API for email templates
 
 [Email Template Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-The new template endpoints in `swagger-new.json` use `/rest/asset/v2/emailtemplate*` paths and JSON bodies. The older multipart HTML examples do not match this spec, so the examples below focus on the request and response shapes that are actually defined in the new swagger.
-
 All endpoints shown below also require:
 
 ```
@@ -202,7 +200,3 @@ Content-Type: application/json
   "type": "all"
 }
 ```
-
-## Notes
-
-The new swagger does not describe the older multipart upload endpoint for raw HTML template content or the legacy separate approve, unapprove, and discard endpoints. Those earlier examples were removed so this page stays aligned with `swagger-new.json`.

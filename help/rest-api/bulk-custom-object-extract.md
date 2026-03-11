@@ -21,7 +21,7 @@ The Bulk Custom Object Extract APIs require that the API user have a role with o
 Custom object extract supports several filter options used to specify a list of leads that are linked to the custom object. If a lead in the list is linked to custom object records that match a given custom object name, then the records are written to the export file. Only one filter type may be specified per export job.
 
 | Filter Type | Data Type | Notes |
-|---|---|---|
+| --- | --- | --- |
 | `updatedAt` | Date Range | Accepts a JSON object with the members `startAt` and `endAt` &nbsp.;`startAt` accepts a datetime representing the low-watermark, and `endAt` accepts a datetime representing the high-watermark. The range must be 31 days or fewer. Jobs with this filter type return all accessible records which were updated within the date range. Datetimes should be in an ISO-8601 format, without milliseconds. |
 | `staticListName` | String | Accepts the name of a static list. Jobs with this filter type return all accessible records which are members of the static list at the time that the job begins processing. Retrieve static list names using the Get Lists endpoint. |
 | `staticListId` | Integer | Accepts the id of a static list. Jobs with this filter type return all accessible records which are members of the static list at the time that the job begins processing. Retrieve static list ids using the Get Lists endpoint. |
@@ -39,7 +39,7 @@ The [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/a
 - Specify the format of the exported file
 
 | Parameter | Data Type | Required | Notes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `fields` | Array[String] | Yes | Array of strings containing value of custom object attribute name as returned by the Describe Custom Object endpoint. The listed fields are included in the exported file. |
 | `columnHeaderNames` | Object | No | A JSON object containing key-value pairs of field and column header names. The key must be the name of a field included in the export job. The value is the name of the exported column header for that field. |
 | `format` | String | No | Accepts one of: CSV, TSV, SSV. The exported file is rendered as a comma-separated values, tab-separated values, or space-separated values file, respectively if set. Defaults to CSV if unset. |

@@ -7,11 +7,11 @@ description: Learn how to use the new Marketo Asset REST API for email metadata,
 
 [Email Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails)
 
-The new email asset endpoints in `swagger-new.json` use `/rest/asset/v2/email*` paths, JSON request bodies, and a required `x-app-type` header. Compared to the older Asset API examples, this spec documents metadata-oriented operations such as create, update, filter, clone, delete, state transition, and `usedby`. It does not describe the older section-level content, module, variable, preview, or sample-send endpoints.
+The new email asset endpoints in `swagger-new.json` use `/rest/asset/v2/email*` paths, JSON request bodies, and a required `x-app-type` header. Compared to the older Asset API examples, this spec documents metadata-oriented operations such as create, update, filter, clone, delete, state transition, and `usedby`. 
 
 ## Query
 
-The new spec exposes query by id and a filter endpoint. It does not define a separate by-name endpoint. To look up an email by name, use the filter endpoint with the `name` query parameter.
+The new spec exposes query by `id` and a filter endpoint. It does not define a separate by-name endpoint. To look up an email by name, use the filter endpoint with the `name` query parameter.
 
 All endpoints shown below also require:
 
@@ -167,7 +167,7 @@ Content-Type: application/json
 
 ## Approval and Draft State
 
-The new swagger replaces separate approve, unapprove, and discard endpoints with a single state transition endpoint. Valid actions in the schema are `approve`, `unapprove`, `discard`, and `create_draft`.
+The new API replaces separate approve, unapprove, and discard endpoints with a single state transition endpoint. Valid actions in the schema are `approve`, `unapprove`, `discard`, and `create_draft`.
 
 ```
 POST /rest/asset/v2/email/state/transition
@@ -207,7 +207,7 @@ POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
 
-This endpoint takes the asset id in the path and does not define a request body in the swagger.
+This takes the asset `id` in the path and does not define a request body in the swagger.
 
 ## Used By
 
@@ -227,6 +227,3 @@ Content-Type: application/json
 }
 ```
 
-## Notes
-
-The new swagger does not define the older email content-section, module, variable, preview, sample-send, replace-HTML, or CC-field endpoints that were previously documented on this page. Those examples were based on the legacy API surface and were removed here to keep this page aligned with `swagger-new.json`.
