@@ -1,29 +1,33 @@
 ---
 title: Fragments
 feature: REST API, Fragments
-description: Marketo Asset REST API for the fragments, covering query by id, filtering, create/update, clone, delete, state transitions, and dependency lookup.
+description: Use the Marketo Asset REST API to query, create, update, clone, delete, approve, and inspect dependencies for fragments.
 ---
 # Fragments
 
-All endpoints shown below also require:
+Fragments are reusable content assets that can be referenced by other assets, such as emails.
 
-```
+## Access
+
+The endpoints described in this article require an access token:
+
+```text
 ?access_token=<access_token>
 ```
 
-and this header:
+Requests also require the `x-app-type` header:
 
-```
+```text
 x-app-type: <app-type>
 ```
 
 ## Query
 
-The new fragment API exposes query by id and filtering. There is no separate by-name endpoint in the swagger.
+You can retrieve fragment metadata by asset id or with the filter endpoint.
 
 ### By ID
 
-```
+```text
 GET /rest/asset/v2/fragment/{id}
 ```
 
@@ -46,9 +50,11 @@ GET /rest/asset/v2/fragment/{id}
 
 ### Filter
 
-`workspaceId` is required. The swagger also allows `folderId`, repeated `folderIds`, repeated `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `fragmentType`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable`, and `includeArchived`.
+The filter endpoint supports searching within a workspace and narrowing results with additional query parameters. `workspaceId` is required.
 
-```
+Supported filters include `folderId`, repeated `folderIds`, repeated `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `fragmentType`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable`, and `includeArchived`.
+
+```text
 GET /rest/asset/v2/fragment/filter?workspaceId=1001&fragmentType=email&pageIndex=0&pageSize=20
 ```
 
@@ -68,11 +74,13 @@ GET /rest/asset/v2/fragment/filter?workspaceId=1001&fragmentType=email&pageIndex
 }
 ```
 
+Use the `name` parameter when you need to find a fragment by name.
+
 ## Create
 
-Create uses JSON. `name`, `appData`, and `settings` are required. Per the schema, `settings` must include `fragmentType` and `supportedChannels`.
+Create a fragment by sending a JSON payload. `name`, `appData`, and `settings` are required. `settings` must include `fragmentType` and `supportedChannels`.
 
-```
+```text
 POST /rest/asset/v2/fragment
 Content-Type: application/json
 ```
@@ -112,11 +120,23 @@ Content-Type: application/json
 }
 ```
 
-The schema also allows `data`, `editorContext`, `themeId`, `appType`, and `status`, but the swagger does not define concrete values for each environment.
+The request body may also include `data`, `editorContext`, `themeId`, `appType`, and `status`.
+
+### Create Fields
+
+`appData` identifies where the fragment is stored and how it is edited.
+
+`settings.fragmentType` identifies the fragment category, such as an email fragment.
+
+`settings.fragmentSubType` can be used to further define the fragment format.
+
+`settings.supportedChannels` lists the channels where the fragment can be used.
 
 ## Update
 
-```
+Update a fragment by asset id.
+
+```text
 POST /rest/asset/v2/fragment/{id}/update
 Content-Type: application/json
 ```
@@ -148,11 +168,18 @@ Content-Type: application/json
 }
 ```
 
-## Approval and Draft State
+## Manage State
 
-The new swagger uses one state transition endpoint. Valid actions are `approve`, `unapprove`, `discard`, and `create_draft`.
+Fragments use a draft and approved lifecycle. Use the state transition endpoint to approve a fragment, unapprove it, discard a draft, or create a new draft.
 
-```
+Valid `action` values are:
+
+- `approve`
+- `unapprove`
+- `discard`
+- `create_draft`
+
+```text
 POST /rest/asset/v2/fragment/state/transition
 Content-Type: application/json
 ```
@@ -166,7 +193,9 @@ Content-Type: application/json
 
 ## Clone
 
-```
+Use the clone endpoint to create a copy of an existing fragment.
+
+```text
 POST /rest/asset/v2/fragment/clone
 Content-Type: application/json
 ```
@@ -183,18 +212,20 @@ Content-Type: application/json
 
 ## Delete
 
-```
+Delete a fragment by asset id.
+
+```text
 POST /rest/asset/v2/fragment/{id}/delete
 Content-Type: application/json
 ```
 
-This endpoint takes the fragment id in the path and does not define a request body in the swagger.
+This endpoint takes the fragment id in the path and does not define a request body.
 
 ## Used By
 
-Use `usedby` to retrieve assets that reference a given fragment.
+Use the `usedby` endpoint to retrieve assets that reference a given fragment.
 
-```
+```text
 POST /rest/asset/v2/fragment/usedby
 Content-Type: application/json
 ```
@@ -207,3 +238,7 @@ Content-Type: application/json
   "type": "all"
 }
 ```
+
+## Notes
+
+Query endpoints return metadata for the asset. Use the endpoint reference for the full schema of available fields and any environment-specific properties.

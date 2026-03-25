@@ -1,33 +1,35 @@
 ---
 title: Emails
 feature: REST API
-description: Learn how to use the new Marketo Asset REST API for email metadata, filtering, create/update, cloning, state transitions, and dependency lookup.
+description: Use the Marketo Asset REST API to query, create, update, clone, delete, approve, and inspect dependencies for email assets.
 ---
 # Emails
 
-[Email Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails)
+[Email Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails_New)
 
-The new email asset endpoints in `swagger-new.json` use `/rest/asset/v2/email*` paths, JSON request bodies, and a required `x-app-type` header. Compared to the older Asset API examples, this spec documents metadata-oriented operations such as create, update, filter, clone, delete, state transition, and `usedby`. 
+Emails are asset records that define message metadata, content configuration, settings, and approval state.
 
-## Query
+## Access
 
-The new spec exposes query by `id` and a filter endpoint. It does not define a separate by-name endpoint. To look up an email by name, use the filter endpoint with the `name` query parameter.
+The endpoints described in this article require an access token:
 
-All endpoints shown below also require:
-
-```
+```text
 ?access_token=<access_token>
 ```
 
-and this header:
+Requests also require the `x-app-type` header:
 
-```
+```text
 x-app-type: <app-type>
 ```
 
+## Query
+
+You can retrieve email metadata by asset id or with the filter endpoint.
+
 ### By ID
 
-```
+```text
 GET /rest/asset/v2/email/{id}
 ```
 
@@ -50,9 +52,11 @@ GET /rest/asset/v2/email/{id}
 
 ### Filter
 
-`workspaceId` is required. The spec also allows `folderId`, repeated `folderIds`, repeated `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `templateId`, `scriptEngine`, `isValueNonNullable`, and `includeArchived`.
+The filter endpoint supports searching within a workspace and narrowing results with additional query parameters. `workspaceId` is required.
 
-```
+Supported filters include `folderId`, repeated `folderIds`, repeated `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `templateId`, `scriptEngine`, `isValueNonNullable`, and `includeArchived`.
+
+```text
 GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=draft&status=approved&pageIndex=0&pageSize=20
 ```
 
@@ -72,11 +76,13 @@ GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=dra
 }
 ```
 
+Use the `name` parameter when you need to find an email by name.
+
 ## Create
 
-Create uses JSON instead of the older form-encoded pattern. `name`, `appData`, and `headers` are required. Per the schema, `appData` must include at least one of `folderId`, `workspaceId`, or `programId`, and `headers.subject` is required.
+Create an email by sending a JSON payload. `name`, `appData`, and `headers` are required. `headers.subject` is required, and `appData` must include at least one of `folderId`, `workspaceId`, or `programId`.
 
-```
+```text
 POST /rest/asset/v2/email
 Content-Type: application/json
 ```
@@ -126,13 +132,23 @@ Content-Type: application/json
 }
 ```
 
-The schema also permits optional `data`, `editorContext`, `themeId`, `appType`, and `status` fields, but the swagger does not further define what values are valid for every environment.
+The request body may also include `data`, `editorContext`, `themeId`, `appType`, and `status`.
+
+### Create Fields
+
+`appData` identifies where the email is created and how it is edited.
+
+`headers` contains the message header values, including subject, sender, reply address, preheader, and optional CC recipients.
+
+`settings` controls operational and rendering behavior such as text-only mode, web page view, and URL tracking.
+
+`templateId` identifies the email template used when the email is created.
 
 ## Update
 
-Update is done by id and accepts a JSON body using the `UpdateEmailRequest` schema. All properties are optional in the schema, so you can send only the fields you need to change.
+Update an email by asset id. The request body uses the `UpdateEmailRequest` schema, and all properties are optional, so you can send only the fields you want to change.
 
-```
+```text
 POST /rest/asset/v2/email/{id}/update
 Content-Type: application/json
 ```
@@ -165,11 +181,18 @@ Content-Type: application/json
 }
 ```
 
-## Approval and Draft State
+## Manage State
 
-The new API replaces separate approve, unapprove, and discard endpoints with a single state transition endpoint. Valid actions in the schema are `approve`, `unapprove`, `discard`, and `create_draft`.
+Emails use a draft and approved lifecycle. Use the state transition endpoint to approve an email, unapprove it, discard a draft, or create a new draft.
 
-```
+Valid `action` values are:
+
+- `approve`
+- `unapprove`
+- `discard`
+- `create_draft`
+
+```text
 POST /rest/asset/v2/email/state/transition
 Content-Type: application/json
 ```
@@ -181,11 +204,11 @@ Content-Type: application/json
 }
 ```
 
-To unapprove, discard a draft, or create a new draft from an approved asset, change the `action` value accordingly.
-
 ## Clone
 
-```
+Use the clone endpoint to create a copy of an existing email.
+
+```text
 POST /rest/asset/v2/email/clone
 Content-Type: application/json
 ```
@@ -202,18 +225,20 @@ Content-Type: application/json
 
 ## Delete
 
-```
+Delete an email by asset id.
+
+```text
 POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
 
-This takes the asset `id` in the path and does not define a request body in the swagger.
+This endpoint takes the asset id in the path and does not define a request body.
 
 ## Used By
 
-Use `usedby` to retrieve assets that reference a given email.
+Use the `usedby` endpoint to retrieve assets that reference a given email.
 
-```
+```text
 POST /rest/asset/v2/email/usedby
 Content-Type: application/json
 ```
@@ -227,3 +252,6 @@ Content-Type: application/json
 }
 ```
 
+## Notes
+
+Query endpoints return metadata for the asset. Use the endpoint reference for the full schema of available fields and any environment-specific properties.

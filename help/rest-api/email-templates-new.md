@@ -1,31 +1,35 @@
 ---
 title: Email Templates
 feature: REST API
-description: Learn how to use the new Marketo Asset REST API for email templates, including filtering, create/update, clone, delete, state transitions, and dependency lookup.
+description: Use the Marketo Asset REST API to query, create, update, clone, delete, approve, and inspect dependencies for email templates.
 ---
 # Email Templates
 
 [Email Template Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-All endpoints shown below also require:
+Email templates define the structure and reusable layout used when creating emails.
 
-```
+## Access
+
+The endpoints described in this article require an access token:
+
+```text
 ?access_token=<access_token>
 ```
 
-and this header:
+Requests also require the `x-app-type` header:
 
-```
+```text
 x-app-type: <app-type>
 ```
 
 ## Query
 
-The new spec exposes query by id and a filter endpoint. It does not define a separate by-name endpoint, so name lookups should use `filter?name=...`.
+You can retrieve email template metadata by asset id or with the filter endpoint.
 
 ### By ID
 
-```
+```text
 GET /rest/asset/v2/emailtemplate/{id}
 ```
 
@@ -48,9 +52,11 @@ GET /rest/asset/v2/emailtemplate/{id}
 
 ### Filter
 
-`workspaceId` is required. The swagger also permits `folderId`, repeated `folderIds`, repeated `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable`, and `includeArchived`.
+The filter endpoint supports searching within a workspace and narrowing results with additional query parameters. `workspaceId` is required.
 
-```
+Supported filters include `folderId`, repeated `folderIds`, repeated `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable`, and `includeArchived`.
+
+```text
 GET /rest/asset/v2/emailtemplate/filter?workspaceId=1001&name=Newsletter&pageIndex=0&pageSize=20
 ```
 
@@ -70,11 +76,13 @@ GET /rest/asset/v2/emailtemplate/filter?workspaceId=1001&name=Newsletter&pageInd
 }
 ```
 
+Use the `name` parameter when you need to find a template by name.
+
 ## Create
 
-Create uses JSON. `name` and `appData` are required. Per the schema, `appData` must include at least `folderId` or `workspaceId`.
+Create an email template by sending a JSON payload. `name` and `appData` are required. `appData` must include at least `folderId` or `workspaceId`.
 
-```
+```text
 POST /rest/asset/v2/emailtemplate
 Content-Type: application/json
 ```
@@ -108,11 +116,19 @@ Content-Type: application/json
 }
 ```
 
-The schema also allows `data`, `editorContext`, `appType`, and `status`, but the swagger does not define concrete examples for those fields.
+The request body may also include `data`, `editorContext`, `appType`, and `status`.
+
+### Create Fields
+
+`appData` identifies where the template is stored and how it is edited.
+
+`themeId` can be used to associate a theme with the template when applicable.
 
 ## Update
 
-```
+Update a template by asset id.
+
+```text
 POST /rest/asset/v2/emailtemplate/{id}/update
 Content-Type: application/json
 ```
@@ -141,11 +157,18 @@ Content-Type: application/json
 }
 ```
 
-## Approval and Draft State
+## Manage State
 
-The new swagger uses a single state transition endpoint for draft and approval operations. Valid actions are `approve`, `unapprove`, `discard`, and `create_draft`.
+Email templates use a draft and approved lifecycle. Use the state transition endpoint to approve a template, unapprove it, discard a draft, or create a new draft.
 
-```
+Valid `action` values are:
+
+- `approve`
+- `unapprove`
+- `discard`
+- `create_draft`
+
+```text
 POST /rest/asset/v2/emailtemplate/state/transition
 Content-Type: application/json
 ```
@@ -157,18 +180,11 @@ Content-Type: application/json
 }
 ```
 
-## Delete
-
-```
-POST /rest/asset/v2/emailtemplate/{id}/delete
-Content-Type: application/json
-```
-
-This endpoint takes the template id in the path and does not define a request body in the swagger.
-
 ## Clone
 
-```
+Use the clone endpoint to create a copy of an existing template.
+
+```text
 POST /rest/asset/v2/emailtemplate/clone
 Content-Type: application/json
 ```
@@ -183,11 +199,22 @@ Content-Type: application/json
 }
 ```
 
-## Query Dependencies
+## Delete
 
-Use `usedby` to retrieve assets that reference a given template.
+Delete a template by asset id.
 
+```text
+POST /rest/asset/v2/emailtemplate/{id}/delete
+Content-Type: application/json
 ```
+
+This endpoint takes the template id in the path and does not define a request body.
+
+## Used By
+
+Use the `usedby` endpoint to retrieve assets that reference a given template.
+
+```text
 POST /rest/asset/v2/emailtemplate/usedby
 Content-Type: application/json
 ```
@@ -200,3 +227,7 @@ Content-Type: application/json
   "type": "all"
 }
 ```
+
+## Notes
+
+Query endpoints return metadata for the asset. Use the endpoint reference for the full response schema and any environment-specific properties.
