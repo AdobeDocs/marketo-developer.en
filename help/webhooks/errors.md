@@ -12,10 +12,10 @@ This page lists error response codes for webhooks in Marketo.
 
 In order for Marketo to map values back into a field, the webhook response code must be of the 2xx variety. If the intent of the webhook is to change values in the Marketo lead record via the response, then the Web Service which is called must return 2xx, all other response codes will result in the webhook being ignored for the purpose of updating lead record values.
 
-| Response Code | Description|
+| Response Code | Description |
 | --- | --- |
-| 1000| This indicates that the 'Call Webhook' flow action is being housed within a Batch Campaign. Webhooks can only be fired from trigger campaigns.|
-| 1001| This indicates that the web service emitted an empty response body.|
+| 1000 | This indicates that the 'Call Webhook' flow action is being housed within a Batch Campaign. Webhooks can only be fired from trigger campaigns. |
+| 1001 | This indicates that the web service emitted an empty response body. |
 
 ## Catching a Webhook Error
 

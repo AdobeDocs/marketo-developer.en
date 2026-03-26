@@ -21,7 +21,7 @@ Named Account Lists have a limited number of standard fields, and are not exten
 `Named Account List Field`
 
 | Name | Data Type | Updateable | Notes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | marketoGUID | String | False | Unique string identifier of the named account list. This field is system managed, and is not permitted as a field when creating a record. Field used by "dedupeBy":"idField" when performing a create or update. |
 | name | String | True | Name of the list. Field used by "dedupeBy":"dedupeFields" when performing a create or update. |
 | createdAt | Datetime | False | Datetime of the creation of the list. This field is system managed, and is not permitted as a field when creating or updating a record. |

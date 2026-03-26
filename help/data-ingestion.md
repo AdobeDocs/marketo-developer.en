@@ -26,7 +26,7 @@ Example Access Token via Header:
 Data Ingestion uses the same permissions model as Marketo REST API, and does not require any additional special permissions to use, though specific permissions are required for each endpoint.
 
 | Endpoint | Permission |
-|---|---|
+| --- | --- |
 | Persons | Read-Write Lead |
 | Custom Objects | Read-Write Custom Object |
 
@@ -37,15 +37,15 @@ Data Ingestion makes use of the following custom HTTP headers.
 ### Request
 
 | Key | Value | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | X-Correlation-Id | Arbitrary string (maximum length 255 characters). | No | Can be used to trace requests through system. See Marketo Observability Data Stream |
 | X-Request-Source | Arbitrary string (maximum length 50 characters). | No | Can be used to trace source of requests through system. See Marketo Observability Data Stream |
 
 ### Response
 
 | Key | Value | Required | Description |
-|---|---|---|---|
-| X-Request-Id | Unique request ID. | Yes | |
+| --- | --- | --- | --- |
+| X-Request-Id | Unique request ID. | Yes |  |
 
 ## Requests
 
@@ -87,22 +87,22 @@ When a call produces an error, a non-202 status is returned along with a respons
 
 Below are reused error codes from Adobe Developer Gateway.
 
-|HTTP Status Code|error_code|message|
-|--- |--- |--- |
-|401|401013|Oauth token is invalid|
-|403|403010|Oauth token is missing|
-|404|404040|Resource not found|
-|429|429001|Service usage limit reached|
+| HTTP Status Code | error_code | message |
+| --- | --- | --- |
+| 401 | 401013 | Oauth token is invalid |
+| 403 | 403010 | Oauth token is missing |
+| 404 | 404040 | Resource not found |
+| 429 | 429001 | Service usage limit reached |
 
 Below are error codes that are unique to Data Ingestion API and are comprised of three segments. The first three digits are the status (returned by Adobe IO Gateway), followed by a zero "0", followed by three digits.
 
-|HTTP Status Code|error_code|message|
-|--- |--- |--- |
-|400|4000801|Bad request|
-|400|4000802|Invalid data|
-|403|4030801|Unauthorized|
-|429|4290801|Daily quota reached|
-|500|5000801|Internal Server Error|
+| HTTP Status Code | error_code | message |
+| --- | --- | --- |
+| 400 | 4000801 | Bad request |
+| 400 | 4000802 | Invalid data |
+| 403 | 4030801 | Unauthorized |
+| 429 | 4290801 | Daily quota reached |
+| 500 | 5000801 | Internal Server Error |
 
 Example of Error Response:
 
@@ -121,29 +121,29 @@ Ingestion endpoints are available for Persons and Custom Objects.
 Endpoint used to upsert person records.
 
 | Method |
-|---|
+| --- |
 | POST |
 
 | Path |
-|---|
+| --- |
 | `/subscriptions/{munchkinId}/persons` |
 
 | HeadersKey | Value |
-|---|---|
+| --- | --- |
 | Content-Type | application/json |
 | X-Mkto-User-Token | {accessToken} |
 
 Request Body
 
 | Key | Data Type | Required | Value | Default Value |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | priority | String | No | Priority of the request:normalhigh | normal |
 | partitionName | String | No | Name of person partition | Default |
 | dedupeFields | Object | No | Attributes to deduplicate on. One or two attribute names are allowed. Two attributes are used in an AND operation. For example, if both `email` and `firstName` are specified, they are both be used to look up a person using the AND operation. Supported attributes are:`idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attributes ("string" and "integer" type only) | email |
 | persons | Array of Object | Yes | List of attribute name-value pairs for the person | - |
 
 | Permission |
-|---|
+| --- |
 | Read-Write Lead |
 
 #### Persons Example
@@ -190,30 +190,30 @@ X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
 Endpoint used to upsert custom object records.
 
 | Method |
-|---|
+| --- |
 | POST |
 
 | Path |
-|---|
+| --- |
 | `/subscriptions/{munchkinId}/customobjects/{customObjectAPIName}` |
 
 Headers
 
 | Key | Value |
-|---|---|
+| --- | --- |
 | Content-Type | application/json |
 | X-Mkto-User-Token | {accessToken} |
 
 Request body
 
 | Key | Data Type | Required | Value | Default Value |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | priority | String | No | Priority of the request:normalhigh | normal |
 | dedupeBy | String | No | Attributes to deduplicate on:dedupeFieldsmarketoGUID | dedupeFields |
 | customObjects | Array of Object | Yes | List of attribute name-value pairs for the object. | - |
 
 | Permission |
-|---|
+| --- |
 | Read-Write Custom Object |
 
 #### Person Not Present

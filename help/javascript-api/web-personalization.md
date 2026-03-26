@@ -30,10 +30,10 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 
 This method is called automatically on the tag level to set the relevant account id. You can set the account id when you wish to split between different domains.
 
-| Parameter    | Optional/Required | Type   | Description  |
-|--------------|-------------------|--------|--------------|
-| 'setAccount' | Required          | String | Method name. |
-| accountId    | Required          | String | Account Id. |
+| Parameter | Optional/Required | Type | Description |
+| --- | --- | --- | --- |
+| 'setAccount' | Required | String | Method name. |
+| accountId | Required | String | Account Id. |
 
 ```javascript
 var accountId = '561-HYG-937';
@@ -46,11 +46,11 @@ This method sends a view event, which is used for page tracking. In the example 
 
 By passing the optional "page" parameter in this method, the current page can be overridden.
 
-| Parameter | Optional/Required | Type   | Description                     |
-|-----------|-------------------|--------|---------------------------------|
-| 'send'    | Required          | String | Method action.                 |
-| 'view'    | Required          | String | Method name.                   |
-| page      | Optional          | String | Relative path or full page URL. |
+| Parameter | Optional/Required | Type | Description |
+| --- | --- | --- | --- |
+| 'send' | Required | String | Method action. |
+| 'view' | Required | String | Method name. |
+| page | Optional | String | Relative path or full page URL. |
 
 ```javascript
 // Example for Default Page
@@ -89,20 +89,20 @@ Description of JavaScript that is added to a website when using Web Personalizat
 
 ### Core/Dependent JavaScript
 
-| Name                      | Description | Control                                                |
-|---------------------------|-------------|--------------------------------------------------------|
-| rtp.js                    | -           | Controlled by Marketo                                  |
-| jquery.min.js             | v1.8.3      | Can be disabled by contacting Marketo Customer Support |
-| jquery-custom-ui-min.js   | v1.9.2      | Can be disabled by contacting Marketo Customer Support |
-| query-ui-1.8.17-dialog.js | v1.9.2*     | Can be disabled by contacting Marketo Customer Support |
+| Name | Description | Control |
+| --- | --- | --- |
+| rtp.js | - | Controlled by Marketo |
+| jquery.min.js | v1.8.3 | Can be disabled by contacting Marketo Customer Support |
+| jquery-custom-ui-min.js | v1.9.2 | Can be disabled by contacting Marketo Customer Support |
+| query-ui-1.8.17-dialog.js | v1.9.2* | Can be disabled by contacting Marketo Customer Support |
 
 *Used only if jQuery UI is missing dialog
 
 ### On Demand JavaScript
 
-| Name                    | Description                                                           | Control               |
-|-------------------------|-----------------------------------------------------------------------|-----------------------|
+| Name | Description | Control |
+| --- | --- | --- |
 | ga-integration-2.0.1.js | Used if Google Analytics/Facebook/SiteCatalyst integration is enabled | Controlled by Marketo |
-| insightera-bar-2.1.js   | Used if predictive content recommendation bar is enabled              | Controlled by Marketo |
-| froogaloop2.min.js      | Used if content tracking is enabled and Vimeo player exists on page   | -                     |
-| iframe-api-v1.js        | Used if content tracking is enabled and YouTube player exists on page | -                     |
+| insightera-bar-2.1.js | Used if predictive content recommendation bar is enabled | Controlled by Marketo |
+| froogaloop2.min.js | Used if content tracking is enabled and Vimeo player exists on page | - |
+| iframe-api-v1.js | Used if content tracking is enabled and YouTube player exists on page | - |
