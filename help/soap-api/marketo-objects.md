@@ -30,7 +30,7 @@ External-keys are custom fields defined on Marketo objects, such as Lead or Oppo
 ### Available APIs
 
 | API | Can Operate On |
-|---|---|
+| --- | --- |
 | describeMObject | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |
 | getMObjects | Opportunity, OpportunityPersonRole, Program |
 | syncMObjects | Opportunity, OpportunityPersonRole, Program |

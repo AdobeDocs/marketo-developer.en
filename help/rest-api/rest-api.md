@@ -107,3 +107,5 @@ If you don't have a lead record with your email address in your database, substi
 ## API Usage
 
 Each of your API users is reported individually in the API usage report, so splitting up your web services by user allows you to easily account for the usage of each of your integrations. If the number of API calls to your instance are exceeding the limit and causing subsequent calls to fail, using this practice allows you to account for the volume from each of your services and let you evaluate how to resolve the issue. See your usage by going to **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** and clicking the number of calls in the past seven days.
+
+For the REST endpoints that return daily and last-7-days usage and error statistics, see [Usage](usage.md).

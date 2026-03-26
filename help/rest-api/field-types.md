@@ -8,7 +8,7 @@ exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
 
 Here is a description of field types in Marketo. Additional information about field types can be found [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Additional information about field type limits can be found [here](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
-| Field Type| Description | Example |
+| Field Type | Description | Example |
 | --- | --- | --- |
 | Datetime | Used for inputting a date & time. Follows [W3C format](https://www.w3.org/TR/NOTE-datetime) (ISO 8601). Best practice is to include the time zone offset. Complete date plus hours and minutes: YYYY-MM-DDThh:mm:ssTZD where TZD is "+hh:mm" or "-hh:mm" Note: Some Asset APIs return "Z+0000" as TZD for `updatedAt` and `createdAt`. | 2010-05-07T15:41:32-05:00 |
 | Email | A string field which accepts email addresses | <example@example.com> |
@@ -18,7 +18,7 @@ Here is a description of field types in Marketo. Additional information about f
 | Percent | A percentage expressed as an integer | 30 |
 | URL | A text field which restricts input to URLs, including the protocol of the URL. | <http://example.com/> |
 | Phone | Phone number | 111-111-1111 |
-| Text area | Longer text.| Supports up to 30,000 bytes. Standard ASCII characters use 1 byte per character (allowing up to 30,000 characters). Unicode characters may use up to 4 bytes per character (reducing the  number of characters allowed to less than 30,000 characters). |
+| Text area | Longer text. | Supports up to 30,000 bytes. Standard ASCII characters use 1 byte per character (allowing up to 30,000 characters). Unicode characters may use up to 4 bytes per character (reducing the  number of characters allowed to less than 30,000 characters). |
 | String | Shorter text | Text up to 255 characters |
 | Score | An integer field which can be manipulated with the Change Score flow step | 10 |
 | Boolean (previously Checkbox) | Allows users to select a True (checked) or False (unchecked) value. | True |

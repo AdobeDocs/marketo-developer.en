@@ -20,7 +20,7 @@ A [stream position](stream-position.md) can be used to paginate through large re
 | activityFilter->excludeAttributes->activityType | Optional | Limits the response to exclude those activity types specified. See WSDL for all activity types. NOTE: You cannot specify both `includeAttributes` and `excludeAttributes` within the same call. |
 | batchSize | Optional | Maximum number of records to be returned. System will limit to 100 or `batchSize`, whichever is less. |
 | startPosition->offset | Optional | Used to paginate through large number of activity responses. The offset value is returned by the previous calls response field `newStartPosition->offset`. |
-| startPosition->activityCreatedAt | Optional | Used to paginate through large number of activity responses. The activityCreatedAt is returned by the previous call's response field `newStartPosition->activityCreatedAt`. (W3C WSDL date format).|
+| startPosition->activityCreatedAt | Optional | Used to paginate through large number of activity responses. The activityCreatedAt is returned by the previous call's response field `newStartPosition->activityCreatedAt`. (W3C WSDL date format). |
 | startPosition->latestCreatedAt | Optional | Used to paginate through large number of activity responses. The latestCreatedAt is returned by the previous call's response field `newStartPosition->latestCreatedAt`. (W3C WSDL date format). |
 | startPosition->oldestCreatedAt | Optional | Used to paginate through large number of activity responses. The oldestCreatedAt is returned by the previous call's response field `newStartPosition->oldestCreatedAt`. (W3C WSDL date format). |
 

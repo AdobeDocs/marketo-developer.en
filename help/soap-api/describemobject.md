@@ -12,7 +12,7 @@ This function returns the metadata for Standard and Virtual MObjects. It takes i
 
 | Field Name | Required/Optional | Description |
 | --- | --- | --- |
-| objectName | Required | The name of the MObject you wish to get meta data for. `objectName` can be one of: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole`|
+| objectName | Required | The name of the MObject you wish to get meta data for. `objectName` can be one of: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
 
 ## Request XML
 

@@ -285,22 +285,22 @@ When editing fields, or their behavior inside a form, the field list should alwa
 
 ### Field Types
 
-| UI Type      | API Name        |
-|--------------|-----------------|
-| Checkboxes   | checkbox        |
-| Radio Button | radio           |
-| Text Area    | textarea        |
-| Picklist     | picklist        |
-| String       | string          |
-| Email        | email           |
-| Date         | date            |
-| Number       | number          |
-| Double       | double          |
-| Phone        | phone           |
-| URL          | url             |
-| Currency     | currency        |
-| Checkbox     | single_checkbox |
-| Slider       | range           |
+| UI Type | API Name |
+| --- | --- |
+| Checkboxes | checkbox |
+| Radio Button | radio |
+| Text Area | textarea |
+| Picklist | picklist |
+| String | string |
+| Email | email |
+| Date | date |
+| Number | number |
+| Double | double |
+| Phone | phone |
+| URL | url |
+| Currency | currency |
+| Checkbox | single_checkbox |
+| Slider | range |
 
 ### Dependencies
 
