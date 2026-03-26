@@ -19,7 +19,7 @@ The Bulk Lead Extract APIs require that the owning API user have a role with on
 Leads support various filter options. Certain filters, including the `updatedAt`, `smartListName`, and `smartListId` require additional infrastructure components which have not yet been rolled out to all subscriptions. Only one filter type may be specified per export job.
 
 | Filter Type | Data Type | Notes |
-|---|---|---|
+| --- | --- | --- |
 | createdAt | Date Range | Accepts a JSON object with the members `startAt` and `endAt`. `startAt` accepts a datetime representing the low-watermark, and `endAt` accepts a datetime representing the high-watermark. The range must be 31 days or fewer. Datetimes should be in an ISO-8601 format, without milliseconds. Jobs with this filter type return all accessible records which were created within the date range. |
 | updatedAt* | Date Range | Accepts a JSON object with the members `startAt` and `endAt`. `startAt` accepts a datetime representing the low-watermark, and `endAt` accepts a datetime representing the high-watermark. The range must be 31 days or fewer. Datetimes should be in an ISO-8601 format, without milliseconds. Note: This filter does not filter on the visible "updatedAt" field which only reflects updates to standard fields. It filters based on when the most recent field update was made to a lead recordJobs with this filter type returns all accessible records which were most recently updated within the date range. |
 | staticListName | String | Accepts the name of a static list. Jobs with this filter type return all accessible records which are members of the static list at the time that the job begins processing. Retrieve static list names using the Get Lists endpoint. |
@@ -34,7 +34,7 @@ Filter type is unavailable for some subscriptions. If unavailable for your subsc
 The Create Export Lead Job endpoint provides several formatting options, giving the user the ability to include particular fields within the exported file, the ability to rename column headers of these fields, and the format of the exported file.
 
 | Parameter | Data Type | Required | Notes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | fields | Array[String] | Yes | The fields parameter accepts a JSON array of strings. Each string must be the REST API name of a Marketo lead field. The listed fields are included in the exported file. The column header for each field will be the REST API name of each field, unless overridden with columnHeader. Note: When the [!DNL Adobe Experience Cloud Audience Sharing] feature is enabled, a cookie sync process occurs that associates [!DNL Adobe Experience Cloud] ID (ECID) with Marketo leads. You can specify the "ecids" field to include ECIDs in the export file. |
 | columnHeaderNames | Object | No | A JSON object containing key-value pairs of field and column header names. The key must be the name of a field included in the export job. This is the API name of the field which can be retrieved by calling Describe Lead. The value is the name of the exported column header for that field. |
 | format | String | No | Accepts one of: CSV, TSV, SSV. The exported file is rendered as a comma-separated values, tab-separated values, or space-separated values file, respectively if set. Defaults to CSV if unset. |

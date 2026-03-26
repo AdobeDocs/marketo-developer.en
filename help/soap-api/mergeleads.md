@@ -12,7 +12,7 @@ Accepts a winning lead's key and multiple losing lead's keys to perform a merge 
 
 | Field Name | Required/Optional | Description |
 | --- | --- | --- |
-| winningLeadKeyList | Required | The key used to identify the winning lead. Possible values are: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`|
+| winningLeadKeyList | Required | The key used to identify the winning lead. Possible values are: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | losingLeadKeyLists | Required | A list of keys used to identify the losing leads. |
 | mergeInSales | Optional | Passed as a boolean, either as "True" or "False" |
 

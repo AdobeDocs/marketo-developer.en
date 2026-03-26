@@ -11,7 +11,7 @@ This method sends custom events for tracking and real-time personalization. It c
 You must become a Web Personalization customer and have the [RTP tag deployed](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) on your site before using the User Context API.
 
 | Parameter | Optional/Required | Type | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `send` | Required | String | Method action. |
 | `event` | Required | String | Method name. |
 | `customData` | Required | String or Array | Custom data. |

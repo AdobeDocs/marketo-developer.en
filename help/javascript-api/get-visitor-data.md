@@ -14,7 +14,7 @@ This method is used to get real-time visitor identification data.
 If an error occurs, there will be an error message as part of the response JSON. If a 500 code is returned, contact support with the request you made.
 
 | Parameter | Optional/Required | Type | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `get` | Required | String | Method action. |
 | `visitor` | Required | String | Method name. |
 | `callback` | Required | Function | Callback function to be triggered for each campaign returned. |

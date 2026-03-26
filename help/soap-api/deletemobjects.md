@@ -12,7 +12,7 @@ Deletes one or more [MObjects](marketo-objects.md) and returns the outcome of th
 
 | Field Name | Required/Optional | Description |
 | --- | --- | --- |
-| mObjectList->mObject->type | Required | Can be one of `Opportunity` or `OpportunityPersonRole`|
+| mObjectList->mObject->type | Required | Can be one of `Opportunity` or `OpportunityPersonRole` |
 | mObjectList->mObject->id | Required | id of MObject to be deleted |
 
 ## Request XML

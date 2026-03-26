@@ -16,16 +16,16 @@ Retrieve the list of all supported field names available on your lead records by
 
 Sometimes it is difficult to know which field name type that you must use when leveraging a particular integration-related feature. The following is a quick reference for which features use REST or SOAP field name types.
 
-|Feature|Field Name Type to Use|
-|--- |--- |
-|Lead Tracking API (Munchkin)|SOAP|
-|Forms 2.0 API|SOAP|
-|List Import (UI)|SOAP|
-|List Import (REST API)|REST|
-|Webhook Response Mappings|SOAP|
-|Email Scripting (Velocity)|SOAP|
-|SOAP API|SOAP|
-|REST API|REST|
+| Feature | Field Name Type to Use |
+| --- | --- |
+| Lead Tracking API (Munchkin) | SOAP |
+| Forms 2.0 API | SOAP |
+| List Import (UI) | SOAP |
+| List Import (REST API) | REST |
+| Webhook Response Mappings | SOAP |
+| Email Scripting (Velocity) | SOAP |
+| SOAP API | SOAP |
+| REST API | REST |
 
 ### Why does the REST API field sfdcId always return a value of null?
 
