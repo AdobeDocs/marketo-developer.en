@@ -2,6 +2,7 @@
 title: Usage
 feature: REST API
 description: Monitor Marketo REST API usage and errors with daily and last-7-days stats endpoints, including per-user counts and error code totals.
+exl-id: 935a00a4-1e1e-4b48-ae9c-72c5e578312a
 ---
 # Usage
 

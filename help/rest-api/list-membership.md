@@ -2,7 +2,7 @@
 title: List Membership (Static Lists)
 feature: REST API, Static Lists
 description: Use Marketo Lead Database REST APIs to add leads to static lists, remove leads, retrieve list members, and check list membership.
-exl-id: 2a91b0f3-5ba1-4b0c-b5e7-a19ab9a7fdc3
+exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
 ---
 # List Membership (Static Lists)
 
