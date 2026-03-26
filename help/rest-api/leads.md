@@ -613,7 +613,6 @@ POST /rest/v1/leads/push.json
              "firstName": "Theresa",
              "website": "www.brexit.com",
              "leadScore": 45,
-             "marketoSocialFacebookProfileURL": "http://www.facebook.com/id/23434456",
              "jobTitle": "Prime Minister"
          },
          {
@@ -622,7 +621,6 @@ POST /rest/v1/leads/push.json
              "firstName": "Justin",
              "website": "www.take-off-eh.com",
              "leadScore": 92,
-             "marketoSocialFacebookProfileURL": "http://www.facebook.com/id/42434",
              "jobTitle": "Sonny"
          }
      ]
