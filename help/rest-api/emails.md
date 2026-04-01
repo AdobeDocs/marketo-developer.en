@@ -705,7 +705,7 @@ The result array contains elements that describe both modules and HTML elements 
 Continuing with the "Skeleton" example above, the following table contains a summary of moduleIds and their corresponding indexes contained in the email.
 
 | moduleId (a.k.a. htmlId) | Index |
-|---|---|
+| --- | --- |
 | spacer | 0 |
 | free-image | 1 |
 | video | 2 |

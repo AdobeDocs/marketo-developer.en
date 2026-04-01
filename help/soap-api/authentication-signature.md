@@ -35,7 +35,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 ## Request Header
 
-| Field Name| Required/Optional | Description|
+| Field Name | Required/Optional | Description |
 | --- | --- | --- |
 | `mktowsUserId` | Required | Marketo client access ID is found within your Marketo admin SOAP API panel under Integration. |
 | `requestSignature` | Required | HMAC-SHA1 signature based on shared secret key, `requestTimestamp`, and Marketo User Id |

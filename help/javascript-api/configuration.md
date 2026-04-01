@@ -21,7 +21,7 @@ The configuration settings object can contain any number of properties from the 
 ## Properties
 
 | Name | Data Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | altIds | Array | Accepts an array of Munchkin ID strings. When enabled, this duplicates all Web Activity to the targeted subscriptions, based on their Munchkin ID. |
 | anonymizeIP | Boolean | Anonymizes the IP address recorded in Marketo for new visitors. |
 | apiOnly | Boolean | If set to true, then `Munchkin.Init()` function will not call `visitsWebPage`. This is useful for single-page web applications that need full control over every `visitsWebPage` event. |

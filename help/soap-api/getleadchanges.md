@@ -26,13 +26,13 @@ Note: The limit number of leads supported in a `LeadKeySelector` is 100. If the 
 | --- | --- | --- |
 | activityFilter->includeAttributes->activityType | Optional (deprecated) Use `activityNameFilter` instead | Limits the response to include only those activity types specified. See WSDL for all activity types. |
 | activityFilter->excludeAttributes->activityType | Optional | Limits the response to exclude the specified activity types. See WSDL for all activity types. NOTE: You cannot specify both `includeAttributes` and `excludeAttributes` within the same call. |
-| activityNameFilter | Optional | Limits the response to include only the specified activity filters.|
+| activityNameFilter | Optional | Limits the response to include only the specified activity filters. |
 | batchSize | Optional | Maximum number of records to be returned. System limited to 1,000 or `batchSize`, whichever is less. |
 | startPosition | Required | Used to paginate through large number of activity responses. |
 | startPosition->offset | Optional | The offset value is returned by the previous calls response field newStartPosition->offset. |
 | startPosition->oldestCreatedAt | Optional | The timestamp used to filter results to only include leads created since the oldestCreatedAt. NOTE: You can use `LastUpdateAtSelector->oldestUpdatedAt` timestamp to specify `oldestCreatedAt`. |
 | startPosition->activityCreatedAt | Optional | The timestamp used to filter results to only include leads with activity since activityCreatedAt. NOTE: You can use `LastUpdateAtSelector->latestUpdatedAt` timestamp to specify `activityCreatedAt`. |
-| leadSelector | Optional | Can be one of the following 3 types: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector`|
+| leadSelector | Optional | Can be one of the following 3 types: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
 | LeadKeySelector: leadSelector->keyType | Required | The id type that you wish to query. Values include `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`. |
 | LeadKeySelector: leadSelector->keyValues->stringItem | Required | List of key values. That is, "<lead@email.com>" |
 | StaticListSelector: leadSelector->staticListName | Optional when `leadSelector->staticListId` is present | The name of the static list |

@@ -171,17 +171,17 @@ Content sections are ordered by their index property, and ultimately laid out ac
 
 **Section Types**
 
-|Type|Value|
-|--- |--- |
-|DynamicContent|The id of the segmentation.|
-|Form|The id of the form.|
-|HTML|Text HTML content.|
-|Image|The id of the image asset.|
-|Rectangle|Empty.|
-|RichText|Text HTML content.  May only contain rich text elements.|
-|Snippet|The id of the snippet.|
-|SocialButton|The id of  the social button.|
-|Video|The id of the video.|
+| Type | Value |
+| --- | --- |
+| DynamicContent | The id of the segmentation. |
+| Form | The id of the form. |
+| HTML | Text HTML content. |
+| Image | The id of the image asset. |
+| Rectangle | Empty. |
+| RichText | Text HTML content.  May only contain rich text elements. |
+| Snippet | The id of the snippet. |
+| SocialButton | The id of  the social button. |
+| Video | The id of the video. |
 
 For free form pages, all desired content sections must be added and will be embedded in the div element with the id `mktoContent`. For guided pages, a list of predefined elements may be present in the list from [Get Landing Page Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET) endpoint. More can be added or their [content updated](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) via their respective endpoints.
 

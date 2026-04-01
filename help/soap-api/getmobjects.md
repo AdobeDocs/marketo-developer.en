@@ -18,12 +18,12 @@ Returns a list of matching MObjects, all of a single type, up to 100 in a batch,
 
 | Field Name | Required/Optional | Description |
 | --- | --- | --- |
-| type | Required | The object type you wish to query. Can be one of the following: `Opportunity`, `OpportunityPersonRole`, or `Program`|
+| type | Required | The object type you wish to query. Can be one of the following: `Opportunity`, `OpportunityPersonRole`, or `Program` |
 | id | Optional | Id of the MObject |
 | includeDetails | Optional | When true will return all attributes for a given MObject. This parameter is only applicable when used with Program MObjects |
-| mObjCriteriaList->mObjCriteria->attrName | Optional | One or more of the following input parameters may be used:`Name`, `Role`, `Type`, `Stage`, `CRM Id`, `Created At`, `Updated At` or `Tag Type` (only one can be specified), `Tag Value`, `Workspace Name`, `Workspace Id`, `Include Archive`|
+| mObjCriteriaList->mObjCriteria->attrName | Optional | One or more of the following input parameters may be used:`Name`, `Role`, `Type`, `Stage`, `CRM Id`, `Created At`, `Updated At` or `Tag Type` (only one can be specified), `Tag Value`, `Workspace Name`, `Workspace Id`, `Include Archive` |
 | mObjCriteriaList->mObjCriteria->attrValue | Optional | The value that you wish to use for filtering |
-| mObjCriteriaList->mObjCriteria->comparison | Optional | One of `EQ`, `NE`, `LT` ,`LE`, `GT`, `GE`|
+| mObjCriteriaList->mObjCriteria->comparison | Optional | One of `EQ`, `NE`, `LT` ,`LE`, `GT`, `GE` |
 | mObjAssociationList->mObjAssociation->mObjType | Optional |  |
 | mObjAssociationList->mObjAssociation->id | Optional | The id of the associated object (Lead/Company/Opportunity) |
 | mObjAssociationList->mObjAssociation->externalKey | Optional | A custom attribute of the associated object |

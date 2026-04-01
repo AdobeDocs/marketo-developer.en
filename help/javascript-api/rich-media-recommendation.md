@@ -20,7 +20,7 @@ More information is available [here](https://experienceleague.adobe.com/en/docs/
 ## Template Tag
 
 | Attribute | Optional/Required | Description |
-|---|---|---|
+| --- | --- | --- |
 | class | Required | Specify that this div HTML element is RTP recommendation div. |
 | data-rtp-template-id | Required | The template id. This determines the alignment of your recommendation. Use "template1" for horizontal alignment, "template2" for vertical alignment, or "template3" for vertical alignment that includes only title and description. The script injects the matching template into this `div.Permissible` values: template1, template2, template3. |
 
@@ -55,7 +55,7 @@ This method populates all the rich media `<divs>` on the page with recommendatio
 `rtp('get', 'rcmd', 'richmedia');`
 
 | Parameter | Optional/Required | Type | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 'get' | Required | String | Method action. |
 | 'rcmd' | Required | String | Method name. |
 | 'richmedia' | Required | String | Sub method name. |
@@ -71,7 +71,7 @@ Note: When using this method it must be called before calling rtp('get','rcmd', 
 `rtp('set', 'rcmd', 'richmedia', 'template_id', conf_obj);`
 
 | Parameter | Optional/Required | Type | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 'set' | Required | String | Method action. |
 | 'rcmd' | Required | String | Method name. |
 | 'richmedia' | Required | String | Sub Method name. |
@@ -130,7 +130,7 @@ rtp("set", "rcmd", "richmedia",
 #### Configuration Properties
 
 | Configuration | Example | Description |
-|---|---|---|
+| --- | --- | --- |
 | rcmd.general.font.family | "rcmd.general.font.family" : "arial" | Changes the font family for all the text in the template. This property support all the CSS values by the browser type. It is possible to use a custom font family if it exists on the page. |
 | rcmd.content.background.color | "rcmd.content.background.color" : "black" | Changes the background color of the template inner boxes. This property supports all the CSS values by the browser type. |
 | rcmd.title.text | "rcmd.title.text" : "RECOMMENDED CONTENT" | Changes the template title. |

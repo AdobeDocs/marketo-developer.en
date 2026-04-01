@@ -14,10 +14,10 @@ You must be a Web Personalization customer and have the [RTP tag deployed](https
 
 `rtp('triggerName', function_to_trigger);`
 
-| Parameter           | Optional/Required | Type     | Description          |
-|---------------------|-------------------|----------|----------------------|
-| 'triggerName'       | Required          | String   | Method name.        |
-| function_to_trigger | Required          | Function | Function to trigger. |
+| Parameter | Optional/Required | Type | Description |
+| --- | --- | --- | --- |
+| 'triggerName' | Required | String | Method name. |
+| function_to_trigger | Required | Function | Function to trigger. |
 
 ### User Context Ready Trigger
 

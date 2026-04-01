@@ -18,7 +18,7 @@ Below are links to the Marketo REST API references.
 Here is a comprehensive list of REST API endpoints.
 
 | Name | Group | Method | URI | Required Permission |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Add Custom Activities | Activities | POST | /rest/v1/activities/external.json | Read-Write Activity |
 | Approve Custom Activity Type | Activities | POST | /rest/v1/activities/external/type/{apiName}/approve.json | Read-Write Activity Metadata |
 | Create Custom Activity Type Attributes | Activities | POST | /rest/v1/activities/external/type/{apiName}/attributes/create.json | Read-Write Activity Metadata |
@@ -160,7 +160,7 @@ Here is a comprehensive list of REST API endpoints.
 | Delete Form Field | Form Fields | POST | /rest/asset/v1/form/{id}/field/{fieldId}/delete.json | Read-Write Asset |
 | Get Available Form Fields | Form Fields | GET | /rest/asset/v1/form/fields.json | Read-Only Asset |
 | Get Available Form Program Member Fields | Form Fields | GET | /rest/asset/v1/form/programMemberFields.json | Read-Only Asset |
-| Get Fields for Form | Form Fields | GET | /rest/asset/v1/form/{id}/fields.json  | Read-Only Asset |
+| Get Fields for Form | Form Fields | GET | /rest/asset/v1/form/{id}/fields.json | Read-Only Asset |
 | Update Field Positions | Form Fields | POST | /rest/asset/v1/form/{id}/reArrange.json | Read-Write Asset |
 | Update Form Field | Form Fields | POST | /rest/asset/v1/form/{id}/field/{fieldId}.json | Read-Write Asset |
 | Approve Form Draft | Forms | POST | /rest/asset/v1/form/{id}/approveDraft.json | Read-Write Asset |
@@ -236,11 +236,11 @@ Here is a comprehensive list of REST API endpoints.
 | Create Lead Fields | Leads | POST | /rest/v1/leads/schema/fields.json | Read-Write Schema Custom Field |
 | Update Lead Field | Leads | POST | /rest/v1/leads/schema/fields/{fieldApiName}.json | Read-Write Schema Custom Field |
 | Add Named Account List Members | Named Account Lists | POST | /rest/v1/namedaccountlist/{id}/namedaccounts.json | Read-Write Named Account |
-| Delete Named Account Lists | Named Account Lists | POST | /rest/v1/namedaccountlists/delete.json |  Read-Write Named Account List |
+| Delete Named Account Lists | Named Account Lists | POST | /rest/v1/namedaccountlists/delete.json | Read-Write Named Account List |
 | Get Named Account List Members | Named Account Lists | GET | /rest/v1/namedaccountlist/{id}/namedaccounts.json | Read-Only Named Account |
-| Get Named Account Lists | Named Account Lists | GET | /rest/v1/namedaccountlists.json |  Read-Only Named Account List |
+| Get Named Account Lists | Named Account Lists | GET | /rest/v1/namedaccountlists.json | Read-Only Named Account List |
 | Remove Named Account List Members | Named Account Lists | POST | /rest/v1/namedaccountlist/{id}/namedaccounts/remove.json | Read-Write Named Account |
-| Sync Named Account Lists | Named Account Lists | POST | /rest/v1/namedaccountlists.json |  Read-Write Named Account List |
+| Sync Named Account Lists | Named Account Lists | POST | /rest/v1/namedaccountlists.json | Read-Write Named Account List |
 | Delete Named Accounts | Named Accounts | POST | /rest/v1/namedaccounts/delete.json | Read-Write Named Account |
 | Describe Named Accounts | Named Accounts | GET | /rest/v1/namedaccounts/describe.json | Read-Only Named Account |
 | Get Named Accounts | Named Accounts | GET | /rest/v1/namedaccounts.json | Read-Only Named Account |
