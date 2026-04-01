@@ -37,28 +37,28 @@ By providing views into Lead changes, this allows customers to make faster decis
 
 List of Streamed Activities:
 
-|AchieveGoalInReferral|ClickPredictiveContent|ReceivedForwardToFriendEmail|
-|--- |--- |--- |
-|AddToList|ClickRTPCallToAction|ReceiveSalesEmail|
-|AddToNurture|ClickSalesEmail|ReferToSocialApp|
-|AddToOpportunity|ClickSharedLink|RemoveFromList|
-|AddToSalesCampaign|ConvertLead|RemoveFromOpportunity|
-|CallWebhook|DeleteLead|RequestCampaign|
-|ChangeDataValue|DisqualifySweepstakes|SalesEmailBounced|
-|ChangeLeadPartition|EarnEntryInSocialApp|SendAlert|
-|ChangeNurtureCadence|EmailBounced|SendEmail|
-|ChangeNurtureTrack|EmailBouncedSoft|SendSalesEmail|
-|ChangeOwner|EmailDelivered|SentForwardToFriendEmail|
-|ChangeProgramData|EnrichWithDataDotCom|SFDCActivity|
-|ChangeProgramMemberData|EnterSweepstakes|ShareContent|
-|ChangeRevenueStage|FillOutFacebookLeadAdsForm|SignUpForReferralOffer|
-|ChangeRevenueStageManually|FillOutForm|SyncLeadToMicrosoft|
-|ChangeScore|InterestingMoment|SyncLeadToSFDC|
-|ChangeSegment|MergeLeads|UnsubscribeEmail|
-|ChangeStatusInProgression|NewLead|UpdateOpportunity|
-|ChangeStatusInSalesCampaign|OpenEmail|VisitWebPage|
-|ClickEmail|OpenSalesEmail|VoteInPoll|
-|ClickLink|PushLeadToMarketo|WinSweepstakes|
+| AchieveGoalInReferral | ClickPredictiveContent | ReceivedForwardToFriendEmail |
+| --- | --- | --- |
+| AddToList | ClickRTPCallToAction | ReceiveSalesEmail |
+| AddToNurture | ClickSalesEmail | ReferToSocialApp |
+| AddToOpportunity | ClickSharedLink | RemoveFromList |
+| AddToSalesCampaign | ConvertLead | RemoveFromOpportunity |
+| CallWebhook | DeleteLead | RequestCampaign |
+| ChangeDataValue | DisqualifySweepstakes | SalesEmailBounced |
+| ChangeLeadPartition | EarnEntryInSocialApp | SendAlert |
+| ChangeNurtureCadence | EmailBounced | SendEmail |
+| ChangeNurtureTrack | EmailBouncedSoft | SendSalesEmail |
+| ChangeOwner | EmailDelivered | SentForwardToFriendEmail |
+| ChangeProgramData | EnrichWithDataDotCom | SFDCActivity |
+| ChangeProgramMemberData | EnterSweepstakes | ShareContent |
+| ChangeRevenueStage | FillOutFacebookLeadAdsForm | SignUpForReferralOffer |
+| ChangeRevenueStageManually | FillOutForm | SyncLeadToMicrosoft |
+| ChangeScore | InterestingMoment | SyncLeadToSFDC |
+| ChangeSegment | MergeLeads | UnsubscribeEmail |
+| ChangeStatusInProgression | NewLead | UpdateOpportunity |
+| ChangeStatusInSalesCampaign | OpenEmail | VisitWebPage |
+| ClickEmail | OpenSalesEmail | VoteInPoll |
+| ClickLink | PushLeadToMarketo | WinSweepstakes |
 
 Note that if custom objects should be streamed, it must be all of the Lead-related custom objects. There is no way at the present time to select which ones are desired.
 
@@ -72,31 +72,31 @@ A good use case for subscribing to this stream would be:
 
 List of Streamed User Audit Events:
 
-|COMPONENT|EVENT TYPE LIST|
-|--- |--- |
-|Default Program|clone, create, delete, edit channel, export, modify program setup, modify program token, rename|
-|Email|approve, clone, create, delete, edit, move, rename, unapprove|
-|Email Batch Program|approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify progra setup, modify program token, rename, unapprove|
-|Email Template|approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove|
-|Engagement Program|clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename|
-|Event Program|clone, create, delete, edit channel, modify program schedule, modify program setup, modif program token, rename|
-|Folder|create, delete, edit, rename|
-|Form|approve, clone, create, delete, draftCreate, edit, move, rename|
-|Form -> Landing Page Form|create, clone, edit, delete, approve, rename|
-|Landing Page|approve, clone, create, delete, draftDiscard, edit, rename, unapprove|
-|Landing Page Template|approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove|
-|Smart List|clone, create, delete, edit, export, modify smart list setup, rename|
-|Marketing Folder|create, edit, delete|
-|Nurture Program|clone, create, delete, edit channel, modify proram setup, modify program stream, modify program token, rename|
-|Segment|create, delete, edit, rename|
-|Segmentation|approve, create, delete, draftCreated, draftDiscarded, rename, unapprove|
-|Smart Campaign|abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename|
-|Snippet|approve, approve with no-draft, clone, create, delete, edit, rename, unapprove|
-|Admin UI -> Launchpoint -> Integration|create, delete, edit|
-|Admin UI -> User|create, edit, delete (Same for API only user)|
-|Admin Login -> User|login success, login failure|
-|Program -> Email Batch Program|edit (for changing selected email address) Asset API|
-|Program -> Marketing Program|create, clone|
+| COMPONENT | EVENT TYPE LIST |
+| --- | --- |
+| Default Program | clone, create, delete, edit channel, export, modify program setup, modify program token, rename |
+| Email | approve, clone, create, delete, edit, move, rename, unapprove |
+| Email Batch Program | approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify progra setup, modify program token, rename, unapprove |
+| Email Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove |
+| Engagement Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename |
+| Event Program | clone, create, delete, edit channel, modify program schedule, modify program setup, modif program token, rename |
+| Folder | create, delete, edit, rename |
+| Form | approve, clone, create, delete, draftCreate, edit, move, rename |
+| Form -> Landing Page Form | create, clone, edit, delete, approve, rename |
+| Landing Page | approve, clone, create, delete, draftDiscard, edit, rename, unapprove |
+| Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove |
+| Smart List | clone, create, delete, edit, export, modify smart list setup, rename |
+| Marketing Folder | create, edit, delete |
+| Nurture Program | clone, create, delete, edit channel, modify proram setup, modify program stream, modify program token, rename |
+| Segment | create, delete, edit, rename |
+| Segmentation | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove |
+| Smart Campaign | abort, activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename |
+| Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove |
+| Admin UI -> Launchpoint -> Integration | create, delete, edit |
+| Admin UI -> User | create, edit, delete (Same for API only user) |
+| Admin Login -> User | login success, login failure |
+| Program -> Email Batch Program | edit (for changing selected email address) Asset API |
+| Program -> Marketing Program | create, clone |
 
 Example of User Audit Event:
 
@@ -132,9 +132,9 @@ Currently, the notification center in Marketo can be configured to send notifica
 
 List of Notification Events:
 
-|COMPONENT|EVENT TYPE LIST|
-|--- |--- |
-|Notification|campaign abort, campaign failure, nurture (program exhausted), salesforce sync failure, test group (A/B test result), web services (daily quota)|
+| COMPONENT | EVENT TYPE LIST |
+| --- | --- |
+| Notification | campaign abort, campaign failure, nurture (program exhausted), salesforce sync failure, test group (A/B test result), web services (daily quota) |
 
 Example of Notification Event:
 

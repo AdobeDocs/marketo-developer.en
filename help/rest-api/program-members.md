@@ -634,7 +634,7 @@ POST /rest/v1/programs/members/schema/fields.json
 The [Update Program Member Field](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) endpoint updates a single custom field on the program member object. Generally, field update operations performed using the Marketo Engage UI are achievable using the API. There are a few differences summarized in the table below.
 
 | Attribute | Updatable by API? | Updatable by UI? | Updatable by API? | Updatable by UI? |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | dataType | no | no | no | yes |
 | description | yes | yes | yes | yes |
 | displayName | no | no | yes | yes |

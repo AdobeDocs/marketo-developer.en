@@ -32,11 +32,11 @@ To ensure the best performance for your integrations, when performing inserts or
 
 Determining your latency tolerances, or the maximum amount of time that may pass before submitting an API call, will inform many, if not most, of the decisions that you make when designing your integration to Marketo. Marketo provides many different methods and configuration options which are suitable for different use cases, and different latency classes. For example, a real-time integration to notify a salesperson of a user signing up for a trial might only submit batches of one if immediate follow-up is required. However, most cases don't require this and can tolerate additional latency and can be managed more efficiently through queuing and batching calls.
 
-| Acceptable Latency | Preferred Methods  | Notes  |
-|---|---|---|
-| Low (&lt;10s)  | Synchronous APIs (Batched or Unbatched) | Ensure that your use case requires this. Sending immediate and synchronous calls for high volume use cases can quickly consume a daily API quota, and potentially exceed both rate and concurrency limits. |
-| Medium(10s – 60m) | Synchronous APIs (Batched)  | For inbound data integrations to Marketo, using a queue with both an age and a size limit is highly recommended. When either limit is reached, flush the queue and submit your API request with the accumulated records. This is a strong compromise between speed and efficiency, ensuring that your requests occur at the required cadence, while batching as many records as the queue's age allows for. |
-| High(&gt;60m)  | Bulk Import/Export (if supported)  | For inbound data integrations, records should be queued and submitted via Marketo Bulk APIs whenever available. |
+| Acceptable Latency | Preferred Methods | Notes |
+| --- | --- | --- |
+| Low (&lt;10s) | Synchronous APIs (Batched or Unbatched) | Ensure that your use case requires this. Sending immediate and synchronous calls for high volume use cases can quickly consume a daily API quota, and potentially exceed both rate and concurrency limits. |
+| Medium(10s – 60m) | Synchronous APIs (Batched) | For inbound data integrations to Marketo, using a queue with both an age and a size limit is highly recommended. When either limit is reached, flush the queue and submit your API request with the accumulated records. This is a strong compromise between speed and efficiency, ensuring that your requests occur at the required cadence, while batching as many records as the queue's age allows for. |
+| High(&gt;60m) | Bulk Import/Export (if supported) | For inbound data integrations, records should be queued and submitted via Marketo Bulk APIs whenever available. |
 
 ## Daily Limits
 

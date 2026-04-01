@@ -87,7 +87,7 @@ When we submit the job it will return a batchId, which we can then use to check 
 Each job creation endpoint shares some common parameters for configuring the file format, field names, and filter of a bulk extract job.  Each subtype of extract job may have additional parameters:
 
 | Parameter | Data Type | Notes |
-|---|---|---|
+| --- | --- | --- |
 | format | String | Determines the file format of the imported data with options for comma-separated values, tab-separated values, and semi-colon-separated values. Accepts one of: CSV, SSV, TSV. The format defaults to CSV. |
 | file | String | Data is specified through multipart form-data in the file. |
 

@@ -14,14 +14,14 @@ Tokens in Marketo are special strings similar to shortcodes which are replaced b
 
 Tokens can be created with the following data types:
 
-| Type          | Description                                        |
-|---------------|----------------------------------------------------|
-| date          | Date value of the form "yyyy-MM-dd"                |
-| number        | An integer or floating point number                |
-| rich text     | An HTML string                                     |
-| score         | A signed 32-bit integer                            |
+| Type | Description |
+| --- | --- |
+| date | Date value of the form "yyyy-MM-dd" |
+| number | An integer or floating point number |
+| rich text | An HTML string |
+| score | A signed 32-bit integer |
 | sfdc campaign | Used in Salesforce campaign management integration |
-| text          | A text string                                      |
+| text | A text string |
 
 These are the only data types that can used when creating a token via API.
 

@@ -99,6 +99,8 @@ index: yes
     - [Opportunity Roles](rest-api/opportunity-roles.md)
     - [Program Members](rest-api/program-members.md)
     - [Sales Persons](rest-api/sales-persons.md)
+    - [Static List](rest-api/list-membership.md)
+    - [Usage](rest-api/usage.md)
   - [Paging Tokens](rest-api/paging-tokens.md)
   - [Performance](rest-api/performance.md)
   - [Reference Architectures](rest-api/reference-architectures.md)

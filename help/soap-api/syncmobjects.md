@@ -19,10 +19,10 @@ The UPDATE and UPSERT operations use the ID as the key. In a single API call som
 
 | Field Name | Required/Optional | Description |
 | --- | --- | --- |
-| mObjectList->mObject->type | Required | Can be one of:`Program`, `Opportunity`, `OpportunityPersonRole`|
+| mObjectList->mObject->type | Required | Can be one of:`Program`, `Opportunity`, `OpportunityPersonRole` |
 | mObjectList->mObject->id | Required | Id of the MObject. You may specify up to 100 MObjects per call. |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrType | Required | Cost (only used while updating the Program MObject) Can be one of: `Cost`, `Tag`|
-| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Required | For Program MObject, the following attributes can be passed as name-value pairs. For Cost:`Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. For Tag/Channel: `Type (Required)`, `Value (Required)`. For Opportunity MObject, all the fields from the output of the [describeMObject](describemobject.md) can be passed as name-value pairs. The below list are all optional fields and the standard set of attributes. You may have additional fields on the Opportunity MObject that were created through a support request.|
+| mObjectList->mObject->typeAttribList->typeAttrib->attrType | Required | Cost (only used while updating the Program MObject) Can be one of: `Cost`, `Tag` |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Required | For Program MObject, the following attributes can be passed as name-value pairs. For Cost:`Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. For Tag/Channel: `Type (Required)`, `Value (Required)`. For Opportunity MObject, all the fields from the output of the [describeMObject](describemobject.md) can be passed as name-value pairs. The below list are all optional fields and the standard set of attributes. You may have additional fields on the Opportunity MObject that were created through a support request. |
 
 1. Amount
 1. CloseDate
@@ -56,7 +56,7 @@ For OpportunityPersonRole MObject, you can supply all the fields from the output
 
 | Field Name | Required/Optional | Description |
 | --- | --- | --- |
-| mObjAssociationList->mObjAssociation->mObjType | Optional | Used to update Opportunity/OpportunityPersonRole MObjects using the id or external key of an associated object. Associated objects can be one of: Company (to update Opportunity MObject), Lead (to update OpportunityPersonRole MObject), Opportunity (to update OpportunityPersonRole MObject)|
+| mObjAssociationList->mObjAssociation->mObjType | Optional | Used to update Opportunity/OpportunityPersonRole MObjects using the id or external key of an associated object. Associated objects can be one of: Company (to update Opportunity MObject), Lead (to update OpportunityPersonRole MObject), Opportunity (to update OpportunityPersonRole MObject) |
 | mObjAssociationList->mObjAssociation->id | Optional | The id of the associated object (Lead/Company/Opportunity) |
 | mObjAssociationList->mObjAssociation->externalKey | Optional | A custom attribute of the associated object |
 

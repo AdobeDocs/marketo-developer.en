@@ -15,29 +15,29 @@ The RTP Redirect API allows you to redirect segmented audiences to a target URL.
 
 `rtp('send' , 'redirect' , 'field_name' , [ 'values_array' , '...' , '...' ] , 'www.redirect_url.com' , true/false )`
 
-| Parameter                 | Optional/Required | Type    | Description                 |
-|---------------------------|-------------------|---------|-----------------------------|
-| 'send'                    | Required          | String  | Method action.       |
-| 'redirect'                | Required          | String  | Method name.             |
-| field_name                | Required          | String  | Field name to match against. Example: 'abm.name' (see below).  |
-| values_array              | Required          | Array   | List of values to match the field against (not case sensitive). |
-| redirect_url              | Required          | String  | Target url to redirect visitors that matched the condition.    |
-| redirect_matched_visitors | Optional          | Boolean | If true, condition matched visitors will be redirected. If false, condition unmatched visitors will be redirected. Default: true. |
+| Parameter | Optional/Required | Type | Description |
+| --- | --- | --- | --- |
+| 'send' | Required | String | Method action. |
+| 'redirect' | Required | String | Method name. |
+| field_name | Required | String | Field name to match against. Example: 'abm.name' (see below). |
+| values_array | Required | Array | List of values to match the field against (not case sensitive). |
+| redirect_url | Required | String | Target url to redirect visitors that matched the condition. |
+| redirect_matched_visitors | Optional | Boolean | If true, condition matched visitors will be redirected. If false, condition unmatched visitors will be redirected. Default: true. |
 
 Organization, Industry, ABM Lists, Location, ISP, Matched Segments
 
-| Condition          | Data Hierarchy        | Example                   |
-|-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
+| Condition | Data Hierarchy | Example |
+| --- | --- | --- |
 | Matched Segments (Works only after first click) | matchedSegments.name | rtp( 'send', 'redirect' , 'matchedSegments.name' , ['Fortune 1,000' , 'Enterprise'] , '<http://www.marketo.com>'); |
-| Matched Segments (Works only after first click) | matchedSegments.id   | rtp( 'send', 'redirect' , 'matchedSegments.id' , [ 106 , 107 , 190 ] , '<http://www.marketo.com>');  |
-| ABM Lists          | abm.name             | rtp( 'send', 'redirect' , 'abm.name' , [ 'top_key_accounts', 'active_customers' ] , '<http://www.marketo.com>');  |
-| ABM Lists          | abm.code             | rtp( 'send', 'redirect' , 'abm.code' , [ 13 , 15 ] , '<http://www.marketo.com>'); |
-| Organizations      | org             | rtp( 'send', 'redirect' , 'org', ['ebay'], '<http://www.marketo.com>');  |
-| Location           | location.country     | rtp( 'send', 'redirect' , 'location.country' , ['United States'], '<http://www.marketo.com>');|
-| Location           | location.state       | rtp( 'send', 'redirect' , 'location.state', ['ca'], '<http://www.marketo.com>'); |
-| Location           | location.city        | rtp( 'send', 'redirect' , 'location.city', ['San Mateo'], '<http://www.marketo.com>');|
-| Industries         | industries           | rtp( 'send', 'redirect' , 'industries' , ['Education'], '<http://www.marketo.com>');  |
-| ISP                | isp                  | rtp( 'send', 'redirect' , isp , ['False'], '<http://www.marketo.com>'); |
+| Matched Segments (Works only after first click) | matchedSegments.id | rtp( 'send', 'redirect' , 'matchedSegments.id' , [ 106 , 107 , 190 ] , '<http://www.marketo.com>'); |
+| ABM Lists | abm.name | rtp( 'send', 'redirect' , 'abm.name' , [ 'top_key_accounts', 'active_customers' ] , '<http://www.marketo.com>'); |
+| ABM Lists | abm.code | rtp( 'send', 'redirect' , 'abm.code' , [ 13 , 15 ] , '<http://www.marketo.com>'); |
+| Organizations | org | rtp( 'send', 'redirect' , 'org', ['ebay'], '<http://www.marketo.com>'); |
+| Location | location.country | rtp( 'send', 'redirect' , 'location.country' , ['United States'], '<http://www.marketo.com>'); |
+| Location | location.state | rtp( 'send', 'redirect' , 'location.state', ['ca'], '<http://www.marketo.com>'); |
+| Location | location.city | rtp( 'send', 'redirect' , 'location.city', ['San Mateo'], '<http://www.marketo.com>'); |
+| Industries | industries | rtp( 'send', 'redirect' , 'industries' , ['Education'], '<http://www.marketo.com>'); |
+| ISP | isp | rtp( 'send', 'redirect' , isp , ['False'], '<http://www.marketo.com>'); |
 
 ## Notes
 
@@ -95,7 +95,7 @@ The redirect call supports multiple calls. This makes it possible to redirect wi
 `rtp('send', 'redirect', field_name, url_values_map);`
 
 | Parameter | Optional/Required | Type | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 'send' | Required | String | Method action. |
 | 'redirect' | Required | String | Method name. |
 | field_name | Required | String | Field name to match against. Example: 'abm.name' (see above). |

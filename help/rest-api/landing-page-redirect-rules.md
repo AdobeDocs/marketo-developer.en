@@ -137,7 +137,7 @@ The `hostname` parameter specifies the hostname for the landing page. This shoul
 The `redirectFrom` parameter specifies the source landing page. This is a JSON object that contains a type/value pair which determines whether the source is a Marketo landing page, or a non-Marketo landing page. The `type` attribute can be either "landingPageId" or "path".
 
 | Parameter | Optional/Required | Type | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 'get' | Required | String | Method action. |
 | 'visitor' | Required | String | Method name. |
 | callback | Required | Function | Callback function to be triggered for each campaign returned. |
@@ -145,7 +145,7 @@ The `redirectFrom` parameter specifies the source landing page. This is a JSON o
 The `redirectTo` parameter specifies the target landing page. This is a JSON object that contains a type/value pair which determines whether the source is a Marketo landing page, or a non-Marketo landing page. The `type` attribute can be either "landingPageId" or "url".
 
 | Landing Page Type | redirectTo type | Example |
-|---|---|---|
+| --- | --- | --- |
 | Marketo | landingPageId | {"type":"landingPageId","value":"1774"} |
 | Non-Marketo | url | {"type":"url","value":"www.contactLogs.com"} |
 

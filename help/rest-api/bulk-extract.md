@@ -112,7 +112,7 @@ When we create the job, it returns a job id in the `exportId` attribute. We can
 Each job creation endpoint shares some common parameters for configuring the file format, field names, and filter of a bulk extract job. Each subtype of extract job may have additional parameters:
 
 | Parameter | Data Type | Notes |
-|---|---|---|
+| --- | --- | --- |
 | format | String | Determines the file format of the extracted data with options for comma-separated values, tab-separated values, and semi-colon-separated values. Accepts one of: CSV, SSV, TSV. The format defaults to CSV. |
 | columnHeaderNames | Object | Allows setting the names of column headers in the returned file. Each member key is the name of the column header to rename, and the value is the new name of the column header. For example,  "columnHeaderNames": { "firstName": "First Name", "lastName": "Last Name" }, |
 | filter | Object | Filter applied to the extract job. Types and options vary between job types. |

@@ -11,7 +11,7 @@ Marketo exposes a REST API which allows for remote execution of many of the syst
 These APIs generally fall into two broad categories: [Lead Database](https://developer.adobe.com/marketo-apis/api/mapi/), and [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead Database APIs allow for retrieval of, and interaction with Marketo person records and associated object types, such as Opportunities and Companies. Asset APIs allow interaction with marketing collateral and workflow-related records.
 
 >[!NOTE]
->The SOAP API is being deprecated and will no longer be available after March 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
+>The SOAP API is being deprecated and will no longer be available after July 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
 >
 
 >[!IMPORTANT]
@@ -107,3 +107,5 @@ If you don't have a lead record with your email address in your database, substi
 ## API Usage
 
 Each of your API users is reported individually in the API usage report, so splitting up your web services by user allows you to easily account for the usage of each of your integrations. If the number of API calls to your instance are exceeding the limit and causing subsequent calls to fail, using this practice allows you to account for the volume from each of your services and let you evaluate how to resolve the issue. See your usage by going to **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** and clicking the number of calls in the past seven days.
+
+For the REST endpoints that return daily and last-7-days usage and error statistics, see [Usage](usage.md).
