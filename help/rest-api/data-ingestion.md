@@ -91,11 +91,11 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Error
 
-When a call produces an error, a non-202 status is returned along with a response body with additional error detail.  The response body is application/json and contains a single object with members error_code and message.
+When a call produces an error, a non-202 status is returned along with a response body with additional error detail. The response body is `application/json` and contains a single object with members `error_code` and `message`.
 
 Below are reused error codes from Adobe Developer Gateway.
 
-| HTTP Status Code  |   error_code   |  message|
+| HTTP Status Code  |   `error_code`   |  `message`|
 | - | - | - |
 |401  |   401013  |  Oauth token is invalid|
 |403  |   403010  |   Oauth token is missing|
@@ -104,17 +104,26 @@ Below are reused error codes from Adobe Developer Gateway.
 
 Below are error codes that are unique to the Data Ingestion API and are comprised of 3 segments.  The first three digits are the status (returned by Adobe Developer Gateway), followed by a zero "0", followed by three digits.
 
-| HTTP Status Code  |   error_code  |   message|
+| HTTP Status Code  |   `error_code`  |  `message` |
 | - | - | - |
-|400  |   4000801  |   Bad request|
-|400  |   4000802  |   Invalid data|
-|403  |   4030801  |   Unauthorized|
-|429  |   4290801  |   Daily quota reached|
-|500  |   5000801   |  Internal Server Error|
+|400  |   4000801  |   Bad request |
+|400  |   4000802  |   Invalid data |
+|403  |   4030801  |   Unauthorized |
+|429  |   4290801  |   Daily quota reached |
+|500  |   5000801   |  Internal Server Error |
 
 ## Retries
 
-When a transient error is detected, the service retries the operation three times.  The first retry occurs after a 5  minute wait period, the second after 30 more minutes, and finally the third after 30 more minutes.  Retries happen for various reasons, primarily when a dependent service times out or is temporarily not available.
+When a transient error is detected, the service retries the operation. Retries happen for various reasons, primarily when a dependent service times out or is temporarily not available.
+
+Retry intervals:
+
+* Initial operation and the 1st retry : 5 min 
+* 1st and 2nd : 15 min
+* 2nd and 3rd : 20 min
+* 3rd and 4th : 20 min
+* 4th and 5th : 2 hours
+* after 5th retry -> 3 hours
 
 ## Endpoints
 
@@ -139,10 +148,10 @@ Endpoint used to upsert person records.
 
 | Key   |  Data Type  |   Required  |   Value  |   Default Value|
 | - | - | - | - | - |
-| priority  |   String  |   No  |   Priority of the request: normal or high  |  normal |
-|partitionName   |  String   |  No   |  Name of person partition  |   Default|
-|dedupeFields  |   Object   |  No  |   Attributes to deduplicate on. One or two attribute names are allowed. <br/> Two attributes are used in an AND operation. For example, if both `email` and `firstName` are specified, they are both used to look up a person using the AND operation. <br/>Supported attributes are: `id`, `email`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId` `sfdcLeadOwnerId`, Custom attributes ("string" and "integer" type only),  `email` |
-|persons   |  Array of Object  |   Yes   |  List of attribute name-value pairs for the person   |  – |
+| `priority`  |   String  |   No  |   Priority of the request: `normal` or `high`  |  `normal` |
+|`partitionName`   |  String   |  No   |  Name of person partition  |   `Default`|
+|`dedupeFields`  |   Object   |  No  |   Attributes to deduplicate on. One or two attribute names are allowed. <br/> Two attributes are used in an AND operation. For example, if both `email` and `firstName` are specified, they are both used to look up a person using the AND operation. <br/>Supported attributes are: `id`, `email`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId` `sfdcLeadOwnerId`, custom attributes (`string` and `integer` type only), `email` |
+|`persons`   |  Array of Object  |   Yes   |  List of attribute name-value pairs for the person   |  – |
 
 Permissions required are `Read-Write Lead`.
 
@@ -206,13 +215,13 @@ Endpoint used to upsert custom object records
 
 | Key  |    Data Type |    Required  |    Value    |  Default Value |
 | - |- | - | - | - |
-| priority  |  String  | No  |  Priority of the request: normal, high |   normal |
-| dedupeBy  |  String  | No  |  Attributes to deduplicate on: dedupeFields, marketoGUID |   dedupeFields |
-| customObjects |  Array of Object | Yes | List of attribute name-value pairs for the object. | – |
+| `priority`  |  String  | No  |  Priority of the request: `normal`, `high` |   `normal` |
+| `dedupeBy`  |  String  | No  |  Attributes to deduplicate on: `dedupeFields`, `marketoGUID` |   `dedupeFields` |
+| `customObjects` |  Array of Object | Yes | List of attribute name-value pairs for the object. | – |
 
 Required permissions are `Read-Write Custom Object`.
 
-If a link field to a Person is specified in the request and that Person does not exist, several retries occur. If that Person is added during the retry window (65 minutes), then the update is successful. For example, if the link field is email on Person, and Person does not exist, then a retries occur.
+If a link field to a Person is specified in the request and that Person does not exist, several retries occur. If that Person is added during the retry window (65 minutes), then the update is successful. For example, if the link field is `email` on Person, and Person does not exist, then retries occur.
 
 ### Custom Objects example
 
