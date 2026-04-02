@@ -188,10 +188,10 @@ Fragments use a draft and approved lifecycle. Use the state transition endpoint 
 
 Valid `action` values are:
 
-- `approve`
-- `unapprove`
-- `discard`
-- `create_draft`
+* `approve`
+* `unapprove`
+* `discard`
+* `create_draft`
 
 ### Request
 
