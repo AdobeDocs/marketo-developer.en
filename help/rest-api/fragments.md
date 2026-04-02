@@ -1,6 +1,6 @@
 ---
 title: Fragments
-feature: REST API, Fragments
+feature: REST API
 description: Use the Marketo Asset REST API to query, create, update, clone, delete, approve, and inspect dependencies for fragments.
 ---
 # Fragments
