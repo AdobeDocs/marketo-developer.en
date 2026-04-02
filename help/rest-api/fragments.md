@@ -27,9 +27,13 @@ You can retrieve fragment metadata by asset id or with the filter endpoint.
 
 ### By ID
 
+#### Request
+
 ```text
 GET /rest/asset/v2/fragment/{id}
 ```
+
+#### Response
 
 ```json
 {
@@ -52,11 +56,16 @@ GET /rest/asset/v2/fragment/{id}
 
 The filter endpoint supports searching within a workspace and narrowing results with additional query parameters. `workspaceId` is required.
 
+todo: make this a table
 Supported filters include `folderId`, repeated `folderIds`, repeated `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `fragmentType`, `sortKey`, `sortOrder`, `isCreatedByMe`, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable`, and `includeArchived`.
+
+#### Request
 
 ```text
 GET /rest/asset/v2/fragment/filter?workspaceId=1001&fragmentType=email&pageIndex=0&pageSize=20
 ```
+
+#### Response
 
 ```json
 {
@@ -79,6 +88,8 @@ Use the `name` parameter when you need to find a fragment by name.
 ## Create
 
 Create a fragment by sending a JSON payload. `name`, `appData`, and `settings` are required. `settings` must include `fragmentType` and `supportedChannels`.
+
+### Request
 
 ```text
 POST /rest/asset/v2/fragment
@@ -104,6 +115,8 @@ Content-Type: application/json
 }
 ```
 
+### Response
+
 ```json
 {
   "success": true,
@@ -124,17 +137,16 @@ The request body may also include `data`, `editorContext`, `themeId`, `appType`,
 
 ### Create Fields
 
-`appData` identifies where the fragment is stored and how it is edited.
-
-`settings.fragmentType` identifies the fragment category, such as an email fragment.
-
-`settings.fragmentSubType` can be used to further define the fragment format.
-
-`settings.supportedChannels` lists the channels where the fragment can be used.
+* `appData` identifies where the fragment is stored and how it is edited.
+* `settings.fragmentType` identifies the fragment category, such as an email fragment.
+* `settings.fragmentSubType` can be used to further define the fragment format.
+* `settings.supportedChannels` lists the channels where the fragment can be used.
 
 ## Update
 
 Update a fragment by asset id.
+
+### Request
 
 ```text
 POST /rest/asset/v2/fragment/{id}/update
@@ -153,6 +165,8 @@ Content-Type: application/json
   }
 }
 ```
+
+### Response
 
 ```json
 {
@@ -179,10 +193,14 @@ Valid `action` values are:
 - `discard`
 - `create_draft`
 
+### Request
+
 ```text
 POST /rest/asset/v2/fragment/state/transition
 Content-Type: application/json
 ```
+
+### Response
 
 ```json
 {
@@ -195,10 +213,14 @@ Content-Type: application/json
 
 Use the clone endpoint to create a copy of an existing fragment.
 
+### Request
+
 ```text
 POST /rest/asset/v2/fragment/clone
 Content-Type: application/json
 ```
+
+### Response
 
 ```json
 {
@@ -214,6 +236,8 @@ Content-Type: application/json
 
 Delete a fragment by asset id.
 
+### Request
+
 ```text
 POST /rest/asset/v2/fragment/{id}/delete
 Content-Type: application/json
@@ -225,10 +249,14 @@ This endpoint takes the fragment id in the path and does not define a request bo
 
 Use the `usedby` endpoint to retrieve assets that reference a given fragment.
 
+### Request
+
 ```text
 POST /rest/asset/v2/fragment/usedby
 Content-Type: application/json
 ```
+
+### Response
 
 ```json
 {
@@ -238,7 +266,3 @@ Content-Type: application/json
   "type": "all"
 }
 ```
-
-## Notes
-
-Query endpoints return metadata for the asset. Use the endpoint reference for the full schema of available fields and any environment-specific properties.
