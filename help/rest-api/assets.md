@@ -16,6 +16,7 @@ Marketo assets include:
 - Programs
 - Emails
 - Email Templates
+- Fragments
 - Landing Pages
 - Landing Page Templates
 - Snippets

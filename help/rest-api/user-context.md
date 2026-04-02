@@ -15,9 +15,9 @@ User Context JavaScript API exposes user and visitor level data across multiple 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| customVar[1-5] | String | Custom data saved on user context. |
-| viewedCampaigns | Campaign ID's as comma-separated string | Viewed campaigns in current or previous visits. |
-| clickedCampaigns | Campaign ID's as comma-separated string | Clicked through campaigns in current or previous visits. |
+| `customVar[1-5]` | String | Custom data saved on user context. |
+| `viewedCampaigns` | Campaign IDs as comma-separated string | Viewed campaigns in current or previous visits. |
+| `clickedCampaigns` | Campaign IDs as comma-separated string | Clicked through campaigns in current or previous visits. |
 
 ## Set Custom Variables
 
@@ -29,9 +29,9 @@ Adding custom data to User Context.
 
 | Parameter | Optional/Required | Type | Description |
 | --- | --- | --- | --- |
-| 'set' | Required | String | Method action. |
-| customVar | Required | String | Custom variable name. |
-| my_custom_value | Required | String | Custom value to save on custom variable in index 1-5. |
+| `'set'` | Required | String | Method action. |
+| `customVar` | Required | String | Custom variable name. |
+| `my_custom_value` | Required | String | Custom value to save on custom variable in index 1-5. |
 
 Note: Custom variables are sent to RTP only in view call, so it is recommended to set custom variables before view is called. Otherwise, it will be sent only in next view call.
 

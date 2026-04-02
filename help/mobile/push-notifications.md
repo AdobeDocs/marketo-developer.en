@@ -281,7 +281,7 @@ The following is a Marketo activity log from Marketo that shows app events, and 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     ```
 
-1. Setting up FCM with HTTPv1 (Google has [deprecated XMPP protocol](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) on 12th June, 2023 and will be removed in June 2024)
+1. Setting up FCM with HTTPv1
 
 - Enable MME FCM HTTPv1 in Marketo feature manager ![](assets/feature-manager.png)
   - Upload Service Account Json file for the app in MLM.
