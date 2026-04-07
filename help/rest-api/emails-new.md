@@ -2,6 +2,7 @@
 title: Emails
 feature: REST API
 description: Use the Marketo Asset REST API to query, create, update, clone, delete, approve, and inspect dependencies for email assets.
+exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
 ---
 # Emails
 
