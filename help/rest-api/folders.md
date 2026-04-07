@@ -54,7 +54,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 ```
 
-The type parameter is required and must be one of "Folder" or "Program."  The type dictates whether the lookup to the folder is done against a Folder ID or a Program ID. For this endpoint, only a single record is returned in the result Array. Note the folderType parameter in the response. This can indicate many different types of folders. Marketo Activities folders have either a type of Marketing Folder or Program, which can contain many different types of assets, while Design Studio folders have a type corresponding to the asset type which they can hold. For example, a folder with folderType of "Email" may contain only Emails, or other subfolders, which might have a folderType of Email or Email Template. Types may include:
+The type parameter is required and must be one of "Folder" or "Program."  The type dictates whether the lookup to the folder is done against a Folder ID or a Program ID. For this endpoint, only a single record is returned in the result Array. Note the `folderType` parameter in the response. This can indicate many different types of folders. Marketo Activities folders have either a type of Marketing Folder or Program, which can contain many different types of assets, while Design Studio folders have a type corresponding to the asset type which they can hold. For example, a folder with `folderType` of "Email" may contain only Emails, or other subfolders, which might have a `folderType` of Email or Email Template. Types may include:
 
 - Email
 - Email Template

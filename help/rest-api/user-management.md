@@ -12,7 +12,7 @@ Marketo provides a set of User Management endpoints allow you to perform CRUD op
 
 Unlike other Marketo REST APIs, when using the User Management APIs:
 
-- You must use the HTTP header method to send the access token to authenticate. You cannot pass access token as a query string parameter. More information on authentication is [here](authentication.md).
+- You must use the HTTP header method to send the access token to authenticate. You cannot pass the access token as a query string parameter. More information is available in the [Authentication guide](authentication.md).
 - You must select a role permission from two different groups when creating the user role for [Custom Service](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) for REST API:
   1. "Access Users" permission from the [Access Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) group
   1. "Access User Management Api" from the [Access API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) group
@@ -294,15 +294,15 @@ GET /userservice/management/v1/users/workspaces.json
 
 On [Adobe IMS-integrated subscriptions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), this endpoint supports invitation of [API-Only Users](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) only. To invite [standard Users](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users), use the [Adobe User Management API](https://developer.adobe.com/umapi/) instead.
 
-The [Invite User](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) endpoint to send a "Welcome to Marketo" email invitation to new user. The email body contains a "Login to Marketo" link which allows user to access Marketo for the first time. To accept the invitation, the email recipient clicks the "Login to Marketo" link, creates their password, and gains access to Marketo. Until the acceptance process is complete, the invitation is "pending" and the user record may not be edited. A pending invitation expires seven days after being sent. More information about managing users can be found [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
+The [Invite User](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) endpoint sends a "Welcome to Marketo" email invitation to a new user. The email body contains a "Login to Marketo" link which allows the user to access Marketo for the first time. To accept the invitation, the email recipient clicks the "Login to Marketo" link, creates their password, and gains access to Marketo. Until the acceptance process is complete, the invitation is "pending" and the user record may not be edited. A pending invitation expires seven days after being sent. More information is available in the [Marketo user management documentation](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
 
-Parameters are passed in the request body in `application/json` format .
+Parameters are passed in the request body in `application/json` format.
 
-The following parameters are required:  `emailAddress`, `firstName`, `lastName, userRoleWorkspaces`. The `userRoleWorkspaces` parameter is an array of objects which contain `accessRoleId` and `workspaceId` attributes.
+The following parameters are required: `emailAddress`, `firstName`, `lastName`, and `userRoleWorkspaces`. The `userRoleWorkspaces` parameter is an array of objects which contain `accessRoleId` and `workspaceId` attributes.
 
-The `userid` parameter is a unique user identifier string value used for user login purposes and must be formatted as an email address. If not provided in the request, the value of `userid` defaults to the value provided in `emailAddress` parameter.
+The `userid` parameter is a unique user identifier string value used for user login purposes and must be formatted as an email address. If not provided in the request, the value of `userid` defaults to the value provided in the `emailAddress` parameter.
 
-The boolean `apiOnly` parameter specifies whether the user is an [API-Only user](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). The `expiresAt` parameter specifies when user login expires and is formatted using W3C ISO-8601 format (without milliseconds). If not provided in request, the user never expires. The `reason` parameter is a string that describes the reason for the user invitation.
+The boolean `apiOnly` parameter specifies whether the user is an [API-Only user](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). The `expiresAt` parameter specifies when user login expires and is formatted using W3C ISO-8601 format (without milliseconds). If not provided in the request, the user never expires. The `reason` parameter is a string that describes the reason for the user invitation.
 
 The endpoint returns a value of "true" if successful, otherwise an error message is returned.
 

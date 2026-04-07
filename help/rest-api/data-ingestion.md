@@ -110,7 +110,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Error
 
-When a call produces an error, a non-202 status is returned along with a response body with additional error detail.  The response body is application/json and contains a single object with members error_code and message.
+When a call produces an error, a non-202 status is returned along with a response body with additional error detail. The response body is `application/json` and contains a single object with members `error_code` and `message`.
 
 Below are reused error codes from Adobe Developer Gateway.
 
@@ -133,7 +133,16 @@ Below are error codes that are unique to the Data Ingestion API and are comprise
 
 ## Retries
 
-When a transient error is detected, the service retries the operation three times.  The first retry occurs after a 5  minute wait period, the second after 30 more minutes, and finally the third after 30 more minutes.  Retries happen for various reasons, primarily when a dependent service times out or is temporarily not available.
+When a transient error is detected, the service retries the operation. Retries happen for various reasons, primarily when a dependent service times out or is temporarily not available.
+
+Retry intervals:
+
+* Initial operation and the 1st retry : 5 min 
+* 1st and 2nd : 15 min
+* 2nd and 3rd : 20 min
+* 3rd and 4th : 20 min
+* 4th and 5th : 2 hours
+* after 5th retry -> 3 hours
 
 ## Endpoints
 
@@ -233,7 +242,7 @@ Endpoint used to upsert custom object records.
 
 Required permissions are `Read-Write Custom Object`.
 
-If a link field to a Person is specified in the request and that Person does not exist, several retries occur. If that Person is added during the retry window (65 minutes), then the update is successful. For example, if the link field is email on Person, and Person does not exist, then a retries occur.
+If a link field to a Person is specified in the request and that Person does not exist, several retries occur. If that Person is added during the retry window (65 minutes), then the update is successful. For example, if the link field is `email` on Person, and Person does not exist, then retries occur.
 
 ### Custom Objects example
 

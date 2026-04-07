@@ -810,8 +810,10 @@ Membership
 
 Lead records can also be retrieved based on membership in a static list, or a program. Additionally, you can retrieve all static lists, programs, or smart campaigns that a lead is a member of.
 
-The response structure and optional parameters are identical to those of Get Leads by Filter Type, though filterType and filterValues cannot be used with this API.
+The response structure and optional parameters are identical to those of Get Leads by Filter Type, though `filterType` and `filterValues` cannot be used with this API.
 To access the list id through the Marketo UI, navigate to the list. The list `id` is in the URL of the static list, `https://app-****.marketo.com/#ST1001A1`. In this example, 1001 is the `id` for the list.
+
+## Get Programs by Lead Id
 
 ### Request
 
@@ -849,6 +851,8 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
     ]
 }
 ```
+
+## Get Lists by Lead Id
 
 The Get Lists by Lead Id endpoint takes a lead record `id` path parameter and returns all static list records that the lead is a member of.
 

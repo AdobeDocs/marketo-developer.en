@@ -6,7 +6,7 @@ exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
 # Data Streams
 
 >[!NOTE]
-> Current information on data streams is now found at [Using Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/).
+> Current information on data streams is now found at [Using Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
 >
 
 Our customer's marketing organizations rely on timely and focused Marketing Campaigns to stay on top of their business and be competitive. In order to support fast paced decisions and enable strategic change at speed, it's important to have data to support and drive those key decisions that deliver focused and targeted Campaigns. There are also some customers that perform Marketing efforts at levels of their customer segments both inside and outside of Marketo Engage. To support these different efforts, Marketo has created the ability to acquire large volumes of data in near real-time thru Data Streams.
@@ -252,7 +252,7 @@ User Audit events are sent to Adobe IO and can be consumed by logging in with an
     1. This step requires an Adobe Org
     1. Requires Adobe Org User to have Developer or System Admin Role
 
-To setup Adobe IO, see [Setting up Marketo User Audit Data Streams with Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) in the Public Documentation section.
+To setup Adobe IO, see [Setting up Marketo User Audit Data Streams with Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#) in the Public Documentation section.
 
 ### Setting Up The User Audit Data Stream in Marketo
 
