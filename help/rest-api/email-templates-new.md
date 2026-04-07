@@ -2,6 +2,7 @@
 title: Email Templates
 feature: REST API
 description: Use the Marketo Asset REST API to query, create, update, clone, delete, approve, and inspect dependencies for email templates.
+exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
 ---
 # Email Templates
 
