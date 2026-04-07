@@ -18,7 +18,7 @@ There are three steps to enable push notifications:
 
 ### Configure Push Notifications on Apple Developer Account
 
-1. Log into the Apple Developer [Member Center](http://developer.apple.com/membercenter).
+1. Log into the Apple Developer [Member Center](https://developer.apple.com/membercenter).
 1. Click on "Certificates, Identifiers & Profiles".
 1. Click on "Certificates->All" folder underneath "iOS, tvOS, watchOS".
 1. Select the "+" on the top left screen next to certificates ![](assets/certificates-plus.png)

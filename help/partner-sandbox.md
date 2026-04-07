@@ -7,7 +7,7 @@ exl-id: a8f36cb5-d288-4b8b-b4bf-037faa3fe73f
 
 A partner sandbox is Marketo Engage instance that is used by partners during the software development lifecycle. Partners use their sandbox to learn the ins  and outs of the Marketo Engage UI, and to gain access to Marketo Engage API services.
 
-A sandbox is provisioned after a partner has been accepted into  the [Adobe Exchange Partner Program, Digital Experience](http://partners.adobe.com/technologyprogram/experiencecloud.html). In most respects, partner sandboxes are functionally equivalent to a production instance. Partner sandboxes do not have add-on modules installed and have fixed capacity limits in place. Below is a FAQ followed by a summary of partner sandbox capabilities.
+A sandbox is provisioned after a partner has been accepted into  the [Adobe Exchange Partner Program, Digital Experience](https://partners.adobe.com/technologyprogram/experiencecloud.html). In most respects, partner sandboxes are functionally equivalent to a production instance. Partner sandboxes do not have add-on modules installed and have fixed capacity limits in place. Below is a FAQ followed by a summary of partner sandbox capabilities.
 
 ## Capabilities Summary
 
