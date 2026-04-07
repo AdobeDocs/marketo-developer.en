@@ -1570,7 +1570,7 @@ Posted on _2014-09-29_ by _Murta_
 
 ## How to Clean Up Your Marketo Database
 
-**NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](https://www.marketingrockstarguides.com/).** Keeping your Marketo database clean is an important part of administering this powerful system. If your Marketo data is dirty or your CRM data is dirty, then your job as a marketing manager becomes a whole lot harder as you explain why campaigns went to the wrong people or your reports are "directional." [A 2011 Gartner study noted](https://www.data.com/export/sites/data/common/assets/pdf/DS_Gartner.pdf) that poor data quality lowered labor productivity by 20%. That's 20% of your time (8 hours/week or 1 day per week) that is wasted because you had to fix data. But this loss pales in comparison to the revenue lost because your targeting was wrong. Here are the top five reasons to invest in keeping your data clean: - Better segmentation of leads and clients can be done, allowing you to focus your message on the right people at the right time. That 20% off coupon should go only to new prospects, not your best clients, right? - Avoid duplicate sending of emails. In spite of all the precautions, it is possible to send multiple emails to the same lead, usually because duplicate records are not merged. - Accurate reporting to your boss. Because the CMO has a seat at the revenue table, you must have accurate, consistent, and repeatable reports…or you cannot be a revenue marketer anymore. - Hurt pending deals if you email the wrong marketing material to key prospects during sales negotiations.
+**NOTE: This is a guest blog post. Josh Hill is the Marketo Practice Lead at Perkuto, a marketing automation agency. Josh works at the intersection of marketing, sales, and technology to deliver revenue generation systems. He writes about marketing automation and demand generation at [MarketingRockstarGuides.com](https://www.marketingrockstarguides.com/).** Keeping your Marketo database clean is an important part of administering this powerful system. If your Marketo data is dirty or your CRM data is dirty, then your job as a marketing manager becomes a whole lot harder as you explain why campaigns went to the wrong people or your reports are "directional." A 2011 Gartner study noted that poor data quality lowered labor productivity by 20%. That's 20% of your time (8 hours/week or 1 day per week) that is wasted because you had to fix data. But this loss pales in comparison to the revenue lost because your targeting was wrong. Here are the top five reasons to invest in keeping your data clean: - Better segmentation of leads and clients can be done, allowing you to focus your message on the right people at the right time. That 20% off coupon should go only to new prospects, not your best clients, right? - Avoid duplicate sending of emails. In spite of all the precautions, it is possible to send multiple emails to the same lead, usually because duplicate records are not merged. - Accurate reporting to your boss. Because the CMO has a seat at the revenue table, you must have accurate, consistent, and repeatable reports…or you cannot be a revenue marketer anymore. - Hurt pending deals if you email the wrong marketing material to key prospects during sales negotiations.
 
 If your database is not providing that detail on the lifecycle stage, that could sink a deal or two. - Remove bad or old leads to stay below pricing thresholds. Much has been written about the cost of bad data. Your most immediate concern is that too many bad, duplicate, or old leads are pushing you over your Marketo or Salesforce pricing tier, which can result in thousands of fees per year. So, how do you keep your database clean? You can follow these principles of data cleanliness, but how do you get there inside Marketo? I make a few assumptions about your system: - You have a standard Marketo system. - You have a typical Lead-Contact-Account Salesforce setup. - You are syncing all records between systems. - You are not using purposeful duplicates.
 
@@ -2619,7 +2619,7 @@ Posted on _2015-01-20_ by _Murta_
 
 ## Highlighting Open Source Projects Built on the Marketo Platform: Part Two
 
-This is the second post in an ongoing series highlighting open-source projects built around the Marketo platform by the developer community. We maintain [a list on Marketo's GitHub account](https://github.com/Marketo/Community-Supported-Client-Libraries) where we track client libraries and projects created by the Marketo developer community. Below are three projects developed around the Marketo SOAP and Munchkin APIs. [PunchTab](https://www.punchtab.com/) created [a client library in Python for the Marketo SOAP API](https://github.com/PunchTab/suds-marketo). [Flickerbox](https://www.flickerbox.com/) created [a client library in PHP for the Marketo SOAP API](https://github.com/flickerbox/marketo).* [Richard Morrison](https://x.com/mozz100) created [a PHP script to get lead data from the Marketo SOAP API, and then pass this data to the client using JavaScript.](https://github.com/mozz100/marketo-whodat) This project can help you modify a page based on a user's data in Marketo.  We are excited to see more projects created by the developer community on the Marketo platform. If you are working on an open source project for the Marketo platform, please [submit it to this GitHub repo via a pull request](https://github.com/Marketo/Community-Supported-Client-Libraries).
+This is the second post in an ongoing series highlighting open-source projects built around the Marketo platform by the developer community. We maintain [a list on Marketo's GitHub account](https://github.com/Marketo/Community-Supported-Client-Libraries) where we track client libraries and projects created by the Marketo developer community. Below are three projects developed around the Marketo SOAP and Munchkin APIs. PunchTab created [a client library in Python for the Marketo SOAP API](https://github.com/PunchTab/suds-marketo). [Flickerbox](https://www.flickerbox.com/) created [a client library in PHP for the Marketo SOAP API](https://github.com/flickerbox/marketo).* [Richard Morrison](https://x.com/mozz100) created [a PHP script to get lead data from the Marketo SOAP API, and then pass this data to the client using JavaScript.](https://github.com/mozz100/marketo-whodat) This project can help you modify a page based on a user's data in Marketo.  We are excited to see more projects created by the developer community on the Marketo platform. If you are working on an open source project for the Marketo platform, please [submit it to this GitHub repo via a pull request](https://github.com/Marketo/Community-Supported-Client-Libraries).
 
 Posted on _2015-01-20_ by _Murta_
 
@@ -3773,7 +3773,7 @@ Example - Get Folder by Name
 ]
 ```
 
-To determine the folder type for a given id, you may use the [Browse Folders](https://developer.adobe.com/marketo-apis/api/asset/browse-folders/) API.
+To determine the folder type for a given id, you may use the Browse Folders API.
 
 The "type" attribute in API responses has been renamed to "folderType". This is to avoid confusion with the "type" element contained in FolderIdType.
 
@@ -4167,7 +4167,7 @@ public class App
 In this main method example, we create an instance of Auth, and then pass this to a new Leads constructor. Using setFilterType, and addFilterValue, we configure our instance of Leads to retrieve just leads matching the email address "<testlead@marketo.com>." This example prints this out to the console:
 
 Token is empty or expired. Trying new authentication
-Trying to authenticate with <https://299-BYM-827.mktorest.com/identity/oauth/token?grant_type=client_credentials&client_id=b417d98f-9289-47d1-a61f-db141bf0267f&client_secret=0DipOvz4h2wP1ANeVjlfwMvECJpo0ZYc>
+Trying to authenticate with `https://299-BYM-827.mktorest.com/identity/oauth/token?grant_type=client_credentials&client_id=b417d98f-9289-47d1-a61f-db141bf0267f&client_secret=0DipOvz4h2wP1ANeVjlfwMvECJpo0ZYc`
 Got Authentication Response: {"access_token":"ec0f02c0-28ac-4d6c-b7d7-00e47ae85ff1:st","token_type":"bearer","expires_in":538,"scope":"<apiuser@mktosupport.com>"}
 {"requestId":"14fb6#14e6a7a9ad6","result":[{"id":1026322,"updatedAt":"2015-07-07T21:43:25Z","lastName":"Lead","email":"<testlead@marketo.com>","createdAt":"2015-07-07T21:43:25Z","firstName":"Test"},{"id":1026323,"updatedAt":"2015-07-07T21:43:43Z","lastName":"Lead2","email":"<testlead@marketo.com>","createdAt":"2015-07-07T21:43:43Z","firstName":"Test"}],"success":true}
 
@@ -4193,9 +4193,9 @@ New [landing page template endpoints](https://developer.adobe.com/marketo-apis/a
 
 Two segment-related endpoints have been introduced:
 
-[Get Segments](https://developer.adobe.com/marketo-apis/api/asset/get-segments)
+Get Segments
 
-[Get Segmentation by Id](https://developer.adobe.com/marketo-apis/api/asset/get-segmentation-by-id)
+Get Segmentation by Id
 
 * Fixed issue where Get Folder by Name was not honoring the "workSpace" parameter. [LM-61059]
 * Made several performance improvements to the Custom Object APIs.
@@ -5565,7 +5565,7 @@ Posted on _2015-10-09_ by _Kenny_
 
 DataDirect has been building this style of connectivity to SaaS data sources since 2006 starting with the first Salesforce ODBC driver built on top of its web service APIs. **Getting started connecting to Marketo:**
 
-1. [Register for a DataDirect Cloud Login](https://pacific.progress.com/console/register?productName=d2c&ignoreCookie=true)
+1. Register for a DataDirect Cloud Login
 1. Click "Data Sources" and then "+New Data Source" button
 1. Select "Marketo" and enter the connection information. You can check with your Marketo administrator or login to find [connection information for SOAP integration](/help/soap-api/soap-api.md).
 1. Click "Test Connection" button. Note there is an OData tab to produce OData from Marketo and we will discuss in a future blog post.
@@ -5592,10 +5592,10 @@ How to handle data models? Is it static or dynamic? How are changes detected and
 
 **Marketo and DataDirect Cloud Reference for Developers:**
 
-* Marketo Connection Properties ([link to docs](https://www.progress.com/output/DataDirect/DataDirectCloud/index.html))
-* Supported SQL and extensions with Marketo ([link to docs](https://www.progress.com/output/DataDirect/DataDirectCloud/index.html,-hubspot,-and-marketo.html))
-* Exposed Marketo Tables and Views ([link to docs](https://www.progress.com/output/DataDirect/DataDirectCloud/index.html))
-* Common error messages returned from Marketo ([link to docs](https://www.progress.com/output/DataDirect/DataDirectCloud/index.html))
+* Marketo Connection Properties (link to docs)
+* Supported SQL and extensions with Marketo (link to docs)
+* Exposed Marketo Tables and Views (link to docs)
+* Common error messages returned from Marketo (link to docs)
 
 **Biography:** Sumit Sarkar is a Chief Data Evangelist at Progress, with over 10 years experience working in the data connectivity field. The world's leading consultant on open data standards connectivity with cloud data, Sumit's interests include performance tuning of the data access layer for which he has developed a patent pending technology for its analysis; business intelligence and data warehousing for SaaS platforms; and data connectivity for PaaS environments, with a focus on standards such as ODBC, JDBC, ADO.NET and ODATA. He is an IBM Certified Consultant for IBM Cognos Business Intelligence and a TDWI member. He has presented sessions on data connectivity at various conferences including Dreamforce, Oracle OpenWorld, Strata Hadoop, MongoDB World and SAP Analytics and Business Objects Conference, among many others. Twitter: @SAsInSumit LinkedIn: [www.linkedin.com/in/meetsumit](http://www.linkedin.com/in/meetsumit)
 
@@ -5704,7 +5704,7 @@ processStats(
 );
 ```
 
-As you can see, the web service has simply wrapped the contents of the two output files from our app. We have created a mock web service response using [Mocky](https://designer.mocky.io). An example of the web service the mock is [here.](http://www.mocky.io/v2/5627b2f9270000f2226eec63?month=10&year=2015&account=111-AAA-222&callback=processStats) Creation of this web service is left as an exercise for the reader : **Dashboard Web Page** So now all we need is a web page that calls our web service and formats the data. To use the JSONP pattern we just need to add a `<script>` tag that invokes the web service:
+As you can see, the web service has simply wrapped the contents of the two output files from our app. We have created a mock web service response using [Mocky](https://designer.mocky.io). An example of the web service the mock is here. Creation of this web service is left as an exercise for the reader : **Dashboard Web Page** So now all we need is a web page that calls our web service and formats the data. To use the JSONP pattern we just need to add a `<script>` tag that invokes the web service:
 
 `<script src="http: //<hostname>/stats?month=10&year=2015&account=284-RPR-133&callback=processStats"></script>`
 
@@ -5964,7 +5964,7 @@ Our next class of recoverable errors is related to authentication. When a former
 
 ### Timeouts
 
-In very rare circumstances, a call may return a 604, "Request timed out," after the 30 second timeout period has elapsed. For batched requests, such as Create/Update Leads, the request can be split up into smaller batches and retried until success is returned (if the batch is split to fewer than 100 records and the request is still is timed out, you should probably file a support case). The most common other case is with asset approval calls, where a lock may be held on the current approved record by another user or service, such as the case of an [Email](https://developer.adobe.com/marketo-apis/api/asset/approve-email-by-id/) or [Email Template](https://developer.adobe.com/marketo-apis/api/asset/approve-email-template-by-id/). In these cases, [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) should be used for retries to allow for any existing locks to be resolved. Check back in the coming weeks for the final part of the series where we'll take a closer look at some specific, non-recoverable errors.
+In very rare circumstances, a call may return a 604, "Request timed out," after the 30 second timeout period has elapsed. For batched requests, such as Create/Update Leads, the request can be split up into smaller batches and retried until success is returned (if the batch is split to fewer than 100 records and the request is still is timed out, you should probably file a support case). The most common other case is with asset approval calls, where a lock may be held on the current approved record by another user or service, such as the case of an Email or Email Template. In these cases, [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) should be used for retries to allow for any existing locks to be resolved. Check back in the coming weeks for the final part of the series where we'll take a closer look at some specific, non-recoverable errors.
 
 Posted on _2015-10-30_ by _Kenny_
 
@@ -7226,11 +7226,11 @@ This article explains in detail how to integrate Marketo with potentially over 5
 
 **Sign-up for a free account with Zapier** [Zapier](https://zapier.com/) is a web app Automation Service that lets you easily automate tasks between other online apps without the need for programmers or any IT resources. A brief introduction can be found [here](https://zapier.com/api/v4/helpdocs/category/redirect/what-is-zapier). Today Zapier supports more than 500 apps in many different domains such as Marketing, CRM, CMS, Customer Support, Electronic Signature, Forms, etc. A single integration between one app and another is called a Zap. Check Zapier's [zapbook](https://zapier.com/apps) for an exhaustive list of supported web apps.  Sign up for a free account [here](https://zapier.com/sign-up/). You get access to up to 100 tasks/month, 5 zaps, and zaps running every 15 minutes. You can of course get much more by subscribing to Zapier's paid plans (basic, business, business plus, etc.)
 
-**Access to a Marketo Instance as Administrator or with a provided API User account** Our Zapier connector will use the Marketo REST API to push Lead data to Marketo. In order to use this API, you need an API User and a Custom Service that you can create yourself if you are administrator of your Marketo instance. If not, then an administrator will need to provide those to you. There is also a Webhook to create, only accessible to a Marketo Administrator. A step by step explanation of how to create the Marketo API User and the Custom Service can be found [here](http://rest-api/custom-services/). Once you're done, you should have the following credentials to invoke the Marketo REST API: Client Id, Client Secret, Munchkin Account Id, Munchkin Account Id
+**Access to a Marketo Instance as Administrator or with a provided API User account** Our Zapier connector will use the Marketo REST API to push Lead data to Marketo. In order to use this API, you need an API User and a Custom Service that you can create yourself if you are administrator of your Marketo instance. If not, then an administrator will need to provide those to you. There is also a Webhook to create, only accessible to a Marketo Administrator. A step by step explanation of how to create the Marketo API User and the Custom Service can be found here. Once you're done, you should have the following credentials to invoke the Marketo REST API: Client Id, Client Secret, Munchkin Account Id, Munchkin Account Id
 
 You can get the Munchkin Account Id from the Munchkin or the Web Services Admin screens. Its pattern looks like this: `000-XXX-000`.  No need to get an access token as it would be only valid for a single hour. The Connector will generate tokens for you automatically.
 **Sign-up for a free account with Google Docs, Sheets, and Slides are productivity apps that let you create different kinds of online documents, work on them in real time with other people, and store them in your Google Drive online. Our use case needs a Google Sheet. Different features of Google Docs and creation of an account with Google can be found [here](https://workspace.google.com/products/docs/).
-**Sign-up for a free account with FullContact** FullContact keeps you fully connected to the people who matter most by pulling in all your contacts and continuously syncing them with changes to social profiles, photos, email signatures, company information, and more. They offer a mobile business cards reader that can scan cards into 250+ Web Apps, including Zapier. You can sign up for a free account [here](https://app.fullcontact.com/login). You may also subscribe to a premium paid account with more features and capacity. The mobile app can be downloaded from the [Apple AppStore](https://apps.apple.com/us/app/fullcontact-business-card/id576780807), or from [Google Play](https://play.google.com/store/apps/details?id=com.fullcontact.cardreader). The FullContact Zaps are documented [here](https://zapier.com/apps/contacts-plus/integrations).
+**Sign-up for a free account with FullContact** FullContact keeps you fully connected to the people who matter most by pulling in all your contacts and continuously syncing them with changes to social profiles, photos, email signatures, company information, and more. They offer a mobile business cards reader that can scan cards into 250+ Web Apps, including Zapier. You can sign up for a free account here. You may also subscribe to a premium paid account with more features and capacity. The mobile app can be downloaded from the Apple AppStore, or from Google Play. The FullContact Zaps are documented in the [FullContact Zapier integrations](https://zapier.com/apps/contacts-plus/integrations).
 
 ### Implementation of the Marketo Connector for Zapier
 
@@ -8042,7 +8042,7 @@ You should be able now to design all the queries you need to access any specific
 
 * [Power Query – Overview and Learning](https://support.microsoft.com/en-us/article/Power-Query-Overview-and-Learning-ed614c81-4b00-4291-bd3a-55d80767f81d)
 * [Power Query Formula Reference](http://msdn.microsoft.com/query-bi/m/power-query-m-reference)
-* [Matt Masson Blog](http://www.mattmasson.com/tag/power-query/) provides some good resources about Power Query
+* Matt Masson Blog provides some good resources about Power Query
 * [DataChant Blog](https://datachant.com/2016/06/27/cursor-based-pagination-power-query/) is very useful for the implementation of the pagination mechanism
 
 Posted on _2016-10-18_ by _Philippe_
@@ -8646,10 +8646,10 @@ Where [YOUR_STAGING_BUCKET_NAME] is the name of your staging Cloud Storage bucke
     * [YOUR_PROJECT_ID] is your Cloud project ID. This is visible in your terminal when your function finishes deploying.
     * [FUNCTION] is your function name.
 
-    In our example: [**https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare**](https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare)
+    In our example: **`https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare`**
 1. Test your function with a tool like [Postman](https://www.postman.com/):
     * HTTP Verb: POST
-    * URL: [https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare](https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare)
+    * URL: `https://us-central1-marketo-cloud-logic.cloudfunctions.net/scoreCompare`
     * Headers: content-type = application/json
     * Body: {"onlineScore":110, "offlineScore":200}Output should give: {"output": "offline"}.
 
@@ -8766,7 +8766,7 @@ The Summer 2018 release is primarily a maintenance release comprised of minor en
   * Marketing Suspended
   * Email Suspended
   * Relative Urgency
-* The [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/lead-database-endpoint-reference/#/Leads/getLeadsByFilterUsingGET) endpoint now supports leadPartionId as a filterType.
+* The Get Leads by Filter Type endpoint now supports leadPartionId as a filterType.
 
 ### Defect Resolutions
 
