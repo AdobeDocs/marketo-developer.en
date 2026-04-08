@@ -35,7 +35,7 @@ Forms 2.0 empowers Marketers to create beautiful, stable, and flexible web forms
 * Showing a custom error message on submit based on custom business logic
 * Showing the form in a lightbox style dialog box
 
-Developer documentation is available [here](/help/javascript-api/dorms-api-reference.md).
+Developer documentation is available [here](/help/javascript-api/forms-api-reference.md).
 
 ### SOAP API version 2_3 now available
 
