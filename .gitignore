@@ -1840,3 +1840,4 @@ node_modules/openai/src/resources/vector-stores/file-batches.ts
 node_modules/openai/src/resources/vector-stores/files.ts
 node_modules/openai/src/resources/vector-stores/index.ts
 node_modules/openai/src/resources/vector-stores/vector-stores.ts
+.claude/

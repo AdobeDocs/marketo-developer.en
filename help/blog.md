@@ -40,7 +40,7 @@ Developer documentation is available [here](/help/javascript-api/forms-api-refer
 ### SOAP API version 2_3 now available
 
 * [getLeadChanges:](/help/soap-api/hetleadchanges.md) Introduced request field `activityNameFilter`
-* [ListOperation:](/help/soap-api/listoperation.md) Removed request field `skipActivityLog`
+* [ListOperation:](/help/soap-api/mistoperation.md) Removed request field `skipActivityLog`
 
 **Note:** SOAP API revisions are backward compatible
 
