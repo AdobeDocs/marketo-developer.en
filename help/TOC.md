@@ -4,7 +4,7 @@ user-guide-description: "This guide provides instructions for using [!DNL Market
 breadcrumb-title: "[!DNL Marketo] Developer Guide"
 role: Admin
 feature-set: "Marketo Engage"
-index: yes
+index: true
 ---
 
 # [!DNL Marketo] Developer {#marketo}
