@@ -1600,7 +1600,7 @@ Posted on _2014-10-08_ by _Josh_
 
 ### External Page Prefill
 
-Marketo forms do not provide native prefill functionality when loaded outside of a Marketo landing page. However, we can still implement this using the [Marketo APIs](/help/rest-api/rest-api.md) and the [Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md/). The first step is to retrieve the lead data from Marketo via a REST call from your server. Assuming that we do not have an immediate way to crossreference lead IDs or another unique identifier from the server, we need to use the Munchkin cookie, '_mkto_trk', to retrieve data from the Marketo server, using the [Get Leads By Filter Type method](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET).
+Marketo forms do not provide native prefill functionality when loaded outside of a Marketo landing page. However, we can still implement this using the [Marketo APIs](/help/rest-api/rest-api.md) and the [Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md). The first step is to retrieve the lead data from Marketo via a REST call from your server. Assuming that we do not have an immediate way to crossreference lead IDs or another unique identifier from the server, we need to use the Munchkin cookie, '_mkto_trk', to retrieve data from the Marketo server, using the [Get Leads By Filter Type method](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadsByFilterUsingGET).
 To make this call, we need your Authentication and REST endpoints from your instance. Once you have authenticated with your Marketo instance that we need to make a call to the leads API at `https://<host>/rest/v1/leads.json`. We then need to create a querystring to filter on the Marketo cookie like this `?filterType=cookie&filterValues=`. You need to retrieve the specific value from the '_mkto_trk' key sent to your server by the client. NOTE: The _mkto_trk cookie value includes an ampersand and needs to be URL encoded to `%26` to be properly accepted by the Marketo endpoint. By default the leads API returns four fields: `id`, `email`, `firstName`, and `updatedAt`. To set a specific set of fields, you need to include a `fields` query parameter, with field names separated by commas like this: `&fields=email,firstName,lastName,company`. Ultimately our call is going to look like this:
 
 `https://<host>/rest/v1/leads.json?filterType=cookie&filterValues=<cookie>&fields=email,firstName,lastName,company&access_token=<token>`
@@ -4974,7 +4974,7 @@ Posted on _2015-08-14_ by _David_
 
 ## Add SalesPerson Data to Marketo
 
-With the new SalesPerson APIs, you can freely associate Marketo leads with SalesPerson records in instances without a native CRM integration. This allows usage of {{lead.Lead Owner Email Address}} and related fields and tokens within Marketo.
+With the new SalesPerson APIs, you can freely associate Marketo leads with SalesPerson records in instances without a native CRM integration. This allows usage of `{{lead.Lead Owner Email Address}}` and related fields and tokens within Marketo.
 
 ### Creating SalesPerson records
 
@@ -7380,7 +7380,7 @@ var Zap = {
 
 * This method is responsible for generating or regenerating an access token calling the Marketo REST API [Authentication](/help/rest-api/authentication.md) endpoint.
 * It is called every time any 'post_poll' method encounters an 'Access Token Expired' error. An access token is scheduled to expire every 1 hour so this is expected.
-* Action Endpoint URL: https://{{munchkin_account_id}}.mktorest.com/identity/oauth/token
+* Action Endpoint URL: `https://{{munchkin_account_id}}.mktorest.com/identity/oauth/token`
 
 **pre_poll, pre_write**
 
@@ -8406,7 +8406,7 @@ Now, we are going to trigger a Marketo Smart Campaign from the IFTTT Platform. F
 
 ### Marketo Campaign
 
-Create your Marketo Program with a scheduled Smart Campaign. For test purpose, you could create the following Smart Campaign as an example: **Smart List**  Use only filters, not triggers. Make sure at least you would qualify. **Flow** Send you an email or any another kind of notification. **Schedule**  Make sure you can run through the flow every time to handle your multiple tests. You can obtain the Smart Campaign Id from the URL. Example: _https://{{marketo_url}}/#SC4289A1_ - the Smart Campaign Id would be 4289. You can trigger this campaign via the Marketo REST API. You can use for example the [Postman](https://www.postman.com/) plugin for Chrome and send the 2 following consecutive HTTPS calls: **Authentication step:**
+Create your Marketo Program with a scheduled Smart Campaign. For test purpose, you could create the following Smart Campaign as an example: **Smart List**  Use only filters, not triggers. Make sure at least you would qualify. **Flow** Send you an email or any another kind of notification. **Schedule**  Make sure you can run through the flow every time to handle your multiple tests. You can obtain the Smart Campaign Id from the URL. Example: _`https://{{marketo_url}}/#SC4289A1`_ - the Smart Campaign Id would be 4289. You can trigger this campaign via the Marketo REST API. You can use for example the [Postman](https://www.postman.com/) plugin for Chrome and send the 2 following consecutive HTTPS calls: **Authentication step:**
 
 `https://{{Your Munchkin_Account_id}}.mktorest.com/identity/oauth/token?grant_type=client_credentials&client_id={{Your_Client_Id}}&client_secret={{Your_Client_Secret}}`
 

@@ -367,7 +367,7 @@ Batch smart campaigns launch at a specific time and affect a specific set of lea
 
 Use the [Schedule Campaign](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) endpoint to schedule a batch campaign to run either immediately or at a future date. The campaign `id` is a required path parameter. Optional parameters are `tokens`, `runAt`, and `cloneToProgram` which are passed in the request body as application/json.
 
-The tokens array parameter is an array of My Tokens which override existing program tokens. After the campaign runs, the tokens are discarded.  Each token array item contains name/value pairs. The name of the token must be formatted as "{{my.name}}".
+The tokens array parameter is an array of My Tokens which override existing program tokens. After the campaign runs, the tokens are discarded.  Each token array item contains name/value pairs. The name of the token must be formatted as "`{{my.name}}`".
 
 The runAt datetime parameter specifies when to run the campaign. If not specified, the campaign will be run 5 minutes after the endpoint has been called. The datetime value cannot be more than two years into the future.
 
@@ -420,7 +420,7 @@ Use the [Request Campaign](https://developer.adobe.com/marketo-apis/api/mapi/#t
 
 This endpoint requires a campaign `id` as a path parameter, and a `leads` integer array parameter containing lead ids . A maximum of 100 leads is allowed per call.
 
-Optionally, the `tokens` array parameter can be used to override My Tokens local to the campaign's parent program. `tokens` accepts a maximum of 100 tokens. Each `tokens` array item contains a name/value pair. The name of the token must be formatted as "{{my.name}}". If you use [Add a System Token as a Link in an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) approach to add the "viewAsWebpageLink" system token, you cannot override it using `tokens`. Instead use [Add a View as Web Page Link to an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) approach which allows you to override "viewAsWebPageLink" using `tokens`.
+Optionally, the `tokens` array parameter can be used to override My Tokens local to the campaign's parent program. `tokens` accepts a maximum of 100 tokens. Each `tokens` array item contains a name/value pair. The name of the token must be formatted as "`{{my.name}}`". If you use [Add a System Token as a Link in an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) approach to add the "viewAsWebpageLink" system token, you cannot override it using `tokens`. Instead use [Add a View as Web Page Link to an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) approach which allows you to override "viewAsWebPageLink" using `tokens`.
 
 The `leads` and `tokens` parameters are passed in the request body as application/json.
 

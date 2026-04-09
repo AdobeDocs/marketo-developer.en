@@ -73,13 +73,13 @@ Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
 ## Tokens
 
-Tokens allow a marketer to personalize messages with assets and add logic within flow actions. There are tokens for the overall system, programs, leads, and companies. An example of a lead token is {{lead.First Name}}. This token can be placed within an email to display the lead's first name.
+Tokens allow a marketer to personalize messages with assets and add logic within flow actions. There are tokens for the overall system, programs, leads, and companies. An example of a lead token is `{{lead.First Name}}`. This token can be placed within an email to display the lead's first name.
 
 Tokens defined at the Program or folder level are referred to as "My Tokens" within Marketo. My Tokens can be one of three types, local, inherited, or overridden.
 
 My Tokens that are created locally within a specific campaign folder or program are available to that specific program or campaign folder (local). My Tokens that are created at the campaign folder level are available for use across all programs contained within that campaign folder (inherited). My Tokens that are modified at the program level with custom values do not change the parent My Token value of the token at the program folder level (overridden).
 
-My Tokens use the naming convention {{my.My Token}}, with the word "my" added to the beginning of the token name. For example, if you create a Date type My Token with the name EventDate, the name of the token is {{my.EventDate}}. More information about My Tokens can be found [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+My Tokens use the naming convention `{{my.My Token}}`, with the word "my" added to the beginning of the token name. For example, if you create a Date type My Token with the name EventDate, the name of the token is `{{my.EventDate}}`. More information about My Tokens can be found [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 

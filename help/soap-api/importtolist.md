@@ -22,7 +22,7 @@ This function lets you import a list of leads into an existing Static List in Ma
 
 **Dynamic Email Content:** Optionally, you can pass values on a per lead basis that act as replacements for My Tokens in an email.
 
-| Email | First | Last | {{my.specialToken}} | {{my.otherToken}} |
+| Email | First | Last | `{{my.specialToken}}` | `{{my.otherToken}}` |
 | --- | --- | --- | --- | --- |
 | <joe@company.com> | Joe | Smith | Fish | Blue |
 | <mary@company.com> | Mary | Rodgers | Chicken | Brown |
