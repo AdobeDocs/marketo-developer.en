@@ -6,13 +6,13 @@ exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
 ---
 # Snippets
 
-[Snippet Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[Snippet Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets)
 
 Snippets are reusable HTML components which can be embedded into Emails and Landing Pages and which can be segmented for dynamic content. Snippets don't have associated templates, and can be created and deployed within other assets within Marketo.
 
 ## Query
 
-Querying snippets follows the standard pattern for assets, except it does not have a By Name method. Both the [By Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) and [Browse](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET) methods allow the use of the status field to retrieve either approved or draft versions of the snippet.
+Querying snippets follows the standard pattern for assets, except it does not have a By Name method. Both the [By Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) and [Browse](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET) methods allow the use of the status field to retrieve either approved or draft versions of the snippet.
 
 ### By Id
 
@@ -138,7 +138,7 @@ The call returns a list of content sections,  which consist of sections of type
 
 ## Create and Update
 
-Snippets follow the complex asset creation pattern, where the call to [create snippet](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST), and its content are made separately, so the first call must be to the create endpoint, with an optional description.   Data is passed as x-www-form-urlencoded, not as JSON.
+Snippets follow the complex asset creation pattern, where the call to [create snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST), and its content are made separately, so the first call must be to the create endpoint, with an optional description.   Data is passed as x-www-form-urlencoded, not as JSON.
 
 ```
 POST /rest/asset/v1/snippets.json
@@ -207,7 +207,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 
 ```
 
-[Updating metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) is also done by id. Only name and description can be updated:
+[Updating metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST) is also done by id. Only name and description can be updated:
 
 ```
 POST /rest/asset/v1/snippet/{id}.json
@@ -396,7 +396,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Clone
 
-[Cloning a snippet](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) with the API is simple and follows the standard pattern, with a required name, id of the original snippet and folder, as well as an optional description.  If no approved version exists, then the draft version is cloned.
+[Cloning a snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST) with the API is simple and follows the standard pattern, with a required name, id of the original snippet and folder, as well as an optional description.  If no approved version exists, then the draft version is cloned.
 
 ```
 POST /rest/asset/v1/snippet/{id}/clone.json

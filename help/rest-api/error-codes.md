@@ -351,8 +351,8 @@ Each record in a successful request may succeed or fail on an individual basis, 
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Invalid cookie value &#8216;%s'</td>
-      <td>Can occur when calling the <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> with an invalid value for the `cookie` parameter.
-        This also occurs when calling <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Get Leads by Filter Type</a> with `filterType=cookies` and an invalid value for the `filterValues` parameter.</td>
+      <td>Can occur when calling the <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> with an invalid value for the `cookie` parameter.
+        This also occurs when calling <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET">Get Leads by Filter Type</a> with `filterType=cookies` and an invalid value for the `filterValues` parameter.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -470,24 +470,24 @@ Each record in a successful request may succeed or fail on an individual basis, 
     </tr>
     <tr>
       <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call with mergeInCRM flag is 4.</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call with mergeInCRM flag is 4.</td>
       <td>You are creating a duplicate record. It is recommended that you use an existing record instead.
         This is the error msg, which Marketo receives when merging in Salesforce.</td>
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to `SFDC Field` length</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to `SFDC Field` length</td>
       <td>A Merge Leads call with mergeInCRM set to true failed due to `SFDC Field` exceeding the limit of allowed characters. To correct, reduce the length of `SFDC Field`, or set mergeInCRM to false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to deleted entity, not a lead/contact, or field filter criteria doesn't match.</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to deleted entity, not a lead/contact, or field filter criteria doesn't match.</td>
       <td>Merge failure, unable to perform merge operation in natively synced CRM
         This is the error msg, which Marketo receives when merging in Salesforce.</td>
     </tr>
     <tr>
       <td><a name="1079"></a>1079</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a>  call failed due to Personalized URL conflict in duplicate records</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a>  call failed due to Personalized URL conflict in duplicate records</td>
       <td>A Merge Leads call specified many Leads with the same Personalized URL. To resolve use Marketo Engage user interface to merge these records.</td>
     </tr>
   </tbody>

@@ -28,7 +28,7 @@ The Marketo REST API will compress the response body and include this header:
 Content-Encoding: gzip
 ```
 
-Here is an example using Curl to call the [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) endpoint to retrieve 5 leads:
+Here is an example using Curl to call the [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) endpoint to retrieve 5 leads:
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

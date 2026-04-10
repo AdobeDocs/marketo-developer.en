@@ -6,15 +6,15 @@ exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
 ---
 # Sales Persons
 
-[Sales Person Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
+[Sales Person Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
 Sales Person APIs are read-only access for subscriptions which have [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) or [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) are enabled. Sales Persons are a type of person record that are the sales owners of lead records. They are related to Lead records by the externalSalesPersonId field on each Lead record. When a Lead is related to a Sales Person by a populated externalSalesPersonId field, the corresponding Lead Owner lookup fields are populated for that lead record in Marketo, allowing usage of the corresponding filters and tokens.
 
-Sales Persons are related to Lead records by using the [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) endpoint and passing the externalSalesPersonId attribute.
+Sales Persons are related to Lead records by using the [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) endpoint and passing the externalSalesPersonId attribute.
 
-Sales Persons are related to Opportunity records by using the [Sync Opportunities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) endpoint and passing the externalSalesPersonId attribute.
+Sales Persons are related to Opportunity records by using the [Sync Opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST) endpoint and passing the externalSalesPersonId attribute.
 
-Sales Persons are related to Company records by using the [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) endpoint and passing the externalSalesPersonId attribute.
+Sales Persons are related to Company records by using the [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) endpoint and passing the externalSalesPersonId attribute.
 
 Sales Person records are only editable via the API.
 

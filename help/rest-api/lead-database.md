@@ -26,7 +26,7 @@ Most of these objects include at least Create, Read, Update, and Delete methods.
 
 ## API
 
-For a full listing of Lead Database API endpoints, including parameters, and modeling information, see the [Lead Database API Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/).
+For a full listing of Lead Database API endpoints, including parameters, and modeling information, see the [Lead Database API Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi).
 
 For instances with a native CRM integration enabled (either Microsoft Dynamics or Salesforce.com), the Company, Opportunity, Opportunity Role, and Sales Person APIs are disabled. The records are managed through the CRM when enabled and cannot be accessed or updated via Marketo's APIs.
 

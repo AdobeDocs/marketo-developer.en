@@ -8,7 +8,7 @@ exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
 
 Marketo exposes a REST API which allows for remote execution of many of the system's capabilities. From creating programs to bulk lead import, there are many options which allow fine-grained control of a Marketo instance.
 
-These APIs generally fall into two broad categories: [Lead Database](https://developer.adobe.com/marketo-apis/api/mapi/), and [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead Database APIs allow for retrieval of, and interaction with Marketo person records and associated object types, such as Opportunities and Companies. Asset APIs allow interaction with marketing collateral and workflow-related records.
+These APIs generally fall into two broad categories: [Lead Database](https://developer.adobe.com/marketo-apis/api/mapi), and [Asset](https://developer.adobe.com/marketo-apis/api/asset). Lead Database APIs allow for retrieval of, and interaction with Marketo person records and associated object types, such as Opportunities and Companies. Asset APIs allow interaction with marketing collateral and workflow-related records.
 
 >[!NOTE]
 >The SOAP API is being deprecated and will no longer be available after July 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
@@ -78,7 +78,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 >
 >Support for authentication using the **access_token** query parameter is being removed on June 30, 2025. If your project uses a query parameter to pass the access token, it should be updated to use the **Authorization** header as soon as possible. New development should use the **Authorization** header exclusively.
 
-Open a new browser tab and enter the following, using the appropriate information to call [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)
+Open a new browser tab and enter the following, using the appropriate information to call [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)
 
 ```
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>

@@ -6,7 +6,7 @@ exl-id: 42796e89-5468-463e-9b67-cce7e798677b
 ---
 # Bulk Lead Extract
 
-[Bulk Lead Extract Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
+[Bulk Lead Extract Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads)
 
 The Bulk Lead Extract set of REST APIs provides a programmatic interface for retrieving large sets of lead/person records out of Marketo. Also, it can be used to retrieve leads incrementally based on the created date of the record, the most recent update, static list membership, or smart list membership. The recommended interface for use cases which require continuous interchange of data between Marketo and one or more external systems, for ETL, data warehousing, and archival purposes.
 
@@ -41,7 +41,7 @@ The Create Export Lead Job endpoint provides several formatting options, giving 
 
 ## Creating a Job
 
-The parameters for the job are defined before kicking off the export using the [Create Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) endpoint. We must define the `fields` that are needed for export, the type of parameters of the `filter`, the `format` of the file, and the column header names, if any.
+The parameters for the job are defined before kicking off the export using the [Create Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) endpoint. We must define the `fields` that are needed for export, the type of parameters of the `filter`, the `format` of the file, and the column header names, if any.
 
 ```
 POST /bulk/v1/leads/export/create.json
@@ -89,7 +89,7 @@ This request will begin export a set of leads created between January 1, 2017, 
 }
 ```
 
-This returns a status response indicating that the job has been created. The job has been defined and created, but it hasn't yet been kicked off. To do so, the [Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) endpoint must be called using the exportId from the creation status response:
+This returns a status response indicating that the job has been created. The job has been defined and created, but it hasn't yet been kicked off. To do so, the [Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) endpoint must be called using the exportId from the creation status response:
 
 ```
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -117,7 +117,7 @@ This responds with a `status` of "Queued" after which it will be set to "Process
 
 `Note:` Status can only be retrieved for jobs which were created by the same API user.
 
-Since this is an asynchronous endpoint, after creating the job, we must poll its status to determine its progress. Poll using the [Get Export Lead Job Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) endpoint. The status is only updated once every 60 seconds, so a polling frequency lower than this is not advised, and in nearly all cases is still excessive. Let's take a quick look at polling.
+Since this is an asynchronous endpoint, after creating the job, we must poll its status to determine its progress. Poll using the [Get Export Lead Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) endpoint. The status is only updated once every 60 seconds, so a polling frequency lower than this is not advised, and in nearly all cases is still excessive. Let's take a quick look at polling.
 
 ```
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -152,7 +152,7 @@ The status field may respond with any one of:
 
 ## Retrieving Your Data
 
-To retrieve the file of a completed lead export, simply call the [Get Export Lead File](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) endpoint with your `exportId`.
+To retrieve the file of a completed lead export, simply call the [Get Export Lead File](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) endpoint with your `exportId`.
 
 ```
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -171,7 +171,7 @@ To support partial and resumption-friendly retrieval of extracted data, the file
 
 ## Canceling a Job
 
-If a job was configured incorrectly, or becomes unnecessary, it can be easily canceled using the [Cancel Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) endpoint:
+If a job was configured incorrectly, or becomes unnecessary, it can be easily canceled using the [Cancel Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) endpoint:
 
 ```
 POST /bulk/v1/leads/export/{exportId}/cancel.json

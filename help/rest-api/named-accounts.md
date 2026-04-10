@@ -6,7 +6,7 @@ exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
 ---
 # Named Accounts
 
-[Named Accounts Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
+[Named Accounts Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts)
 
 Marketo offers a set of APIs for performing CRUD operations on named accounts for use with Marketo ABM. These APIs follow the standard interface pattern for lead database APIs, providing Describe, Create/Update, Delete, and Query options.
 
@@ -218,7 +218,7 @@ Querying named account fields is straightforward. You may query a single named a
 
 #### By Name
 
-The [Get Named Account Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) endpoint retrieves metadata for a single field on the named account object. The required fieldApiName path parameter specifies the API name of the field. The response is like the Describe Named Account endpoint but contains additional metadata such as the isCustom attribute which denotes whether the field is a custom field.
+The [Get Named Account Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) endpoint retrieves metadata for a single field on the named account object. The required fieldApiName path parameter specifies the API name of the field. The response is like the Describe Named Account endpoint but contains additional metadata such as the isCustom attribute which denotes whether the field is a custom field.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -246,7 +246,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Browse
 
-The [Get Named Account Fields](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) endpoint retrieves metadata for all fields on the named account object. By default, a maximum of 300 records are returned. You can use the batchSize query parameter to reduce this number. If the moreResult attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The nextPageToken returned from this API should always be reused for the next iteration of this call.
+The [Get Named Account Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) endpoint retrieves metadata for all fields on the named account object. By default, a maximum of 300 records are returned. You can use the batchSize query parameter to reduce this number. If the moreResult attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The nextPageToken returned from this API should always be reused for the next iteration of this call.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

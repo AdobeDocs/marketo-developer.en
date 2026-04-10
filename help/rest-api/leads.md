@@ -6,7 +6,7 @@ exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
 ---
 # Leads
 
-[Leads Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Leads Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
 The Marketo Lead's API provides a large set of capabilities for simple CRUD applications against lead records, as well as the ability to modify a lead's membership in static lists and programs, and initiate Smart Campaign processing for leads.
 
@@ -154,7 +154,7 @@ In addition to retrieving lead data, you can create, update and delete lead reco
 
 >[!NOTE]
 >
-> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) endpoint instead.
+> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) endpoint instead.
 
 >[!NOTE]
 >
