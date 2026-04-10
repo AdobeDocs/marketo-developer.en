@@ -16,7 +16,7 @@ Like most other assets, Landing Pages can be queried [by name](https://developer
 
 Querying the content of the landing page will return a list of content sections available in the landing page. A section must be present in the content list of a page in order to update the content:
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -54,15 +54,15 @@ Results will differ between guided and free form templates, as guided landing pa
 
 Valid content types for [landing page content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) endpoints are: richText, HTML, Form, Image, Rectangle, Snippet.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -123,15 +123,15 @@ The `template` parameter is used to specify the source Landing Page Template id.
 
 The optional `description` parameter is used to describe the new Landing Page.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 ```
 
@@ -189,7 +189,7 @@ For free form pages, all desired content sections must be added and will be embe
 
 To make a Dynamic Content section, it must already be present in the landing page's content list. The [Update Landing Page Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) endpoint then needs to be used to set the type to 'DynamicContent'. When a section is set to dynamic content, it creates underlying dynamic sections within the content section which all inherit the base type of the converted element. Each dynamic section also inherits the content from the converted section.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 ```
 
@@ -225,15 +225,15 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 
 [Updating the content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) for each individual segment is done on the basis of the segment id.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 segment=New Segment&value=New Content
 ```
 
@@ -274,7 +274,7 @@ For more information see "Editable Variable" section in [Create a Guided Landing
 
 Retrieve variables for a guided landing page by passing the landing page id to Get Landing Page Variables endpoint.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/variables.json
 ```
 
@@ -310,7 +310,7 @@ In  this example, the guided landing page contains 3 variables: stringVar, colo
 
 Update a variable for a guided landing page by passing the landing page id, the variable id, and the variable value to Update Landing Page Variables endpoint.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 ```
 
@@ -337,7 +337,7 @@ Marketo provides the [Get Landing Page Full Content](https://developer.adobe.co
 - segmentation: Accepts an array of JSON objects that contain segmentationId and segmentId attributes. When set, previews the landing page as though you were a lead matching those segments.
 - leadId:  Accepts the integer id of a lead. When set, previews the landing page as though it were viewed by the designated lead.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/fullContent.json?leadId=1001&segmentation=[{"segmentationId":1030,"segmentId":1103}]
 ```
 

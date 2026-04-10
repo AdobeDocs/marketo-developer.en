@@ -22,15 +22,15 @@ Landing Page Templates support the standard query types for assets of [by id](ht
 
 Templates are created as empty assets with associated metadata. When creating a template, a name, and folder must be included, along with an optional description, templateType and enableMunchkin parameter. templateType may be either freeform or guided and defaults to freeForm. For differences between the types, see the Guided vs. Free Form section. enableMunchkin defaults to false, and when enabled will prevent Munchkin tracking from being performed on any child landing pages of the template.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplates.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 ```
 
@@ -70,11 +70,11 @@ Metadata for landing page templates can be updated via the [Update Landing Page 
 
 Content in Landing Page Templates is made as a destructive update to the entirety of the HTML content. The content must be passed as multipart/form-data, with the only parameter being named content.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplate/286/content.json
 ```
 
-```
+```html
 content-type: multipart/form-data; boundary=--------------------------435851813185237176536801
 ----------------------------435851813185237176536801
 Content-Disposition: form-data; name="content"; filename="content.txt"
@@ -90,7 +90,7 @@ Content-Type: text/plain
 ----------------------------435851813185237176536801--
 ```
 
-```
+```json
  {
   "success": true,
   "warnings": [],
@@ -116,15 +116,15 @@ The `folder` parameter is used to specify the parent folder where new Landing 
 
 The optional `description` parameter is used to describe the new Landing Page Template.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 ```
 

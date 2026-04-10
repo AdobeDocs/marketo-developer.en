@@ -36,7 +36,7 @@ In certain cases the browse endpoint for some asset types will not return child 
 
 ### By Id
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -77,7 +77,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 For technical reasons, the Asset APIs are unable to search for Asset names containing commas (,).  It is recommended that your naming convention exclude commas for all asset types.
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=My File
 ```
 
@@ -113,7 +113,7 @@ Browsing through assets will always permit two query parameters:
 - offset - An integer offset to return results from.
 - maxReturn - Limits the number of records returned.  Defaults to 20 if unset, and has a maximum of 200.
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 ```
 
@@ -173,15 +173,15 @@ For simple asset types like Folders, Tokens and Files there is typically only a 
 
 For example, here's how to create a token:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&value=2015-04-01&type=date&folderType=Folder
 ```
 
@@ -212,15 +212,15 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 
 To update a folder you would do this:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -265,15 +265,15 @@ For example, to create a Landing Page, you'll must call its create endpoint with
 
 Landing pages first require creating a Landing Page asset using a parent template.  This creates a new landing page containing the default content of the template for each content section.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -314,7 +314,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 To populate the content for a landing page, you must retrieve the list of content sections, and then perform individual updates for any section that deviates from the template.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -346,7 +346,7 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 #### Update Section
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 ```
 
@@ -368,7 +368,7 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 Many asset types have an associated draft and approval system, including Emails, Landing Pages, Snippets, Forms, and their corresponding templates.  Trying to approve an asset will evaluate it against a specific set of validation rules, and then either set it to an approved state, or return a failure reason.  For these types of assets, whenever an update is made to the content of a particular asset the changes are made to a draft of the asset, which does not affect the approved version.  This allows changes to content to be safely made without affecting live versions of the asset.  The changes can then be applied to the live version by using the approval endpoint.  This also clears the draft state of the asset until any additional updates are applied.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -400,7 +400,7 @@ The successful approval replaces the previous live version with the updated vers
 
 Discarding drafts is also available through an endpoint for each valid asset type.  Using this on an asset which is in an approved with draft state will discard the current draft and any pending changes it has.  Using this on an asset that currently has no approved version will do nothing and return an error.  Draft-only assets may be deleted, but they may not be discarded.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -430,7 +430,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 Assets can also be unapproved if they are in an approved-only state.  This will take down any live versions of the asset and returning the asset to a draft-only state while also discarding any associated draft.  This action can only be performed on most assets if it is not in use anywhere in Marketo, such as an email being referred to in a Send Email flow step, or a snippet being embedded in an Email.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -453,7 +453,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 Assets with approval and draft states, except for forms, may not be deleted while approved, and must be unapproved prior to deletion.  Deletions generally can only be performed when an asset is unapproved and out of use and in the case of folders, being empty of assets.  One notable exception are programs, which can be deleted along with all of their child contents, so long as the program and its contents are not in use anywhere outside of the bounds of the program.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

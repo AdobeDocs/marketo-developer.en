@@ -44,7 +44,7 @@ To re-add the plugin, run the following command:
 
 Once the Cordova Android platform is built, open the app with Android Studio and update the `dirs` value of the `Marketo.gradle` file found in the `com.marketo.plugin` folder.
 
-```
+```groovy
 repositories{
   jcenter()
   flatDir{
@@ -124,7 +124,7 @@ Paste the following code inside the `application:didFinishLaunchingWithOptions:`
 
 Update the `applicationDidBecomeActive` method like below
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 [sharedInstance trackPushNotification:launchOptions];
@@ -134,7 +134,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 Update the `applicationDidBecomeActive` method like below
 
-```
+```swift
 let sharedInstance: Marketo = Marketo.sharedInstance()
 
 sharedInstance.trackPushNotification(launchOptions)
@@ -150,7 +150,7 @@ Note that we must pass `phonegap` as framework type for PhoneGap Apps.
 
 ### Syntax
 
-```
+```javascript
 // This method will Initialize the Marketo Framework using Your MunchkinId and Secret Key
 marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
@@ -180,7 +180,7 @@ To make sure that Marketo push notification gets initiated add the following cod
 
 ### Syntax
 
-```
+```javascript
 // This function will Enable user notifications (prompts the user to accept push notifications in iOS)
 marketo.initializeMarketoPush(
     function() { console.log("Marketo push successfully initialized."); },
@@ -197,7 +197,7 @@ marketo.initializeMarketoPush(
 
 The token can also be unregistered on logout.
 
-```
+```javascript
 marketo. uninitializeMarketoPush(
   function() { console.log("Marketo push successfully uninitialized."); } ,
   function(error) { console.log("an error occurred:" + error); }
@@ -210,7 +210,7 @@ You can create a Marketo Lead by calling the associateLead function.
 
 ### Syntax
 
-```
+```javascript
 marketo.associateLead(
   function(){ console.log("MarketoSDK : Lead Added"); },
   function(error){ console.log("an error occurred:" + error); },
@@ -226,7 +226,7 @@ marketo.associateLead(
 
 ### Example
 
-```
+```javascript
 // First create a lead as shown below
 var lead = {};
 lead[marketo.KEY_FIRST_NAME] = "Phone";
@@ -255,7 +255,7 @@ You can report any user performed action by calling the `reportaction` function.
 
 ### Syntax
 
-```
+```javascript
 marketo.reportaction(
   function(){ console.log("MarketoSDK : New event sent "); },
   function(error){ console.log("an error occurred:" + error); },
@@ -273,7 +273,7 @@ marketo.reportaction(
 
 ### Example
 
-```
+```javascript
 // First create an event as below
 var event = {
     "Action Type":"Add To Cart",
@@ -294,7 +294,7 @@ marketo.reportaction(
 
 Bind the "pause" and "resume" event types as shown below to report Start and Stop events.  This is used to track time spent in your mobile application. Note: this is required in Android.
 
-```
+```javascript
 //Add the following code in your www/js/index.js
 
 bindEvents: function() {

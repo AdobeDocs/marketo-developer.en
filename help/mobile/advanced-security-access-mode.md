@@ -60,7 +60,7 @@ The Marketo SDK exposes new methods to set and remove the security signature. Th
 
 ### iOS
 
-```
+```objectivec
 Marketo * sharedInstance =[Marketo sharedInstance];
 
 // set secure signature
@@ -75,7 +75,7 @@ MKTSecuritySignature *signature =
 [sharedInstance getDeviceId];
 ```
 
-```
+```swift
 let sharedInstance = Marketo.sharedInstance()
 
  // set secure signature
@@ -91,7 +91,7 @@ sharedInstance.getDeviceId()
 
 ### Android
 
-```
+```java
 Marketo sdk = Marketo.getInstance(getApplicationContext());
 
 // set signature

@@ -20,7 +20,7 @@ The `Identity URL` is found in the **[!UICONTROL Admin]** > **[!UICONTROL Integr
 
 Create an access token using an HTTP GET (or POST) request like so:
 
-```
+```http
 GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client Id>&client_secret=<Client Secret>
 ```
 

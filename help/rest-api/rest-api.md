@@ -70,7 +70,7 @@ Find the [!UICONTROL Endpoint] in the REST API box and save in a note for now.
 
 When making calls to REST API methods, an access token must be included in every call for the call to be successful. The access token must be sent as an HTTP header.
 
-```
+```text
 Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 ```
 
@@ -80,7 +80,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 
 Open a new browser tab and enter the following, using the appropriate information to call [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)
 
-```
+```text
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>
 ```
 

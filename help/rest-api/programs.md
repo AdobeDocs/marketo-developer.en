@@ -34,7 +34,7 @@ The [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/
 
 The Program Id can be obtained from the URL of the program in the UI, where the URL will resemble `https://app-\*\*\*.marketo.com/#PG1001A1`. In this URL, the `id` is 1001. It will always be between the first set of letters in the URL and the second set of letters.
 
-```
+```http
 GET /rest/asset/v1/program/{id}.json
 ```
 
@@ -78,7 +78,7 @@ GET /rest/asset/v1/program/{id}.json
 
 The [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset/) endpoint requires a `name` query parameter. Optional boolean query parameters are `includeTags` and `includeCosts` which are used to return program tags and program costs respectively.
 
-```
+```http
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 ```
 
@@ -128,7 +128,7 @@ The optional `maxReturn` parameter controls the number of programs to return (ma
 
 Note that tags associated with a program are not returned by this endpoint. Program tags can be retrieved by using either [Get Programs by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) or [Get Programs by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
 
-```
+```http
 GET /rest/asset/v1/programs.json
 ```
 
@@ -183,7 +183,7 @@ GET /rest/asset/v1/programs.json
 
 The `earliestUpdatedAt` and `latestUpdatedAt` parameters to our [Get Programs](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) endpoint allow you to set low and high datetime watermarks for returning programs which were either updated or initially created within the given range.
 
-```
+```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
 ```
 
@@ -276,7 +276,7 @@ The [Get Programs by Tag](https://developer.adobe.com/marketo-apis/api/asset/#ta
 
 There are two required parameters, `tagType` which is the type of tag to filter on, and `tagValue` which is the tag value to filter on.  There is an optional integer `maxReturn` parameter that controls the number of programs to return (maximum is 200, default is 20), and an optional integer `offset` parameter used for paging results (default is 0).  Results are returned in random order.
 
-```
+```http
 GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 ```
 
@@ -323,15 +323,15 @@ When creating or updating an Email Program, a `startDate` and `endDate` may also
 
 ### Create
 
-```
+```http
 POST /rest/asset/v1/programs.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API Program&type=Default&channel=Email Blast&costs=[{"startDate":"2015-01-01","cost":2000}]
 ```
 
@@ -375,15 +375,15 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 
 When updating program costs, to append new costs, simply add them to your `costs` array. To perform a destructive update, pass your new costs, along with the parameter `costsDestructiveUpdate` set to `true`. To clear all costs from a program, do not pass a `costs` parameter, and just pass `costsDestructiveUpdate` set to `true`.
 
-```
+```http
 POST /rest/asset/v1/program/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an updated description&name=Updated Program Name&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
 ```
 
@@ -440,7 +440,7 @@ Email Programs may be approved or unapproved remotely, which will cause the prog
 
 ### Approve
 
-```
+```http
 POST /rest/asset/v1/program/{id}/approve.json
 ```
 
@@ -460,7 +460,7 @@ POST /rest/asset/v1/program/{id}/approve.json
 
 ### Unapprove
 
-```
+```http
 POST /rest/asset/v1/program/{id}/unapprove.json
 ```
 
@@ -484,15 +484,15 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 Programs containing certain types of assets may not be cloned via this API, including Push Notifications, In-App Messages, Reports, and Social Assets. In-App programs may not be cloned via this API.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Description
 ```
 
@@ -531,7 +531,7 @@ name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Descrip
 
 Deleting programs follows the standard asset deletion pattern.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

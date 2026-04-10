@@ -104,7 +104,7 @@ When using `primaryAttributeValues`, the `activityTypeIds` filter must be presen
 
 To export records, you first must define the job and the set of records that you want to retrieve.  Create the job using the [Create Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST) endpoint.  When exporting activities there are two primary filters that can be applied: `createdAt`, which is always required, and `activityTypeIds`, which is optional.  The `createdAt` filter is used to define a date range in which activities were created, using the `startAt` and `endAt` parameters, both of which are datetime fields, and represent the earliest permitted creation date, and the latest permitted creation date respectively.  You may also optionally filter on only certain types of activities, using the `activityTypeIds` filter.  This is useful for removing results that are not relevant for your use case.
 
-```
+```http
 POST /bulk/v1/activities/export/create.json
 ```
 
@@ -143,7 +143,7 @@ POST /bulk/v1/activities/export/create.json
 
 The job now has a status of "Created," but it is not yet in the processing queue.  To put it in the queue so it can begin processing, call the [Enqueue Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) endpoint using the exportId from the creation status response.
 
-```
+```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
 ```
 
@@ -171,7 +171,7 @@ Job status can only be retrieved for jobs created by the same API user.
 
 Marketo's Bulk Activity Extract is an asynchronous endpoint, so the job status must be polled to determine when the job is complete.  Poll using the [Get Export Activity Job Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) endpoint as follows:
 
-```
+```http
 GET /bulk/v1/activities/export/{exportId}/status.json
 ```
 
@@ -209,7 +209,7 @@ The status field may respond with one of the following values:
 
 Once the job is complete, retrieve your data using the [Get Export Activity File](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET) endpoint.
 
-```
+```http
 GET /bulk/v1/activities/export/{exportId}/file.json
 ```
 
@@ -231,7 +231,7 @@ To support partial and resumption-friendly retrieval of extracted data, the file
 
 If a job was configured incorrectly, or becomes unnecessary, it can be easily canceled using the [Cancel Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) endpoint:
 
-```
+```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json
 ```
 

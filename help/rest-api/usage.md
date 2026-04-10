@@ -27,7 +27,7 @@ The Usage APIs use the same authentication method as other Marketo REST APIs. Pa
 
 Retrieves API usage for the current day.
 
-```
+```http
 GET /rest/v1/stats/usage.json
 ```
 
@@ -64,7 +64,7 @@ Each object in the `result` array contains one day of usage totals and a per-use
 
 Retrieves API usage for the last 7 days. Each element in the `result` array represents one day.
 
-```
+```http
 GET /rest/v1/stats/usage/last7days.json
 ```
 
@@ -72,7 +72,7 @@ GET /rest/v1/stats/usage/last7days.json
 
 Retrieves API errors for the current day.
 
-```
+```http
 GET /rest/v1/stats/errors.json
 ```
 
@@ -109,7 +109,7 @@ Each object in the `result` array contains one day of error totals and a breakdo
 
 Retrieves API errors for the last 7 days. Each element in the `result` array represents one day.
 
-```
+```http
 GET /rest/v1/stats/errors/last7days.json
 ```
 
