@@ -14,7 +14,11 @@ When your AI tool calls the MCP server, the server executes the corresponding RE
 - A [!DNL Marketo] instance with REST API access enabled
 - Admin access to create API credentials in [!DNL Marketo] LaunchPoint
 - One of the following AI tools: Claude Desktop, Cursor, Claude Code (CLI), or VS Code with GitHub Copilot
-- Network access to the MCP server URL <!-- TODO: confirm canonical production URL -->: `https://marketo-mcp.adobe.io/mcp`
+- Network access to the MCP server URL: `https://marketo-mcp.adobe.io/mcp`
+
+>[!ADMIN]
+>
+>**Open question — HIGH:** Confirm the canonical production server URL before publishing. The source wiki contained three different values: `http://marketo-mcp.adobe.io` (HTTP, no path), `https://marketo-mcp.adobe.io/mcp` (used throughout this doc), and `https://marketo-mcp-prod.pub.ethos103-prod-or2.ethos.adobe.net/mcp` (Claude Desktop section only). Every code block in this doc uses the middle form. PM or engineering confirmation required.
 
 ## Get Marketo credentials
 
@@ -145,6 +149,10 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 
 Once connected, you can ask your AI assistant to perform operations across the following categories.
 
+>[!ADMIN]
+>
+>**Open question — MEDIUM:** The source wiki states "100+ operations across 14 categories" but only 7 categories are documented below. Confirm the full list of 14 categories, or update the intro paragraph to reflect the correct count.
+
 ### Forms
 
 Browse, create, clone, and approve forms. Add or remove fields, configure field visibility rules, and identify where forms are embedded.
@@ -247,9 +255,19 @@ No. The MCP server is hosted by Adobe. You only need to configure your AI tool t
 
 The API user needs access to the asset types you intend to manage. At minimum, assign a Read-Only role for browsing operations and a Read-Write role for creating or modifying assets. Work with your [!DNL Marketo] admin to assign appropriate permissions.
 
+### What are the rate limits?
+
+>[!ADMIN]
+>
+>**Open question — MEDIUM:** The source wiki does not mention rate limits. The [!DNL Marketo] REST API enforces per-day and per-second limits. Confirm whether the MCP server inherits those limits, adds additional limits, or has separate quota tracking. Add the answer here before publishing.
+
 ### Which AI tools are supported?
 
 Claude Desktop, Cursor, Claude Code (CLI), and VS Code with GitHub Copilot. Any AI tool that supports the Model Context Protocol over HTTP should work.
+
+>[!ADMIN]
+>
+>**Open question — LOW:** Confirm the MCP spec version this server implements (for example, 2024-11-05). Useful for developers troubleshooting incompatible clients. Add or omit based on PM guidance.
 
 ### Can I connect to multiple [!DNL Marketo] instances?
 
