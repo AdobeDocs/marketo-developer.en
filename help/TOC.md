@@ -159,6 +159,7 @@ index: yes
 - [Email Scripting](email-scripting.md)
 - [Email Scripting Examples](examples.md)
 - [Marketo Objects](marketo-objects.md)
+- [MCP Server](mcp-server.md)
 - [License](api-license.md)
 - [Partner Sandbox](partner-sandbox.md)
 - [Self-Service Flow Steps](self-service-flow-steps.md)
