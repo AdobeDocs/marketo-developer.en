@@ -6,9 +6,9 @@ exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
 ---
 # Bulk Program Member Import
 
-[Bulk Program Member Import Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
+[Bulk Program Member Import Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members)
 
-For large amounts of program member records, program members can be imported asynchronously with the [bulk API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). This allows you to import a list of records into Marketo using a flat file with the delimiters (comma, tab, or semi-colon). The file can contain any number of records, so long as the file totals less than 10MB in size. The record operation is "insert or update" only.
+For large amounts of program member records, program members can be imported asynchronously with the [bulk API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members). This allows you to import a list of records into Marketo using a flat file with the delimiters (comma, tab, or semi-colon). The file can contain any number of records, so long as the file totals less than 10MB in size. The record operation is "insert or update" only.
 
 ## Processing Limits
 
@@ -16,7 +16,7 @@ You are allowed to submit more than one bulk import request, with limitations. E
 
 ## Import File
 
-The first row of the file must be a header which lists the corresponding REST API names as fields to map the values of each row into. REST API names can be retrieved using [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) and/or [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET) endpoints. Records can contain lead fields, custom lead fields, and custom program member fields.
+The first row of the file must be a header which lists the corresponding REST API names as fields to map the values of each row into. REST API names can be retrieved using [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) and/or [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeProgramMemberUsingGET) endpoints. Records can contain lead fields, custom lead fields, and custom program member fields.
 
 A typical file would follow this basic pattern:
 
@@ -31,7 +31,7 @@ This request type can be difficult to implement, so it is highly recommended tha
 
 ## Creating a Job
 
-The [Import Program Members](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) endpoint reads a file containing program member records and adds them to a program with a given status. The records can contain both lead fields and program member custom fields. All records must include the email field, which is used for deduplication purposes.
+The [Import Program Members](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) endpoint reads a file containing program member records and adds them to a program with a given status. The records can contain both lead fields and program member custom fields. All records must include the email field, which is used for deduplication purposes.
 
 The `programId` path parameter specifies the program to which the members are added.
 
@@ -103,7 +103,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## Polling Job Status
 
-Once the import job has been created, you must query its status. It is best practice to poll the import job every 5-30 seconds. Do this by passing the `batchId` path parameter to the [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) endpoint.
+Once the import job has been created, you must query its status. It is best practice to poll the import job every 5-30 seconds. Do this by passing the `batchId` path parameter to the [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) endpoint.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -133,7 +133,7 @@ If the job has completed, you have a listing of the number of rows processed, fa
 
 ## Failures
 
-Failures are indicated by the `numOfRowsFailed` attribute in [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) response. If numOfRowsFailed is greater than zero, then that value indicates the number of failures that occurred.
+Failures are indicated by the `numOfRowsFailed` attribute in [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) response. If numOfRowsFailed is greater than zero, then that value indicates the number of failures that occurred.
 
 Use the Get Import Program Member Failures endpoint to retrieve records and causes of failed rows by passing the `batchId` path parameter.
 
@@ -187,9 +187,9 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## Warnings
 
-Warnings are indicated by the `numOfRowsWithWarning` attribute in [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) response. If `numOfRowsWithWarning` is greater than zero, then that value indicates the number of warnings that occurred.
+Warnings are indicated by the `numOfRowsWithWarning` attribute in [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) response. If `numOfRowsWithWarning` is greater than zero, then that value indicates the number of warnings that occurred.
 
-Use the [Get Import Program Member Warnings](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) endpoint to retrieve records and causes of warning rows by passing the `batchId` path parameter.
+Use the [Get Import Program Member Warnings](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) endpoint to retrieve records and causes of warning rows by passing the `batchId` path parameter.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/warnings.json

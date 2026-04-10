@@ -16,7 +16,7 @@ Most activities will be purged after some period of time.
 
 ## Describe
 
-To retrieve a list of available types and their definitions for an instance, you can use the [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) endpoint.
+To retrieve a list of available types and their definitions for an instance, you can use the [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) endpoint.
 
 ```
 GET /rest/v1/activities/types.json
@@ -69,7 +69,7 @@ Real world responses include far more definitions. In this example, the type sho
 
 ## Query
 
-To retrieve activities from Marketo, call the [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET) endpoint. You need to first retrieve a paging token for the datetime that you want to begin retrieving activities from. You then pass the paging token in the `nextPageToken` query parameter. In addition, you pass up to ten activity type Ids in the `activityTypeIds` query parameter as a comma-separated list.
+To retrieve activities from Marketo, call the [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) endpoint. You need to first retrieve a paging token for the datetime that you want to begin retrieving activities from. You then pass the paging token in the `nextPageToken` query parameter. In addition, you pass up to ten activity type Ids in the `activityTypeIds` query parameter as a comma-separated list.
 
 You can optionally include either a listId query parameter to narrow your search to only those records included in a specific static list, or a leadIds query parameter and search for activities from only a specified set of leads. You can pass up to 30 leadIds as a comma separated list.
 
@@ -129,7 +129,7 @@ Note that within each result array item, the `id` integer attribute is being r
 
 ### Data value changes
 
-For Data Value Change activities, a specialized version of the activities API is provided. The [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) endpoint only returns activities of Data Value Change records to lead fields. The interface is the same as the Get Lead Activities API with two differences:
+For Data Value Change activities, a specialized version of the activities API is provided. The [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) endpoint only returns activities of Data Value Change records to lead fields. The interface is the same as the Get Lead Activities API with two differences:
 
 * There is no `activityTypeIds` parameter, since the endpoint only returns Data Value Change and New Lead activities.
 * The `fields` query parameter is required, where you can pass a comma-separated list of fields to indicate which fields you want to retrieve changes for.
@@ -184,7 +184,7 @@ Note that within each result array item, the `id` integer attribute is being r
 
 ### Deleted leads
 
-There is also a special endpoint [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) for retrieving deleted activities from Marketo.
+There is also a special endpoint [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) for retrieving deleted activities from Marketo.
 
 ```
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
@@ -236,11 +236,11 @@ Custom Activities function just like standard activities, except the schema is m
 * Maximum number of Custom Activities: 10
 * Maximum number of attributes per Custom Activity: 20
 
-Retrieving custom activity data is done in the same way as standard activities, through the [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET) API.
+Retrieving custom activity data is done in the same way as standard activities, through the [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) API.
 
 ## Query Types
 
-In addition to the standard Get Activity Types endpoint, the [Get Custom Activity Types](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getCustomActivityTypeUsingGET) and [Describe Custom Activity Type](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/describeCustomActivityTypeUsingGET) endpoints returns details about the activity types provisioned in the Marketo instance, and metadata regarding the attributes for a given type. The normal [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) still returns metadata regarding custom activities, but does not indicate whether a given type is custom.
+In addition to the standard Get Activity Types endpoint, the [Get Custom Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET) and [Describe Custom Activity Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET) endpoints returns details about the activity types provisioned in the Marketo instance, and metadata regarding the attributes for a given type. The normal [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) still returns metadata regarding custom activities, but does not indicate whether a given type is custom.
 
 ### Get types
 
@@ -615,7 +615,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 
 ## Add Custom Activities
 
-Custom activities are write-once records of historical activities related to individual person records in Marketo. These activities have a schema that is managed by Marketo Admins or remotely via an API integration. Custom activities are added to lead records via the [Add Custom Activities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/addCustomActivityUsingPOST) endpoint and related to each lead record via its `leadId` field. Custom activities can be viewed in the user interface via the lead's activity log, or retrieved via Get Lead Activities endpoint by specifying the custom activity's type ID.
+Custom activities are write-once records of historical activities related to individual person records in Marketo. These activities have a schema that is managed by Marketo Admins or remotely via an API integration. Custom activities are added to lead records via the [Add Custom Activities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST) endpoint and related to each lead record via its `leadId` field. Custom activities can be viewed in the user interface via the lead's activity log, or retrieved via Get Lead Activities endpoint by specifying the custom activity's type ID.
 
 Custom activities are appropriate for recording data that is related to a single person record and which does not need to be updated or overwritten. An example would be recording a person attending an event as an "Attended Event" activity. For records related to a person that may change, such as student enrollment, custom objects should be used instead, as they can be updated, where custom activities may not.
 

@@ -6,7 +6,7 @@ exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
 ---
 # Email Templates
 
-[Email Template Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[Email Template Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
 Email templates define the structure and reusable layout used when creating emails.
 

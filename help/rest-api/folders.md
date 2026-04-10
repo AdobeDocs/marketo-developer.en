@@ -6,13 +6,13 @@ exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
 ---
 # Folders
 
-[Folders Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[Folders Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders)
 
 Folders are the core organizational asset in Marketo, and every other type of asset has at least one folder as a parent. This parent folder may be either a Folder which is purely organizational, or a Program, which has a functional relationship to other asset types and can also be the parent of other assets. Folders can be created, queried, updated, and deleted through the API, and also allow a list of their contents to be retrieved. Though Programs can be returned through querying the Folders API, creating, updating, and deleting programs must be performed through the Programs API.
 
 ## Query
 
-Querying folders follows the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET).
+Querying folders follows the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
 
 ### By Id
 
@@ -65,7 +65,7 @@ The type parameter is required and must be one of "Folder" or "Program."  The t
 
 ### By Name
 
-[Querying by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) is also allowed. The query by name endpoint has name as the only required parameter. Name performs an exact string match against the name field of folders in the instance, and returns results for each folder matching that name. It also has the optional query parameters of "type" which can be Folder or Program, "root" the id of the folder to search through, or "workspace" the name of the workspace to search in. If the root parameter is set, the type parameter must also be set.
+[Querying by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) is also allowed. The query by name endpoint has name as the only required parameter. Name performs an exact string match against the name field of folders in the instance, and returns results for each folder matching that name. It also has the optional query parameters of "type" which can be Folder or Program, "root" the id of the folder to search through, or "workspace" the name of the workspace to search in. If the root parameter is set, the type parameter must also be set.
 
 ```
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -109,12 +109,12 @@ When searching by name, it is important to note that both Marketing Activities a
 
 ### Browse
 
-Folders can also be [retrieved in bulk](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). The "root" parameter can be used to specify the parent folder under which the query will be performed and is formatted as a JSON object embedded as the value for the query parameter. Root has two members:
+Folders can also be [retrieved in bulk](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). The "root" parameter can be used to specify the parent folder under which the query will be performed and is formatted as a JSON object embedded as the value for the query parameter. Root has two members:
 
 1. id - The id of the folder or program.
 1. type - Either Folder or Program, depending on the type of the root folder to browser.
 
-If the root folder is not known, or the intent is to retrieve all folders in a given area, the root can be specified as the "Marketing Activities", "Design Studio", or "Lead Database" areas. The ids for each of these can be retrieved through the [Get Folder By Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) API, and specifying the name of the desired area.
+If the root folder is not known, or the intent is to retrieve all folders in a given area, the root can be specified as the "Marketing Activities", "Design Studio", or "Lead Database" areas. The ids for each of these can be retrieved through the [Get Folder By Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) API, and specifying the name of the desired area.
 
 Like other bulk asset retrieval endpoints, offset and maxReturn are optional parameters for paging.   Other optional parameters are:
 
@@ -208,7 +208,7 @@ The path of a folder shows its hierarchy in the folder tree, similar to a Unix-s
 
 ## Create and Update
 
-[Creating folders](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) is simple and is executed with an application/x-www-form-urlencoded POST that has two required parameters, "name," a string, and "parent," the parent to create the folder in, which is an embedded JSON object with two members, id, and type, either Folder or Program, depending on the type of the target folder. Optionally "description," a string, can also be included and may be up to 2000 characters.
+[Creating folders](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) is simple and is executed with an application/x-www-form-urlencoded POST that has two required parameters, "name," a string, and "parent," the parent to create the folder in, which is an embedded JSON object with two members, id, and type, either Folder or Program, depending on the type of the target folder. Optionally "description," a string, can also be included and may be up to 2000 characters.
 
 ```
 POST /rest/asset/v1/folders.json

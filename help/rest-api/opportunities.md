@@ -6,7 +6,7 @@ exl-id: 46451285-4125-4857-890a-575069a68288
 ---
 # Opportunities
 
-[Opportunity Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities)
+[Opportunity Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities)
 
 Marketo exposes APIs for reading, writing, creating and updating opportunity records. In Marketo, opportunity records are linked to lead and contact records through the intermediate Opportunity Role object, so an opportunity may be linked to many individual leads.  Both of these object types are exposed through the API, and like most of the Lead Database object types, they both have a corresponding Describe call, which returns metadata about the object types.
 
@@ -79,7 +79,7 @@ The most important fields for this response type are `idField`, `dedupeFields`, 
 
 ## Query
 
-The pattern for [querying opportunities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) closely follows that of the leads API with the added restriction that the `filterType` parameter accepts the fields listed in the `searchableFields` array or of the corresponding describe call, or dedupeFields.  Note that if you are using custom opportunity fields, only custom opportunity fields of type String or Integer will be listed in searchableFields array.
+The pattern for [querying opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET) closely follows that of the leads API with the added restriction that the `filterType` parameter accepts the fields listed in the `searchableFields` array or of the corresponding describe call, or dedupeFields.  Note that if you are using custom opportunity fields, only custom opportunity fields of type String or Integer will be listed in searchableFields array.
 
 ```
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
@@ -183,7 +183,7 @@ Querying opportunity fields is straightforward.  You may query a single company
 
 #### By Name
 
-The [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) endpoint retrieves metadata for a single field on the company object.  The required `fieldApiName` path parameter specifies the API name of the field.  The response is like the Describe Opportunity endpoint but contains additional metadata such as the `isCustom` attribute which denotes whether the field is a custom field.
+The [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) endpoint retrieves metadata for a single field on the company object.  The required `fieldApiName` path parameter specifies the API name of the field.  The response is like the Describe Opportunity endpoint but contains additional metadata such as the `isCustom` attribute which denotes whether the field is a custom field.
 
 ```
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
@@ -212,7 +212,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Browse
 
-The [Get Opportunity Fields](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) endpoint retrieves metadata for all fields on the company object.  By default, a maximum of 300 records are returned.  You can use the `batchSize` query parameter to reduce this number.  If the `moreResult` attribute is true, this means more results are available.  Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available.  The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
+The [Get Opportunity Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET) endpoint retrieves metadata for all fields on the company object.  By default, a maximum of 300 records are returned.  You can use the `batchSize` query parameter to reduce this number.  If the `moreResult` attribute is true, this means more results are available.  Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available.  The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
 ```
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5

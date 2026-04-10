@@ -42,15 +42,15 @@ Determining your latency tolerances, or the maximum amount of time that may pass
 
 Each API-enabled instance of Marketo has a daily allocation of at least 10,000 REST API calls per day, but more commonly 50,000 or more, and 500MB or more of Bulk Extract capacity. While additional daily capacity may be purchased as part of a Marketo subscription, your application design should consider the common limits of Marketo subscriptions.
 
-As capacity is shared among all API services and users in an instance, best practice is to eliminate redundant calls, and to batch records into as few calls as possible. The most call efficient way to import records is using Marketo's bulk import APIs, which are available for [Leads/Persons](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) and [Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo also provides Bulk Extract for [Leads](bulk-lead-extract.md) and [Activities](bulk-activity-extract.md).
+As capacity is shared among all API services and users in an instance, best practice is to eliminate redundant calls, and to batch records into as few calls as possible. The most call efficient way to import records is using Marketo's bulk import APIs, which are available for [Leads/Persons](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) and [Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo also provides Bulk Extract for [Leads](bulk-lead-extract.md) and [Activities](bulk-activity-extract.md).
 
 ### Caching
 
 Results from the following operations can typically be cached on the client side for a day or more, as they change infrequently:
 
 - Results from Describe operations
-- [Activity Types](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Partitions](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [Partitions](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 Caching certain asset types, like programs, emails and folders, is also appropriate for certain use cases, such as data enrichment for lead or activity records.
 

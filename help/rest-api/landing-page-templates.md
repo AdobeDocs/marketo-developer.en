@@ -6,7 +6,7 @@ exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
 ---
 # Landing Page Templates
 
-[Landing Page Template Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
+[Landing Page Template Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates)
 
 Landing Page Templates are a parent resource and dependency for individual Marketo landing pages. Landing pages derive the skeleton of their content from the parent template.
 
@@ -16,7 +16,7 @@ Marketo has two types of Landing Page Templates, free form and guided. Free for
 
 ## Query
 
-Landing Page Templates support the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). These endpoints return metadata for the templates. Retrieving the HTML content of templates must be done on a per-template basis via its id.
+Landing Page Templates support the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). These endpoints return metadata for the templates. Retrieving the HTML content of templates must be done on a per-template basis via its id.
 
 ## Create and Update
 
@@ -60,11 +60,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Content for the template must be populated separately via the [Update Landing Page Template Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) endpoint.
+Content for the template must be populated separately via the [Update Landing Page Template Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) endpoint.
 
 ### Update Metadata
 
-Metadata for landing page templates can be updated via the [Update Landing Page Template Metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) endpoint. Name, description and the enableMunchkin setting may be updated this way.
+Metadata for landing page templates can be updated via the [Update Landing Page Template Metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) endpoint. Name, description and the enableMunchkin setting may be updated this way.
 
 ### Update Content
 

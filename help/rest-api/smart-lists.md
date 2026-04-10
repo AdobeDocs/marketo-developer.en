@@ -6,7 +6,7 @@ exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
 ---
 # Smart Lists
 
-[Smart Lists Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists)
+[Smart Lists Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists)
 
 Marketo offers a set of REST APIs for performing operations on smart lists. These APIs follow the standard interface pattern for asset APIs providing Query, Delete, and Clone options.
 
@@ -14,11 +14,11 @@ Note: These APIs are supported for user-created Smart Lists only. They cannot be
 
 ## Query
 
-Querying smart lists follows the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET), and [browse](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET).
+Querying smart lists follows the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET), and [browse](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET).
 
 ### By Id
 
-[Query by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) takes a single smart list `id` as a path parameter and returns a single smart list record. Optionally you may pass the `includeRules` boolean parameter to include smart list rules in the response.
+[Query by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET) takes a single smart list `id` as a path parameter and returns a single smart list record. Optionally you may pass the `includeRules` boolean parameter to include smart list rules in the response.
 
 ![Smartlist Rules](assets/smartlist-rules.png)
 
@@ -93,7 +93,7 @@ GET /rest/asset/v1/smartList/{id}.json?includeRules=true
 
 ### By Smart Campaign Id
 
-[Query by smart campaign id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) takes a single smart campaign `id` as a path parameter and returns a single smart list record. Optionally you may pass the `includeRules` boolean parameter to include smart list rules in the response.
+[Query by smart campaign id](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) takes a single smart campaign `id` as a path parameter and returns a single smart list record. Optionally you may pass the `includeRules` boolean parameter to include smart list rules in the response.
 
 ```
 GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
@@ -124,7 +124,7 @@ GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
 
 ### By Program Id
 
-[Query by program id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getSmartListByProgramIdUsingGET) takes a single email program `id` as a path parameter and returns a single smart list record. Optionally you may pass the `includeRules` boolean parameter to include smart list rules in the response.
+[Query by program id](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getSmartListByProgramIdUsingGET) takes a single email program `id` as a path parameter and returns a single smart list record. Optionally you may pass the `includeRules` boolean parameter to include smart list rules in the response.
 
 ```
 GET /rest/asset/v1/program/{programId}/smartList.json
@@ -155,7 +155,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### By Name
 
-[Query by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) takes a smart list `name` as a parameter and returns a single smart list record.  An exact string match is performed against all smart list names in the instance, and returns a result for the smart list matching that name.
+[Query by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET) takes a smart list `name` as a parameter and returns a single smart list record.  An exact string match is performed against all smart list names in the instance, and returns a result for the smart list matching that name.
 
 ```
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -185,7 +185,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Browse
 
-Smart lists can also be [retrieved in batches](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). The `folder` parameter is used to specify the parent folder under which the query is performed. It is formatted as a JSON object containing `id` and `type`. Like other bulk asset retrieval endpoints, `offset` and `maxReturn` are optional parameters that can be used for paging. The optional `earliestUpdatedAt` and `latestUpdatedAt` datetime parameters can be used to filter the results by UpdatedAt date range.
+Smart lists can also be [retrieved in batches](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET). The `folder` parameter is used to specify the parent folder under which the query is performed. It is formatted as a JSON object containing `id` and `type`. Like other bulk asset retrieval endpoints, `offset` and `maxReturn` are optional parameters that can be used for paging. The optional `earliestUpdatedAt` and `latestUpdatedAt` datetime parameters can be used to filter the results by UpdatedAt date range.
 
 ```
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
@@ -239,7 +239,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 
 ## Clone
 
-[Cloning a smart list](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST) is executed with an application/x-www-form-urlencoded POST. The smart list to clone is specified in the `id` path parameter. The `folder` parameter is used to specify the parent folder under which the smart list will be created and is formatted as a JSON object containing id and type. The parent folder must be either a Program or a Smart List folder. The `name` parameter is used to name the new smart list and must be unique. Optionally the `description` parameter may be used to describe the smart list.
+[Cloning a smart list](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/cloneSmartListUsingPOST) is executed with an application/x-www-form-urlencoded POST. The smart list to clone is specified in the `id` path parameter. The `folder` parameter is used to specify the parent folder under which the smart list will be created and is formatted as a JSON object containing id and type. The parent folder must be either a Program or a Smart List folder. The `name` parameter is used to name the new smart list and must be unique. Optionally the `description` parameter may be used to describe the smart list.
 
 ```
 POST /rest/asset/v1/smartList/{id}/clone.json
@@ -277,7 +277,7 @@ folder={"id":31,"type":"Folder"}&name=2018 Leads Qualified
 
 ## Delete
 
-[Deleting a smart list](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) takes a single smart list `id` as a path parameter.
+[Deleting a smart list](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) takes a single smart list `id` as a path parameter.
 
 ```
 POST /rest/asset/v1/smartList/{id}/delete.json

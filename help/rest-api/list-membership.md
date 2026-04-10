@@ -6,7 +6,7 @@ exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
 ---
 # List Membership (Static Lists)
 
-[List Membership Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[List Membership Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists)
 
 The List Membership APIs provide Lead Database endpoints for working with static list members. These endpoints can be used to add leads to a list, remove leads from a list, retrieve members of a list, and determine whether one or more leads are members of a list.
 
@@ -21,7 +21,7 @@ The List Membership APIs provide Lead Database endpoints for working with static
 
 ## Add to List
 
-The [Add to List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) endpoint is used to add one or more members to a list. The endpoint takes a required `listId` path parameter, and one or more `id` query parameters which contain lead ids (maximum allowed is 300).
+The [Add to List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST) endpoint is used to add one or more members to a list. The endpoint takes a required `listId` path parameter, and one or more `id` query parameters which contain lead ids (maximum allowed is 300).
 
 The response contains a `result` array comprised of JSON objects with the status for each lead id that was specified in the request.
 
@@ -54,7 +54,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## Remove from List
 
-The [Remove from List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) endpoint is used to remove one or more members from a list. The endpoint takes a required `listId` path parameter, and one or more `id` query parameters which contain lead ids (maximum allowed is 300).
+The [Remove from List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) endpoint is used to remove one or more members from a list. The endpoint takes a required `listId` path parameter, and one or more `id` query parameters which contain lead ids (maximum allowed is 300).
 
 The response contains a `result` array comprised of JSON objects with the status for each lead id that was specified in the request.
 
@@ -91,7 +91,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## Get Leads by List ID
 
-The [Get Leads by List Id](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) endpoint is used to retrieve members of a list. The endpoint takes a required `listId` path parameter, and allows several optional query parameters to specify filtering criteria.
+The [Get Leads by List Id](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET) endpoint is used to retrieve members of a list. The endpoint takes a required `listId` path parameter, and allows several optional query parameters to specify filtering criteria.
 
 The `batchSize` parameter is used to specify the number of lead records to be returned in a single call. The default and maximum is 300.
 
@@ -141,7 +141,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## Member of List
 
-The [Member of List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) endpoint is used to see if one or more leads are members of a list. The endpoint takes a required `listId` path parameter, and one or more `id` query parameters which contain lead ids (maximum allowed is 300).
+The [Member of List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) endpoint is used to see if one or more leads are members of a list. The endpoint takes a required `listId` path parameter, and one or more `id` query parameters which contain lead ids (maximum allowed is 300).
 
 The response contains a `result` array comprised of JSON objects with the status for each lead id that was specified in the request.
 
