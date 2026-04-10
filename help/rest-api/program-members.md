@@ -14,7 +14,7 @@ Marketo exposes APIs for reading, creating, updating, and deleting program membe
 
 The [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) endpoint follows the standard pattern for lead database objects. The `searchableFields` array gives you the set of fields which are valid for querying. The `fields` array contains field metadata including REST API name, display name, and field update-ability.
 
-```
+```http
 GET /rest/v1/programs/members/describe.json
 ```
 
@@ -224,7 +224,7 @@ By default, a maximum of 300 records are returned. You can use the `batchSize` q
 
 If the total length of your GET request exceeds 8KB, an HTTP error is returned: "414, URI too long". As a workaround, you may change your GET to POST, add `_method=GET` parameter, and place query string in the request body.
 
-```
+```http
 GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValues=Influenced
 ```
 
@@ -352,11 +352,11 @@ The endpoint responds with a `status` of "updated", "created", or "skipped". If 
 
 If the call is successful, a "Change Program Status" activity is written to the lead's activity log.
 
-```
+```http
 POST /rest/v1/programs/{programId}/members/status.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -418,11 +418,11 @@ The endpoint responds with a `status` of "updated" or "skipped". If skipped, a `
 
 If the call is successful, a "Change Program Member Data" activity is written to the lead's activity log.
 
-```
+```http
 POST /rest/v1/programs/{programId}/members.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -488,7 +488,7 @@ Querying program member fields is straightforward. You may query a single progra
 
 The [Get Program Member Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) endpoint retrieves metadata for a single field on the program member object. The required `fieldApiName` path parameter specifies the API name of the field. The response is like the Describe Program Member endpoint but contains additional metadata such as the `isCustom` attribute which denotes whether the field is a custom field.
 
-```
+```http
 GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 ```
 
@@ -517,7 +517,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 The [Get Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) endpoint retrieves metadata for all fields on the program member object. By default, a maximum of 300 records are returned. You can use the `batchSize` query parameter to reduce this number. If the `moreResult` attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
-```
+```http
 GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 ```
 
@@ -599,7 +599,7 @@ The required `input` parameter is an array of program member field objects. Eac
 
 There are a few rules associated with `name` and `displayName` naming. The `name` attribute must be unique, start with a letter, and only contain letters, numbers, or underscore. The *`isplayName` must be unique, and cannot contain special characters. A common naming convention is to apply [camel case](https://en.wikipedia.org/wiki/Camel_case#) to `displayName` to produce `name`. For example, a `displayName` of "My Custom Field" would produce a `name` of "myCustomField".
 
-```
+```http
 POST /rest/v1/programs/members/schema/fields.json
 ```
 
@@ -647,7 +647,7 @@ The [Update Program Member Field](https://developer.adobe.com/marketo-apis/api/
 
 The required `fieldApiName` path parameter specifies the API name of the field to update. The required `input` parameter is an array that contains a single lead field object. The field object contains one or more attributes.
 
-```
+```http
 POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
 ```
 
@@ -682,11 +682,11 @@ The [Delete Program Members](https://developer.adobe.com/marketo-apis/api/mapi/#
 
 The endpoint responds with a `status` of "deleted" or "skipped". If skipped, a `reasons` array will also be included. The endpoint will also respond with a `seq` field which is an index that can be used to correlate the submitted records to the order of the response.
 
-```
+```http
 POST /rest/v1/programs/{programId}/members/delete.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 

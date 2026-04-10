@@ -22,7 +22,7 @@ Sales Person records are only editable via the API.
 
 Describing Sales Person records follows the standard pattern for lead database objects.
 
-```
+```http
 GET /rest/v1/salespersons/describe.json
 ```
 
@@ -95,7 +95,7 @@ By default, the `idField` of Sales Persons is "id" and the `dedupeFields` is jus
 
 Sales Persons using the standard query pattern for simple keys. This example shows the user's email being used as the externalSalesPersonId. By default the query returns all fields that are populated for the returned records.
 
-```
+```http
 GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.com,sam@test.com
 ```
 
@@ -126,7 +126,7 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 
 The pattern for updates is standard.
 
-```
+```http
 POST /rest/v1/salespersons.json
 ```
 
@@ -179,7 +179,7 @@ Deletion of Sales Persons is not allowed when "in use". In this case the Sales P
 - When Sales Person is associated with active Leads
 - When Sales Person is associated with a Company that has been deleted
 
-```
+```http
 POST /rest/v1/salespersons/delete.json
 ```
 

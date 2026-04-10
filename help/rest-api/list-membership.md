@@ -25,7 +25,7 @@ The [Add to List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-
 
 The response contains a `result` array comprised of JSON objects with the status for each lead id that was specified in the request.
 
-```
+```http
 POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 ```
 
@@ -58,7 +58,7 @@ The [Remove from List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/St
 
 The response contains a `result` array comprised of JSON objects with the status for each lead id that was specified in the request.
 
-```
+```http
 DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 ```
 
@@ -101,7 +101,7 @@ The `fields` parameter contains a comma-separated list of field names to be retu
 
 The response contains a `result` array comprised of JSON objects containing the lead fields that were specified in the request.
 
-```
+```http
 GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 ```
 
@@ -145,7 +145,7 @@ The [Member of List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Stat
 
 The response contains a `result` array comprised of JSON objects with the status for each lead id that was specified in the request.
 
-```
+```http
 GET /rest/v1/lists/{listId}/leads/ismember.json?id=309901&id=318603&id=999999
 ```
 

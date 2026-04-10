@@ -15,7 +15,7 @@ How to Create User Profiles
 
 You can create rich profiles by sending the user fields as shown below.
 
-```
+```objectivec
 MarketoLead *profile = [[MarketoLead alloc] init];
 
 // Get user profile from network and populate
@@ -37,7 +37,7 @@ MarketoLead *profile = [[MarketoLead alloc] init];
 [profile setTwitterId:@"twitterid"];
 ```
 
-```
+```swift
 let profile =  MarketoLead()
 
 // Get user profile from network and populate
@@ -65,7 +65,7 @@ Add more [standard fields](../rest-api/list-of-standard-fields.md).
 
 >[!TAB Objective C]
 
-```
+```objectivec
 // Add other custom fields
 [profile setFieldName:@"mobilePhone"withValue:@"123.456.7890"];
 [profile setFieldName:@"numberOfEmployees"withValue:@"10"];
@@ -74,7 +74,7 @@ Add more [standard fields](../rest-api/list-of-standard-fields.md).
 
 >[!TAB Swift]
 
-```
+```swift
 // Add other custom fields
 profile.setFieldName("mobilePhone" , withValue :"123.456.7890");
 profile.setFieldName("numberOfEmployees", withValue: "10");
@@ -89,7 +89,7 @@ Report User Profile.
 
 >[!TAB Objective C]
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 // This method will update user profile
@@ -98,7 +98,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 >[!TAB Swift]
 
-```
+```swift
 let marketo = Marketo.sharedInstance()
 
 // This method will update user profile

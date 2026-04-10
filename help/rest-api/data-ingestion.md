@@ -101,7 +101,7 @@ When a call is successful, a 202 status is returned.  No response body is return
 
 Example of Success Response:
 
-```
+```http
 HTTP/1.1 202 Accepted
 X-Request-Id: e3d92152-0fb1-444a-8f8f-29d5a2338598
 Content-Length: 0

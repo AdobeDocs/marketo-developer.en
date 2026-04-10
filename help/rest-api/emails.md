@@ -18,7 +18,7 @@ Note: If an email is part of an email program that is using [A/B Testing](https:
 
 ### By ID
 
-```
+```http
 GET /rest/asset/v1/email/1351.json
 ```
 
@@ -80,7 +80,7 @@ GET /rest/asset/v1/email/1351.json
 
 For by name, you can optionally pass a folder to search only in that folder.
 
-```
+```http
 GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Folder"}
 ```
 
@@ -147,7 +147,7 @@ GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Fol
 
 Browsing folders works like other Asset API browse endpoints, and allows optional filtering on `status`, `folder`, `earliestUpdatedAt`/`latestUpdatedAt`, `maxReturn`, and `offset`. `status` is either Approved or Draft. `folder` is a JSON object containing `id` and `type`. `maxReturn` is an integer that limits the number of results (default is 20, maximum is 200), and `offset` is an integer that can be used with `maxReturn` to read through large result sets (default is 0).
 
-```
+```http
 GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 ```
 
@@ -214,7 +214,7 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 You can [retrieve the available editable sections](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) for an email by querying its content, and optionally filter on status to get the sections for either the Approved or Draft versions.
 
-```
+```http
 GET /rest/asset/v1/email/1356/content.json
 ```
 
@@ -249,7 +249,7 @@ Sections may return as having a type of dynamicContent. See the [Dynamic Content
 
 You can retrieve the set of fields enabled for Email CC in the target instance by calling the [Get Email CC Fields](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailCCFieldsUsingGET) endpoint.
 
-```
+```http
 GET /rest/asset/v1/email/ccFields.json
 ```
 
@@ -283,15 +283,15 @@ GET /rest/asset/v1/email/ccFields.json
 
 The following parameters are optional for creation: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. If unset, `subject` will be empty, `fromName`, `fromEmail` and `replyEmail` will be set to instance defaults, and `operational` and `isOpenTrackingDisabled` will be false. `isOpenTrackingDisabled` determines whether the open-tracking pixel is included in an email when sent.
 
-```
+```http
 POST /rest/asset/v1/emails.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&description=This is a test email&subject=Hey There&fromName=SomeBody&fromEmail=somebody@marketo.com&replyEmail=somebody@marketo.com
 ```
 
@@ -349,15 +349,15 @@ name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&d
 
 [Updating an email](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) record can be done by id. This allows for updating the description or name of the email.
 
-```
+```http
 POST /rest/asset/v1/email/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an Email&name=Updated Email
 ```
 
@@ -417,15 +417,15 @@ description=This is an Email&name=Updated Email
 
 The content for each section of an email must be updated individually, apart from the subject, fromName, fromEmail, and replyEmail, which are updated using the [Update Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) endpoint. When using this endpoint, these values can also be set to use dynamic content instead of static content. Each parameter is a type/value JSON object, where type is either "Text" or "DynamicContent" and value is either the appropriate text value, or the id of the segmentation to use for the dynamic content. Data is passed as POST x-www-form-urlencoded, not as JSON.  isOpenTrackingDisabled may be set with Update Email Content
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 subject={"type":"Text","value":"Gettysburg Address"}&fromEmail={"type":"Text","value":"abe@testmail.com"}&fromName={"type":"Text","value":"Abe Lincoln"}&replyTO={"type":"Text","value":"replies@testmail.com"}
 ```
 
@@ -449,15 +449,15 @@ If setting a section to use dynamic content, the section ID must be retrieved vi
 
 Editable sections are updated by their individual htmlIds. Only the id of the email and htmlId of the section are required as path parameters, while type, value, and textValue are optional. Type may be one of "Text," "DynamicContent," or "Snippet" and will affect what is passed in the value. If the type is Text, then the value is a string containing the HTML content of the section. If it is DynamicContent, then it is a JSON block, with three members, type, which will be "DynamicContent", segmentation which is the id of the segmentation to use for the content, and default, which is a string containing the default HTML content of the section. The optional textValue parameter is a string containing the text version of the section. Data is passed as POST x-www-form-urlencoded, not as JSON.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{htmlId}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 type=Text&value=<h1>Hello World!</h1>&textValue=Hello World!
 ```
 
@@ -491,7 +491,7 @@ To work with modules, you must specify a moduleId parameter, which uniquely iden
 
 The following example queries a 1.0 email based on the "Skeleton" template found in "Starter Templates" section of the Template Picker UI.
 
-```
+```http
 GET /rest/asset/v1/email/{moduleId}/content.json
 ```
 
@@ -719,19 +719,19 @@ Continuing with the "Skeleton" example above, the following table contains a sum
 
 [Add a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/addModuleUsingPOST) to an email by selecting from one of the existing modules contained in the email template that is in use. Do this by specifying the email id, and the moduleId as path parameters. The index query parameter is required and determines the order of the module in the email. If the index value exceeds the largest existing index value, then the module is appended to the email.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/add.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 index=10
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -749,11 +749,11 @@ index=10
 
 [Delete a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/deleteModuleUsingPOST) by specifying the email id, and the moduleId as path parameters.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -771,11 +771,11 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 
 [Duplicate a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST) by specifying the email id, and the moduleId as path parameters. This call duplicates the module, placing it underneath the original module and pushing the other modules down.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -793,19 +793,19 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 [Rearrange modules](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)array that contains all modules and the desired position within the email for each. Each array element contains a JSON object of the following form:  { "index": <_index_>, "moduleId": "<_moduleId_>" }, where <_index_> is the zero-based module order number, and <_moduleId_> is the moduleId.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "title"}, {"index": 2, "moduleId": "mkvideo"}, {"index": 3, moduleId": "free-text"}, {"index": 4, "moduleId": "blankSpace"}, {"index": 5, "moduleId": "Separator"}, {"index": 6, "moduleId": "callToAction"}, {"index": 7, "moduleId": "blankSpace2"}, {"index": 8, "moduleId": "blankSpace3"} ]
 ```
 
-```
+```json
 {
     "success": true,
     "warnings":[ ],
@@ -823,19 +823,19 @@ positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "ti
 
 [Rename a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) on an email by passing the new name via the name parameter. Specify the email id, and the moduleId (existing name) as path parameters.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/rename.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=MarketoVideo
 ```
 
-```
+```json
 {
     "success": true,
     "warnings":[ ],
@@ -859,11 +859,11 @@ In Email Editor 1.0, variables are used to store values for elements in your ema
 
 The following example queries a 1.0 email based on the "Skeleton" template found in "Starter Templates" section of the Template Picker UI.
 
-```
+```http
 GET /rest/asset/v1/email/{id}/variables.json
 ```
 
-```
+```json
 {
   "success": true,
   "warnings": [ ],
@@ -1079,19 +1079,19 @@ Variables can be scoped globally to the entire email, or locally to a specific m
 
 In the following example we update a global variable named "hrBorderSize" to a value of 1.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/variable/{name}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 ```
 
-```
+```text
 value=2
 ```
 
-```
+```json
 {
     "success":true,
     "warnings":[ ],
@@ -1109,15 +1109,15 @@ value=2
 
 In the following example we update a local variable named "ctaLinkText" to a value of "Click this button!" in moduleId "CTA".
 
-```
+```http
 POST /rest/asset/v1/email/1032/variable/ctaLinkText.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 value=Click this button!&moduleId=CTA
 ```
 
@@ -1146,7 +1146,7 @@ Emails follow the standard pattern for approvals of asset records. You can appro
 
 When calling the approval endpoint, the email will be validated against the rules for Marketo emails. The `from name`, `from email`, `reply to email`, and `subject` must be populated before the email can be approved.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/approveDraft.json
 ```
 
@@ -1169,7 +1169,7 @@ POST /rest/asset/v1/email/{id}/approveDraft.json
 
 The `unapprove` operation can only be performed on approved emails.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -1191,7 +1191,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 The email must be in draft status to be discarded. An approved email cannot be discarded.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/discardDraft.json
 ```
 
@@ -1212,7 +1212,7 @@ POST /rest/asset/v1/email/{id}/discardDraft.json
 
 #### Delete
 
-```
+```http
 POST /rest/asset/v1/email/{id}/delete.json
 ```
 
@@ -1234,15 +1234,15 @@ POST /rest/asset/v1/email/{id}/delete.json
 
 Marketo provides a simple method for cloning an Email. This type of request is made with an application/x-www-url-urlencoded POST, and takes two required parameters, name, and folder, an embedded JSON object with id and type. description is also an optional parameter. If no approved version exists, then the draft version is cloned.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Clone of Social Sharing in Email&folder={"id":239,"type":"Folder"}&description=This is a test of clone email
 ```
 
@@ -1298,15 +1298,15 @@ name=Clone of Social Sharing in Email&folder={"id":239,"type":"Folder"}&descript
 
 You can trigger a sample email via the api, to be sent to the emailAddress query parameter. You can also optionally add a leadId parameter to impersonate a particular lead from your database, and a textOnly parameter to send only the text version of the email.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/sendSample.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 emailAddress=abe@testmail.com&textOnly=true
 ```
 
@@ -1332,7 +1332,7 @@ Marketo provides the [Get Email Full Content](https://developer.adobe.com/market
 - type: Accepts "Text" or "HTML" and defaults to HTML
 - leadId:. Accepts the integer id of a lead. When set, previews the email as though it were received by the designated lead
 
-```
+```http
 GET /rest/asset/v1/email/{id}/fullContent.json
 ```
 
@@ -1358,11 +1358,11 @@ Marketo provides the [Update Email Full Content](https://developer.adobe.com/mar
 
 This endpoint expects a Content-Type : multipart/form-data with the id parameter in the path, the id of the email, and one parameter in the body, content as a complete HTML email document with the Content-Type "text/html.". A malformed HTML document emits a warning, but may not permit approval, while inclusion of JavaScript and/or `<script>`tags in the document cause the call to fail and emit an error.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/fullContent.json
 ```
 
-```
+```text
 content-type: multipart/form-data; boundary=--------------------------116301888604800085728247
 content-length: 599
 ```

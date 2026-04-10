@@ -32,7 +32,7 @@ You can retrieve email template metadata by asset id or with the filter endpoint
 
 #### Request
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/{id}
 ```
 
@@ -63,7 +63,7 @@ Supported filters include `folderId`, repeated `folderIds`, repeated `status`, `
 
 #### Request
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/filter?workspaceId=1001&name=Newsletter&pageIndex=0&pageSize=20
 ```
 
@@ -93,7 +93,7 @@ Create an email template by sending a JSON payload. `name` and `appData` are req
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate
 Content-Type: application/json
 ```
@@ -143,7 +143,7 @@ Update a template by asset id.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/update
 Content-Type: application/json
 ```
@@ -187,7 +187,7 @@ Valid `action` values are:
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/state/transition
 Content-Type: application/json
 ```
@@ -207,7 +207,7 @@ Use the clone endpoint to create a copy of an existing template.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/clone
 Content-Type: application/json
 ```
@@ -230,7 +230,7 @@ Delete a template by asset id.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/delete
 Content-Type: application/json
 ```
@@ -243,7 +243,7 @@ Use the `usedby` endpoint to retrieve assets that reference a given template.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/usedby
 Content-Type: application/json
 ```

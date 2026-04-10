@@ -32,7 +32,7 @@ Named Account Lists have a limited number of standard fields, and are not exten
 
 Querying account lists is simple and easy. Currently, there are only two valid filterTypes for querying named account lists: "dedupeFields" and "idField". The field to filter on is set in the `filterType` parameter of the query, and the values are set in `filterValues as` a comma-separated list. The `nextPageToken` and `batchSize` filters are also optional parameters.
 
-```
+```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
 ```
 
@@ -71,7 +71,7 @@ The endpoint permits the two standard action types: "createOnly," and "updateOnl
 
 The optional `dedupeBy parameter` can be specified if action is `updateOnly`.  Permitted values are "dedupeFields" (corresponding to "name"), or "idField" (corresponding to "marketoGUID").  In `createOnly` modes, only "name" is permitted as the `dedupeBy` field. You can submit up to 300 records at a time.
 
-```
+```http
 POST /rest/v1/namedAccountLists.json
 ```
 
@@ -113,7 +113,7 @@ POST /rest/v1/namedAccountLists.json
 
 Deletion of Named Account Lists is simple, and can be done based on either the `name`, or the `marketoGUID` of the list. To select the key you wish to use, pass either "dedupeFields" for name, or "idField" for marketoGUID in the`deleteB` member of your request. If unset, this will default to dedupeFields. You can delete up to 300 records at a time.
 
-```
+```http
 POST /rest/v1/namedAccountLists/delete.json
 ```
 
@@ -177,7 +177,7 @@ Querying the membership of a named account list is simple, requiring only the`i`
 
 If`field` is unset, then`marketoGUI`,`nam`, `createdA`, and`updatedA` will be returned. `batchSiz` has a maximum and default value of 300.
 
-```
+```http
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -208,7 +208,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Named accounts can easily be added to a Named Account List. Accounts may only be added using their marketoGUID. You can add up to 300 records at a time.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -248,7 +248,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Removing records from an account list has a different path, but the same interface, requiring a`marketoGUI` for each record that you want to delete. You can remove up to 300 records at a time.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ```
 

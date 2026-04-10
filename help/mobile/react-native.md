@@ -20,7 +20,7 @@ This article provides information on how to install and set up Marketo's native 
 
 Add the Marketo SDK dependency with the latest version: In the application level `build.gradle` file, under the dependencies section, add (including the appropriate version of Marketo SDK)
 
-```
+```groovy
 implementation 'com.marketo:MarketoSDK:0.x.x'
 ```
 
@@ -28,7 +28,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 Marketo SDK is available on the [maven central repository](https://mvnrepository.com/). To sync those files, add `mavencentral` repository to root `build.gradle`
 
-```
+```groovy
 build script {
   repositories {
     google()
@@ -85,7 +85,7 @@ React Native bridge is used for communicating between the JSX and native app lay
 
 This file contains the wrapper methods that can call the Marketo SDK's methods internally with parameters that you provide.
 
-```
+```java
 public class RNMarketoModule extends ReactContextBaseJavaModule {
 
    final Marketo marketoSdk;
@@ -173,7 +173,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
 
 Let react-native know about the Marketo package.
 
-```
+```java
 public class MarketoPluginPackage implements ReactPackage {
 
    @NonNull
@@ -196,7 +196,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
 To complete the package registration, add the MarketoPluginPackage to the React package list in the Application Class:
 
-```
+```java
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -225,7 +225,7 @@ To get started, open up the iOS project within your React Native application in 
 
 Create our main custom native module header and implementation files. Create a new file called `MktoBridge.h` and add the following to it:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //
@@ -246,7 +246,7 @@ NS_ASSUME_NONNULL_END
 
 Create the corresponding implementation file, `MktoBridge.m`, in the same folder and include the following content:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //  Created by Marketo, An Adobe company.
@@ -359,7 +359,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications) {
 
 Find a place in your application where you would like to add a call to the native module's createCalendarEvent() method. Below is an example of a component, NewModuleButton you can add in your app. You can invoke the native module inside NewModuleButton's onPress() function.
 
-```
+```javascript
 import React from 'react';
 import { NativeModules, Button } from 'react-native';
 
@@ -390,7 +390,7 @@ Once the above files are placed correctly, we can import the js module in any js
 
 Note that we must pass "reactNative" as framework type for React native apps.
 
-```
+```javascript
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
 RNMarketoModule.initializeSDK("MunchkinID","SecreteKEY","FrameworkType")
 
@@ -414,7 +414,7 @@ RNMarketoModule.uninitializeMarketoPush()
 
 Initialize Push with Project ID and Channel name
 
-```
+```javascript
 RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
@@ -462,7 +462,7 @@ To send push notifications, [add Push Notifications](push-notifications.md).
 Set-up iOS Push notifications,
 create PushNotifications.tsx file and add the following:
 
-```
+```javascript
 import { NativeModules } from 'react-native';
 const { RNMarketoModule } = NativeModules;
 
@@ -487,7 +487,7 @@ export { requestPermission, registerForRemoteNotifications };
 
 Add `App.tsx` to allow push notifications
 
-```
+```javascript
 import React, { useEffect } from 'react';
 
 useEffect(() => {
@@ -501,7 +501,7 @@ registerForRemoteNotifications();
 
 Update `AppDelegate.mm` with APNS delegate methods:
 
-```
+```objectivec
 #import "AppDelegate.h"
 #import "MktoBridge.h"
 #import <MarketoFramework/Marketo.h>
@@ -591,7 +591,7 @@ Add "MarketoActivity" to `AndroidManifest.xml` file inside application tag.
 
 **iOS - Handle Custom Url Type/Deeplinks in AppDelegate**
 
-```
+```objectivec
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
@@ -604,7 +604,7 @@ Add "MarketoActivity" to `AndroidManifest.xml` file inside application tag.
 
 These constants are used when calling API from javascript. You must create constant files and add the following.
 
-```
+```objectivec
 // Lead attributes.
 static NSString *const KEY_FIRST_NAME = @"firstName";
 static NSString *const KEY_LAST_NAME = @"lastName";
@@ -636,7 +636,7 @@ static NSString *const KEY_TIMESTAMP = @"timeStamp";
 
 Example Usage
 
-```
+```javascript
 //You can create a Marketo Lead by calling the associateLead function.
 RNMarketoModule.associateLead({ email: "", firstName: "", lastName:"", city:""})
 ```

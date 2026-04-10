@@ -28,7 +28,7 @@ Here are the custom object fields as presented in the Admin UI.
 
 You can retrieve API names programmatically by passing the custom object API name to the [Describe Custom Object](#describe) endpoint.
 
-```
+```text
 /rest/v1/customobjects/{apiName}/describe.json
 ```
 
@@ -113,7 +113,7 @@ You can retrieve API names programmatically by passing the custom object API nam
 
 Now suppose that you want to import three "Car" custom object records. Using comma-delimited format (CSV), the file could look like this:
 
-```
+```text
 color,make,model,vin
 red,bmw,2002,WBA4R7C55HK895912
 yellow,bmw,320i,WBA4R7C30HK896061
@@ -126,18 +126,18 @@ Line 1 is the header, and lines 2-4 are the custom object data records.
 
 To make the bulk import request, you must include the API name of the custom object in the path to the [Import Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Identity/operation/identityUsingPOST) endpoint. You must also include a "file" parameter that references the name of your import file, and a"format" parameter that specifies how your import file is delimited ("csv", "tsv", or "ssv").
 
-```
+```http
 POST /bulk/v1/customobjects/{apiName}/import.json?format=csv
 ```
 
-```
+```text
 Transfer-Encoding: chunked
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryXjWP6BP8Ciq6bPeo
 Content-Length: 290
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryXjWP6BP8Ciq6bPeo
 Content-Disposition: form-data; name="file"; filename="custom_object_import.csv"
 Content-Type: text/csv
@@ -169,14 +169,14 @@ Notice in the response to our call, here is no listing of successes or failures 
 
 A simple way to replicate the bulk import request is to use curl from the command line:
 
-```
+```bash
 curl -X POST -i -F format='csv' -F file='@custom_object_import.csv' -F access_token='<Access Token>' <REST API Endpoint URL>/bulk/v1/customobjects/car_c/import.json
 
 ```
 
 Where the import file "custom_object_import.csv" contains the following:
 
-```
+```text
 color,make,model,vin
 red,bmw,2002,WBA4R7C55HK895912
 yellow,bmw,320i,WBA4R7C30HK896061
@@ -187,7 +187,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 Once the import job has been created, you must query its status. It is best practice to poll the import job every 5-30 seconds. Do this by passing the API name of the custom object and the `batchId` in the path to the [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) endpoint.
 
-```
+```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 ```
 
@@ -219,13 +219,13 @@ Failures are indicated by the `numOfRowsFailed` attribute in [Get Import Custom
 
 Continuing with the example, we can force a failure by modifying the header and changing "vin" to " vin" (by adding a space between the comma and "vin").
 
-```
+```text
 color,make,model, vin
 ```
 
 When we re-import and check the status, we see this response with `numRowsFailed`: 3. This indicates three failures.
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
 ```
 
@@ -251,11 +251,11 @@ GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
 
 Now we make Get Import Custom Object Failures endpoint call to get additional failure detail:
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/failures.json
 ```
 
-```
+```text
 color,make,model, vin,Import Failure Reason
 red,bmw,2002,WBA4R7C55HK895912,missing.dedupe.fields
 yellow,bmw,320i,WBA4R7C30HK896061,missing.dedupe.fields
@@ -269,6 +269,6 @@ And we can see that we're missing our deduplication field `vin`.
 
 Warnings are indicated by the `numOfRowsWithWarning` attribute in Get Import Custom Object Status response. If numOfRowsWithWarning is greater than zero, then that value indicates the number of warnings that occurred. Call [Get Import Custom Object Warnings](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) endpoint to obtain a file with warning detail. Again, you must pass the custom object API name and `batchId` in the path. If no warning file exists, an HTTP 404 status code is returned.
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json
 ```
