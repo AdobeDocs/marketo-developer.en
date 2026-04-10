@@ -16,7 +16,7 @@ Company APIs are read-only access for subscriptions which have [SFDC Sync](https
 
 Describing the company object gives you all the information you must interact with them.
 
-```
+```http
 GET /rest/v1/companies/describe.json
 ```
 
@@ -103,7 +103,7 @@ If the fields parameter is omitted, the default set of fields returned is:
 - updatedAt
 - createdAt
 
-```
+```http
 GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 ```
 
@@ -132,11 +132,11 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 The [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) endpoint accepts the required `input` parameter that contains an array of company objects. Just like opportunities, there are three modes for creating and updating companies: createOnly, updateOnly, and createOrUpdate.  Modes are specified in the `action` parameter of the request. Both the `dedupeBy` and `action` parameters are optional, and default to the dedupeFields and the createOrUpdate modes respectively.
 
-```
+```http
 POST /rest/v1/companies.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -190,7 +190,7 @@ Querying company fields is straightforward. You may query a single company field
 
 The [Get Company Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET) endpoint retrieves metadata for a single field on the company object. The required `fieldApiName` path parameter specifies the API name of the field. The response is like the Describe Company endpoint but contains additional metadata such as the `isCustom` attribute which denotes whether the field is a custom field.
 
-```
+```http
 GET /rest/v1/companies/schema/fields/industry.json
 ```
 
@@ -219,7 +219,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 The [Get Company Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET) endpoint retrieves metadata for all fields on the company object. By default, a maximum of 300 records are returned. You can use the `batchSize` query parameter to reduce this number. If the `moreResult` attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
-```
+```http
 GET /rest/v1/companies/schema/fields.json?batchSize=5
 ```
 
@@ -297,11 +297,11 @@ GET /rest/v1/companies/schema/fields.json?batchSize=5
 
 The deletion criteria is specified in the `input` array, which contains a list of search values.  The deletion method is specified in the `deleteBy` parameter.  Permissible values are: dedupeFields, idField.  Default is dedupeFields.
 
-```
+```text
 Content-Type: application/json
 ```
 
-```
+```http
 POST /rest/v1/companies/delete.json
 ```
 

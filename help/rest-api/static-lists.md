@@ -20,7 +20,7 @@ Querying static lists follows the standard query types for assets of [by id](htt
 
 [Query by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) takes a single static list `id` as a path parameter and returns a single static list record.
 
-```
+```http
 GET /rest/asset/v1/staticList/{id}.json
 ```
 
@@ -49,7 +49,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 [Query by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) takes a static list `name` as a parameter and returns a single static list record. An exact string match is performed against all static list names in the instance, and returns a result for the static list matching that name.
 
-```
+```http
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 ```
 
@@ -78,7 +78,7 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 Static lists can also be [retrieved in batches](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET). The `folder` parameter can be used to specify the parent folder under which the query will be performed and is formatted as a JSON object containing `id` and `type`. Like other bulk asset retrieval endpoints, `offset` and `maxReturn` are optional parameters that can be used for paging. The `earliestUpdatedAt` and `latestUpdatedAt` parameters allow you to set low and high datetime watermarks for returning static lists created or updated within the given range. Datetime values must be valid ISO-8601 strings and should not include milliseconds.
 
-```
+```http
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 ```
 
@@ -129,15 +129,15 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 [Creating a static list](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/createStaticListUsingPOST) is executed with an `application/x-www-form-urlencoded` POST with two required parameters. The `folder` parameter is used to specify the parent folder under which the static list will be created and is formatted as a JSON object containing `id` and `type`. The `name` parameter is used to name the static list and must be unique. Optionally the `description` parameter may be used to describe the static list.
 
-```
+```http
 POST /rest/asset/v1/staticLists.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 folder={"id":1034,"type":"Program"}&name=My Static List
 ```
 
@@ -164,15 +164,15 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 
 [Updating a static list](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/updateStaticListUsingPOST) is done through a separate endpoint with two optional parameters. The `description` parameter may be used to update the static list description. The `name` parameter may be used to update the static list name and must be unique.
 
-```
+```http
 POST /rest/asset/v1/staticList/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is a static list used for testing
 ```
 
@@ -202,7 +202,7 @@ description=This is a static list used for testing
 
 [Deleting a static list](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) takes a single static list `id` as a path parameter. Deletions cannot be made to static lists that are in use by an import or export operation, or are in use by other assets.
 
-```
+```http
 POST /rest/asset/v1/staticList/{id}/delete.json
 ```
 

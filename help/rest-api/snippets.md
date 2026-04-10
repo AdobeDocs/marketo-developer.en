@@ -16,7 +16,7 @@ Querying snippets follows the standard pattern for assets, except it does not ha
 
 ### By Id
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}.json?status=approved
 ```
 
@@ -47,7 +47,7 @@ GET /rest/asset/v1/snippet/{id}.json?status=approved
 
 ### Browse
 
-```
+```http
 GET /rest/asset/v1/snippets.json?maxReturn=3
 ```
 
@@ -111,7 +111,7 @@ GET /rest/asset/v1/snippets.json?maxReturn=3
 
 The content of a given snippet can be retrieved based on the snippet id.
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}/content.json
 ```
 
@@ -140,15 +140,15 @@ The call returns a list of content sections,  which consist of sections of type
 
 Snippets follow the complex asset creation pattern, where the call to [create snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST), and its content are made separately, so the first call must be to the create endpoint, with an optional description.   Data is passed as x-www-form-urlencoded, not as JSON.
 
-```
+```http
 POST /rest/asset/v1/snippets.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=This is a test snippet
 ```
 
@@ -180,15 +180,15 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 
 Adding or replacing content in a snippet is done by id. The content can be of the types Text, HTML, or DynamicContent. If the type is Text, then the content parameter is plain text endpoint, while if it is HTML, then it is the desired markup text. If the type is set to DynamicContent, then the content parameter should be set to the id of the segmentation to be associated with the snippet.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/content.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 ```
 
@@ -209,15 +209,15 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 
 [Updating metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST) is also done by id. Only name and description can be updated:
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet&description=New Description
 ```
 
@@ -251,7 +251,7 @@ name=Test Snippet&description=New Description
 
 Snippets follow the standard pattern for dynamic content, but they only represent one whole content section by themselves, so each snippet may contain only one dynamic section, with a list of internal sections optionally for each segment in the used segmentation. Dynamic content can be queried by snippet id alone, since there may only be one dynamic content section in a snippet.
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}/dynamicContent.json
 ```
 
@@ -308,7 +308,7 @@ Snippets have endpoints available for approving, unapproving, and discarding dra
 
 ### Approve
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/approveDraft.json
 ```
 
@@ -342,7 +342,7 @@ POST /rest/asset/v1/snippet/{id}/approveDraft.json
 
 The `unapprove` endpoint can only be used on approved snippets.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/unapprove.json
 ```
 
@@ -376,7 +376,7 @@ POST /rest/asset/v1/snippet/{id}/unapprove.json
 
 The snippet must be in draft status to be discarded.  An approved snippet cannot be discarded.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/discardDraft.json
 ```
 
@@ -398,15 +398,15 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 [Cloning a snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST) with the API is simple and follows the standard pattern, with a required name, id of the original snippet and folder, as well as an optional description.  If no approved version exists, then the draft version is cloned.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet Clone 3 - deverly&folder={"id":395,"type":"Folder"}&description=This is a test snippet
 ```
 

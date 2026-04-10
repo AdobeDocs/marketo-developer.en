@@ -24,7 +24,7 @@ Describe is the primary source of truth for whether fields are available for use
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads/describe.json
 ```
 
@@ -62,7 +62,7 @@ Optionally you may pass a fields parameter containing a comma-separated list of 
 
 ### Request
 
-```
+```http
 GET /rest/v1/lead/{id}.json
 ```
 
@@ -97,7 +97,7 @@ If the total length of your GET request exceeds 8KB, an HTTP error is returned: 
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 ```
 
@@ -162,7 +162,7 @@ In addition to retrieving lead data, you can create, update and delete lead reco
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads.json
 ```
 
@@ -241,7 +241,7 @@ The Get Lead Field by Name endpoint retrieves metadata for a single field on the
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -273,7 +273,7 @@ The Get Lead Fields endpoint retrieves metadata for all fields on the lead objec
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads/schema/fields.json
 ```
 
@@ -420,7 +420,7 @@ There are a few rules associated with name and `displayName` naming. The name at
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads/schema/fields.json
 ```
 
@@ -551,7 +551,7 @@ The required `fieldApiName` path parameter specifies the API name of the field t
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -594,7 +594,7 @@ Note regarding anonymous activities. If you want to associate prior anonymous ac
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads/push.json
 ```
 
@@ -704,13 +704,13 @@ New leads are created in the primary partition for the workspace in which the fo
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads/submitForm.json
 ```
 
 ### Header
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -770,7 +770,7 @@ Sometimes it is necessary to merge duplicate records and Marketo facilitates thi
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ```
 
@@ -793,7 +793,7 @@ Through Lead Tracking (Munchkin), Marketo records web activity for visitors to y
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marketo.com-1396310362214-46169
 ```
 
@@ -818,7 +818,7 @@ To access the list id through the Marketo UI, navigate to the list. The list `id
 
 ### Request
 
-```
+```http
 GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ```
 
@@ -859,7 +859,7 @@ The Get Lists by Lead Id endpoint takes a lead record `id` path parameter and re
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 ```
 
@@ -901,7 +901,7 @@ The response structure is very similar, as each item in the result array is a le
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 ```
 
@@ -975,7 +975,7 @@ The Get Programs by Lead Id endpoint takes a lead record id path parameter and r
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads/{id}/programMembership.json
 ```
 
@@ -1006,7 +1006,7 @@ The Get Smart Campaigns by Lead Id endpoint takes a lead record id path paramete
 
 ### Request
 
-```
+```http
 GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 ```
 
@@ -1044,7 +1044,7 @@ Removing leads is straightforward using the Delete Leads endpoint.  Specify lead
 
 ### Request
 
-```
+```http
 POST /rest/v1/leads/delete.json
 ```
 

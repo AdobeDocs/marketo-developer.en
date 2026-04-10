@@ -35,7 +35,7 @@ Installation instructions for [!DNL Adobe Launch] Marketo extension. The steps b
 
 Update the `applicationDidBecomeActive` method like below
 
-```
+```objectivec
 (void)applicationDidBecomeActive:(UIApplication*) application
 {
  [[ALMarketo sharedInstance] initializeMarketo:nil];
@@ -46,7 +46,7 @@ Update the `applicationDidBecomeActive` method like below
 
 Update the `applicationDidBecomeActive` method like below
 
-```
+```objectivec
 func applicationDidBecomeActive(_ application: UIApplication)
 {
  ALMarketo.sharedInstance().initializeMarketo(nil)
@@ -68,7 +68,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 >[!TAB Objective C]
 
-```
+```objectivec
 #ifdef __IPHONE_10_0
 -(BOOL)application:(UIApplication *)application
            openURL:(NSURL *)url
@@ -94,7 +94,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 >[!TAB Swift]
 
-```
+```objectivec
 func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     return ALMarketo.sharedInstance().application(application, open: url, sourceApplication: nil, annotation: nil)
 }
@@ -123,7 +123,7 @@ ProGuard Configuration (Optional)
 
 If you are using ProGuard for your app, then add the following lines in your `proguard.cfg` file. The file is located within your `project` folder. Adding this code excludes the Marketo SDK from the obfuscation process.
 
-```
+```text
 -dontwarn com.marketo.*
 -dontnote com.marketo.*
 -keep class com.marketo.**{ *; }

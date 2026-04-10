@@ -32,7 +32,7 @@ You can retrieve email metadata by asset `id` or with the filter endpoint.
 
 #### Request
 
-```text
+```http
 GET /rest/asset/v2/email/{id}
 ```
 
@@ -89,7 +89,7 @@ Supported query parameters:
 
 #### Request
 
-```text
+```http
 GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=draft&status=approved&pageIndex=0&pageSize=20
 ```
 
@@ -119,7 +119,7 @@ Create an email by sending a JSON payload. `name`, `appData`, and `headers` are 
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/email
 Content-Type: application/json
 ```
@@ -186,7 +186,7 @@ Update an email by asset id. The request body uses the `UpdateEmailRequest` sche
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/update
 Content-Type: application/json
 ```
@@ -234,7 +234,7 @@ Valid `action` values are:
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/email/state/transition
 Content-Type: application/json
 ```
@@ -254,7 +254,7 @@ Use the clone endpoint to create a copy of an existing email.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/email/clone
 Content-Type: application/json
 ```
@@ -277,7 +277,7 @@ Delete an email by asset id.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
@@ -290,7 +290,7 @@ Use the `usedby` endpoint to retrieve assets that reference a given email.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/email/usedby
 Content-Type: application/json
 ```

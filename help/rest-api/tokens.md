@@ -29,7 +29,7 @@ These are the only data types that can used when creating a token via API.
 
 [Get Tokens by Folder Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/getTokensByFolderIdUsingGET) takes an `id` as a path parameter of either a Program or Folder type. This type is specified by the `folderType` parameter.
 
-```curl
+```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 ```
 
@@ -63,15 +63,15 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 The [Create Token](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/addTokenTOFolderUsingPOST) endpoint creates tokens, or if they exist update them with submitted values. Tokens are created in the context of a folder or a program. The required `id` path parameter is the id of the folder to which the token will be associated with. The `name`, `type`, `value`, and `folderType` are all required parameters of the token. Data is passed as POST x-www-form-urlencoded, not as JSON. The `name` field of the token may not exceed 50 characters.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&type=date&value=2015-04-01&folderType=Folder
 ```
 
@@ -105,15 +105,15 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 [Delete Token by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/deleteTokenByNameUsingPOST) takes an id as a path parameter of either a Program or Folder type. This type is specified by the `folderType` parameter. Tokens are deleted based on their parent folder, the `name`, and the `type` of the token, each of which are required. Data is passed as POST x-www-form-urlencoded, not as JSON.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens/delete.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=AprilFool - deverly&type=date&folderType=Program
 ```
 

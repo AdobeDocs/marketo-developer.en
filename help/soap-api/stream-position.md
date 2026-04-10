@@ -20,7 +20,7 @@ The stream position is used to retrieve data in batches, and allows the caller t
 
 ## Simple Stream Position
 
-```
+```xml
 <streamPosition>8UJZetaMb1V6uUZl+L7DcPP2jG+PMmtpF</streamPosition>
 ```
 

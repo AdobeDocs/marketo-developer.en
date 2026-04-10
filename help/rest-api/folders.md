@@ -16,7 +16,7 @@ Querying folders follows the standard query types for assets of [by id](https:/
 
 ### By Id
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -67,7 +67,7 @@ The type parameter is required and must be one of "Folder" or "Program."  The t
 
 [Querying by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) is also allowed. The query by name endpoint has name as the only required parameter. Name performs an exact string match against the name field of folders in the instance, and returns results for each folder matching that name. It also has the optional query parameters of "type" which can be Folder or Program, "root" the id of the folder to search through, or "workspace" the name of the workspace to search in. If the root parameter is set, the type parameter must also be set.
 
-```
+```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 ```
 
@@ -121,7 +121,7 @@ Like other bulk asset retrieval endpoints, offset and maxReturn are optional par
 - workSpace - The name of the workspace to filter to.
 - maxDepth - The maximum number of levels to traverse in the folder hierarchy. If set to 0, only the folder specified in root is returned. If not specified, the default value is 2.
 
-```
+```http
 GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 ```
 
@@ -210,15 +210,15 @@ The path of a folder shows its hierarchy in the folder tree, similar to a Unix-s
 
 [Creating folders](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) is simple and is executed with an application/x-www-form-urlencoded POST that has two required parameters, "name," a string, and "parent," the parent to create the folder in, which is an embedded JSON object with two members, id, and type, either Folder or Program, depending on the type of the target folder. Optionally "description," a string, can also be included and may be up to 2000 characters.
 
-```
+```http
 POST /rest/asset/v1/folders.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a test
 ```
 
@@ -258,15 +258,15 @@ parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a t
 
 Updates to folders are made through a separate endpoint, and description, name, and `isArchive` are optional parameters for update. If `isArchive` is changed by an update, this results in the folder being archived, if changed to true, or unarchived, if changed to false, in the Marketo UI. Programs cannot be updated with this API.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -307,7 +307,7 @@ type=Folder&description=This is a test (update 01)
 
 Deletions can be made against single folders if they are empty, meaning that they contain no assets or subfolders. If a folder is of type Program, or has the isSystem field set to true, it cannot be deleted with this API.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/delete.json
 ```
 

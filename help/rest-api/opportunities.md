@@ -16,7 +16,7 @@ Opportunity APIs are read-only access for subscriptions which have [SFDC Sync](h
 
 Describing Opportunity records follows the standard pattern for lead database objects.
 
-```
+```http
 GET /rest/v1/opportunities/describe.json
 ```
 
@@ -81,7 +81,7 @@ The most important fields for this response type are `idField`, `dedupeFields`, 
 
 The pattern for [querying opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET) closely follows that of the leads API with the added restriction that the `filterType` parameter accepts the fields listed in the `searchableFields` array or of the corresponding describe call, or dedupeFields.  Note that if you are using custom opportunity fields, only custom opportunity fields of type String or Integer will be listed in searchableFields array.
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -122,7 +122,7 @@ The `lookupField` parameter from the leads API is unavailable, and is superceded
 
 You can submit up to 300 records at a time.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -185,7 +185,7 @@ Querying opportunity fields is straightforward.  You may query a single company
 
 The [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) endpoint retrieves metadata for a single field on the company object.  The required `fieldApiName` path parameter specifies the API name of the field.  The response is like the Describe Opportunity endpoint but contains additional metadata such as the `isCustom` attribute which denotes whether the field is a custom field.
 
-```
+```http
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 ```
 
@@ -214,7 +214,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 The [Get Opportunity Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET) endpoint retrieves metadata for all fields on the company object.  By default, a maximum of 300 records are returned.  You can use the `batchSize` query parameter to reduce this number.  If the `moreResult` attribute is true, this means more results are available.  Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available.  The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
-```
+```http
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 ```
 
@@ -293,7 +293,7 @@ GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 
 You may delete opportunities by dedupe fields or id field. Specify using the `deleteBy` parameter with a value of either dedupeFields or idField. If not specified, the default is dedupeFields. The request body contains an `input` array of opportunities to delete. A maximum of 300 opportunities per call are permitted.
 
-```
+```http
 POST /rest/v1/opportunities/delete.json
 ```
 

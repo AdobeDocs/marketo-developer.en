@@ -20,7 +20,7 @@ Querying smart campaigns follows the standard query types for assets of [by id](
 
 The [Get Smart Campaign by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET) endpoint takes a single smart campaign `id` as a path parameter and returns a single smart campaign record.
 
-```
+```http
 GET /rest/asset/v1/smartCampaign/{id}.json
 ```
 
@@ -62,7 +62,7 @@ With this endpoint, there will always be a single record in the first position o
 
 The [Get Smart Campaign by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) endpoint takes a single smart campaign `name` as a parameter and returns a single smart campaign record.
 
-```
+```http
 GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
 ```
 
@@ -118,7 +118,7 @@ The `offset` parameter is an integer that specifies where to begin retrieving en
 
 The `isActive` parameter is a boolean that specifies to return only active Trigger campaigns.
 
-```
+```http
 GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:00&latestUpdatedAt=2016-09-10T23:17:00-00:00
 ```
 
@@ -183,15 +183,15 @@ The [Create Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#t
 
 Optionally, you may describe the smart campaign using the `description` parameter (maximum 2,000 characters).
 
-```
+```http
 POST /rest/asset/v1/smartCampaigns.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a smart campaign creation test.
 ```
 
@@ -235,15 +235,15 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 
 The [Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset) endpoint is executed with an application/x-www-form-urlencoded POST. It takes a single smart campaign `id` as a path parameter. You can use the `name` parameter to update the name of the smart campaign, or the `description` parameter to update the description of the smart campaign.
 
-```
+```http
 POST /rest/asset/v1/smartCampaign/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 ```
 
@@ -289,15 +289,15 @@ The [Clone Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#ta
 
 Optionally, you may describe the smart campaign using the `description` parameter (maximum 2,000 characters).
 
-```
+```http
 POST /rest/asset/v1/smartCampaign/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Trigger Campaign Clone&folder={"type": "folder","id": 640}&description=This is a smart campaign clone test.
 ```
 
@@ -341,7 +341,7 @@ name=Test Trigger Campaign Clone&folder={"type": "folder","id": 640}&description
 
 The [Delete Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST) endpoint takes a single smart campaign `id` as a path parameter.
 
-```
+```http
 POST /rest/asset/v1/smartCampaign/{id}/delete.json
 ```
 
@@ -367,7 +367,7 @@ Batch smart campaigns launch at a specific time and affect a specific set of lea
 
 Use the [Schedule Campaign](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) endpoint to schedule a batch campaign to run either immediately or at a future date. The campaign `id` is a required path parameter. Optional parameters are `tokens`, `runAt`, and `cloneToProgram` which are passed in the request body as application/json.
 
-The tokens array parameter is an array of My Tokens which override existing program tokens. After the campaign runs, the tokens are discarded.  Each token array item contains name/value pairs. The name of the token must be formatted as "{{my.name}}".
+The tokens array parameter is an array of My Tokens which override existing program tokens. After the campaign runs, the tokens are discarded.  Each token array item contains name/value pairs. The name of the token must be formatted as "`{{my.name}}`".
 
 The runAt datetime parameter specifies when to run the campaign. If not specified, the campaign will be run 5 minutes after the endpoint has been called. The datetime value cannot be more than two years into the future.
 
@@ -375,7 +375,7 @@ Campaigns scheduled via this API always wait a minimum of five minutes before ru
 
 The `cloneToProgram` string parameter contains the name of a resulting program.  When set, this causes the campaign, parent program, and all of its assets to be created with the resulting new name. The parent program is cloned and the newly created campaign will be scheduled. The resulting program is created underneath the parent. Programs with snippets, push notifications, in-app messages, static lists, reports, and social assets may not be cloned in this way. When used, this endpoint is limited to 20 calls per day. The [clone program](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) endpoint is the recommended alternative.
 
-```
+```http
 POST /rest/v1/campaigns/{id}/schedule.json
 ```
 
@@ -420,11 +420,11 @@ Use the [Request Campaign](https://developer.adobe.com/marketo-apis/api/mapi#ta
 
 This endpoint requires a campaign `id` as a path parameter, and a `leads` integer array parameter containing lead ids . A maximum of 100 leads is allowed per call.
 
-Optionally, the `tokens` array parameter can be used to override My Tokens local to the campaign's parent program. `tokens` accepts a maximum of 100 tokens. Each `tokens` array item contains a name/value pair. The name of the token must be formatted as "{{my.name}}". If you use [Add a System Token as a Link in an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) approach to add the "viewAsWebpageLink" system token, you cannot override it using `tokens`. Instead use [Add a View as Web Page Link to an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) approach which allows you to override "viewAsWebPageLink" using `tokens`.
+Optionally, the `tokens` array parameter can be used to override My Tokens local to the campaign's parent program. `tokens` accepts a maximum of 100 tokens. Each `tokens` array item contains a name/value pair. The name of the token must be formatted as "`{{my.name}}`". If you use [Add a System Token as a Link in an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) approach to add the "viewAsWebpageLink" system token, you cannot override it using `tokens`. Instead use [Add a View as Web Page Link to an Email](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) approach which allows you to override "viewAsWebPageLink" using `tokens`.
 
 The `leads` and `tokens` parameters are passed in the request body as application/json.
 
-```
+```http
 POST /rest/v1/campaigns/{id}/trigger.json
 ```
 
@@ -474,7 +474,7 @@ The [Activate Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset
 - Must have at least one trigger, and one flow step
 - Must have error free triggers, filters, and flow steps
 
-```
+```http
 POST /rest/asset/v1/smartCampaign/{id}/activate.json
 ```
 
@@ -495,7 +495,7 @@ POST /rest/asset/v1/smartCampaign/{id}/activate.json
 
 The [Deactivate Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST) is straightforward. An `id` path parameter is required. For deactivation to succeed, the campaign must be activated.
 
-```
+```http
 POST /rest/asset/v1/smartCampaign/{id}/deactivate.json
 ```
 

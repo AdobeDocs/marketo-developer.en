@@ -26,7 +26,7 @@ If you are using this optional parameter with [importToList](importtolist.md), t
 | campaignName | Required | The name of the smart campaign |
 | campaignRunAt | Optional | The time to run the scheduled campaign (W3C WSDL date format). |
 | cloneToProgramName | Optional | When this attribute is present, the campaign's parent program is cloned and the newly created campaign will be scheduled. The attribute specifies the desired name for the resulting program. Note: Only 10 calls per day are allowed when this field is used. |
-| programTokenList->attrib->name | Optional | The name of the token you want to send a new value for. Use the full token format as you would within the Marketo UI. That is, "{{my.message}}" |
+| programTokenList->attrib->name | Optional | The name of the token you want to send a new value for. Use the full token format as you would within the Marketo UI. That is, "`{{my.message}}`" |
 | programTokenList->attrib->value | Optional | The value of the associated token name. |
 
 ## Request XML

@@ -16,7 +16,7 @@ Currently, the only ABM-related functions available via Marketo's APIs are the C
 
 Describing Named Accounts returns metadata related to the usage of named accounts via Marketo's APIs, including a list of valid searchable fields when querying, and a list of all fields available for API usage. The `idField` of a named account is always `marketoGUID`, and the only available `dedupeField`, and key for creation is the `name` field of the object.
 
-```
+```http
 GET /rest/v1/namedaccounts/describe.json
 ```
 
@@ -131,7 +131,7 @@ GET /rest/v1/namedaccounts/describe.json
 
 Querying for named accounts is based on the usage of a filterType and a set of up to 300 comma-separated filterValues. `filterType` may be any single field returned in the `searchableFields` member of the describe result for named accounts, while filterValues may be any valid input for the datatype of the field. To return a specific set of fields from, a fields parameter must be passed, where the value is a comma-separated list of fields to be returned in the response. Like other query options, the maximum number of records for a single query page is 300, and additional records in the set must be requested with the usage of the nextPageToken returned by the call.
 
-```
+```http
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 ```
 
@@ -162,11 +162,11 @@ GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 
 Creating and updating named accounts follows the standard lead database pattern. Records must be passed in the input member of a JSON body in a POST request. `input` is the only required member, with `action` and `dedupeBy` as optional members. Up to 300 records may be included in the input. Action may be one of createOnly, updateOnly, or createOrUpdate. If unspecified, action defaults to createOrUpdate. dedupeBy may only be specified when action is updateOnly, and only accepts one of dedupeFields or idField, which correspond to the name and marketoGUID fields, respectively.
 
-```
+```http
 POST /rest/v1/namedaccounts.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -220,7 +220,7 @@ Querying named account fields is straightforward. You may query a single named a
 
 The [Get Named Account Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) endpoint retrieves metadata for a single field on the named account object. The required fieldApiName path parameter specifies the API name of the field. The response is like the Describe Named Account endpoint but contains additional metadata such as the isCustom attribute which denotes whether the field is a custom field.
 
-```
+```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 ```
 
@@ -248,7 +248,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 The [Get Named Account Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) endpoint retrieves metadata for all fields on the named account object. By default, a maximum of 300 records are returned. You can use the batchSize query parameter to reduce this number. If the moreResult attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The nextPageToken returned from this API should always be reused for the next iteration of this call.
 
-```
+```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 ```
 
@@ -327,11 +327,11 @@ GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 
 Deletions are done via a JSON POST request and have a required input member, and an optional deleteBy member. deleteBy may be one of "dedupeFields" or "idField", corresponding to name or marketoGUID, respectively, and will default to dedupeFields if unset. The input member accepts an array of up to 300 records, containing one member each, either name or marketoGUID depending on the setting of deleteBy.
 
-```
+```http
 POST /rest/v1/namedaccounts/delete.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 

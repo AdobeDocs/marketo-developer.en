@@ -1,4 +1,6 @@
 .DS_Store
+.claude/
+.vscode/
 .pre-commit-config.yaml
 .vscode/
 markdownlint_custom.json

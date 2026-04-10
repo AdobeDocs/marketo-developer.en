@@ -18,7 +18,7 @@ Most activities will be purged after some period of time.
 
 To retrieve a list of available types and their definitions for an instance, you can use the [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) endpoint.
 
-```
+```http
 GET /rest/v1/activities/types.json
 ```
 
@@ -73,7 +73,7 @@ To retrieve activities from Marketo, call the [Get Lead Activities](https://deve
 
 You can optionally include either a listId query parameter to narrow your search to only those records included in a specific static list, or a leadIds query parameter and search for activities from only a specified set of leads. You can pass up to 30 leadIds as a comma separated list.
 
-```
+```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -134,7 +134,7 @@ For Data Value Change activities, a specialized version of the activities API is
 * There is no `activityTypeIds` parameter, since the endpoint only returns Data Value Change and New Lead activities.
 * The `fields` query parameter is required, where you can pass a comma-separated list of fields to indicate which fields you want to retrieve changes for.
 
-```
+```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
 ```
 
@@ -186,7 +186,7 @@ Note that within each result array item, the `id` integer attribute is being r
 
 There is also a special endpoint [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) for retrieving deleted activities from Marketo.
 
-```
+```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
 ```
 
@@ -244,7 +244,7 @@ In addition to the standard Get Activity Types endpoint, the [Get Custom Activit
 
 ### Get types
 
-```
+```http
 GET /rest/v1/activities/external/types.json
 ```
 
@@ -272,7 +272,7 @@ GET /rest/v1/activities/external/types.json
 
 For type descriptions you must pass `apiName` as a path parameter. By default you get the approved version of the activity. You can optionally pass the `draft=true` parameter to retrieve the draft version of the activity.
 
-```
+```http
 GET /rest/v1/activities/external/type/{apiName}/describe.json
 ```
 
@@ -338,7 +338,7 @@ When a custom activity is created, it is created as a draft, and must be approve
 
 When creating a type, the description parameter is optional, while all of the following parameters are required: `apiName`, `name`, `triggerName`, `filterName`, `primaryAttribute`.
 
-```
+```http
 POST /rest/v1/activities/external/type.json
 ```
 
@@ -384,7 +384,7 @@ POST /rest/v1/activities/external/type.json
 
 Updating a type is very similar, except the apiName is the only required parameter as a path parameter.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}.json
 ```
 
@@ -445,7 +445,7 @@ When changing the primary attribute of an activity type, any existing primary at
 
 Creating an attribute takes a required `apiName` path parameter. Also required are the `name` and `dataType` parameters.`The description and` `isPrimary` parameters are optional.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 ```
 
@@ -512,7 +512,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 
 When performing updates to attributes, the `apiName` of the attribute is the primary key. The `apiName` parameter must exist for the update to succeed (that is, you cannot change the `apiName` parameter using update).
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 ```
 
@@ -579,7 +579,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 
 Deleting an attribute takes a required `apiName` path parameter that is the custom activity API name.  Also required is an attribute parameter that is an array of attribute objects.  Each object must contain an `apiName` parameter that is the custom activity type API name.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 ```
 
@@ -623,7 +623,7 @@ The input member is an array of activity objects. A maximum of 300 activity re
 
 The `leadId`, `activityDate`, `activityTypeId`, `primaryAttributeValue`, and attributes members are required. The attributes array must contain the non-primary attribute. This can be specified using either name (field name), or apiName (API name), and value that corresponds to the value that you are setting.
 
-```
+```http
 POST /rest/v1/activities/external.json
 ```
 

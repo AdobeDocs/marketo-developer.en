@@ -63,7 +63,7 @@ Bulk Extract endpoints are not aware of Marketo workspaces. Extraction requests 
 
 Marketo's bulk extract APIs use the concept of a job for initiating and executing data extraction. Let's look at creating a simple lead export job.
 
-```
+```http
 POST /bulk/v1/leads/export/create.json
 ```
 
@@ -121,7 +121,7 @@ Each job creation endpoint shares some common parameters for configuring the fi
 
 Sometimes, you may must retrieve your recent jobs. This is easily done with the Get Export Jobs for the corresponding object type. Each Get Export Jobs endpoint supports a `status` filter field, a  `batchSize` to limit number of jobs returned, and `nextPageToken` for paging through large result sets. The status filter supports each valid status for an export job: Created, Queued, Processing, Canceled, Completed, and Failed. The batchSize has a maximum and default of 300. Let's get the list of Lead Export Jobs:
 
-```
+```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed
 ```
 
@@ -154,7 +154,7 @@ The endpoint responds with `status` response of each job created in the past sev
 
 With our job id in hand, let's start the job:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
@@ -166,7 +166,7 @@ Determining the status of the job is simple.
 
 Status can only be polled for jobs created by the same API user that created them.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/status.json
 ```
 
@@ -197,7 +197,7 @@ The inner `status` member indicates the progress of the job, and may be one of 
 
 When your job has completed, you can easily retrieve the file.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
@@ -205,13 +205,13 @@ The response contains a file formatted in the way that the job was configured. T
 
 To support partial and resumption-friendly retrieval of extracted data, the file endpoint optionally supports the HTTP header `Range` of the type `bytes` (per [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). If the header is not set, the whole of the contents will be returned. To retrieve the first 10,000 bytes of a file, you would pass the following header as part of your GET request to the endpoint, starting from byte 0:
 
-```
+```text
 Range: bytes=0-9999
 ```
 
 When retrieving the partial file, the endpoint responds with status code 206, and returning the Accept-ranges, Content-Length, and Content-Range headers:
 
-```
+```text
 Accept-Ranges: bytes
 Content-Length: 1000
 Content-Range: bytes 0-9999/123424
@@ -221,7 +221,7 @@ Content-Range: bytes 0-9999/123424
 
 Files can be retrieved in part, or resume later using the `Range` header. The range for a file begins at byte 0, and ends at the value of `fileSize` minus 1. The length of the file is also reported as the denominator in the value of the `Content-Range` response header when calling a Get Export File endpoint. If a retrieval fails partially, it can be resumed later. For example, if you try to retrieve a file 1000 bytes long, but only the first 725 bytes were received, the retrieval can be retried from the point of failure by calling the endpoint again and passing a new range:
 
-```
+```text
 Range: bytes 724-999
 ```
 
@@ -250,7 +250,7 @@ Here is an example response containing the checksum:
 
 Here is an example of creating the SHA-256 hash of a retrieved file named "bulk_lead_export.csv" using the sha256sum command-line utility:
 
-```
+```bash
 $ sha256sum bulk_lead_export.csv
 83aca1351c9398d2770330e21a9e278880fd2f1eeaf8c8238bf7676d5c21d1c6 *bulk_lead_export.csv
 ```
@@ -259,7 +259,7 @@ $ sha256sum bulk_lead_export.csv
 
 If a job was configured incorrectly, or becomes unnecessary, it can be easily canceled:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
 ```
 

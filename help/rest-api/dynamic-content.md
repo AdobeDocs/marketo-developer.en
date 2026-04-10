@@ -24,11 +24,11 @@ Note: Both Emails and Landing Pages follow this pattern. Snippets have a differe
 
 The following example sets the section to be a Dynamic Content section, segmented by segmentation 1001.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/Q1-promotion-banner.json
 ```
 
-```
+```text
 type=DynamicContent&value=1001
 ```
 
@@ -50,11 +50,11 @@ To add content for individual segments, we must call the [Update Email Dynamic C
 
 The following example sets the section to show our special banner image for leads in the Southwest segment instead of the default. If we wanted to create more variations for more segments, then we would call this endpoint again for each segment and section.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 segment=Southwest&type=HTML&value=<img src='//www.example.com/SuperSpecialBannerForAmericanSouthwestLeads.jpg'/>
 ```
 
@@ -80,7 +80,7 @@ Segmentation is the core of Marketo dynamic content. A segmentation is a user-de
 
 Segmentations have a list endpoint that returns a response with a list of available segmentations.
 
-```
+```http
 GET /rest/asset/v1/segmentation.json
 ```
 
@@ -127,7 +127,7 @@ GET /rest/asset/v1/segmentation.json
 
 Segmentations also have an endpoint that returns a response with a list of segments from a parent segmentation.
 
-```
+```http
 GET /rest/asset/v1/segmentation/1001/segments.json
 ```
 
