@@ -39,7 +39,7 @@ You can retrieve API names programmatically by passing the custom object API nam
         {
             "name": "car_c",
             "displayName": "Car",
-            "description": "It's a car.",
+            "description": "It is a car.",
             "createdAt": "2017-02-22T19:55:51Z",
             "updatedAt": "2017-02-22T19:55:51Z",
             "idField": "marketoGUID",
@@ -263,7 +263,7 @@ blue,bmw,325i,WBS3U9C52HP970604,missing.dedupe.fields
 
 ```
 
-And we can see that we're missing our deduplication field `vin`.
+And we can see that we are missing our deduplication field `vin`.
 
 ## Warnings
 

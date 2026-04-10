@@ -123,7 +123,7 @@ The inner `status` member will indicate the progress of the job, and may be one
 
 Failures are indicated by the `numOfRowsFailed` attribute in Get Import Lead Status response. If `numOfRowsFailed` is greater than zero, then that value indicates the number of failures that occurred.
 
-To retrieve the records and causes of failed rows, you'll must retrieve the failure file using the [Get Import Lead Failures](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) endpoint.
+To retrieve the records and causes of failed rows, you will must retrieve the failure file using the [Get Import Lead Failures](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) endpoint.
 
 ```
 GET /bulk/v1/leads/batch/{batchId}/failures.json

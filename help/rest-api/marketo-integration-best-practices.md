@@ -30,7 +30,7 @@ To ensure the best performance for your integrations, when performing inserts or
 
 ## Acceptable Latency
 
-Determining your latency tolerances, or the maximum amount of time that may pass before submitting an API call, will inform many, if not most, of the decisions that you make when designing your integration to Marketo. Marketo provides many different methods and configuration options which are suitable for different use cases, and different latency classes. For example, a real-time integration to notify a salesperson of a user signing up for a trial might only submit batches of one if immediate follow-up is required. However, most cases don't require this and can tolerate additional latency and can be managed more efficiently through queuing and batching calls.
+Determining your latency tolerances, or the maximum amount of time that may pass before submitting an API call, will inform many, if not most, of the decisions that you make when designing your integration to Marketo. Marketo provides many different methods and configuration options which are suitable for different use cases, and different latency classes. For example, a real-time integration to notify a salesperson of a user signing up for a trial might only submit batches of one if immediate follow-up is required. However, most cases do not require this and can tolerate additional latency and can be managed more efficiently through queuing and batching calls.
 
 | Acceptable Latency | Preferred Methods | Notes |
 | --- | --- | --- |

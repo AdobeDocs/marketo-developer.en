@@ -314,7 +314,7 @@ The Create Export Program Member Job endpoint provides several formatting option
 
 | Parameter | Data Type | Required | Notes |
 | --- | --- | --- | --- |
-| fields | Array[String] | Yes | The fields parameter accepts a JSON array of strings. The listed fields are included in the exported file. The following field types can be exported:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Specify a field using it's REST API name which can be retrieved using Describe Lead2 and/or Describe Program Member endpoints. |
+| fields | Array[String] | Yes | The fields parameter accepts a JSON array of strings. The listed fields are included in the exported file. The following field types can be exported:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Specify a field using it is REST API name which can be retrieved using Describe Lead2 and/or Describe Program Member endpoints. |
 | columnHeaderNames | Object | No | A JSON object containing key-value pairs of field and column header names. The key must be the name of a field included in the export job. The value is the name of the exported column header for that field. |
 | format | String | No | Accepts one of: CSV, TSV, SSV. The exported file is rendered as a comma-separated values, tab-separated values, or space-separated values file, respectively if set. Defaults to CSV if unset. |
 

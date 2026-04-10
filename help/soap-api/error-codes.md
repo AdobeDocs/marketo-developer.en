@@ -6,7 +6,7 @@ exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
 ---
 # Error Codes
 
-When developing for Marketo, it's very important that requests and responses get logged when an unexpected exception is encountered.  While certain types of exceptions, such as expired authentication can be safely handled by re-authentication, others may require support interactions, and requests and responses will always be requested in this scenario.
+When developing for Marketo, it is very important that requests and responses get logged when an unexpected exception is encountered.  While certain types of exceptions, such as expired authentication can be safely handled by re-authentication, others may require support interactions, and requests and responses will always be requested in this scenario.
 
 Below is a list of SOAP API error codes.
 
