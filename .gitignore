@@ -2,7 +2,6 @@
 .claude/
 .vscode/
 .pre-commit-config.yaml
-.vscode/
 markdownlint_custom.json
 generate-seo.mjs
 package-lock.json
