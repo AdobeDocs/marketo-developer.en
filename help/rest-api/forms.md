@@ -20,7 +20,7 @@ Forms support the standard methods of asset retrieval, [by id](https://developer
 
 [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) takes a form `id` as a path parameter and returns a form record.
 
-```
+```http
 GET /rest/asset/v1/form/{id}.json
 ```
 
@@ -75,7 +75,7 @@ GET /rest/asset/v1/form/{id}.json
 
 [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) takes a form `name` as a path parameter and returns a form record.
 
-```
+```http
 GET /rest/asset/v1/form/byName.json?name=newForm
 ```
 
@@ -129,7 +129,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 [Get Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET) forms works like other Asset API browse endpoints, and allows optional filtering on `status`, `maxReturn`, and `offset`. Status can be: approved, approved with draft, or draft.
 
-```
+```http
 GET /rest/asset/v1/forms.json
 ```
 
@@ -218,7 +218,7 @@ GET /rest/asset/v1/forms.json
 
 Retrieving the field list for a form is done on a per form basis.
 
-```
+```http
 GET /rest/asset/v1/form/{id}/fields.json
 ```
 
@@ -306,7 +306,7 @@ When editing fields, or their behavior inside a form, the field list should alwa
 
 The [Get Form Used By](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) endpoint takes a form `id` as path parameter and returns the list of assets that depend on the form. Forms may be used by the following asset types: Landing Pages, Smart Lists, Smart Campaigns, Reports, Email Programs.
 
-```
+```http
 GET /rest/asset/v1/form/{id}/usedBy.json
 ```
 
@@ -332,15 +332,15 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 When [creating a form](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) there are only two required fields: the parent folder of the form, the name of the form. All of the other parameters are optional with default value. When the form is created it comes with three default fields: First Name, Last Name, Email.
 
-```
+```http
 POST /rest/asset/v1/forms.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=newForm&description=test&folder={"type": "Folder","id": 293}&language=French
 ```
 
@@ -393,15 +393,15 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 
 Forms are [updated](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) with a similar call via their id. During either creation or update, any of the base styling parameters are accessible and editable, allowing you to modify how the form is displayed to the end user.
 
-```
+```http
 POST /rest/asset/v1/form/736.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=updated name&description=This is a test for updateapi&language=English&progressiveProfiling=true&locale=en_US
 ```
 
@@ -459,7 +459,7 @@ To properly add or edit fields belonging to a form, you must retrieve the list o
 
 For Lead fields, this is done by using the [Get Available Form Fields](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) endpoint and includes the data type and default metadata for the field when it is added to a form.
 
-```
+```http
 GET /rest/asset/v1/form/fields.json
 ```
 
@@ -592,7 +592,7 @@ GET /rest/asset/v1/form/fields.json
 
 For Program Member custom fields, call [Get Available Form Program Member Fields](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  endpoint to retrieve Program Member custom field data types and default metadata. To use these fields in a form, the form must reside underneath a Program (not in Design Studio). Landing Pages containing forms using these fields must also reside underneath a Program (cannot reside in Design Studio, or be cloned into Design Studio).
 
-```
+```http
 GET /rest/asset/v1/form/programMemberFields.json
 ```
 
@@ -631,15 +631,15 @@ Each form contains an editable list of fields, which will be displayed to the en
 
 [Adding a field](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) only requires the id of the parent form and the fieldId of the field. All other fields will either be empty or have default values based on their datatype and field metadata. Data is passed as POST x-www-form-urlencoded, not as JSON.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/fields.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 fieldId=NumberOfEmployees&maxLength=125&defaultValue=this is default&required=true&fieldWidth=100&validationMessage=hey, you there?&label=employee count&hintText=Hint me&minValue=10
 ```
 
@@ -677,15 +677,15 @@ fieldId=NumberOfEmployees&maxLength=125&defaultValue=this is default&required=tr
 
 Updates may edit all of the same fields as adding a field, and similarly require form id and the fieldId, except that the fieldId is a path parameter and not a query parameter when performing updates.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/field/LastName.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 label=enter the last name here
 ```
 
@@ -721,15 +721,15 @@ In the example above we are updating LastName field which is a simple string. So
 
 To update the list items, the format of the "values" parameter is as follows:
 
-```
+```http
 POST /rest/asset/v1/form/{id}/field/Salutation.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"label":"MR","value":"MR"}, {"label":"MS","value":"MS"}, {"label":"MRS","value":"MRS"}, {"label":"DR","value":"DR"}, {"label":"PROF","value":"PROF"}]
 ```
 
@@ -803,15 +803,15 @@ Fields in a form are arranged in a table-like interface, with up to three column
 
 If the target field is also a fieldset, then its record within the positions array, should also contain a parameter called fieldList, an array of objects containing the same columnNumber, rowNumber, and fieldName members. The fieldset itself is treated as a single field for its position in the parent list, while its subfields are positioned according to the given positions in the fieldList parameter.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/reArrange.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumber":0,"rowNumber":1,"fieldName":"LastName"}, {"columnNumber":0,"rowNumber":2, "fieldName":"Email"}]
 ```
 
@@ -834,11 +834,11 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 Rich text fields are added through a [separate endpoint](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) from lead fields. The field content is passed as multipart/form-data. It should be structured as HTML content which does not contain any script, meta tags, or link tags.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/richText.json
 ```
 
-```
+```html
 Content-Type: multipart/form-data; boundary=---------------------------9051914041544843365972754266
 -----------------------------9051914041544843365972754266
 Content-Disposition: form-data; name="text"
@@ -882,15 +882,15 @@ Each field may have a set of visibility rules which determine whether the field 
 
 Changing visibility rules is a destructive update.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/field/Email/visibility.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operator": "isNotEmpty", "values": [], "altLabel": "Email:"}]}
 ```
 
@@ -938,15 +938,15 @@ Like most other assets, forms follow a draft-approved model, where there can be 
 
 When progressive profiling is enabled for a form, a fieldset called "Profiling" is included in its field list. To add or remove fields from the progressive profiling list, you must use the Update Field Positions endpoint. This endpoint makes destructive updates, so all fields in the form must be included in each request. The below example adds the field "Phone" to the progressive profiling list.
 
-```
+```http
 POST /rest/asset/v1/form/{id}/reArrange.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"Email"},{"columnNumber":0,"rowNumber":1,"fieldName":"LastName"},{"columnNumber":0,"rowNumber":2,"fieldName":"Company"},{"columnNumber":0,"rowNumber":3,"fieldName":"Website"},{"columnNumber":0,"rowNumber":4,"fieldName":"Profiling","fieldList":[{"columnNumber":0,"rowNumber":0,"fieldName":"Phone"}]}]
 
 ```

@@ -33,17 +33,17 @@ This request type can be difficult to implement, so it is highly recommended tha
 
 To make a bulk import request, you must set your content-type header to `multipart/form-data` and include at least a `file` parameter with your file content, and a `format` parameter with the value `csv`, `tsv`, or `ssv`, denoting your file format.
 
-```
+```http
 POST /bulk/v1/leads.json?format=csv
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Length: 311
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
@@ -71,13 +71,13 @@ Easy,Fox,easyfox@marketo.com,Marketo
 
 This endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). It is a  best practice is to use an HTTP support library for your language of choice to ensure the correct usage. The following example is a simple way to do this with cURL from the command line:
 
-```
+```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
 Where the import file `lead_data.csv` contains the following:
 
-```
+```text
 firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
@@ -92,7 +92,7 @@ Notice in the response to our call, that there is not a listing of successes or 
 
 It is best practice to poll the job every 5-30 seconds, depending on required latency and API call limitations, to see the status of the import job. You can do so with the Get Import Lead Status API.
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}.json
 ```
 
@@ -129,7 +129,7 @@ Failures are indicated by the `numOfRowsFailed` attribute in Get Import Lead Sta
 
 To retrieve the records and causes of failed rows, you  must retrieve the failure file:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
@@ -141,7 +141,7 @@ Warnings are indicated by the `numOfRowsWithWarning` attribute in a Get Import L
 
 To retrieve the records and causes of warning rows, retrieve the warning file:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 

@@ -40,7 +40,7 @@ For instances with a native CRM integration enabled (either Microsoft Dynamics o
 
 For Leads, Companies, Opportunities, Roles, SalesPersons, and Custom Objects, a describe API is provided. Calling this retrieves metadata for the object, and a list of fields available for updating and querying. Describing is a crucial part of designing a proper integration with Marketo. It provides rich metadata about how objects can and cannot be interacted with, as well as how they can be created, updated, and queried. Apart from Describe Leads, each of these returns a list of keys available for `deduplication` in the `dedupeFields` response parameter. A list of fields is available as keys for querying in the `searchableFields` response parameter.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -131,7 +131,7 @@ There is also a fields response parameter, which will provide the name of each f
 
 Lead Database objects all share basic pattern for querying against simple keys, where just one field is referenced.
 
-```
+```http
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
@@ -144,7 +144,7 @@ For all objects except leads, you can select your {field to query} from the sear
 
 For a quick example, let's look at querying opportunities:
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -184,15 +184,15 @@ If the set of records in the query exceeds 300 or the `batchSize` which was spec
 
 Sometimes, such as when querying by GUIDs, your URI may be long and exceed the 8KB permitted by the REST service. In this case, you must use the HTTP POST method instead of GET, and add a query parameter `_method=GET`. In addition, the rest of the query parameters must be passed in the POST body as an "application/x-www-form-urlencoded" string, and pass the associated Content-type header.
 
-```
+```http
 POST /rest/v1/opportunities.json?_method=GET
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb,544fb7f5-2ddf-4fca-ae32-7e6ef1415e9f,f1ba41a2-69d1-4a35-9807-0e159d66f2c9,f7521272-3331-4a89-a768-222baff2f894
 ```
 
@@ -202,7 +202,7 @@ Besides long URIs, this parameter is also required when querying compound keys.
 
 The pattern for querying compound keys is different from simple keys, as it requires submitting a POST with a JSON body. This is not necessary in all cases, only in those where a `dedupeFields` option with multiple fields is used as the `filterType`. Currently compound keys are only used by Opportunity Roles, and some custom objects. Let's look at an example of a query for Opportunity Roles with the compound key from `dedupeFields`:
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -246,7 +246,7 @@ The only required parameter is an array called `input` containing up to 300 obje
 
 When passing a list of field values, a value of `null`, or an empty string, is written to the database as `null`.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -300,7 +300,7 @@ Other than the leads API, calls to create or update lead database objects return
 
 The interface for deletions is standard for Lead Database objects aside from leads. Aside from input, there is only one required parameter `deleteBy,` which can have a value of idField or dedupeFields. Let's look at deleting some custom objects.
 
-```
+```http
 POST /rest/v1/customobjects/{name}/delete.json
 ```
 

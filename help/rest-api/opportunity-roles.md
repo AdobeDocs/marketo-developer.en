@@ -16,7 +16,7 @@ Opportunity Role APIs are only exposed for subscriptions which do not have a nat
 
 Like opportunities, a describe call and CRUD operations are exposed for opportunity roles.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -102,7 +102,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 Notice that both `dedupeFields` and `searchableFields` are a little different from opportunities. `dedupeFields` actually provides a compound key, where all three of `externalOpportunityId`, `leadId`, and `role` are required. Both the opportunity and lead link by the id fields must exist in the destination instance, for record creation to succeed. For `searchableFields`, `marketoGUID`, `leadId`, and `externalOpportunityId` are all valid for queries on their own and use a pattern identical to Opportunities, but there is an additional option of using the compound key to query, which requires submitting a JSON object via POST, with the additional query parameter `_method=GET`.
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -142,7 +142,7 @@ This produces the same type of response as a standard GET query, it simply has a
 
 Opportunity roles have the same interface for creating and updating records as opportunities.
 
-```
+```http
 POST /rest/v1/opportunities/roles.json
 ```
 
@@ -190,7 +190,7 @@ POST /rest/v1/opportunities/roles.json
 
 You may delete opportunity roles by dedupe fields or id field. Specify using the deleteBy parameter with a value of either dedupeFields or idField. If not specified, the default is dedupeFields. The request body contains an input array of opportunity roles to delete. A maximum of 300 opportunity roles per call is permitted.
 
-```
+```http
 POST /rest/v1/opportunities/roles/delete.json
 ```
 

@@ -14,13 +14,13 @@ NOTE: It is highly recommended that you read the [Velocity User Guide](https://v
 
 Variables are always prefixed with '$' and are set and updated using #set:
 
-```
+```velocity
 #set($variable = "value")
 ```
 
 Their values can then be retrieved via several different reference types with different behaviors:
 
-```
+```text
 $variable ##outputs 'value'
 $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
@@ -28,7 +28,7 @@ ${variable}name ##outputs 'valuename'
 
 There is also quiet reference notation, where there is a `!` Included after the `$`. Normally when velocity encounters an undefined reference, the string representing the reference is left in place. With quiet reference notation, if an undefined reference is encountered, then no value is emitted:
 
-```
+```velocity
 ##Defined Reference
 
 #set($foo = "bar")
@@ -61,7 +61,7 @@ The Apache Velocity Project makes functionality available through the use of [Ve
 
 For example, to use a method from `ComparisonDateTool`, access if from the `$date` variable in a script token:
 
-```
+```velocity
 #set($birthday = $convert.parseDate("2015-08-07","yyyy-MM-dd"))
 ##use whenIs to determine how many days away it is
 $date.whenIs($birthday).days ##outputs 1

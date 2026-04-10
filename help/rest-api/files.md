@@ -16,7 +16,7 @@ Querying files is simple and follows the standard query types for assets of [by 
 
 ### By Id
 
-```
+```http
 GET /rest/asset/v1/file/{id}.json
 ```
 
@@ -50,7 +50,7 @@ GET /rest/asset/v1/file/{id}.json
 
 Specify the name of the file using the required `name` parameter.
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=foo.png
 ```
 
@@ -88,7 +88,7 @@ There are three optional parameters:
 - offset - integer that specifies where to begin retrieving entries (default is 0); can be used with maxReturn parameter
 - maxReturn - integer that specifies the maximum number of entries to return (default is 20, maximum is 200)
 
-```
+```http
 GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 ```
 
@@ -152,11 +152,11 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 [Creating a file](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) is done with a multipart/form-data type of request. Minimally, the name, folder, and file are required in the request, with an optional description, and an insertOnly flag, which prevents a create call from updating an existing file with the same name. For the file parameter, a "filename" is required in the Content-Disposition header, in addition to the name parameter. You must also pass a Content-Type header for file, which will be the MIME-type which Marketo will use to serve the file with.
 
-```
+```http
 POST /rest/asset/v1/files.json
 ```
 
-```
+```html
 ------WebKitFormBoundary2VyWOacQSupl4gUL
 Content-Disposition: form-data; name="file"; filename="marketo.html"
 Content-Type: text/html
@@ -206,11 +206,11 @@ This is a test file
 
 [Updating a file](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) can be done based on its id. The only parameter is a file parameter which has the same requirements as creation.
 
-```
+```http
 POST /rest/asset/v1/file/{id}/content.json
 ```
 
-```
+```html
 ------WebKitFormBoundary2VyWOacQSupl4gUL
 Content-Disposition: form-data; name="file"; filename="marketo.html"
 Content-Type: text/html

@@ -20,7 +20,7 @@ Querying landing page redirect rules follows the standard query types for assets
 
 The [Get Landing Page Redirect Rules by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) endpoint takes a single landing page rule redirect `id` path parameter and returns a single landing page redirect rule record.
 
-```
+```http
 GET /rest/asset/v1/redirectRule/{id}.json
 ```
 
@@ -65,7 +65,7 @@ The `redirectToLandingPageId` is an integer that can be used to filter on the Id
 
 The `earliestUpdatedAt` and `latestUpdatedAt` parameters allow you to set low and high datetime watermarks for returning landing page redirect rules which were either updated or initially created within the given range.
 
-```
+```http
 GET /rest/asset/v1/redirectRules.json&maxReturn=3
 ```
 
@@ -151,15 +151,15 @@ The `redirectTo` parameter specifies the target landing page. This is a JSON obj
 
 More information on creating landing page redirect rules can be found [here](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
-```
+```http
 POST /rest/asset/v1/redirectRules.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&redirectTo={"type":"landingPageId", "value":"5559"}
 ```
 
@@ -198,15 +198,15 @@ As with the create call described above, one or more of the following query para
 
 The updated landing page redirect rule record is returned in the response.
 
-```
+```http
 POST /rest/asset/v1/redirectRule/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 redirectTo={"type":"landingPageId", "value":"5561"}
 ```
 
@@ -241,7 +241,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 The [Delete Landing Page Redirect Rule by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) endpoint takes a single landing page rule redirect `id` path parameter.
 
-```
+```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
 ```
 
@@ -269,7 +269,7 @@ The `offset` parameter is an integer that specifies the maximum number of entrie
 
 The `maxReturn` parameter is an integer that specifies where to begin retrieving entries. Can be used on conjunction with `offset` (default is 0).
 
-```
+```http
 POST /rest/asset/v1/landingPageDomains.json?maxReturn=3
 ```
 
