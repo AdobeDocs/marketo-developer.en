@@ -18,11 +18,11 @@ First [create and approve your email](https://experienceleague.adobe.com/docs/ma
 
 ![Request-Campaign-Operational](assets/request-campaign-operational.png)
 
-Approve it and we're ready to create our campaign:
+Approve it and we are ready to create our campaign:
 
 ![RequestCampaign-Approve-Draft](assets/request-campaign-approve-draft.png)
 
-If you're new to creating campaigns, check out the [Create a New Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) article. Once you've created your campaign, we must go through these steps. Configure your Smart List with the Campaign is Requested trigger:
+If you are new to creating campaigns, check out the [Create a New Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) article. Once you have created your campaign, we must go through these steps. Configure your Smart List with the Campaign is Requested trigger:
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -30,9 +30,9 @@ Now we must configure the flow to point a Send Email step to our email:
 
 ![Request-Campaign-Flow](assets/request-campaign-flow.png)
 
-Before activation, you must decide on some settings in the Schedule tab. If this particular email should only ever be sent once to a given record, then leave the qualification settings as is. If it's required that they receive the email multiple times, though, you want to adjust this to either every time or to one of the available cadences:
+Before activation, you must decide on some settings in the Schedule tab. If this particular email should only ever be sent once to a given record, then leave the qualification settings as is. If it is required that they receive the email multiple times, though, you want to adjust this to either every time or to one of the available cadences:
 
-Now we're ready to activate:
+Now we are ready to activate:
 
 ![Request-Campaign-Schedule](assets/request-campaign-schedule.png)
 
@@ -172,15 +172,15 @@ public class RequestCampaign {
 }
 ```
 
-This class has one constructor taking an Auth, and the Id of the campaign. Leads are added to the object either by passing an `ArrayList<Integer>` containing the Ids of the records to setLeads, or by using addLead, which takes one integer and appends it to the existing ArrayList in the leads property. To trigger the API call to pass the lead records to the campaign, postData must be called, which returns a JsonObject containing the response data from the request. When request campaign is called, every lead passed to the call will be processed by the target trigger campaign in Marketo and be sent the email which was created previously. Congratulations, you've triggered an email through the Marketo REST API. Keep an eye out for Part 2 where we look at dynamically customizing the content of an email through Request Campaign.
+This class has one constructor taking an Auth, and the Id of the campaign. Leads are added to the object either by passing an `ArrayList<Integer>` containing the Ids of the records to setLeads, or by using addLead, which takes one integer and appends it to the existing ArrayList in the leads property. To trigger the API call to pass the lead records to the campaign, postData must be called, which returns a JsonObject containing the response data from the request. When request campaign is called, every lead passed to the call will be processed by the target trigger campaign in Marketo and be sent the email which was created previously. Congratulations, you have triggered an email through the Marketo REST API. Keep an eye out for Part 2 where we look at dynamically customizing the content of an email through Request Campaign.
 
 ### Building your Email
 
-To customize our content, first we must configure a [program](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) and an [email](https://experienceleague.adobe.com/docs/marketo/using/home.html) in Marketo. To generate our custom content, we must create tokens inside the program, and then place them into the email that we're going to be sending. For simplicity's sake, we are using just one token in this example, but you can replace any number of tokens in an email, in the From Email, From Name, Reply-to, or any piece of content in the email. So let's create one token Rich Text for replacement and call it "bodyReplacement". Rich Text allows us to replace any content in the token with arbitrary HTML that we want to input.
+To customize our content, first we must configure a [program](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) and an [email](https://experienceleague.adobe.com/docs/marketo/using/home.html) in Marketo. To generate our custom content, we must create tokens inside the program, and then place them into the email that we are going to be sending. For simplicity's sake, we are using just one token in this example, but you can replace any number of tokens in an email, in the From Email, From Name, Reply-to, or any piece of content in the email. So let's create one token Rich Text for replacement and call it "bodyReplacement". Rich Text allows us to replace any content in the token with arbitrary HTML that we want to input.
 
 ![New-Token](assets/New-Token.png)
 
-Tokens can't be saved while empty, so go ahead and insert some placeholder text here. Now we must insert our token into the email:
+Tokens cannot be saved while empty, so go ahead and insert some placeholder text here. Now we must insert our token into the email:
 
 ![Add-Token](assets/Add-Token.png)
 
@@ -221,7 +221,7 @@ public class App
 }
 ```
 
-If the code looks familiar, that's because it only has two additional lines from the main method above. This time we're creating the content of our token in the bodyReplacement variable and then using the addToken method to add it to the request. addToken takes a key and a value and then creates a JsonObject representation and adds it to the internal tokens array. This is then serialized during the postData method and creates a body that looks like this:
+If the code looks familiar, that is because it only has two additional lines from the main method above. This time we are creating the content of our token in the bodyReplacement variable and then using the addToken method to add it to the request. addToken takes a key and a value and then creates a JsonObject representation and adds it to the internal tokens array. This is then serialized during the postData method and creates a body that looks like this:
 
 ```json
 {
@@ -258,4 +258,4 @@ Result:
 
 ## Wrapping Up
 
-This method is extensible in a multitude of ways, changing content in emails within individual layout sections, or outside emails, allowing custom values to be passed into tasks or interesting moments. Anywhere a token can be used from within a program can be customized using this method. Similar functionality is also available with the [Schedule Campaign](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) call which will allow you to process tokens across an entire batch campaign. These can't be customized on a per lead basis, but are useful for customizing content across a wide set of leads.
+This method is extensible in a multitude of ways, changing content in emails within individual layout sections, or outside emails, allowing custom values to be passed into tasks or interesting moments. Anywhere a token can be used from within a program can be customized using this method. Similar functionality is also available with the [Schedule Campaign](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) call which will allow you to process tokens across an entire batch campaign. These cannot be customized on a per lead basis, but are useful for customizing content across a wide set of leads.

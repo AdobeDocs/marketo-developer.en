@@ -87,7 +87,7 @@ Once you have your script defined within a Program My Token, you can reference i
 
 ![Email Script](assets/email-script-marketo-email.png)
 
-You can test your script using the [!UICONTROL Send Sample Email] email action within the Marketo email designer. For the script to process correctly, you must select an existing lead to impersonate in the [!UICONTROL Lead] field. If you're testing with `$TriggerObject`, you can select the triggering object via the [!UICONTROL Trigger] param. This uses the data from the most recently updated object of that type as the `$TriggerObject` variable.
+You can test your script using the [!UICONTROL Send Sample Email] email action within the Marketo email designer. For the script to process correctly, you must select an existing lead to impersonate in the [!UICONTROL Lead] field. If you are testing with `$TriggerObject`, you can select the triggering object via the [!UICONTROL Trigger] param. This uses the data from the most recently updated object of that type as the `$TriggerObject` variable.
 
 ![Test Email Script](assets/velocity-test.png)
 
@@ -101,10 +101,10 @@ The combined length of all Email Script Tokens in a given email may not exceed 1
 
 - The variables referenced in the email script must exist in Marketo on one of the objects available to the script.
 - You can reference first and second-level custom objects which originate from your natively integrated CRM that are directly connected to the Lead, or Contact, but not third-level custom objects. Custom Objects may not be parents of the Lead or Company
-- For Marketo custom objects, you can reference second-level custom objects with Parent-Child relationship. For example `Lead <- Parent <- Child`. You cannot reference second-level custom objects with Edge-Bridge relationship. e.g.,  `Lead <- Bridge -> Edge`
+- For Marketo custom objects, you can reference second-level custom objects with Parent-Child relationship. For example `Lead <- Parent <- Child`. You cannot reference second-level custom objects with Edge-Bridge relationship. for example,  `Lead <- Bridge -> Edge`
 - You can reference custom objects connected to a Lead, Contact, or an Account, but not more than one.
 - Custom objects may only be referenced through a single connection, Lead, Contact, or Account
-- You must check the box in the script editor for the fields you're using or they won't process
+- You must check the box in the script editor for the fields you are using or they will not process
 - For each custom object, the ten most recently updated records per person/contact are available at runtime and are ordered from most recently updated (at 0) to oldest updated (at 9). You can increase the number of records available by [following the instructions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - If you include more than one Email Script within an email, they execute top to bottom. The scope of variables defined in the first script to execute will be available in subsequent scripts.
 - Tools Reference: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)

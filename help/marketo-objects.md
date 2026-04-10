@@ -49,7 +49,7 @@ Here's a sample script for an order follow-up email:
 </div>
 ```
 
-The advantage of using the `$TriggerObject` variable is that you don't need to dedicate any code to determine which of the available objects that you want to pull your local data from.  The object is determined by the triggering action. This is the most explicit way of choosing an object to reference and should be used whenever available and appropriate.
+The advantage of using the `$TriggerObject` variable is that you do not need to dedicate any code to determine which of the available objects that you want to pull your local data from.  The object is determined by the triggering action. This is the most explicit way of choosing an object to reference and should be used whenever available and appropriate.
 
 Note: When using the `$TriggerObject`, fields must be checked in the editing pane for the object to be made available to the script.
 

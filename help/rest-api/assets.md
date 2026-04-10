@@ -259,7 +259,7 @@ type=Folder&description=This is a test (update 01)
 
 Other assets have more complex structures and require updates to additional subsections or child objects, and then ultimately have to undergo approval before they can be put into use.  These asset types include Forms, Emails, Email Templates, Landing Pages, and Landing Page templates.  These will each have a single endpoint for creating a record, then additional endpoints for updating metadata, content, and content sections.
 
-For example, to create a Landing Page, you'll must call its create endpoint with a template ID and then retrieve its content sections, and update each one individually to add content, before approving it so that it can be deployed live.
+For example, to create a Landing Page, you will must call its create endpoint with a template ID and then retrieve its content sections, and update each one individually to add content, before approving it so that it can be deployed live.
 
 ### Complex Create
 

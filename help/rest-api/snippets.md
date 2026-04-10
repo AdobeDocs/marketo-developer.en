@@ -8,7 +8,7 @@ exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
 
 [Snippet Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets)
 
-Snippets are reusable HTML components which can be embedded into Emails and Landing Pages and which can be segmented for dynamic content. Snippets don't have associated templates, and can be created and deployed within other assets within Marketo.
+Snippets are reusable HTML components which can be embedded into Emails and Landing Pages and which can be segmented for dynamic content. Snippets do not have associated templates, and can be created and deployed within other assets within Marketo.
 
 ## Query
 

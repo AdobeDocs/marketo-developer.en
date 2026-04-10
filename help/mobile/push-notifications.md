@@ -22,7 +22,7 @@ There are three steps to enable push notifications:
 1. Click on "Certificates, Identifiers & Profiles".
 1. Click on "Certificates->All" folder underneath "iOS, tvOS, watchOS".
 1. Select the "+" on the top left screen next to certificates ![](assets/certificates-plus.png)
-1. Enable "Apple Push Notification service SSL (Sandbox & Production)" checkbox, and click "Continue".
+1. Enable "Apple Push Notification service SSL (Sandbox & Production)" checkbox, and select Continue.
 1. Select the application identifier that you are using the build the app.![](assets/push-appid.png)
 1. Create and upload CSR to generate the push certificate. ![](assets/push-ssl.png)
 1. Download certificate to local computer and double-click to install. ![](assets/certificate-download.png)

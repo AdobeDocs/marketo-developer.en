@@ -11,10 +11,12 @@ Marketo exposes a REST API which allows for remote execution of many of the syst
 These APIs generally fall into two broad categories: [Lead Database](https://developer.adobe.com/marketo-apis/api/mapi), and [Asset](https://developer.adobe.com/marketo-apis/api/asset). Lead Database APIs allow for retrieval of, and interaction with Marketo person records and associated object types, such as Opportunities and Companies. Asset APIs allow interaction with marketing collateral and workflow-related records.
 
 >[!NOTE]
+>
 >The SOAP API is being deprecated and will no longer be available after July 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
 >
 
 >[!IMPORTANT]
+>
 >See this [Nation post](https://nation.marketo.com/t5/product-blogs/rest-api-double-slash-deprecation/ba-p/358616) about the deprecation of the double slash in API gateway URLs.
 >
 
@@ -32,31 +34,31 @@ For your first call to Marketo, you retrieve a lead record. To begin working wit
 
 ![Admin Users and Roles](assets/admin-users-and-roles.png)
 
-Click the **[!UICONTROL Roles]** tab, and then New Role and assign at least the "Read-Only Lead" (or "Read- Only Person") permission to the role in the Access API group. Be sure to give it a descriptive name and click **[!UICONTROL Create]**.
+Click the **[!UICONTROL Roles]** tab, and then New Role and assign at least the "Read-Only Lead" (or "Read- Only Person") permission to the role in the Access API group. Be sure to give it a descriptive name and select **[!UICONTROL Create]**.
 
 ![New Role](assets/new-role.png)
 
-Now, back to the [!UICONTROL Users] tab and click **[!UICONTROL Invite New User]**. Give your user a descriptive name that indicates that it is an API user, and an Email Address and click **[!UICONTROL Next]**.
+Now, back to the [!UICONTROL Users] tab and select **[!UICONTROL Invite New User]**. Give your user a descriptive name that indicates that it is an API user, and an Email Address and select **[!UICONTROL Next]**.
 
 ![New User Info](assets/new-user-info.png)
 
-Then, check the [!UICONTROL API Only] option and award your user the API role that you created and click **[!UICONTROL Next]**.
+Then, check the [!UICONTROL API Only] option and award your user the API role that you created and select **[!UICONTROL Next]**.
 
 ![New User Permissions](assets/new-user-permissions.png)
 
-To complete the user creation process, click **[!UICONTROL Send]**.
+To complete the user creation process, select **[!UICONTROL Send]**.
 
 ![New User Message](assets/new-user-message.png)
 
-Next, go to the [!UICONTROL Admin] menu and click **[!UICONTROL LaunchPoint]**.
+Next, go to the [!UICONTROL Admin] menu and select **[!UICONTROL LaunchPoint]**.
 
 ![Launchpoint](assets/admin-launchpoint.png)
 
-Click the **[!UICONTROL New]** menu and select **[!UICONTROL New Service]**. Give your service a descriptive name and select **[!UICONTROL Custom]** from the [!UICONTROL Service] dropdown menu. Give it a description, then select your new user from the [!UICONTROL API Only User] dropdown menu and click **[!UICONTROL Create]**.
+Click the **[!UICONTROL New]** menu and select **[!UICONTROL New Service]**. Give your service a descriptive name and select **[!UICONTROL Custom]** from the [!UICONTROL Service] dropdown menu. Give it a description, then select your new user from the [!UICONTROL API Only User] dropdown menu and select **[!UICONTROL Create]**.
 
 ![New Launchpoint Service](assets/admin-launchpoint-new-service.png)
 
-Click **[!UICONTROL View Details]** for your new service to access the Client ID and Client Secret. For now you can click the **[!UICONTROL Get Token]** button to generate an access token which is valid for one hour. Save the token in a note for now.
+Select **[!UICONTROL View Details]** for your new service to access the Client ID and Client Secret. For now you can select **[!UICONTROL Get Token]** to generate an access token which is valid for one hour. Save the token in a note for now.
 
 ![Get Token](assets/get-token.png)
 
@@ -84,7 +86,7 @@ Open a new browser tab and enter the following, using the appropriate informatio
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>
 ```
 
-If you don't have a lead record with your email address in your database, substitute it for one that you know is there. Hit enter in your URL bar, and you should get back a JSON response resembling this:
+If you do not have a lead record with your email address in your database, substitute it for one that you know is there. Hit enter in your URL bar, and you should get back a JSON response resembling this:
 
 ```json
 {

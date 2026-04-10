@@ -47,7 +47,7 @@ You can retrieve the list of all supported field names available on your lead re
 | phone | Phone | Phone Number | Lead's Phone Number |
 | postalCode | PostalCode | Postal Code | Lead's postal code |
 | rating | Rating | Lead Rating | Marketing/sales rating of the lead |
-| salutation | Salutation | Salutation | Lead's preferred salutation, i.e. Mister, Misses…etc. |
+| salutation | Salutation | Salutation | Lead's preferred salutation, that is Mister, Misses…and so on |
 | sicCode | SICCode | SIC Code | Standard Industrial Classification code of the lead's company |
 | site | Site | Site |  |
 | state | State | State | Lead's state |

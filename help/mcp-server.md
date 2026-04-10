@@ -18,7 +18,14 @@ When your AI tool calls the MCP server, the server executes the corresponding RE
 
 ## Get Marketo credentials
 
-You need four values from your [!DNL Marketo] instance. If you already have them, skip to [Configure your AI tool](#configure-your-ai-tool).
+You need four values from your [!DNL Marketo] instance:
+
+- **Client ID**
+- **Client Secret**
+- **Munchkin Account ID**
+- **REST API Endpoint**
+
+If you already have them, skip to [Configure your AI tool](#configure-your-ai-tool).
 
 ### Client ID and Client Secret
 
