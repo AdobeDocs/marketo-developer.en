@@ -52,7 +52,7 @@ When provisioning a new application with credentials, strongly consider making a
 
 Custom Services provide the actual credentials, the Client Id and the Client Secret, required to perform Authentication with a Marketo instance. To provision one, go to your **[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]** menu, and select **[!UICONTROL New Service]**.
 
-Give your service a descriptive name and from the "Service" list select the "Custom". Give your service a verbose description and select an appropriate user from the API Only User list, then select **[!UICONTROL** Create].
+Give your service a descriptive name and from the "Service" list select the "Custom". Give your service a verbose description and select an appropriate user from the API Only User list, then select **[!UICONTROL Create]**.
 
 ![New Custom Service](assets/admin-launchpoint-new-service.png)
 
