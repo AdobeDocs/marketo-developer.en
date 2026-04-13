@@ -5,7 +5,7 @@ description: Learn how to connect an AI assistant to Marketo using the MCP serve
 
 # [!DNL Marketo] MCP Server
 
-The Model Context Protocol (MCP) is an open standard that enables AI tools to communicate with external services. The [!DNL Marketo] MCP server acts as a bridge between your AI assistant and [!DNL Marketo], exposing over 100 operations across categories including forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
+The Model Context Protocol (MCP) is an open standard that enables AI tools to communicate with external services. The [!DNL Marketo] MCP server acts as a bridge between your AI assistant and [!DNL Marketo]. It exposes more than 100 operations across forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
 
 When your AI tool calls the MCP server, the server executes the corresponding REST API call on your behalf, using the credentials you provide in each request. You do not need to install, deploy, or run any server-side software.
 
@@ -23,6 +23,7 @@ You need the following values from your [!DNL Marketo] instance:
 - **Client ID**
 - **Client Secret**
 - **Munchkin Account ID**
+- **REST API Endpoint**
 
 If you already have them, skip to [Configure your AI tool](#configure-your-ai-tool).
 
@@ -54,7 +55,7 @@ The configuration file is `claude_desktop_config.json`. Open it from one of thes
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 - **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
-Add the following entry under `mcpServers`:
+If the file already contains other MCP servers, add the `marketo` entry under `mcpServers`. The following example shows the complete `mcpServers` block:
 
 ```json
 {
@@ -73,11 +74,11 @@ Add the following entry under `mcpServers`:
 }
 ```
 
-Save the file, quit Claude Desktop completely, and reopen it.
+Save the file, quit Claude Desktop, and reopen it.
 
 ### Cursor
 
-Add the following to your Cursor MCP configuration (**[!UICONTROL Settings]** > **[!UICONTROL MCP]**, or `.cursor/mcp.json` in your project directory):
+If your Cursor MCP configuration already contains other servers, add the `marketo` entry under `mcpServers`. The following example shows the complete `mcpServers` block in **[!UICONTROL Settings]** > **[!UICONTROL MCP]** or `.cursor/mcp.json` in your project directory:
 
 ```json
 {
@@ -113,7 +114,7 @@ claude mcp add --transport http marketo \
 
 ### VS Code with GitHub Copilot
 
-Open your VS Code `settings.json` (**[!UICONTROL Ctrl+Shift+P]** > **[!UICONTROL Preferences: Open User Settings (JSON)]**) and add the following:
+Open your VS Code `settings.json` by pressing **[!UICONTROL Ctrl+Shift+P]** or **[!UICONTROL Cmd+Shift+P]** on macOS, then selecting **[!UICONTROL Preferences: Open User Settings (JSON)]**. Add the following example:
 
 ```json
 {
@@ -138,7 +139,7 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 
 >[!NOTE]
 >
->For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your shell environment. This prevents credentials from being stored in plain text in files that may be committed to version control.
+>For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your environment. This prevents credentials from being stored in plain text in files that may be committed to version control.
 
 ## Available operations
 
