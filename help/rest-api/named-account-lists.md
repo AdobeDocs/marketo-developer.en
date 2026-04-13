@@ -6,7 +6,7 @@ exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
 ---
 # Named Account Lists
 
-[Named Account Lists Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[Named Account Lists Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
 [Named Account Lists](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo represent collections of named accounts. They can be used for a wide variety of cases, including categorization, data enrichment, and smart campaign filtering. The Named Account List APIs allow for remote management of these list assets and their membership.
 `Content`

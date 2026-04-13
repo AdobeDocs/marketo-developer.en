@@ -12,7 +12,7 @@ A Custom Service provides credentials to authenticate with Marketo. Credentials 
 
 The first step in creating a Custom Service is to create a role that you can apply to the relevant API-Only user. This is done from the **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Roles]** menu.
 
-Roles are containers for individual permissions which permit or restrict access to certain functions. In subscriptions which have Workspaces and Partitions enabled, permissions are awarded on a per workspace basis. If a user has a permission in one workspace but not another, then they will only be able to perform permitted actions in that workspace. To create a role, click the New Role button.
+Roles are containers for individual permissions which permit or restrict access to certain functions. In subscriptions which have Workspaces and Partitions enabled, permissions are awarded on a per workspace basis. If a user has a permission in one workspace but not another, then they will only be able to perform permitted actions in that workspace. To create a role, select **[!UICONTROL New Role]**.
 
 ![Users and Roles](assets/admin-users-and-roles-roles.png)
 
@@ -36,15 +36,15 @@ After creating a role, you must create an 'API-Only' user. API-Only users are a 
 
 >[!MORELIKETHIS]
 >
->To create an API-Only user, go to the **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** menu and click [!UICONTROL Invite New User].
+>To create an API-Only user, go to the **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** menu and select **[!UICONTROL Invite New User]**.
 
 ![New User Information](assets/new-user-info.png)
 
-Give your user a descriptive name and email address (it doesn't must be valid), based on the service and application that it will be used for. Fill in the required fields in the dialog menu, click the "API Only" checkbox, and award one of your API roles to the user. This assigns that role's permissions set to the user.
+Give your user a descriptive name and email address (it does not must be valid), based on the service and application that it will be used for. Fill in the required fields in the dialog menu, select the **[!UICONTROL API Only]** checkbox, and award one of your API roles to the user. This assigns that role's permissions set to the user.
 
 ![New User Permissions](assets/new-user-permissions.png)
 
-Finally, click "Send" to create the API-Only user.
+Finally, select **[!UICONTROL Send]** to create the API-Only user.
 
 When provisioning a new application with credentials, strongly consider making a new user for the service even if it has the same permission set as another existing integration. API call usage statistics and errors are tracked on a per user basis, so provisioning a user for each application can help you isolate usage and issues to specific applications. This comes in handy if you encounter issues with hitting your daily API call limits, or errors resulting from API calls made by integrations.
 
@@ -52,7 +52,7 @@ When provisioning a new application with credentials, strongly consider making a
 
 Custom Services provide the actual credentials, the Client Id and the Client Secret, required to perform Authentication with a Marketo instance. To provision one, go to your **[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]** menu, and select **[!UICONTROL New Service]**.
 
-Give your service a descriptive name and from the "Service" list select the "Custom". Give your service a verbose description and select an appropriate user from the API Only User list, then click [!UICONTROL Create].
+Give your service a descriptive name and from the "Service" list select the "Custom". Give your service a verbose description and select an appropriate user from the API Only User list, then select **[!UICONTROL Create]**.
 
 ![New Custom Service](assets/admin-launchpoint-new-service.png)
 

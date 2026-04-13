@@ -6,15 +6,15 @@ exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
 ---
 # Emails
 
-[Email Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails) A full set of REST endpoints are provided for manipulating email assets.
+[Email Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails) A full set of REST endpoints are provided for manipulating email assets.
 
-Note: If you are using [Marketo Predictive Content](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), the following endpoints will fail if they reference an email that contains predictive content: [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). The call returns a 709 error code, and the corresponding error message.
+Note: If you are using [Marketo Predictive Content](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content), the following endpoints will fail if they reference an email that contains predictive content: [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET), [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/approveDraftUsingPOST). The call returns a 709 error code, and the corresponding error message.
 
 ## Query
 
-The query pattern for emails is identical to that of templates, allowing queries [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET), and for filtering based on folder with the browse and by name APIs.
+The query pattern for emails is identical to that of templates, allowing queries [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET), and for filtering based on folder with the browse and by name APIs.
 
-Note: If an email is part of an email program that is using [A/B Testing](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), then that email is not available for query using the following endpoints: [Get Email by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Get Email by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Get Emails](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). The call indicates success, but will contain the following warning: "No assets found for the given search criteria."
+Note: If an email is part of an email program that is using [A/B Testing](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test), then that email is not available for query using the following endpoints: [Get Email by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET), [Get Email by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET), [Get Emails](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET). The call indicates success, but will contain the following warning: "No assets found for the given search criteria."
 
 ### By ID
 
@@ -212,7 +212,7 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 ## Query Content
 
-You can [retrieve the available editable sections](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) for an email by querying its content, and optionally filter on status to get the sections for either the Approved or Draft versions.
+You can [retrieve the available editable sections](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET) for an email by querying its content, and optionally filter on status to get the sections for either the Approved or Draft versions.
 
 ```http
 GET /rest/asset/v1/email/1356/content.json
@@ -247,7 +247,7 @@ Sections may return as having a type of dynamicContent. See the [Dynamic Content
 
 ## Query CC Fields
 
-You can retrieve the set of fields enabled for Email CC in the target instance by calling the [Get Email CC Fields](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailCCFieldsUsingGET) endpoint.
+You can retrieve the set of fields enabled for Email CC in the target instance by calling the [Get Email CC Fields](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailCCFieldsUsingGET) endpoint.
 
 ```http
 GET /rest/asset/v1/email/ccFields.json
@@ -279,7 +279,7 @@ GET /rest/asset/v1/email/ccFields.json
 
 ## Create and Update
 
-[Emails are created](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) based from a source template, and have a list of editable sections derived from each separate HTML element in that template with a class of "mktEditable" and a unique id property. Creating an email with the API creates a record based on the template along with any additional metadata passed. The following parameters are required for a successful Create Email call: name, template, folder.
+[Emails are created](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/createEmailUsingPOST) based from a source template, and have a list of editable sections derived from each separate HTML element in that template with a class of "mktEditable" and a unique id property. Creating an email with the API creates a record based on the template along with any additional metadata passed. The following parameters are required for a successful Create Email call: name, template, folder.
 
 The following parameters are optional for creation: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. If unset, `subject` will be empty, `fromName`, `fromEmail` and `replyEmail` will be set to instance defaults, and `operational` and `isOpenTrackingDisabled` will be false. `isOpenTrackingDisabled` determines whether the open-tracking pixel is included in an email when sent.
 
@@ -347,7 +347,7 @@ name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&d
 }
 ```
 
-[Updating an email](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) record can be done by id. This allows for updating the description or name of the email.
+[Updating an email](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailContentUsingPOST) record can be done by id. This allows for updating the description or name of the email.
 
 ```http
 POST /rest/asset/v1/email/{id}.json
@@ -415,7 +415,7 @@ description=This is an Email&name=Updated Email
 
 ### Content Section, Type, and Update
 
-The content for each section of an email must be updated individually, apart from the subject, fromName, fromEmail, and replyEmail, which are updated using the [Update Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) endpoint. When using this endpoint, these values can also be set to use dynamic content instead of static content. Each parameter is a type/value JSON object, where type is either "Text" or "DynamicContent" and value is either the appropriate text value, or the id of the segmentation to use for the dynamic content. Data is passed as POST x-www-form-urlencoded, not as JSON.  isOpenTrackingDisabled may be set with Update Email Content
+The content for each section of an email must be updated individually, apart from the subject, fromName, fromEmail, and replyEmail, which are updated using the [Update Email Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailContentUsingPOST) endpoint. When using this endpoint, these values can also be set to use dynamic content instead of static content. Each parameter is a type/value JSON object, where type is either "Text" or "DynamicContent" and value is either the appropriate text value, or the id of the segmentation to use for the dynamic content. Data is passed as POST x-www-form-urlencoded, not as JSON.  isOpenTrackingDisabled may be set with Update Email Content
 
 ```http
 POST /rest/asset/v1/email/{id}/content.json
@@ -481,13 +481,13 @@ Note: If autocopy to text is disabled for a snippet embedded in an email, then 
 
 In Email Editor 1.0, a module is a section of your email that is defined in the template. Modules may contain any combination of elements, variables, and other HTML content as described [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo offers a set of APIs for managing modules within an email. For module-related endpoints that require the HTTP POST method, the body is formatted as "application/x-www-form-urlencoded" (not as JSON).
 
-Most of the module-related endpoints require a "moduleId" as a path parameter. This is a string that describes the module. moduleIds are returned by [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) endpoint as the "htmlId" attribute (see [Query](#modules_query) section below).
+Most of the module-related endpoints require a "moduleId" as a path parameter. This is a string that describes the module. moduleIds are returned by [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET) endpoint as the "htmlId" attribute (see [Query](#modules_query) section below).
 
 ### Query
 
 To work with modules, you must specify a moduleId parameter, which uniquely identifies the module. You may also must specify the module index parameter, which is an integer that describes the order of the module in the email.
 
-[Retrieve moduleIds and their indexes](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) by specifying the email id as a path parameter.
+[Retrieve moduleIds and their indexes](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET) by specifying the email id as a path parameter.
 
 The following example queries a 1.0 email based on the "Skeleton" template found in "Starter Templates" section of the Template Picker UI.
 
@@ -664,11 +664,11 @@ GET /rest/asset/v1/email/{moduleId}/content.json
       "value": [
         {
           "type": "HTML",
-          "value": "<p style=\"text-align: center;\"><span style=\"color: #333333;\"><strong>Acme, Inc<\/strong><\/span><\/p> \n<div style=\"text-align: center;\">\n  You received this because you've subscribed to our newsletter. Click \n <a href=\"{{system.unsubscribeLink}}\" target=\"_blank\" class=\"mktNoTrack\">here<\/a> to unsubscribe. \n <br> \n<\/div>"
+          "value": "<p style=\"text-align: center;\"><span style=\"color: #333333;\"><strong>Acme, Inc<\/strong><\/span><\/p> \n<div style=\"text-align: center;\">\n  You received this because you have subscribed to our newsletter. Click \n <a href=\"{{system.unsubscribeLink}}\" target=\"_blank\" class=\"mktNoTrack\">here<\/a> to unsubscribe. \n <br> \n<\/div>"
         },
         {
           "type": "Text",
-          "value": "Acme, Inc \n You received this because you've subscribed to our newsletter. Click here <{{system.unsubscribeLink}}> to unsubscribe."
+          "value": "Acme, Inc \n You received this because you have subscribed to our newsletter. Click here <{{system.unsubscribeLink}}> to unsubscribe."
         }
       ],
       "contentType": "Text",
@@ -717,7 +717,7 @@ Continuing with the "Skeleton" example above, the following table contains a sum
 
 #### Add
 
-[Add a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/addModuleUsingPOST) to an email by selecting from one of the existing modules contained in the email template that is in use. Do this by specifying the email id, and the moduleId as path parameters. The index query parameter is required and determines the order of the module in the email. If the index value exceeds the largest existing index value, then the module is appended to the email.
+[Add a module](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/addModuleUsingPOST) to an email by selecting from one of the existing modules contained in the email template that is in use. Do this by specifying the email id, and the moduleId as path parameters. The index query parameter is required and determines the order of the module in the email. If the index value exceeds the largest existing index value, then the module is appended to the email.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/add.json
@@ -747,7 +747,7 @@ index=10
 
 #### Delete
 
-[Delete a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/deleteModuleUsingPOST) by specifying the email id, and the moduleId as path parameters.
+[Delete a module](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/deleteModuleUsingPOST) by specifying the email id, and the moduleId as path parameters.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
@@ -769,7 +769,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 
 #### Duplicate
 
-[Duplicate a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST) by specifying the email id, and the moduleId as path parameters. This call duplicates the module, placing it underneath the original module and pushing the other modules down.
+[Duplicate a module](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/duplicateModuleUsingPOST) by specifying the email id, and the moduleId as path parameters. This call duplicates the module, placing it underneath the original module and pushing the other modules down.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
@@ -791,7 +791,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### Rearrange
 
-[Rearrange modules](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)array that contains all modules and the desired position within the email for each. Each array element contains a JSON object of the following form:  { "index": <_index_>, "moduleId": "<_moduleId_>" }, where <_index_> is the zero-based module order number, and <_moduleId_> is the moduleId.
+[Rearrange modules](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/rearrangeModulesUsingPOST)array that contains all modules and the desired position within the email for each. Each array element contains a JSON object of the following form:  { "index": <_index_>, "moduleId": "<_moduleId_>" }, where <_index_> is the zero-based module order number, and <_moduleId_> is the moduleId.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json
@@ -821,7 +821,7 @@ positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "ti
 
 #### Rename
 
-[Rename a module](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) on an email by passing the new name via the name parameter. Specify the email id, and the moduleId (existing name) as path parameters.
+[Rename a module](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/renameUsingPOST) on an email by passing the new name via the name parameter. Specify the email id, and the moduleId (existing name) as path parameters.
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/rename.json
@@ -855,7 +855,7 @@ In Email Editor 1.0, variables are used to store values for elements in your ema
 
 ### Query
 
-[Retrieve variables](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailVariablesUsingGET) for an email by specifying the email id as a path parameter.
+[Retrieve variables](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailVariablesUsingGET) for an email by specifying the email id as a path parameter.
 
 The following example queries a 1.0 email based on the "Skeleton" template found in "Starter Templates" section of the Template Picker UI.
 
@@ -1075,7 +1075,7 @@ Variables can be scoped globally to the entire email, or locally to a specific m
 
 #### Update
 
-[Update a variable](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateVariableUsingPOST) in an email by passing the new desired value via the value parameter. Specify the email id, and the variable name as path parameters. If you are updating a module variable, then you must also pass the moduleId parameter to specify the module that the variable is associated with.
+[Update a variable](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateVariableUsingPOST) in an email by passing the new desired value via the value parameter. Specify the email id, and the variable name as path parameters. If you are updating a module variable, then you must also pass the moduleId parameter to specify the module that the variable is associated with.
 
 In the following example we update a global variable named "hrBorderSize" to a value of 1.
 
@@ -1326,7 +1326,7 @@ emailAddress=abe@testmail.com&textOnly=true
 
 ## Preview Email
 
-Marketo provides the [Get Email Full Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailFullContentUsingGET) endpoint to retrieve a live preview of an email as it would be sent to a recipient. This endpoint can only be used on Version 1.0 Emails. There is one required parameter, the id path parameter which is the id of the email asset you wish to preview. There are three additional optional query parameters:
+Marketo provides the [Get Email Full Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailFullContentUsingGET) endpoint to retrieve a live preview of an email as it would be sent to a recipient. This endpoint can only be used on Version 1.0 Emails. There is one required parameter, the id path parameter which is the id of the email asset you wish to preview. There are three additional optional query parameters:
 
 - status: Accepts the values "draft" or "approved" which will default to the approved version, if approved, draft if unapproved
 - type: Accepts "Text" or "HTML" and defaults to HTML
@@ -1354,7 +1354,7 @@ GET /rest/asset/v1/email/{id}/fullContent.json
 
 ## Replace HTML
 
-Marketo provides the [Update Email Full Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailFullContentUsingPOST) endpoint to replace the entire contents of an email asset. This endpoint can only be used on Version 1.0 Emails which have had the UI "Edit Code" function used on them, and have had the relationship to their parent template broken. This API is primarily intended for use on assets that have been cloned as part of a program, and cannot be modified with the standard content endpoints. Emails with dynamic content are not supported. Also, if you try to replace HTML on an email where the relationship is intact, then an error is returned.
+Marketo provides the [Update Email Full Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/createEmailFullContentUsingPOST) endpoint to replace the entire contents of an email asset. This endpoint can only be used on Version 1.0 Emails which have had the UI "Edit Code" function used on them, and have had the relationship to their parent template broken. This API is primarily intended for use on assets that have been cloned as part of a program, and cannot be modified with the standard content endpoints. Emails with dynamic content are not supported. Also, if you try to replace HTML on an email where the relationship is intact, then an error is returned.
 
 This endpoint expects a Content-Type : multipart/form-data with the id parameter in the path, the id of the email, and one parameter in the body, content as a complete HTML email document with the Content-Type "text/html.". A malformed HTML document emits a warning, but may not permit approval, while inclusion of JavaScript and/or `<script>`tags in the document cause the call to fail and emit an error.
 

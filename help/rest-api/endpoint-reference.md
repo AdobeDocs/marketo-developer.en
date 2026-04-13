@@ -8,9 +8,9 @@ exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
 
 Below are links to the Marketo REST API references.
 
-- [Asset](https://developer.adobe.com/marketo-apis/api/asset/)
+- [Asset](https://developer.adobe.com/marketo-apis/api/asset)
 - [Identity](https://developer.adobe.com/marketo-apis/api/identity/)
-- [Lead Database](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [Lead Database](https://developer.adobe.com/marketo-apis/api/mapi)
 - [User Management](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Endpoint List {#endpoint_list}

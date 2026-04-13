@@ -6,13 +6,13 @@ exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
 ---
 # Files
 
-[Files Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[Files Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Files)
 
 Marketo subscriptions allow for storage of arbitrary files like images, scripts, documents, and style sheets. All of these can be worked with remotely via the REST API. The storage available in Marketo subscriptions is not optimized for bandwidth-intensive applications, so alternatives should be used for proper audio and video streaming applications.
 
 ## Query
 
-Querying files is simple and follows the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+Querying files is simple and follows the standard query types for assets of [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET), and [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET).
 
 ### By Id
 
@@ -150,7 +150,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Create and Update
 
-[Creating a file](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) is done with a multipart/form-data type of request. Minimally, the name, folder, and file are required in the request, with an optional description, and an insertOnly flag, which prevents a create call from updating an existing file with the same name. For the file parameter, a "filename" is required in the Content-Disposition header, in addition to the name parameter. You must also pass a Content-Type header for file, which will be the MIME-type which Marketo will use to serve the file with.
+[Creating a file](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST) is done with a multipart/form-data type of request. Minimally, the name, folder, and file are required in the request, with an optional description, and an insertOnly flag, which prevents a create call from updating an existing file with the same name. For the file parameter, a "filename" is required in the Content-Disposition header, in addition to the name parameter. You must also pass a Content-Type header for file, which will be the MIME-type which Marketo will use to serve the file with.
 
 ```http
 POST /rest/asset/v1/files.json
@@ -204,7 +204,7 @@ This is a test file
 
 ```
 
-[Updating a file](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) can be done based on its id. The only parameter is a file parameter which has the same requirements as creation.
+[Updating a file](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST) can be done based on its id. The only parameter is a file parameter which has the same requirements as creation.
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

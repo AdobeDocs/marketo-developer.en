@@ -237,7 +237,7 @@ Android app developers can now directly use Google's [Firebase Cloud Messaging](
                 apply plugin: 'com.google.gms.google-services'
                 ```
 
-            1. Finally, click "Sync now" in the bar that appears in the ID
+            1. Finally, select **[!UICONTROL Sync now]** in the bar that appears in the ID
     1. Edit your app's manifest The FCM SDK automatically adds all required permissions and the required receiver functionality. Make sure to remove the following obsolete (and potentially harmful, as they may cause message duplication) elements from your app's manifest:
 
         ```xml

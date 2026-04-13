@@ -6,10 +6,11 @@ exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
 # Data Streams
 
 >[!NOTE]
-> Current information on data streams is now found at [Using Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
+>
+>Current information on data streams is now found at [Using Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
 >
 
-Our customer's marketing organizations rely on timely and focused Marketing Campaigns to stay on top of their business and be competitive. In order to support fast paced decisions and enable strategic change at speed, it's important to have data to support and drive those key decisions that deliver focused and targeted Campaigns. There are also some customers that perform Marketing efforts at levels of their customer segments both inside and outside of Marketo Engage. To support these different efforts, Marketo has created the ability to acquire large volumes of data in near real-time thru Data Streams.
+Our customer's marketing organizations rely on timely and focused Marketing Campaigns to stay on top of their business and be competitive. In order to support fast paced decisions and enable strategic change at speed, it is important to have data to support and drive those key decisions that deliver focused and targeted Campaigns. There are also some customers that perform Marketing efforts at levels of their customer segments both inside and outside of Marketo Engage. To support these different efforts, Marketo has created the ability to acquire large volumes of data in near real-time thru Data Streams.
 
 Aside from the benefit of near real-time data, there are product-related benefits:
 
@@ -28,7 +29,7 @@ Types of Lead Data Streamed:
 1. Lead Changes – all changes on all fields and new Leads
 1. Lead Activities – all Lead activity types described in the document
 1. Deleted Leads
-1. All Custom Objects on the Lead (if requested). It's all or nothing at this time.
+1. All Custom Objects on the Lead (if requested). It is all or nothing at this time.
 
 By providing views into Lead changes, this allows customers to make faster decisions on their overall marketing strategies and create more focused targeted campaigns. Some popular use cases would be:
 

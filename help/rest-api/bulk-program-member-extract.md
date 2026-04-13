@@ -6,7 +6,7 @@ exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
 ---
 # Bulk Program Member Extract
 
-[Bulk Program Member Extract Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
+[Bulk Program Member Extract Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members)
 
 The Bulk Program Member Extract set of REST APIs provides a programmatic interface for retrieving large sets of program member records out of Marketo. This is the recommended interface for use cases which require continuous interchange of data between Marketo and one or more external systems, for ETL, data warehousing, and archival purposes.
 
@@ -16,7 +16,7 @@ The Bulk Program Member Extract APIs require that the owning API user have a rol
 
 ## Describe
 
-[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) is the primary source of truth for whether fields are available for use, and metadata about those fields. The `name` attribute contains the REST API name.
+[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) is the primary source of truth for whether fields are available for use, and metadata about those fields. The `name` attribute contains the REST API name.
 
 ```http
 GET /rest/v1/programs/members/describe.json
@@ -219,12 +219,12 @@ Program Members support various filter options. Multiple filter types can be spe
     <tr>
       <td>programId</td>
       <td>Integer</td>
-      <td>Accepts the id of a program. Jobs return all accessible records which are members of the program at the time that the job begins processing.Retrieve program ids using the <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Get Programs</a> endpoint.Cannot be used with programIds filter.</td>
+      <td>Accepts the id of a program. Jobs return all accessible records which are members of the program at the time that the job begins processing.Retrieve program ids using the <a href="https://developer.adobe.com/marketo-apis/api/asset#tag/Programs">Get Programs</a> endpoint.Cannot be used with programIds filter.</td>
     </tr>
     <tr>
       <td>programIds</td>
       <td>Array[Integer]</td>
-      <td>Accepts an array of up to 10 program ids. Jobs return all accessible records which are members of the programs at the time that the job begins processing.An additional field "programId" is added to the export file as the first field. This field identifies the program that a program membership record was extracted from.Retrieve program ids using the <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Get Programs</a> endpoint.Cannot be used with programId filter.</td>
+      <td>Accepts an array of up to 10 program ids. Jobs return all accessible records which are members of the programs at the time that the job begins processing.An additional field "programId" is added to the export file as the first field. This field identifies the program that a program membership record was extracted from.Retrieve program ids using the <a href="https://developer.adobe.com/marketo-apis/api/asset#tag/Programs">Get Programs</a> endpoint.Cannot be used with programId filter.</td>
     </tr>
     <tr>
       <td>isExhausted</td>
@@ -314,13 +314,13 @@ The Create Export Program Member Job endpoint provides several formatting option
 
 | Parameter | Data Type | Required | Notes |
 | --- | --- | --- | --- |
-| fields | Array[String] | Yes | The fields parameter accepts a JSON array of strings. The listed fields are included in the exported file. The following field types can be exported:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Specify a field using it's REST API name which can be retrieved using Describe Lead2 and/or Describe Program Member endpoints. |
+| fields | Array[String] | Yes | The fields parameter accepts a JSON array of strings. The listed fields are included in the exported file. The following field types can be exported:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Specify a field using it is REST API name which can be retrieved using Describe Lead2 and/or Describe Program Member endpoints. |
 | columnHeaderNames | Object | No | A JSON object containing key-value pairs of field and column header names. The key must be the name of a field included in the export job. The value is the name of the exported column header for that field. |
 | format | String | No | Accepts one of: CSV, TSV, SSV. The exported file is rendered as a comma-separated values, tab-separated values, or space-separated values file, respectively if set. Defaults to CSV if unset. |
 
 ## Creating a Job
 
-The parameters for the job are defined before kicking off the export using the [Create Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) endpoint. We must define the `filter` containing the program id, and the `fields` that are needed for export. Optionally we can define the `format` of the file, and the `columnHeaderNames`.
+The parameters for the job are defined before kicking off the export using the [Create Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) endpoint. We must define the `filter` containing the program id, and the `fields` that are needed for export. Optionally we can define the `format` of the file, and the `columnHeaderNames`.
 
 ```http
 POST /bulk/v1/program/members/export/create.json
@@ -364,7 +364,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-This returns a status response indicating that the job has been created. The job has been defined and created, but it hasn't yet been kicked off. To do so, the [Enqueue Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) endpoint must be called using the `exportId` from the creation status response:
+This returns a status response indicating that the job has been created. The job has been defined and created, but it hasn't yet been kicked off. To do so, the [Enqueue Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) endpoint must be called using the `exportId` from the creation status response:
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -392,7 +392,7 @@ This will respond with an initial `status` of "Queued" after which it will be se
 
 Note: Status can only be retrieved for jobs which were created by the same API user.
 
-Since this is an asynchronous endpoint, after creating the job we must poll its status to determine its progress. Poll using the [Get Export Program Member Job Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) endpoint. The status is only updated once every 60 seconds, so a polling frequency lower than this is not advised, and in nearly all cases is still excessive. The status field may respond with any one of: Created, Queued, Processing, Canceled, Completed, Failed.
+Since this is an asynchronous endpoint, after creating the job we must poll its status to determine its progress. Poll using the [Get Export Program Member Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) endpoint. The status is only updated once every 60 seconds, so a polling frequency lower than this is not advised, and in nearly all cases is still excessive. The status field may respond with any one of: Created, Queued, Processing, Canceled, Completed, Failed.
 
 ```http
 GET /bulk/v1/program/members/export/{exportId}/status.json
@@ -440,7 +440,7 @@ The status endpoint responds indicating that the job is still processing, so the
 
 ## Retrieving Your Data
 
-To retrieve the file of a completed program member export, simply call the [Get Export Program Member File](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET) endpoint with your `exportId`.
+To retrieve the file of a completed program member export, simply call the [Get Export Program Member File](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET) endpoint with your `exportId`.
 
 The response contains a file formatted in the way that the job was configured. The endpoint responds with the contents of the file. If a requested program member field is empty (contains no data), then `null` is placed in the corresponding field in the export file.
 
@@ -468,7 +468,7 @@ To support partial and resumption-friendly retrieval of extracted data, the file
 
 ## Canceling a Job
 
-If a job was configured incorrectly, or becomes unnecessary, it can be easily canceled using the [Cancel Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) endpoint:
+If a job was configured incorrectly, or becomes unnecessary, it can be easily canceled using the [Cancel Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) endpoint:
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/cancel.json

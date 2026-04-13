@@ -6,7 +6,7 @@ exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
 ---
 # Leads
 
-[Leads Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Leads Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
 The Marketo Lead's API provides a large set of capabilities for simple CRUD applications against lead records, as well as the ability to modify a lead's membership in static lists and programs, and initiate Smart Campaign processing for leads.
 
@@ -52,7 +52,7 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Normally, responses include a much larger set of fields in the result array, but we're omitting them for demonstration purposes. Each item in the result array corresponds to a field available on the lead record and will have at minimum an id, a displayName, and a datatype. The rest and soap child objects may or may not be present for a given field, and its presence will indicate whether the field is valid for use in either the REST or SOAP APIs. The `readOnly` property indicates whether the field is read-only via the corresponding API (REST or SOAP). The length property indicates the max length of the field if present. The dataType property indicates the data type of the field.
+Normally, responses include a much larger set of fields in the result array, but we are omitting them for demonstration purposes. Each item in the result array corresponds to a field available on the lead record and will have at minimum an id, a displayName, and a datatype. The rest and soap child objects may or may not be present for a given field, and its presence will indicate whether the field is valid for use in either the REST or SOAP APIs. The `readOnly` property indicates whether the field is read-only via the corresponding API (REST or SOAP). The length property indicates the max length of the field if present. The dataType property indicates the data type of the field.
 
 ## Query
 
@@ -89,7 +89,7 @@ For this method, there will always be a single record in the first position of t
 
 Get Leads by Filter Type will return the same type of records, but may return up to 300 per page. It requires the `filterType` and `filterValues` query parameters.
 
-`filterType` accepts any Custom Field, or most of the commonly used fields. Call the `Describe2` endpoint to get a comprehensive list of searchable fields that are permissible for use in `filterType`. When searching by Custom Field, only the following data types are supported: `string`, `email`, `integer`. You can obtain field detail (description, type, etc.) using the aforementioned Describe method.
+`filterType` accepts any Custom Field, or most of the commonly used fields. Call the `Describe2` endpoint to get a comprehensive list of searchable fields that are permissible for use in `filterType`. When searching by Custom Field, only the following data types are supported: `string`, `email`, `integer`. You can obtain field detail (description, type, and so on) using the aforementioned Describe method.
 
 `filterValues` accepts up to 300 values in comma-separated format. The call searches for records where the lead's field matches one of the included `filterValues`. If the number of leads matching the lead filter is greater than 1,000 an error is returned: "1003, Too many results match the filter".
 
@@ -154,7 +154,7 @@ In addition to retrieving lead data, you can create, update and delete lead reco
 
 >[!NOTE]
 >
-> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) endpoint instead.
+> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) endpoint instead.
 
 >[!NOTE]
 >
@@ -761,6 +761,7 @@ Here we can see the corresponding "Fill Out Form" activity details from within t
 ## Merge
 
 >[!NOTE]
+>
 >Beginning March 31, 2026, calls which include more than 25 IDs in the `leadIds` parameter of a Merge Leads API call will result in a 1080 error code, and the call will be skipped. Jobs requiring the merger of more than 25 records into one, should be split into multiple jobs to ensure the success of those calls. 
 >
 

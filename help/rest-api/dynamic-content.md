@@ -18,7 +18,7 @@ Dynamic content is implemented at the section level, by designating specific var
 
 ## Example
 
-To demonstrate, let's look at an email example, where we have a Region (US) segmentation, and want to display an event promotion only for leads who fall in the Southwest segment, which includes California, Nevada, Utah, Colorado, Arizona, and New Mexico leads. To do this, we make an editable section in our email with id "Q1-promotion-banner" into a DynamicContent section. To do this, we must use the [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) endpoint for our email. The `value` parameter is used to specify the Id of the segmentation.
+To demonstrate, let's look at an email example, where we have a Region (US) segmentation, and want to display an event promotion only for leads who fall in the Southwest segment, which includes California, Nevada, Utah, Colorado, Arizona, and New Mexico leads. To do this, we make an editable section in our email with id "Q1-promotion-banner" into a DynamicContent section. To do this, we must use the [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST) endpoint for our email. The `value` parameter is used to specify the Id of the segmentation.
 
 Note: Both Emails and Landing Pages follow this pattern. Snippets have a different pattern, detailed in the Snippets API documentation.
 
@@ -46,7 +46,7 @@ type=DynamicContent&value=1001
 }
 ```
 
-To add content for individual segments, we must call the [Update Email Dynamic Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) endpoint for the specific section.
+To add content for individual segments, we must call the [Update Email Dynamic Content Section](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST) endpoint for the specific section.
 
 The following example sets the section to show our special banner image for leads in the Southwest segment instead of the default. If we wanted to create more variations for more segments, then we would call this endpoint again for each segment and section.
 

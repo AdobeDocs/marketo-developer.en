@@ -40,7 +40,7 @@ Bulk import is an "insert or update" record operation. If a matching record is f
 
 ## Creating a Job
 
-Marketo's bulk import APIs use the concept of a job for executing data import. Let's look at creating a simple lead import job using the [Import Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) endpoint.  Note that this endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). This can be tricky to get right, so best practice is to use an HTTP support library for your language of choice.  If you are just getting your feet wet, we suggest that you use [curl](https://curl.se/).
+Marketo's bulk import APIs use the concept of a job for executing data import. Let's look at creating a simple lead import job using the [Import Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) endpoint.  Note that this endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). This can be tricky to get right, so best practice is to use an HTTP support library for your language of choice.  If you are just getting your feet wet, we suggest that you use [curl](https://curl.se/).
 
 ```http
 POST /bulk/v1/leads.json?format=csv
@@ -93,7 +93,7 @@ Each job creation endpoint shares some common parameters for configuring the fi
 
 ## Polling Job Status
 
-Determining the status of the job is simple using the [Get Import Lead Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) endpoint.
+Determining the status of the job is simple using the [Get Import Lead Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) endpoint.
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -123,7 +123,7 @@ The inner `status` member will indicate the progress of the job, and may be one
 
 Failures are indicated by the `numOfRowsFailed` attribute in Get Import Lead Status response. If `numOfRowsFailed` is greater than zero, then that value indicates the number of failures that occurred.
 
-To retrieve the records and causes of failed rows, you'll must retrieve the failure file using the [Get Import Lead Failures](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) endpoint.
+To retrieve the records and causes of failed rows, you will must retrieve the failure file using the [Get Import Lead Failures](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) endpoint.
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json

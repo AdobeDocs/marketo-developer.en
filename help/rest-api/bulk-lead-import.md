@@ -6,9 +6,9 @@ exl-id: 615f158b-35f9-425a-b568-0a7041262504
 ---
 # Bulk Lead Import
 
-[Bulk Lead Import Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Bulk Lead Import Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-For large amounts of lead records, leads can be imported asynchronously with the [bulk API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). This allows you to import a list of records into Marketo using a flat file with the delimiters (comma, tab, or semi-colon). The file can contain any number of records, so long as the file totals less than 10MB in size. The record operation is "insert or update" only.
+For large amounts of lead records, leads can be imported asynchronously with the [bulk API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). This allows you to import a list of records into Marketo using a flat file with the delimiters (comma, tab, or semi-colon). The file can contain any number of records, so long as the file totals less than 10MB in size. The record operation is "insert or update" only.
 
 ## Processing Limits
 

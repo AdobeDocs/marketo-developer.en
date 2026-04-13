@@ -6,19 +6,19 @@ exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
 ---
 # Forms
 
-[Forms Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
+[Forms Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms)
 
-[Form Fields Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
+[Form Fields Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields)
 
 Marketo forms have a complex set of endpoints allowing full control of form management from remote systems. The structure of forms can be complex, as there are many different types of objects which must be managed as part of a form: Forms, Fields, Fieldsets, Visibility Rules, and Followup Page Rules.
 
 ## Query
 
-Forms support the standard methods of asset retrieval, [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET), and [by browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET). Each form response contains all of its properties except for its field list.
+Forms support the standard methods of asset retrieval, [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET), and [by browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET). Each form response contains all of its properties except for its field list.
 
 ### By ID
 
-[Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) takes a form `id` as a path parameter and returns a form record.
+[Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) takes a form `id` as a path parameter and returns a form record.
 
 ```http
 GET /rest/asset/v1/form/{id}.json
@@ -73,7 +73,7 @@ GET /rest/asset/v1/form/{id}.json
 
 ### By Name
 
-[Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) takes a form `name` as a path parameter and returns a form record.
+[Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) takes a form `name` as a path parameter and returns a form record.
 
 ```http
 GET /rest/asset/v1/form/byName.json?name=newForm
@@ -127,7 +127,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 ### Browse
 
-[Get Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET) forms works like other Asset API browse endpoints, and allows optional filtering on `status`, `maxReturn`, and `offset`. Status can be: approved, approved with draft, or draft.
+[Get Forms](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET) forms works like other Asset API browse endpoints, and allows optional filtering on `status`, `maxReturn`, and `offset`. Status can be: approved, approved with draft, or draft.
 
 ```http
 GET /rest/asset/v1/forms.json
@@ -304,7 +304,7 @@ When editing fields, or their behavior inside a form, the field list should alwa
 
 ### Dependencies
 
-The [Get Form Used By](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) endpoint takes a form `id` as path parameter and returns the list of assets that depend on the form. Forms may be used by the following asset types: Landing Pages, Smart Lists, Smart Campaigns, Reports, Email Programs.
+The [Get Form Used By](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getFormUsedByUsingGET) endpoint takes a form `id` as path parameter and returns the list of assets that depend on the form. Forms may be used by the following asset types: Landing Pages, Smart Lists, Smart Campaigns, Reports, Email Programs.
 
 ```http
 GET /rest/asset/v1/form/{id}/usedBy.json
@@ -330,7 +330,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## Create and Update
 
-When [creating a form](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) there are only two required fields: the parent folder of the form, the name of the form. All of the other parameters are optional with default value. When the form is created it comes with three default fields: First Name, Last Name, Email.
+When [creating a form](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/createLpFormsUsingPOST) there are only two required fields: the parent folder of the form, the name of the form. All of the other parameters are optional with default value. When the form is created it comes with three default fields: First Name, Last Name, Email.
 
 ```http
 POST /rest/asset/v1/forms.json
@@ -391,7 +391,7 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 
 ```
 
-Forms are [updated](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) with a similar call via their id. During either creation or update, any of the base styling parameters are accessible and editable, allowing you to modify how the form is displayed to the end user.
+Forms are [updated](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormsUsingPOST) with a similar call via their id. During either creation or update, any of the base styling parameters are accessible and editable, allowing you to modify how the form is displayed to the end user.
 
 ```http
 POST /rest/asset/v1/form/736.json
@@ -457,7 +457,7 @@ The known visitor and thank you page behaviors cannot be modified via the create
 
 To properly add or edit fields belonging to a form, you must retrieve the list of valid fields for the target instance. Field interactions are always done based on the field's id property which is shown for each item in the result.
 
-For Lead fields, this is done by using the [Get Available Form Fields](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) endpoint and includes the data type and default metadata for the field when it is added to a form.
+For Lead fields, this is done by using the [Get Available Form Fields](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllFieldsUsingGET) endpoint and includes the data type and default metadata for the field when it is added to a form.
 
 ```http
 GET /rest/asset/v1/form/fields.json
@@ -590,7 +590,7 @@ GET /rest/asset/v1/form/fields.json
 
 ```
 
-For Program Member custom fields, call [Get Available Form Program Member Fields](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  endpoint to retrieve Program Member custom field data types and default metadata. To use these fields in a form, the form must reside underneath a Program (not in Design Studio). Landing Pages containing forms using these fields must also reside underneath a Program (cannot reside in Design Studio, or be cloned into Design Studio).
+For Program Member custom fields, call [Get Available Form Program Member Fields](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  endpoint to retrieve Program Member custom field data types and default metadata. To use these fields in a form, the form must reside underneath a Program (not in Design Studio). Landing Pages containing forms using these fields must also reside underneath a Program (cannot reside in Design Studio, or be cloned into Design Studio).
 
 ```http
 GET /rest/asset/v1/form/programMemberFields.json
@@ -629,7 +629,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 Each form contains an editable list of fields, which will be displayed to the end user when loaded. Each field is added, updated, or deleted from the field list one at a time via their respective endpoints.
 
-[Adding a field](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) only requires the id of the parent form and the fieldId of the field. All other fields will either be empty or have default values based on their datatype and field metadata. Data is passed as POST x-www-form-urlencoded, not as JSON.
+[Adding a field](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldToAFormUsingPOST) only requires the id of the parent form and the fieldId of the field. All other fields will either be empty or have default values based on their datatype and field metadata. Data is passed as POST x-www-form-urlencoded, not as JSON.
 
 ```http
 POST /rest/asset/v1/form/{id}/fields.json
@@ -793,7 +793,7 @@ To determine how to format a complex form field, look at the response from Add F
 
 ### Rearranging Field
 
-Fields in a form must be rearranged all as a single unit via the [Change Form Field Positions](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) endpoint. The endpoint requires a parameter called `positions`, which is a JSON Array of objects with three members:
+Fields in a form must be rearranged all as a single unit via the [Change Form Field Positions](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) endpoint. The endpoint requires a parameter called `positions`, which is a JSON Array of objects with three members:
 
 - columnNumber
 - rowNumber
@@ -832,7 +832,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### Rich Text
 
-Rich text fields are added through a [separate endpoint](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) from lead fields. The field content is passed as multipart/form-data. It should be structured as HTML content which does not contain any script, meta tags, or link tags.
+Rich text fields are added through a [separate endpoint](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addRichTextFieldUsingPOST) from lead fields. The field content is passed as multipart/form-data. It should be structured as HTML content which does not contain any script, meta tags, or link tags.
 
 ```http
 POST /rest/asset/v1/form/{id}/richText.json
@@ -874,7 +874,7 @@ Content-Type: text/html
 
 Marketo forms feature an optional component called fieldsets. Fieldsets are groups of fields which are treated as a single field within the top-level field list for purposes of movement and treatment by visibility rules. For example, if there is a field for Compliance Requirements, and a client selects yes it might reveal a fieldset containing fields for HIPAA and PCI Compliance requirements.
 
-Fields within fieldsets are unique to the form as a whole, so duplicate fields may not be in both the form's parent field list, and a child fieldset. Fieldsets are added via the [Add Fieldset to Form](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) endpoint and will then appear in the result of [Get Fields for Form](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Fields are added to a fieldset by moving them into the fieldset's fieldList via [Update Field Positions](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). For these endpoints, data is passed as POST x-www-form-urlencoded, not as JSON.
+Fields within fieldsets are unique to the form as a whole, so duplicate fields may not be in both the form's parent field list, and a child fieldset. Fieldsets are added via the [Add Fieldset to Form](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST) endpoint and will then appear in the result of [Get Fields for Form](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Fields are added to a fieldset by moving them into the fieldset's fieldList via [Update Field Positions](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). For these endpoints, data is passed as POST x-www-form-urlencoded, not as JSON.
 
 ## Visibility Rule
 
@@ -918,7 +918,7 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 
 ```
 
-For the full list of available operators, see the endpoint reference page for [Add Form Field Visibility Rules](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST).
+For the full list of available operators, see the endpoint reference page for [Add Form Field Visibility Rules](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST).
 
 ## Followup
 
@@ -926,7 +926,7 @@ Marketo forms may have dynamic follow-up page behavior where rules to redirect t
 
 ## Submit Button
 
-The submit button styling of the form is managed with the [Update Submit Button](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormSubmitButtonUsingPOST) endpoint. The buttonPosition, buttonStyle, label, and waitingLabel (the label shown while submission is pending) can be modified.
+The submit button styling of the form is managed with the [Update Submit Button](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormSubmitButtonUsingPOST) endpoint. The buttonPosition, buttonStyle, label, and waitingLabel (the label shown while submission is pending) can be modified.
 
 This is a destructive update.
 

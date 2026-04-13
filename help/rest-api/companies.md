@@ -6,9 +6,9 @@ exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
 ---
 # Companies
 
-[Companies Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
+[Companies Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies)
 
-Companies represent the organization to which lead records belong. Leads are added to a Company by populating their corresponding `externalCompanyId` field using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) or [Bulk Lead Import](bulk-lead-import.md) endpoints. Once a lead has been added to a company, you cannot delete the lead from that company (unless you add the lead to a different company). Leads linked to a company record will directly inherit the values from a company record as though the values existed on the lead's own record.
+Companies represent the organization to which lead records belong. Leads are added to a Company by populating their corresponding `externalCompanyId` field using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) or [Bulk Lead Import](bulk-lead-import.md) endpoints. Once a lead has been added to a company, you cannot delete the lead from that company (unless you add the lead to a different company). Leads linked to a company record will directly inherit the values from a company record as though the values existed on the lead's own record.
 
 Company APIs are read-only access for subscriptions which have [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) or [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) are enabled.
 
@@ -92,7 +92,7 @@ GET /rest/v1/companies/describe.json
 
 ## Query
 
-The pattern for [querying companies](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompaniesUsingGET) closely follows that of the leads API with the added restriction that the `filterType` parameter accepts the fields listed in the searchableFields array of the Describe Companies call, or dedupeFields.
+The pattern for [querying companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET) closely follows that of the leads API with the added restriction that the `filterType` parameter accepts the fields listed in the searchableFields array of the Describe Companies call, or dedupeFields.
 
 `filterType` and `filterValues` are required query parameters.  `fields`, `nextPageToken`, and `batchSize` are optional parameters.  The parameters function just like the corresponding parameters in the Leads and Opportunities APIs. When requesting a list of `fields`, if a particular field is requested, but not returned, the value is implied to be null.
 
@@ -130,7 +130,7 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## Create and Update
 
-The [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) endpoint accepts the required `input` parameter that contains an array of company objects. Just like opportunities, there are three modes for creating and updating companies: createOnly, updateOnly, and createOrUpdate.  Modes are specified in the `action` parameter of the request. Both the `dedupeBy` and `action` parameters are optional, and default to the dedupeFields and the createOrUpdate modes respectively.
+The [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) endpoint accepts the required `input` parameter that contains an array of company objects. Just like opportunities, there are three modes for creating and updating companies: createOnly, updateOnly, and createOrUpdate.  Modes are specified in the `action` parameter of the request. Both the `dedupeBy` and `action` parameters are optional, and default to the dedupeFields and the createOrUpdate modes respectively.
 
 ```http
 POST /rest/v1/companies.json
@@ -188,7 +188,7 @@ Querying company fields is straightforward. You may query a single company field
 
 #### By Name
 
-The [Get Company Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldByNameUsingGET) endpoint retrieves metadata for a single field on the company object. The required `fieldApiName` path parameter specifies the API name of the field. The response is like the Describe Company endpoint but contains additional metadata such as the `isCustom` attribute which denotes whether the field is a custom field.
+The [Get Company Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET) endpoint retrieves metadata for a single field on the company object. The required `fieldApiName` path parameter specifies the API name of the field. The response is like the Describe Company endpoint but contains additional metadata such as the `isCustom` attribute which denotes whether the field is a custom field.
 
 ```http
 GET /rest/v1/companies/schema/fields/industry.json
@@ -217,7 +217,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### Browse
 
-The [Get Company Fields](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldsUsingGET) endpoint retrieves metadata for all fields on the company object. By default, a maximum of 300 records are returned. You can use the `batchSize` query parameter to reduce this number. If the `moreResult` attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
+The [Get Company Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET) endpoint retrieves metadata for all fields on the company object. By default, a maximum of 300 records are returned. You can use the `batchSize` query parameter to reduce this number. If the `moreResult` attribute is true, this means more results are available. Continue to call this endpoint until the moreResult attribute returns false, which means there are no results available. The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
 ```http
 GET /rest/v1/companies/schema/fields.json?batchSize=5

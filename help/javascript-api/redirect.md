@@ -44,7 +44,7 @@ Organization, Industry, ABM Lists, Location, ISP, Matched Segments
 - If the redirect rule/condition is based on Firmographics (company, industry, location) you can insert the redirect code before the rtp('send', 'view') and the rtp('get','campaign') to reduce latency.
 - Redirect via JavaScript is a browser side redirect and depends on the website's loading and optimization to reach maximum speed.
 - The best practice is to set the redirect code right after the rtp tag and place it at the header.
-- Make sure you're not running a self redirect (there is a safety net in rtp to block cyclic redirect calls).
+- Make sure you are not running a self redirect (there is a safety net in rtp to block cyclic redirect calls).
 
 ```html
 <!DOCTYPE html>
@@ -80,7 +80,7 @@ rtp('get','campaign');
 
 ## How to Redirect Tracked Visitors
 
-1. Append a parameter to the end of the target URL: i.e. <www.marketo.com?rtp=redirect>
+1. Append a parameter to the end of the target URL: that is <www.marketo.com?rtp=redirect>
 1. Create a segment called - "Redirected by RTP"
 1. Use the 'Specific Pages' parameter to target visitors viewing any page with the parameter shown below.
 

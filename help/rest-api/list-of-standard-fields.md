@@ -8,7 +8,7 @@ exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
 
 Here is a list of standard fields available in Marketo that are accessible via the API.
 
-You can retrieve the list of all supported field names available on your lead records by using the REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/) endpoint.
+You can retrieve the list of all supported field names available on your lead records by using the REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi) endpoint.
 
 | REST API Name | SOAP API Name | Friendly Label | Description |
 | --- | --- | --- | --- |
@@ -47,7 +47,7 @@ You can retrieve the list of all supported field names available on your lead re
 | phone | Phone | Phone Number | Lead's Phone Number |
 | postalCode | PostalCode | Postal Code | Lead's postal code |
 | rating | Rating | Lead Rating | Marketing/sales rating of the lead |
-| salutation | Salutation | Salutation | Lead's preferred salutation, i.e. Mister, Misses…etc. |
+| salutation | Salutation | Salutation | Lead's preferred salutation, that is Mister, Misses…and so on |
 | sicCode | SICCode | SIC Code | Standard Industrial Classification code of the lead's company |
 | site | Site | Site |  |
 | state | State | State | Lead's state |

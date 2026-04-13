@@ -10,7 +10,7 @@ Below are lists of REST API error codes, and an explanation of how errors are re
 
 ## Handling and Logging Exceptions
 
-When developing for Marketo, it's important that requests and responses get logged when an unexpected exception is encountered. While certain types of exceptions, such as expired authentication, can be safely handled by re-authentication, others may require support interactions, and requests and responses will always be requested in this scenario.
+When developing for Marketo, it is important that requests and responses get logged when an unexpected exception is encountered. While certain types of exceptions, such as expired authentication, can be safely handled by re-authentication, others may require support interactions, and requests and responses will always be requested in this scenario.
 
 ## Error Types
 
@@ -28,7 +28,7 @@ Under normal operating circumstances Marketo should only return two HTTP status 
 
 Marketo will return 413 if the Request Payload exceeds 1MB, or 10MB in the case of Import Lead. In most scenarios it is unlikely to hit these limits, but adding a check to the size of the request and moving any records, which cause the limit to be exceeded to a new request should prevent any circumstances, which lead to this error being returned by any endpoints.
 
-414 will be returned when the URI of a GET request exceeds 8KB. To avoid it, check against the length of your query string to see if it exceeds this limit. If it does change your request to a POST method, then input your query string as the request body with the additional parameter `_method=GET`. This forgoes the limitation on URIs. It's rare to hit this limit in most cases, but it is somewhat common when retrieving large batches of records with long individual filter values such as a GUID.
+414 will be returned when the URI of a GET request exceeds 8KB. To avoid it, check against the length of your query string to see if it exceeds this limit. If it does change your request to a POST method, then input your query string as the request body with the additional parameter `_method=GET`. This forgoes the limitation on URIs. It is rare to hit this limit in most cases, but it is somewhat common when retrieving large batches of records with long individual filter values such as a GUID.
 The [Identity](https://developer.adobe.com/marketo-apis/api/identity/) endpoint can return a 401 Unauthorized error. This is typically due to an invalid Client Id or invalid Client Secret. HTTP-Level Error Codes
 
 <table>
@@ -108,7 +108,7 @@ An API call that returns this response code is not counted against your daily qu
     <tr>
       <td><a name="603"></a>603</td>
       <td>Access denied</td>
-      <td>Authentication is successful but the user doesn't have sufficient permission to call this API. [Additional permissions](custom-services.md) may need to be assigned to the user role, or <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Allowlist for IP-Based API Access</a> may be enabled.</td>
+      <td>Authentication is successful but the user does not have sufficient permission to call this API. [Additional permissions](custom-services.md) may need to be assigned to the user role, or <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Allowlist for IP-Based API Access</a> may be enabled.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -351,8 +351,8 @@ Each record in a successful request may succeed or fail on an individual basis, 
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Invalid cookie value &#8216;%s'</td>
-      <td>Can occur when calling the <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> with an invalid value for the `cookie` parameter.
-        This also occurs when calling <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Get Leads by Filter Type</a> with `filterType=cookies` and an invalid value for the `filterValues` parameter.</td>
+      <td>Can occur when calling the <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> with an invalid value for the `cookie` parameter.
+        This also occurs when calling <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET">Get Leads by Filter Type</a> with `filterType=cookies` and an invalid value for the `filterValues` parameter.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -470,24 +470,24 @@ Each record in a successful request may succeed or fail on an individual basis, 
     </tr>
     <tr>
       <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call with mergeInCRM flag is 4.</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call with mergeInCRM flag is 4.</td>
       <td>You are creating a duplicate record. It is recommended that you use an existing record instead.
         This is the error msg, which Marketo receives when merging in Salesforce.</td>
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to `SFDC Field` length</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to `SFDC Field` length</td>
       <td>A Merge Leads call with mergeInCRM set to true failed due to `SFDC Field` exceeding the limit of allowed characters. To correct, reduce the length of `SFDC Field`, or set mergeInCRM to false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to deleted entity, not a lead/contact, or field filter criteria doesn't match.</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a> call failed due to deleted entity, not a lead/contact, or field filter criteria does not match.</td>
       <td>Merge failure, unable to perform merge operation in natively synced CRM
         This is the error msg, which Marketo receives when merging in Salesforce.</td>
     </tr>
     <tr>
       <td><a name="1079"></a>1079</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a>  call failed due to Personalized URL conflict in duplicate records</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Merge Leads</a>  call failed due to Personalized URL conflict in duplicate records</td>
       <td>A Merge Leads call specified many Leads with the same Personalized URL. To resolve use Marketo Engage user interface to merge these records.</td>
     </tr>
   </tbody>

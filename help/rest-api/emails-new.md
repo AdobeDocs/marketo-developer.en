@@ -6,7 +6,7 @@ exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
 ---
 # Emails
 
-[Email Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails_New)
+[Email Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails_New)
 
 Emails are asset records that define message metadata, content configuration, settings, and approval state.
 
