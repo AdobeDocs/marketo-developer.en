@@ -1,6 +1,6 @@
 ---
 title: MCP Server
-description: Learn how to connect an AI assistant to Marketo using the Model Context Protocol (MCP) server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
+description: Learn how to connect an AI assistant to Marketo using the MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
 ---
 
 # [!DNL Marketo] MCP Server
@@ -16,18 +16,13 @@ When your AI tool calls the MCP server, the server executes the corresponding RE
 - One of the following AI tools: Claude Desktop, Cursor, Claude Code (CLI), or VS Code with GitHub Copilot
 - Network access to the MCP server URL: `https://marketo-mcp.adobe.io/mcp`
 
->[!ADMIN]
->
->**Open question — HIGH:** Confirm the canonical production server URL before publishing. The source wiki contained three different values: `http://marketo-mcp.adobe.io` (HTTP, no path), `https://marketo-mcp.adobe.io/mcp` (used throughout this doc), and `https://marketo-mcp-prod.pub.ethos103-prod-or2.ethos.adobe.net/mcp` (Claude Desktop section only). Every code block in this doc uses the middle form. PM or engineering confirmation required.
-
 ## Get Marketo credentials
 
-You need four values from your [!DNL Marketo] instance:
+You need the following values from your [!DNL Marketo] instance:
 
 - **Client ID**
 - **Client Secret**
 - **Munchkin Account ID**
-- **REST API Endpoint**
 
 If you already have them, skip to [Configure your AI tool](#configure-your-ai-tool).
 
@@ -143,15 +138,11 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 
 >[!NOTE]
 >
->Some AI tools support environment variable interpolation in configuration files. Instead of pasting credentials directly, you can use syntax like `${MARKETO_CLIENT_SECRET}` and set the variable in your shell environment. This prevents credentials from being stored in plain text in files that may be committed to version control.
+>For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your shell environment. This prevents credentials from being stored in plain text in files that may be committed to version control.
 
 ## Available operations
 
 Once connected, you can ask your AI assistant to perform operations across the following categories.
-
->[!ADMIN]
->
->**Open question — MEDIUM:** The source wiki states "100+ operations across 14 categories" but only 7 categories are documented below. Confirm the full list of 14 categories, or update the intro paragraph to reflect the correct count.
 
 ### Forms
 
@@ -257,17 +248,11 @@ The API user needs access to the asset types you intend to manage. At minimum, a
 
 ### What are the rate limits?
 
->[!ADMIN]
->
->**Open question — MEDIUM:** The source wiki does not mention rate limits. The [!DNL Marketo] REST API enforces per-day and per-second limits. Confirm whether the MCP server inherits those limits, adds additional limits, or has separate quota tracking. Add the answer here before publishing.
+The MCP server inherits the API rate limits of the Marketo instance. Use a dedicated API user to track and manage quota consumption.
 
 ### Which AI tools are supported?
 
 Claude Desktop, Cursor, Claude Code (CLI), and VS Code with GitHub Copilot. Any AI tool that supports the Model Context Protocol over HTTP should work.
-
->[!ADMIN]
->
->**Open question — LOW:** Confirm the MCP spec version this server implements (for example, 2024-11-05). Useful for developers troubleshooting incompatible clients. Add or omit based on PM guidance.
 
 ### Can I connect to multiple [!DNL Marketo] instances?
 
