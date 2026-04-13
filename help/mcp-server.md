@@ -2,8 +2,8 @@
 title: MCP Server
 description: Learn how to connect an AI assistant to Marketo using the MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
 hidefromtoc: true
+exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 ---
-
 # [!DNL Marketo] MCP Server
 
 The Model Context Protocol (MCP) is an open standard that enables AI tools to communicate with external services. The [!DNL Marketo] MCP server acts as a bridge between your AI assistant and [!DNL Marketo]. It exposes more than 100 operations across forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
