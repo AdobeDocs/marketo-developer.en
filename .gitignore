@@ -1,6 +1,7 @@
 .DS_Store
-.pre-commit-config.yaml
+.claude/
 .vscode/
+.pre-commit-config.yaml
 markdownlint_custom.json
 generate-seo.mjs
 package-lock.json

@@ -30,7 +30,7 @@ You can retrieve fragment metadata by asset id or with the filter endpoint.
 
 #### Request
 
-```text
+```http
 GET /rest/asset/v2/fragment/{id}
 ```
 
@@ -62,7 +62,7 @@ Supported filters include `folderId`, repeated `folderIds`, repeated `status`, `
 
 #### Request
 
-```text
+```http
 GET /rest/asset/v2/fragment/filter?workspaceId=1001&fragmentType=email&pageIndex=0&pageSize=20
 ```
 
@@ -92,7 +92,7 @@ Create a fragment by sending a JSON payload. `name`, `appData`, and `settings` a
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/fragment
 Content-Type: application/json
 ```
@@ -149,7 +149,7 @@ Update a fragment by asset id.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/update
 Content-Type: application/json
 ```
@@ -196,7 +196,7 @@ Valid `action` values are:
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/fragment/state/transition
 Content-Type: application/json
 ```
@@ -216,7 +216,7 @@ Use the clone endpoint to create a copy of an existing fragment.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/fragment/clone
 Content-Type: application/json
 ```
@@ -239,7 +239,7 @@ Delete a fragment by asset id.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/delete
 Content-Type: application/json
 ```
@@ -252,7 +252,7 @@ Use the `usedby` endpoint to retrieve assets that reference a given fragment.
 
 ### Request
 
-```text
+```http
 POST /rest/asset/v2/fragment/usedby
 Content-Type: application/json
 ```

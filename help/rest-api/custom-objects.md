@@ -14,7 +14,7 @@ An appropriate Marketo subscription type is required to access the Custom Object
 
 In addition to the standard describe, query, update, and delete calls available for lead database objects, Custom Objects have a [list call](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET) available.  Calling this endpoint will return a response with a list of custom objects available in the destination instance, along with additional metadata about the objects.
 
-```
+```http
 GET /rest/v1/customobjects.json
 ```
 
@@ -57,7 +57,7 @@ The response will give a list of the relationships present on each object.  A r
 
 The [describe call](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) for custom objects follows the same pattern as that of Opportunities and Companies, with the addition of the `relationships` array in the response and an `apiName` path parameter in the URI which takes the API name of the custom object type to be described.  Like the list call, this will list any relationships that are available for this custom object type.
 
-```
+```http
 GET /rest/v1/customobjects/{apiName}/describe.json
 ```
 
@@ -164,11 +164,11 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 
 [Querying custom objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET) is slightly different from other Lead Database APIs, and takes `apiName` path parameter like describe.  For a normal filterType parameters, the query is a simple GET like queries for other types of records, and requires a `filterType` and `filterValues`.  It will optionally accept `**fields**`, `batchSize`, and `nextPageToken` parameters.  When requesting a list of fields, if a particular field is requested, but not returned, the value is implied to be null.
 
-```
+```http
 GET /rest/v1/customobjects/{apiName}.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
-```
+```json
 {
    "requestId":"e42b#14272d07d78",
    "success":true,
@@ -193,7 +193,7 @@ GET /rest/v1/customobjects/{apiName}.json?filterType=idField&filterValues=dff232
 
 Alternatively, when querying with compound keys, the API behaves like the Opportunity Roles API, accepting a POST with a JSON body.  The JSON body may have the same members as a GET query, except for `filterValues`.  Instead of filter values, there is an `input` array which takes objects which contain a member named for each of the object type's `dedupeFields`.
 
-```
+```http
 POST /rest/v1/customobjects/{apiName}.json?_method=GET
 ```
 
@@ -259,7 +259,7 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 
 Use the [Sync Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) endpoint to create or update custom objects, you can specify the operation using the `action` parameter.  Up to 300 records can be created or updated in one call.  The values used in the `input` array are largely based on the information returned by the [Describe Custom Objects](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/endpoint-reference#!/Custom_Objects/describeUsingGET_1) endpoint. In an example car object, there is just one dedupe field, `vin`.  In order to update or create records when using dedupeFields mode, each record in our input array needs to include at least a `vin` field.
 
-```
+```http
 POST /rest/v1/customobjects/{apiName}.json
 ```
 
@@ -328,7 +328,7 @@ When performing updates via `idField` mode, the `idField` will always be `market
 
 [Deleting records](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST) is very straightforward.  Just select your `deleteBy` mode, either `idField` or `dedupeFields`, and include the corresponding fields in each of the records in your `input` array. A maximum of 300 records per call is allowed.
 
-```
+```http
 POST /rest/v1/customobjects/{apiName}/delete.json
 ```
 
@@ -395,7 +395,7 @@ There are two ways to retrieve custom object type metadata: Describe Custom Obje
 
 The [Describe Custom Object Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) endpoint returns metadata for a single custom object type. The required `apiName` path parameter is the API name of the custom object type that is described.  If an approved version exists, it is returned.  Otherwise the draft version is returned.  The optional `state` parameter is used to specify the version to return: `draft`, `approved`, or `approvedWithDraft`.
 
-```
+```http
 GET /rest/v1/customobjects/schema/{apiName}/describe.json?state=approved
 ```
 
@@ -514,7 +514,7 @@ Here we can to see the following attributes:
 
 The [List Custom Object Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET) endpoint returns metadata for all custom object types available in the destination instance.  Note that this endpoint is similar to [List Custom Objects](https://experienceleague.adobe.com/docs/marketo-developer/marketo/soap/custom-objects/custom-objects.html?lang=en), but is more comprehensive and includes additional metadata such as state, relationships, and fields. If an approved version exists, it is returned.  Otherwise the draft version is returned.  The optional **state** parameter is used to specify the version of the custom object type to return: **draft**, **approved**, or **approvedWithDraft**.  The optional **names** parameter is used to specify specific names of custom object types to return; it is structured as a comma separated list of API names.
 
-```
+```http
 GET /rest/v1/customobjects/schema.json?names=purchaseHistory
 ```
 
@@ -697,7 +697,7 @@ Be careful when naming custom objects. When creating a new custom object, it is 
 
 Here is an example of creating a new custom object type with API  Name "transaction".
 
-```
+```http
 POST /rest/v1/customobjects/schema.json
 ```
 
@@ -720,7 +720,7 @@ POST /rest/v1/customobjects/schema.json
 
 Here is a subsequent call to describe the newly created type.
 
-```
+```http
 GET /rest/v1/customobjects/schema/transaction/describe.json
 ```
 
@@ -780,7 +780,7 @@ Here we can see the following custom object-related data:
 
 Here is an example of updating the Description for an existing type whose API Name is "transaction".  The **apiName** attribute is required.  Here we will assume that the type already exists and use updateOnly for the optional **action** attribute.  Aside from **apiName**, the attributes available for creation may be updated.
 
-```
+```http
 POST /rest/v1/customobjects/schema.json
 ```
 
@@ -816,7 +816,7 @@ For these reasons, it is important to carefully think through the schema and nam
 
 Use the [Approve Custom Object Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/approveCustomObjectTypeUsingPOST) endpoint to publish a draft version as the new approved version.  **apiName** is the only required parameter as a path parameter.  A type cannot be approved unless it is in draft state, and satisfies a set of validation rules described [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
 
-```
+```http
 POST /rest/v1/customobjects/schema/{apiName}/approve.json
 
 ```
@@ -833,7 +833,7 @@ POST /rest/v1/customobjects/schema/{apiName}/approve.json
 
 Use the [Discard Custom Object Type Draft](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/discardCustomObjectTypeUsingPOST) endpoint to delete a draft version. `apiName` is the only required parameter as a path parameter. A type must be in draft state to be discarded, that is an approved type cannot be discarded.
 
-```
+```http
 POST /rest/v1/customobjects/schema/{apiName}/discardDraft.json
 ```
 
@@ -890,7 +890,7 @@ For a one-to-many custom object structure, use a link field in a custom object t
 
 First, create the custom object type to contain car-specific information.
 
-```
+```http
 POST /rest/v1/customobjects/schema.json
 ```
 
@@ -915,7 +915,7 @@ POST /rest/v1/customobjects/schema.json
 
 Now, add fields to the Car custom object type. We use a link field to specify the both the object and the field to connect to. In this case the link object is Lead, and the link field is ID. Use a string field for deduplication (VIN).  We will add three more fields to store additional Car attributes (Make, Model, Year).
 
-```
+```http
 POST /rest/v1/customobjects/schema/car/addField.json
 ```
 
@@ -969,7 +969,7 @@ POST /rest/v1/customobjects/schema/car/addField.json
 
 Finally, approve the custom object type.
 
-```
+```http
 POST /rest/v1/customobjects/schema/course/approve.json
 ```
 
@@ -994,7 +994,7 @@ Many-to-many relationships are represented using a "bridge," or intermediary, c
 
 First, create the edge object type to contain course-specific information:
 
-```
+```http
 POST /rest/v1/customobjects/schema.json
 ```
 
@@ -1019,7 +1019,7 @@ POST /rest/v1/customobjects/schema.json
 
 Next, let's add custom fields to the edge object type.  In this example we will add the following four custom fields to model a college course: Course ID, Course Instructor, Course Location, Course Name.  Note that we are designating Course ID as our dedupe field, since at least one dedupe field is required.
 
-```
+```http
 POST /rest/v1/customobjects/schema/course/addField.json
 ```
 
@@ -1051,7 +1051,7 @@ POST /rest/v1/customobjects/schema/course/addField.json
 }
 ```
 
-```
+```json
 {
     "requestId": "cc36#16895b82a41",
     "result": [],
@@ -1061,7 +1061,7 @@ POST /rest/v1/customobjects/schema/course/addField.json
 
 Now we need to approve the edge object type so that we can reference it later when linking to the bridge object type.  Note that custom object types must be approved to be selectable as a link object.
 
-```
+```http
 POST /rest/v1/customobjects/schema/course/approve.json
 ```
 
@@ -1075,7 +1075,7 @@ POST /rest/v1/customobjects/schema/course/approve.json
 
 The edge object is finished.  Now let's move on to create the bridge object type to contain enrollment-specific information.
 
-```
+```http
 POST /rest/v1/customobjects/schema.json
 ```
 
@@ -1100,7 +1100,7 @@ POST /rest/v1/customobjects/schema.json
 
 To add custom fields to the bridge object type, add two link fields: one linking to the Lead object, and another linking to the Course object that we just created. To link to the Lead object, use the Lead Id field. To link to the Course object, use the Course Id field.  Next, add an Enrollment ID unique identifier as our dedupe field since at least one dedupe field is required. Finally, add a Grade field to track how the student did.
 
-```
+```http
 POST /rest/v1/customobjects/schema/enrollment/addField.json
 ```
 
@@ -1154,7 +1154,7 @@ POST /rest/v1/customobjects/schema/enrollment/addField.json
 
 Finally, approve the bridge object.
 
-```
+```http
 POST /rest/v1/customobjects/schema/enrollment/approve.json
 ```
 
@@ -1172,7 +1172,7 @@ You can populate custom object records programmatically by using [Sync Custom O
 
 The [Update Custom Object Type Field](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/updateCustomObjectTypeFieldUsingPOST) endpoint allows you to update a field in your draft custom object.  The required path parameter `apiName` is the API name of the custom object type.  The required path parameter `fieldAPIName` is the API name of the custom object type field.  The request body contains a JSON object containing key/value pairs that specify the field attributes to update.
 
-```
+```http
 POST /rest/v1/customobjects/schema/{apiName}/{fieldApiName}/updateField.json
 ```
 
@@ -1195,7 +1195,7 @@ POST /rest/v1/customobjects/schema/{apiName}/{fieldApiName}/updateField.json
 
 The [Delete Custom Object Type Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectTypeFieldsUsingPOST) endpoint allows you to delete one or more fields from your custom object.  The required path parameter `apiName` is the API name of the custom object type.  The request body contains JSON object with an `input` array with one or more elements.  Each element is a JSON object with a `name` attribute that specifies the API name of the field to delete.
 
-```
+```http
 POST /rest/v1/customobjects/schema/{apiName}/deleteField.json
 ```
 
@@ -1225,7 +1225,7 @@ POST /rest/v1/customobjects/schema/{apiName}/deleteField.json
 
 The [Get Custom Object Type Field Data Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET) endpoint returns the list of all permissible field data types. This is useful when modeling your custom object type to identify the custom field data types that are supported.
 
-```
+```http
 GET /rest/v1/customobjects/schema/fieldDataTypes.json
 ```
 
@@ -1253,7 +1253,7 @@ GET /rest/v1/customobjects/schema/fieldDataTypes.json
 
 The [Get Custom Object Linkable Objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) endpoint returns a list of all permissible link objects, and their link fields.  The list will contain Standard Objects (Lead, Company), and any Custom Objects that have been created in the instance.
 
-```
+```http
 GET /rest/v1/customobjects/schema/linkableObjects.json
 ```
 
@@ -1443,7 +1443,7 @@ GET /rest/v1/customobjects/schema/linkableObjects.json
 
 The [Get Custom Object Dependent Assets](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeDependentAssetsUsingGET) endpoint returns a list of dependent assets of a custom object type, including their in-instance location.  This is useful when removing an integration and you need to identify everywhere that a custom object type is in use.
 
-```
+```http
 GET /rest/v1/customobjects/schema/{apiName}/dependentAssets.json
 ```
 

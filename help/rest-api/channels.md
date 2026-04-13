@@ -16,7 +16,7 @@ Channels can be queried as standard assets, but do not have an endpoint to retri
 
 ### Browse
 
-```
+```http
 GET /rest/asset/v1/channels.json?offset=10
 ```
 
@@ -114,7 +114,7 @@ GET /rest/asset/v1/channels.json?offset=10
 
 ### By Name
 
-```
+```http
 GET /rest/asset/v1/channel/byName.json?name=Online Advertising
 ```
 

@@ -23,7 +23,7 @@ Note: Limit of 100 leadKey values per call. Additional keys are ignored.
 | campaignName | Optional when campaignId is present; Otherwise required in a set as `campaignName`, programName, and programTokenList | The name of the campaign |
 | programName | Optional when campaignId is present; Otherwise required in a set as `campaignName`, programName, and programTokenList | The name of the program |
 | programTokenList | Optional when campaignId is present; Otherwise required in a set as `campaignName`, `programName`, and `programTokenList` | Array of tokens to be used in the campaign. When specifying tokens, programName and `campaignName` are required. |
-| programTokenList->attrib->name | Optional | The name of the program token you wish to pass the value of. Ex:{{my.message}} |
+| programTokenList->attrib->name | Optional | The name of the program token you wish to pass the value of. Ex: `{{my.message}}` |
 | programTokenList->attrib->value | Optional | The value for the specified token name. |
 
 ## Request XML

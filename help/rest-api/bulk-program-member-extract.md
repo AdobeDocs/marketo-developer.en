@@ -18,7 +18,7 @@ The Bulk Program Member Extract APIs require that the owning API user have a rol
 
 [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) is the primary source of truth for whether fields are available for use, and metadata about those fields. The `name` attribute contains the REST API name.
 
-```
+```http
 GET /rest/v1/programs/members/describe.json
 ```
 
@@ -322,7 +322,7 @@ The Create Export Program Member Job endpoint provides several formatting option
 
 The parameters for the job are defined before kicking off the export using the [Create Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) endpoint. We must define the `filter` containing the program id, and the `fields` that are needed for export. Optionally we can define the `format` of the file, and the `columnHeaderNames`.
 
-```
+```http
 POST /bulk/v1/program/members/export/create.json
 ```
 
@@ -366,7 +366,7 @@ POST /bulk/v1/program/members/export/create.json
 
 This returns a status response indicating that the job has been created. The job has been defined and created, but it hasn't yet been kicked off. To do so, the [Enqueue Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) endpoint must be called using the `exportId` from the creation status response:
 
-```
+```http
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
 ```
 
@@ -394,7 +394,7 @@ Note: Status can only be retrieved for jobs which were created by the same API 
 
 Since this is an asynchronous endpoint, after creating the job we must poll its status to determine its progress. Poll using the [Get Export Program Member Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) endpoint. The status is only updated once every 60 seconds, so a polling frequency lower than this is not advised, and in nearly all cases is still excessive. The status field may respond with any one of: Created, Queued, Processing, Canceled, Completed, Failed.
 
-```
+```http
 GET /bulk/v1/program/members/export/{exportId}/status.json
 ```
 
@@ -444,11 +444,11 @@ To retrieve the file of a completed program member export, simply call the [Get 
 
 The response contains a file formatted in the way that the job was configured. The endpoint responds with the contents of the file. If a requested program member field is empty (contains no data), then `null` is placed in the corresponding field in the export file.
 
-```
+```http
 GET /bulk/v1/program/members/export/{exportId}/file.json
 ```
 
-```
+```text
 firstName,lastName,email,Member Date,Program,Status,Lead Id,Success,leadCustomField01,leadCustomField02,pMCustomField01,pMCustomField02
 Meera,Reed,mree@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1789,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
 Jon,Umber,jumb@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1790,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
@@ -470,7 +470,7 @@ To support partial and resumption-friendly retrieval of extracted data, the file
 
 If a job was configured incorrectly, or becomes unnecessary, it can be easily canceled using the [Cancel Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) endpoint:
 
-```
+```http
 POST /bulk/v1/program/members/export/{exportId}/cancel.json
 ```
 

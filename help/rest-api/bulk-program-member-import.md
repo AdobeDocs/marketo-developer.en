@@ -20,7 +20,7 @@ The first row of the file must be a header which lists the corresponding REST AP
 
 A typical file would follow this basic pattern:
 
-```
+```text
 email,firstName,lastName
 test@example.com,John,Doe
 ```
@@ -37,17 +37,17 @@ The `programId` path parameter specifies the program to which the members are ad
 
 There are three required query parameters. The `format` parameter specifies the import file format (CSV, TSV, or SSV), the `programMemberStatus` parameter specifies the program status for the members that are being added to the program, and the `file` parameter contains the name of the import file that contains program member records.
 
-```
+```http
 POST /bulk/v1/program/{programId}/members/import.json?format=csv&programMemberStatus=On List
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=--------------------------118046853683028616211319
 Content-Length: 772
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ----------------------------118046853683028616211319
 Content-Disposition: form-data; name="file"; filename="Lead-House-Lannister.csv"
 Content-Type: text/csv
@@ -89,7 +89,7 @@ curl -i -F format='csv' -F programMemberStatus='On List' -F file='@Lead-House-La
 
 Where the import file "Lead-House-Lannister.csv" contains the following:
 
-```
+```text
 firstName,lastName,email,title,company,leadScore
 Joanna,Lannister,Joanna@Lannister.com,Lannister,House Lannister,0
 Tywin,Lannister,Tywin@Lannister.com,Lannister,House Lannister,0
@@ -105,7 +105,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 Once the import job has been created, you must query its status. It is best practice to poll the import job every 5-30 seconds. Do this by passing the `batchId` path parameter to the [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) endpoint.
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
 ```
 
@@ -137,7 +137,7 @@ Failures are indicated by the `numOfRowsFailed` attribute in [Get Import Program
 
 Use the Get Import Program Member Failures endpoint to retrieve records and causes of failed rows by passing the `batchId` path parameter.
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/failures.json
 ```
 
@@ -145,14 +145,14 @@ The endpoint responds with a file indicating which rows failed, along with a mes
 
 For example, suppose that you import the following file with an invalid lead score:
 
-```
+```text
 firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD
 ```
 
 When you check the job status, you see `numOfRowsFailed` is 1 which indicates that a failure occurred:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
 ```
 
@@ -176,11 +176,11 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 
 Then retrieve the failures file for additional details about the failure:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/failures.json
 ```
 
-```
+```text
 firstName,lastName,email,title,company,leadScore,Import Failure Reason
 Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD,Invalid data type in field Lead Score
 ```
@@ -191,7 +191,7 @@ Warnings are indicated by the `numOfRowsWithWarning` attribute in [Get Import Pr
 
 Use the [Get Import Program Member Warnings](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) endpoint to retrieve records and causes of warning rows by passing the `batchId` path parameter.
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json
 ```
 
@@ -199,14 +199,14 @@ The endpoint responds with a file indicating which rows produced warnings, along
 
 For example, suppose that you import the following file with an invalid email address:
 
-```
+```text
 firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0
 ```
 
 When you check the job status, you see `numOfRowsWithWarning` is 1 which indicates that a warning occurred:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
 ```
 
@@ -230,11 +230,11 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 
 You then retrieve the warnings file for additional details about the warning:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json
 ```
 
-```
+```text
 firstName,lastName,email,title,company,leadScore,Import Warning Reason
 Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0,Invalid email address
 ```
