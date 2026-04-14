@@ -10,7 +10,7 @@ This project has adopted the [Adobe Open Source Code of Conduct](code-of-conduct
 
 **If you are not an Adobe employee** you can submit an external community contribution. Community contributions are imported to our internal systems and are edited and merged in the public repo. The public repo is then synced with the latest changes and merged in the private repository.
 
-**If you are an Adobe employee**, you can contribute directly to the private [Adobe GitHub repository](https://git.corp.adobe.com/AdobeDocs/). For details, see the Adobe Experience League Authoring Guide for Adobe employees.
+**If you are an Adobe employee**, you can contribute directly to the private [Adobe GitHub repository](https://github.com/AdobeDocs/). For details, see the Adobe Experience League Authoring Guide for Adobe employees.
 
 ## External contributors
 
@@ -40,7 +40,7 @@ See the [Adobe Docs Contributor Guide](https://experienceleague.adobe.com/docs/c
 
 ## Internal contributors
 
-If you are a technical writer, program manager, or developer from the product team for an Adobe Experience Cloud solution and it's your job to contribute to or author technical articles, use the [private repository](https://git.corp.adobe.com/AdobeDocs).
+If you are a technical writer, program manager, or developer from the product team for an Adobe Experience Cloud solution and it's your job to contribute to or author technical articles, use the [private repository](https://github.com/AdobeDocs).
 
 ## Format your topic
 
