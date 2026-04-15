@@ -67,8 +67,7 @@ If the file already contains other MCP servers, add the `marketo` entry under `m
       "headers": {
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
         "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID",
-        "X-Marketo-Endpoint": "YOUR-REST-API-ENDPOINT"
+        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
       }
     }
   }
@@ -90,8 +89,7 @@ If your Cursor MCP configuration already contains other servers, add the `market
       "headers": {
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
         "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID",
-        "X-Marketo-Endpoint": "YOUR-REST-API-ENDPOINT"
+        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
       }
     }
   }
@@ -109,8 +107,7 @@ claude mcp add --transport http marketo \
   https://marketo-mcp.adobe.io/mcp \
   --header "X-Marketo-Client-Id: YOUR-CLIENT-ID" \
   --header "X-Marketo-Client-Secret: YOUR-CLIENT-SECRET" \
-  --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID" \
-  --header "X-Marketo-Endpoint: YOUR-REST-API-ENDPOINT"
+  --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
 ### VS Code with GitHub Copilot
@@ -127,8 +124,7 @@ Open your VS Code `settings.json` by pressing **[!UICONTROL Ctrl+Shift+P]** or *
         "headers": {
           "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
           "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-          "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID",
-          "X-Marketo-Endpoint": "YOUR-REST-API-ENDPOINT"
+          "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
         }
       }
     }
