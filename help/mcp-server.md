@@ -24,7 +24,6 @@ You need the following values from your [!DNL Marketo] instance:
 - **Client ID**
 - **Client Secret**
 - **Munchkin Account ID**
-- **REST API Endpoint**
 
 If you already have them, skip to [Configure your AI tool](#configure-your-ai-tool).
 
@@ -38,11 +37,6 @@ If you already have them, skip to [Configure your AI tool](#configure-your-ai-to
 
 1. Go to **[!UICONTROL Admin]** > **[!UICONTROL Munchkin]**.
 1. Copy the **[!UICONTROL Munchkin Account ID]**. The format is `XXX-XXX-XXX` and matches the prefix of your instance URL.
-
-### REST API Endpoint
-
-1. Go to **[!UICONTROL Admin]** > **[!UICONTROL Web Services]**.
-1. Under **[!UICONTROL REST API]**, copy the **[!UICONTROL Endpoint]** URL. The format is `https://XXX-XXX-XXX.mktorest.com`.
 
 ## Configure your AI tool
 
@@ -67,8 +61,7 @@ If the file already contains other MCP servers, add the `marketo` entry under `m
       "headers": {
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
         "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID",
-        "X-Marketo-Endpoint": "YOUR-REST-API-ENDPOINT"
+        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
       }
     }
   }
@@ -90,8 +83,7 @@ If your Cursor MCP configuration already contains other servers, add the `market
       "headers": {
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
         "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID",
-        "X-Marketo-Endpoint": "YOUR-REST-API-ENDPOINT"
+        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
       }
     }
   }
@@ -109,8 +101,7 @@ claude mcp add --transport http marketo \
   https://marketo-mcp.adobe.io/mcp \
   --header "X-Marketo-Client-Id: YOUR-CLIENT-ID" \
   --header "X-Marketo-Client-Secret: YOUR-CLIENT-SECRET" \
-  --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID" \
-  --header "X-Marketo-Endpoint: YOUR-REST-API-ENDPOINT"
+  --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
 ### VS Code with GitHub Copilot
@@ -127,8 +118,7 @@ Open your VS Code `settings.json` by pressing **[!UICONTROL Ctrl+Shift+P]** or *
         "headers": {
           "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
           "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-          "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID",
-          "X-Marketo-Endpoint": "YOUR-REST-API-ENDPOINT"
+          "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
         }
       }
     }

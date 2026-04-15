@@ -74,7 +74,9 @@ Each object in the "errors" array has two members, `code`, which is a quoted int
 
 #### Response-Level Error Codes
 
-An API call that returns this response code is not counted against your daily quota, or your rate limit.
+>[!NOTE]
+>
+>An API call that returns this response code is not counted against your daily quota, or your rate limit.
 
 <table>
   <thead>
