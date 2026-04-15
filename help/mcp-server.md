@@ -2,6 +2,7 @@
 title: MCP Server
 description: Learn how to connect an AI assistant to Marketo using the MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
 hidefromtoc: true
+badgeBeta: label="Beta" type="informative" tooltip="This feature is currently in a early beta release"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 ---
 # [!DNL Marketo] MCP Server
@@ -218,37 +219,53 @@ Example prompts:
 
 ## Frequently asked questions
 
-### Is my data secure?
++++Is my data secure?
 
 Credentials are transmitted in HTTP headers with each individual request. The server does not store or cache credentials between sessions, and each request is fully isolated.
 
-### Can multiple people use this at the same time?
++++
+
++++Can multiple people use this at the same time?
 
 Yes. The server is multi-tenant. Each user connects with their own credentials, and requests are isolated from one another.
 
-### What happens if my access token expires?
++++
+
++++What happens if my access token expires?
 
 When you authenticate using Client ID and Client Secret, the server handles token refresh automatically. You do not need to take any action.
 
-### Do I need to install or run anything?
++++
+
++++Do I need to install or run anything?
 
 No. The MCP server is hosted by Adobe. You only need to configure your AI tool to connect to it.
 
-### What [!DNL Marketo] permissions does my API user need?
++++
+
++++What [!DNL Marketo] permissions does my API user need?
 
 The API user needs access to the asset types you intend to manage. At minimum, assign a Read-Only role for browsing operations and a Read-Write role for creating or modifying assets. Work with your [!DNL Marketo] admin to assign appropriate permissions.
 
-### What are the rate limits?
++++
 
-The MCP server inherits the API rate limits of the Marketo instance. Use a dedicated API user to track and manage quota consumption.
++++What are the rate limits?
 
-### Which AI tools are supported?
+The MCP server inherits the API rate limits of the [!DNL Marketo] instance. Use a dedicated API user to track and manage quota consumption.
+
++++
+
++++Which AI tools are supported?
 
 Claude Desktop, Cursor, Claude Code (CLI), and VS Code with GitHub Copilot. Any AI tool that supports the Model Context Protocol over HTTP should work.
 
-### Can I connect to multiple [!DNL Marketo] instances?
++++
+
++++Can I connect to multiple [!DNL Marketo] instances?
 
 Yes. Add multiple entries in your AI tool's MCP configuration, each with a unique name and the credentials for the corresponding instance. For example, you could configure `marketo-prod` and `marketo-staging` as separate servers.
+
++++
 
 ## Security considerations
 
