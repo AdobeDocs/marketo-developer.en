@@ -24,7 +24,6 @@ You need the following values from your [!DNL Marketo] instance:
 - **Client ID**
 - **Client Secret**
 - **Munchkin Account ID**
-- **REST API Endpoint**
 
 If you already have them, skip to [Configure your AI tool](#configure-your-ai-tool).
 
@@ -38,11 +37,6 @@ If you already have them, skip to [Configure your AI tool](#configure-your-ai-to
 
 1. Go to **[!UICONTROL Admin]** > **[!UICONTROL Munchkin]**.
 1. Copy the **[!UICONTROL Munchkin Account ID]**. The format is `XXX-XXX-XXX` and matches the prefix of your instance URL.
-
-### REST API Endpoint
-
-1. Go to **[!UICONTROL Admin]** > **[!UICONTROL Web Services]**.
-1. Under **[!UICONTROL REST API]**, copy the **[!UICONTROL Endpoint]** URL. The format is `https://XXX-XXX-XXX.mktorest.com`.
 
 ## Configure your AI tool
 
