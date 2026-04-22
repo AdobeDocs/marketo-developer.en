@@ -13,6 +13,7 @@ API LICENSE AGREEMENT
 
 This Marketo API License Agreement ("Agreement") governs the implementation and use of the Marketo APIs and API Specification to allow a Software Application to interoperate with the Marketo Solution for internal development or testing purposes. If You are entering into this Agreement on behalf of an organization, You represent You have the authority to bind Your organization to this Agreement. If You do not have that authority, or if You do not agree with the terms of this Agreement, You may not implement the Marketo APIs or use the API Specification. By clicking a button denoting acceptance of this Agreement, or by implementing, downloading or otherwise accessing the Marketo APIs, You agree to be legally bound by the terms of this Agreement. This Agreement is effective between You and Marketo, Inc. ("Marketo") as of the date of Your acceptance. You and Marketo are each individually referred to herein as a "Party," and collectively as "Parties."
 
+
 1. Definitions
 
 "API Limits" means restrictions (e.g., rate limits and concurrency limits) to Your API calls as described on the Marketo Developer website substantially described at: <https://developer.adobe.com/marketo-apis/>.
