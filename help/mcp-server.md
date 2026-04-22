@@ -2,10 +2,14 @@
 title: MCP Server
 description: Learn how to connect an AI assistant to Marketo using the MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
 hidefromtoc: true
-badgeBeta: label="Beta" type="informative" tooltip="This feature is currently in a early beta release"
+badgeBeta: label="Beta" type="informative" tooltip="This feature is currently in a closed beta release"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 ---
 # [!DNL Marketo] MCP Server
+
+>[!NOTE]
+>
+>The MCP server is currently in a closed beta release. It is not available to all users at this time. 
 
 The Model Context Protocol (MCP) is an open standard that enables AI tools to communicate with external services. The [!DNL Marketo] MCP server acts as a bridge between your AI assistant and [!DNL Marketo]. It exposes more than 100 operations across forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
 
@@ -216,7 +220,6 @@ Example prompts:
 
 | Error | Cause | Fix |
 | ------- | ------- | ----- |
-| "Marketo endpoint not provided" | The `X-Marketo-Endpoint` header is missing from your configuration. | Re-check your MCP configuration and confirm all four headers are present. |
 | "Marketo credentials not provided" | One or more of `X-Marketo-Client-Id`, `X-Marketo-Client-Secret`, or `X-Marketo-Munchkin-Id` is missing. | Verify all four headers are present in your configuration. |
 | "Authentication Error" | Your credentials are invalid or expired. | Re-check your Client ID and Client Secret in **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**. |
 | "403 Forbidden" | Your Munchkin ID is not on the server allowlist. | Contact your [!DNL Marketo] MCP administrator to add your Munchkin ID. |
