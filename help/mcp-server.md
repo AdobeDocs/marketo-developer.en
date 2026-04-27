@@ -1,7 +1,6 @@
 ---
 title: MCP Server
 description: Learn how to connect an AI assistant to Marketo using the MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
-hidefromtoc: true
 badgeBeta: label="Beta" type="informative" tooltip="This feature is currently in a closed beta release"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 ---
