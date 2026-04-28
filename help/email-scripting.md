@@ -26,7 +26,9 @@ $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
 ```
 
-There is also quiet reference notation, where there is a `!` Included after the `$`. Normally when velocity encounters an undefined reference, the string representing the reference is left in place. With quiet reference notation, if an undefined reference is encountered, then no value is emitted:
+
+
+There is also quiet reference notation, where there is a `!` Included after the `$`. Normally when velocity encounters an undefined reference, the string representing the reference is left in place. With quiet rkkjeference notation, if an undefined reference is encountered, then no value is emitted:
 
 ```velocity
 ##Defined Reference
