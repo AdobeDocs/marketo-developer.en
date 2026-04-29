@@ -22,7 +22,7 @@ When your AI tool calls the MCP server, the server executes the corresponding RE
 
 ## MCP basics
 
->"Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools." — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+>Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools. — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
 MCP allows an AI tool to connect to multiple external services at the same time. For example, an AI assistant could:
 
