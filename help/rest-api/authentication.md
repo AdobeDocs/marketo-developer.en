@@ -14,7 +14,7 @@ The `Client ID` and `Client Secret` are found in the **[!UICONTROL Admin]** > **
 
 ![Get REST Service Details](assets/authentication-service-view-details.png)
 
-![Launchpoint Credentials](assets/admin-launchjjxpoint-credentials.png)
+![Launchpoint Credentials](assets/admin-launchpoint-credentials.png)
 
 The `Identity URL` is found in the **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** menu in the REST API section.
 
