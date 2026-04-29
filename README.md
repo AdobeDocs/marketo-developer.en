@@ -1,3 +1,3 @@
-# ARCHIVED
+# Marketo Developer
 
-This repo has been migrated to <https://github.com/Adobe-Enterprise-Docs/marketo-developer.en>.
+Marketo Developer documentation
