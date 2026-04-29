@@ -95,3 +95,4 @@ Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custo
 Sales Person records and lead relationships can be managed in Marketo when there is no native CRM integration enabled. These records contain basic information about the Sales Person, such as Name, Email, and Job Title, which can be used for filtering and tokens in Marketo when a lead is owned by one. The relationship to a sales person is managed at the lead level through the "externalSalesPersonId" field, which must be updated through the [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) API.
 
 Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
+
