@@ -22,11 +22,11 @@ JSON properties are accessed with dot-notation, and array notation. Array notat
 { "foo":"bar"}
 ```
 
-To access the `foo` property in a response mapping, use the `name` of the property since it is in the first level of the JSON object, `foo`. Here's what that looks like in Marketo:
+To access the `foo` property in a response mapping, use the `name` of the property since it is in the first level of the JSON object, `foo`. The following shows what that looks like in Marketo:
 
 ![Response Mapping](assets/json-resp.png)
 
-Here's a more complicated example with an array:
+The following is a more complicated example with an array:
 
 ```json
 {
@@ -52,7 +52,7 @@ We want to access the orderDate from the first element of the orders array. To a
 
 ## XML Mappings
 
-Values can be accessed from individual elements in XML documents. This uses dot notation similar to the JSON mappings. Let's look at this simple example:
+Values can be accessed from individual elements in XML documents. This uses dot notation similar to the JSON mappings. Consider this simple example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
