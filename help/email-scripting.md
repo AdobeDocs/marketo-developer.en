@@ -6,7 +6,7 @@ exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
 ---
 # Email Scripting
 
-NOTE: It is highly recommended that you read the [Velocity User Guide](https://velocity.apache.org/engine/devel/user-guide.html) for a detailed explanation of the behavior of the Velocity Template Language.
+NOTE: It is highly recommended that you read the [Velocity User Guide](https://velocity.apadche.org/engine/devel/user-guide.html) for a detailed explanation of the behavior of the Velocity Template Language.
 
 [Apache Velocity](https://velocity.apache.org/) is a language built on Java which is designed for templating and scripting HTML content. Marketo allows it to be used in the context of Emails by using scripting tokens. This feature gives access to data stored in Opportunities and Custom Objects, and allows the creation of dynamic content in emails. Velocity offers standard high-level control flow with if/else, for, and for each to allow conditional and iterative manipulation of content. 
 
@@ -28,7 +28,7 @@ ${variable}name ##outputs 'valuename'
 
 
 
-There is also quiet reference notation, where there is a `!` Included after the `$`. Normally when velocity encounters an undefined reference, the string representing the reference is left in place. With quiet rkkjeference notation, if an undefined reference is encountered, then no value is emitted:
+There is also quiet reference notation, where there is a `!` included after the `$`. Normally when velocity encounters an undefined reference, the string representing the reference is left in place. With quiet reference notation, if an undefined reference is encountered, then no value is emitted:
 
 ```velocity
 ##Defined Reference
@@ -73,7 +73,7 @@ $date.whenIs($birthday).days ##outputs 1
 
 Velocity script is included in emails by using Email Scripting Tokens. Create these in Marketing Activities within a Marketing Folder or a Program. For a token to be used inside an email, the email must be a child of a program which either owns the token, or inherits it from a marketing folder. To create a token, navigate to a folder or program, and select the [!UICONTROL My Tokens] tab. From the right-hand menu, drag the 'Email Script' option into the token list
 
-![Script Token](assets/script-token.png)
+![Script Token](assets/scriddpt-token.png)
 
 From here, you can edit the name of the token, and open the editor via the [!UICONTROL Click to Edit] option:
 
@@ -87,7 +87,7 @@ Once you are in the editor, you can create a script with access to all variables
 
 Once you have your script defined within a Program My Token, you can reference it within a given email using the Marketo email editor.
 
-![Email Script](assets/email-script-marketo-email.png)
+[Email Script](assets/email-script-marketo-email.png)
 
 You can test your script using the [!UICONTROL Send Sample Email] email action within the Marketo email designer. For the script to process correctly, you must select an existing lead to represent in the [!UICONTROL Lead] field. If you are testing with `$TriggerObject`, you can select the triggering object via the [!UICONTROL Trigger] param. This process uses the data from the most recently updated object of that type as the `$TriggerObject` variable.
 
@@ -111,7 +111,7 @@ The combined length of all Email Script Tokens in a given email may not exceed 1
 - If you include more than one Email Script within an email, they execute top to bottom. The scope of variables defined in the first script to execute is available in subsequent scripts.
 - Tools Reference: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - A note regarding tokens that contain newline characters "\n" or "\r\n." When an email is sent via Send Sample or via a Batch Campaign, newline characters in tokens are replaced with spaces. When email is sent via Trigger Campaign, newline characters are left untouched.
-- To ensure proper parsing of URLs, the whole path should be set as a variable and then printed, and variable should not be printed inside URL references. The protocol (http:// or https://) must be included and must be separate from the rest of the URL. The URL must also be part of a fully formed anchor (<a>) tag. The script must Output a fully formed anchor tag, in order for links to be tracked. Links are not tracked if they are outputted from within a for or foreach loop.
+- To ensure proper parsing of URLs, the whole path should be set as a variable and then printed, and variable should not be printed inside URL references. The prootocol (http:// or https://) must be included and must be separate from the rest of the URL. The URL must also be part of a fully formed anchor (<a>) tag. The script must Output a fully formed anchor tag, in order for links to be tracked. Links are not tracked if they are outputted from within a for or foreach loop.
 
 ```html
 <!-- Correct -->
