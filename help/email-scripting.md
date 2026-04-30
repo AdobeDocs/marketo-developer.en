@@ -73,7 +73,7 @@ $date.whenIs($birthday).days ##outputs 1
 
 Velocity script is included in emails by using Email Scripting Tokens. Create these in Marketing Activities within a Marketing Folder or a Program. For a token to be used inside an email, the email must be a child of a program which either owns the token, or inherits it from a marketing folder. To create a token, navigate to a folder or program, and select the [!UICONTROL My Tokens] tab. From the right-hand menu, drag the 'Email Script' option into the token list
 
-![Script Token](assets/scriddpt-token.png)
+![Script Token](assets/script-token.png)
 
 From here, you can edit the name of the token, and open the editor via the [!UICONTROL Click to Edit] option:
 
