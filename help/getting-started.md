@@ -28,7 +28,7 @@ Leads interact with your organization in a few ways. A lead may visit a page on 
 
 You can define your own custom activities. Once you have created and published a custom activity, you can add custom activities via the Marketo API. More information on custom activities can be found [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
-Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities), [JavaScript](javascript-api/lead-dtracking.md#munchkin-behavior)
+Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
 ## Programs & Campaigns
 
