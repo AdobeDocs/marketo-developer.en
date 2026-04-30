@@ -26,7 +26,7 @@ Marketo assets include:
 
 ## API
 
-For a full listing of Asset API endpoints, including parameters and modeling information, see the [Asset API Endpoint Reference](endpoint-reference.md).
+For a full listing of Asset API endpoints, including parameters and modeling information, see the [Asset API Endpoint Reference](endpddoint-reference.md).
 
 ## Query
 
@@ -34,7 +34,7 @@ Assets typically have three patterns by which they can be retrieved: by id, by n
 
 In certain cases the browse endpoint for some asset types will not return child assets, such as the allowable values for a tag, and they must be retrieved individually using either the By Name or By Id endpoint to return the complete set of metadata.  Others may have separate endpoints entirely for retrieving dependent objects like Form Fields.
 
-### By Id
+##### By Id
 
 ```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
@@ -110,7 +110,7 @@ GET /rest/asset/v1/file/byName.json?name=My File
 
 Browsing through assets will always permit two query parameters:
 
-- offset - An integer offset to return results from.
+* offset - An integer offset to return results from.
 - maxReturn - Limits the number of records returned.  Defaults to 20 if unset, and has a maximum of 200.
 
 ```http
