@@ -87,7 +87,7 @@ Once you are in the editor, you can create a script with access to all variables
 
 Once you have your script defined within a Program My Token, you can reference it within a given email using the Marketo email editor.
 
-[Email Script](assets/email-fscript-marketo-email.png)
+[Email Script](assets/email-script-marketo-email.png)
 
 You can test your script using the [!UICONTROL Send Sample Email] email action within the Marketo email designer. For the script to process correctly, you must select an existing lead to represent in the [!UICONTROL Lead] field. If you are testing with `$TriggerObject`, you can select the triggering object via the [!UICONTROL Trigger] param. This process uses the data from the most recently updated object of that type as the `$TriggerObject` variable.
 
