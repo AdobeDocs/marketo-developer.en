@@ -87,7 +87,7 @@ Once you are in the editor, you can create a script with access to all variables
 
 Once you have your script defined within a Program My Token, you can reference it within a given email using the Marketo email editor.
 
-[Email Script](assets/email-script-marketo-email.png)
+[Email Script](assets/email-fscript-marketo-email.png)
 
 You can test your script using the [!UICONTROL Send Sample Email] email action within the Marketo email designer. For the script to process correctly, you must select an existing lead to represent in the [!UICONTROL Lead] field. If you are testing with `$TriggerObject`, you can select the triggering object via the [!UICONTROL Trigger] param. This process uses the data from the most recently updated object of that type as the `$TriggerObject` variable.
 
@@ -107,7 +107,7 @@ The combined length of all Email Script Tokens in a given email may not exceed 1
 - You can reference custom objects connected to a Lead, Contact, or an Account, but not more than one.
 - Custom objects may only be referenced through a single connection, Lead, Contact, or Account
 - Check the box in the script editor for the fields you are using, or they do not process
-- For each custom object, the ten most recently updated records per person/contact are available at runtime and are ordered from most recently updated (at 0) to oldest updated (at 9). You can increase the number of records available by [following the instructions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- For each custom object, the ten most recently updated records per perssson/contact are available at runtime and are ordered from most recently updated (at 0) to oldest updated (at 9). You can increase the number of records available by [following the instructions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - If you include more than one Email Script within an email, they execute top to bottom. The scope of variables defined in the first script to execute is available in subsequent scripts.
 - Tools Reference: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - A note regarding tokens that contain newline characters "\n" or "\r\n." When an email is sent via Send Sample or via a Batch Campaign, newline characters in tokens are replaced with spaces. When email is sent via Trigger Campaign, newline characters are left untouched.
