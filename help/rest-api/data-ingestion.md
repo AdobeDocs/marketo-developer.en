@@ -1,7 +1,7 @@
 ---
 title: Data Ingestion
-feature: REST API, Dynamic Content
-description: Use the Marketo Data Ingestion API for high volume, low latency ingestion of Persons, Custom Objects, Companies, and Program Members.
+feature: REST API, Dynamic Content, Static Lists
+description: Use the Marketo Data Ingestion API for high volume, low latency ingestion of Persons, Custom Objects, Companies, Program Members, and Lists.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
 ---
 # Data Ingestion API
@@ -10,7 +10,7 @@ The Data Ingestion API is a high volume, low latency, highly available service d
 
 Data is ingested by submitting requests that execute asynchronously. Request status can be retrieved by subscribing to events from the [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).
 
-Interfaces are offered for four object types: Persons, Custom Objects, Companies, and Program Members. The record operation is "insert or update" only, except for Program Members which also supports delete.
+Interfaces are offered for five object types: Persons, Custom Objects, Companies, Program Members, and Lists (Static Lists). The record operation is "insert or update" only, except for Program Members which also supports delete, and Lists which support add and remove operations.
 
 >[!NOTE]
 >
@@ -34,6 +34,7 @@ Data Ingestion uses the same permissions model as the Marketo REST API, and does
 | Custom Objects | Read-Write Custom Object |
 | Companies | Read-Write Company |
 | Program Members | Read-Write Lead |
+| Lists | Read-Write Lead |
 
 ## Supported Object Types
 
@@ -43,6 +44,7 @@ Data Ingestion uses the same permissions model as the Marketo REST API, and does
 | Custom Objects | Upsert (insert or update) |
 | Companies | Sync (`createOnly`, `updateOnly`, `createOrUpdate`) |
 | Program Members | Sync (upsert status), Delete (remove from program) |
+| Lists | Add to List, Remove from List |
 
 ## Headers
 
@@ -86,6 +88,10 @@ Example URL for Companies:
 Example URL for Program Members:
 
 `https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/programmembers`
+
+Example URL for Lists:
+
+`https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/lists`
 
 ### Responses
 
@@ -146,7 +152,7 @@ Retry intervals:
 
 ## Endpoints
 
-Ingestion endpoints are available for Persons, Custom Objects, Companies, and Program Members.
+Ingestion endpoints are available for Persons, Custom Objects, Companies, Program Members, and Lists.
 
 ### Persons
 
@@ -582,6 +588,159 @@ Required permissions are `Read-Write Lead`.
 | leadId | Required for each member in the input array. |
 | Max leads per request | 1,000 total members across all programs. |
 
+### Lists (Add to List)
+
+Endpoint used to add leads to a static list. Leads are identified by their Marketo lead ID.
+
+| Method | Path |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists` |
+
+#### Headers
+
+| Key | Value | Required |
+| --- | --- | --- |
+| `Content-Type` | application/json | Yes |
+| `X-Mkto-User-Token` | {accessToken} | Yes |
+| `X-Correlation-Id` | Arbitrary string (maximum length 255 characters) | No |
+| `X-Request-Source` | Arbitrary string (maximum length 50 characters) | No |
+
+#### Request body
+
+| Key | Data Type | Required | Value | Default Value |
+| --- | --- | --- | --- | --- |
+| `listId` | Long | Yes | The Marketo static list ID. Must be a positive integer. | – |
+| `leads` | Array of Object | Yes | List of lead references to add to the list. Accepts the JSON key `input` or `leads`. | – |
+
+Each object in the input array contains:
+
+| Key | Data Type | Required | Description |
+| --- | --- | --- | --- |
+| `leadId` | Long | Yes | The Marketo lead ID. Accepts the JSON key `leadId` or `id`. |
+
+Required permissions are `Read-Write Lead`.
+
+### Lists add to list example
+
+#### Request
+
+`POST /subscriptions/{munchkinId}/lists`
+
+#### Headers
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### Body
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      },
+      {
+         "leadId": 10003
+      }
+   ]
+}
+```
+
+#### Response
+
+`HTTP/1.1 202`
+`X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
+
+### Lists add to list validation rules
+
+| Rule | Detail |
+| --- | --- |
+| listId | Required. Must be a positive integer (> 0). |
+| leads | Required. Must not be null or empty. |
+| leadId | Required for each lead in the input array. |
+| Max leads per request | 1,000 total leads in the input array. |
+
+### Lists (Remove from List)
+
+Endpoint used to remove leads from a static list. Leads are identified by their Marketo lead ID.
+
+>[!NOTE]
+>
+>This endpoint uses POST rather than DELETE because the request requires a JSON body with structured data.
+
+| Method | Path |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists/remove` |
+
+#### Headers
+
+| Key | Value | Required |
+| --- | --- | --- |
+| `Content-Type` | application/json | Yes |
+| `X-Mkto-User-Token` | {accessToken} | Yes |
+| `X-Correlation-Id` | Arbitrary string (maximum length 255 characters) | No |
+| `X-Request-Source` | Arbitrary string (maximum length 50 characters) | No |
+
+#### Request body
+
+| Key | Data Type | Required | Value | Default Value |
+| --- | --- | --- | --- | --- |
+| `listId` | Long | Yes | The Marketo static list ID. Must be a positive integer. | – |
+| `leads` | Array of Object | Yes | List of lead references to remove from the list. Accepts the JSON key `input` or `leads`. | – |
+
+Each object in the input array contains:
+
+| Key | Data Type | Required | Description |
+| --- | --- | --- | --- |
+| `leadId` | Long | Yes | The Marketo lead ID. Accepts the JSON key `leadId` or `id`. |
+
+Required permissions are `Read-Write Lead`.
+
+### Lists remove from list example
+
+#### Request
+
+`POST /subscriptions/{munchkinId}/lists/remove`
+
+#### Headers
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### Body
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      }
+   ]
+}
+```
+
+#### Response
+
+`HTTP/1.1 202`
+`X-Request-ID: e3d92152-0fb1-444a-8f8f-29d5a2338598`
+
+### Lists remove from list validation rules
+
+| Rule | Detail |
+| --- | --- |
+| listId | Required. Must be a positive integer (> 0). |
+| leads | Required. Must not be null or empty. |
+| leadId | Required for each lead in the input array. |
+| Max leads per request | 1,000 total leads in the input array. |
+
 ## Limits
 
 Here is an updated list of guardrails:
@@ -591,7 +750,7 @@ Here is an updated list of guardrails:
 * Maximum requests per second per client ID: 5,000
 * Maximum objects per day: 10,000,000
 
-These limits apply uniformly across Persons, Custom Objects, Companies, and Program Members. For Program Members, "objects per request" is the total number of lead references across all programs in a single request.
+These limits apply uniformly across Persons, Custom Objects, Companies, Program Members, and Lists. For Program Members, "objects per request" is the total number of lead references across all programs in a single request. For Lists, "objects per request" is the number of lead references in the input array.
 
 ## Data Ingestion API vs REST API
 

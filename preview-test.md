@@ -87,6 +87,14 @@ Use collapsible sections for optional or advanced content that would otherwise c
 
 +++
 
+## Contextual Help
+
+Contextual Help is hidden from preview. See!
+>[!CONTEXTUALHELP]
+>id="models_insights_undefinedchannels"
+>title="Undefined channels"
+>abstract="Undefined channels are included, but have no attributed conversions."
+
 ## Embedded video
 
 >[!VIDEO](https://video.tv.adobe.com/v/3427028/?quality=12&learn=on)
@@ -167,6 +175,6 @@ function greet(name) {
 
 | Column one | Column two | Column three |
 | --- | --- | --- |
-| Row 1, cell 1 | Row 1, cell 2 | Row 1, cell 3 |
+| [!UICONTROL Row 1], cell 1 | Row 1, cell 2 | [!DNL Row 1, cell 3] |
 | Row 2, cell 1 | Row 2, cell 2 | Row 2, cell 3 |
 
