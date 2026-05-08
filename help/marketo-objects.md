@@ -28,7 +28,7 @@ To be available for use, an SFDC custom object must have only one relationship t
 
 ## Trigger Objects
 
-When a campaign is triggered via the Added to Opportunity, Opportunity is Updated, or Added to `<Custom Object Name>` triggers, a special variable becomes available in Script Tokens executed within the context of the trigger campaign: `$TriggerObject `(not supported for `<Custom Object Name>` is Updated trigger).  If a token using a `$TriggerObject` reference is used in a batch campaign, the email send will fail, as this object is not available in batch campaigns of any kind.  This is a reference to the object which triggered the campaign. The object contains all of the data which the record has when accessed via a different variable name.
+When a campaign is triggered via the Added to Opportunity, Opportunity is Updated, or Added to `<Custom Object Name>` triggers, a special variable becomes available in Script Tokens executed within the context of the trigger campaign: `$TriggerObject`(not supported for `<Custom Object Name>` is Updated trigger).  If a token using a `$TriggerObject` reference is used in a batch campaign, the email send will fail, as this object is not available in batch campaigns of any kind.  This is a reference to the object which triggered the campaign. The object contains all of the data which the record has when accessed via a different variable name.
 
 For example, if a campaign was triggered via a Custom Object for a product order, then the order to which lead was added is exposed in the `$TriggerObject` variable. 
 
