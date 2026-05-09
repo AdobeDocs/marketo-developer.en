@@ -1,6 +1,9 @@
 ---
 cloud: Experience Cloud
 solution: Marketo Engage
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    label: "Marketo Engage"
 product: marketo
 type: Documentation
 mini-toc-levels: 2
