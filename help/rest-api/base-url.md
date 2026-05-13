@@ -3,6 +3,13 @@ title: Base URL
 feature: REST API
 description: Learn to build Marketo REST API requests, understand base URL path resource and parameters, and find your unique base URL.
 exl-id: 6c3f122c-3ace-4ed3-bed0-a6b89cedc99a
+TQID: https://experienceleague.adobe.com/NZisV6V-FMPi0RHpdaFrc1kZc3nb15YomwRgohaQmEE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Base URL
 

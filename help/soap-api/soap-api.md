@@ -3,6 +3,16 @@ title: SOAP API
 feature: SOAP
 description: Marketo SOAP API is deprecated after Oct 31 2025. Learn to migrate to REST, retrieve your WSDL, see quotas, rate limits, and auth setup.
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
+TQID: https://experienceleague.adobe.com/Atnarr7XLzW3B2R5I8nLtayeE5kt3Bd4T46K6yIPc-8
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # SOAP API
 

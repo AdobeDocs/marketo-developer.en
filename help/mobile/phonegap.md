@@ -3,6 +3,21 @@ title: PhoneGap
 feature: Mobile Marketing
 description: Set up the Marketo PhoneGap Plugin with Cordova, configure Firebase Cloud Messaging, enable iOS and Android push, track notifications, and initialize the SDK.
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
+TQID: https://experienceleague.adobe.com/eFAwR7r5IE6vKigsEWrJdCmC3VrfB-nl0h8x7Vgt1VY
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
+  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+    internal-label: Reporting
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+    internal-label: Reporting
 ---
 # PhoneGap
 

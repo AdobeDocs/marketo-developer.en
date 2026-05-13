@@ -3,6 +3,13 @@ title: getLeadActivity
 feature: SOAP
 description: Use getLeadActivity SOAP to fetch lead activity history by key, filter activity types, set batch size, paginate via stream position with XML examples.
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
+TQID: https://experienceleague.adobe.com/Hq-MvVf5JanI8vu8BKIxUQycPpxRcZkIm1plDWi3dmw
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # getLeadActivity
 

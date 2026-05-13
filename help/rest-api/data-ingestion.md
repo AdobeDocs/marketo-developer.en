@@ -3,6 +3,13 @@ title: Data Ingestion
 feature: REST API, Dynamic Content
 description: Use the Marketo Data Ingestion API for high volume, low latency ingestion of Persons, Custom Objects, Companies, and Program Members.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
+TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Data Ingestion API
 

@@ -3,6 +3,13 @@ title: Bulk Lead Extract
 feature: REST API
 description: Learn how to use Marketo Bulk Lead Extract REST APIs to bulk export leads with date, list, and smart list filters, custom fields, and CSV/TSV formats.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
+TQID: https://experienceleague.adobe.com/4eMJR87fHDdccrVid3wHtspvBVQmrBGHYMlIwFCSdEI
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Bulk Lead Extract
 

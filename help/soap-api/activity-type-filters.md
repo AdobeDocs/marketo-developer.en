@@ -3,6 +3,13 @@ title: Activity Type Filters
 feature: SOAP
 description: Browse all supported Activity Type filters for SOAP calls, from email clicks and form fills to SFDC campaign changes and opportunity updates.
 exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
+TQID: https://experienceleague.adobe.com/km4bKbcqulJfKYzsD-GFWDVypQo9fnYk4g6wRSRxZpM
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Activity Type Filters
 

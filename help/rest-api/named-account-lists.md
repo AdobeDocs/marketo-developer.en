@@ -3,6 +3,16 @@ title: Named Account Lists
 feature: REST API
 description: Learn how to manage Marketo Named Account Lists with the REST API, including permissions, fields, filtering, and endpoints to query, create, update, and delete.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
+TQID: https://experienceleague.adobe.com/18lMhheW21Gz1-3TMHwleHhmLTOqJsZSQ5aqkbbchhM
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Named Account Lists
 

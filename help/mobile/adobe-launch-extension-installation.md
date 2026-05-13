@@ -1,8 +1,23 @@
 ---
-title: '[!DNL Adobe Launch] Extension Installation'
+title: "[!DNL Adobe Launch] Extension Installation"
 feature: Mobile Marketing
 description: Install the Adobe Launch Marketo extension for mobile. Follow iOS and Android setup, test devices, permissions, and FCM steps for push and in-app.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
+TQID: https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
+  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
+    internal-label: Personalization
 ---
 # [!DNL Adobe Launch] Extension Installation
 

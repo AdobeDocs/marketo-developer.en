@@ -3,6 +3,16 @@ title: getMObjects
 feature: SOAP
 description: Use getMObjects to fetch Marketo MObjects by ID, attributes, or associations, up to 100 per batch, paginate with streamPosition, with XML examples.
 exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
+TQID: https://experienceleague.adobe.com/CS9l3RdHszlNQPHzIBKaPltnBmOA3KIx-1ua8Ff0ivQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+    internal-label: Customer experience
 ---
 # getMObjects
 

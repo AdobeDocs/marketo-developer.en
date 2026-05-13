@@ -3,6 +3,19 @@ title: Bulk Custom Object Import
 feature: Custom Objects
 description: Learn how to bulk import Marketo custom objects via REST using CSV, TSV, or SSV files.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
+TQID: https://experienceleague.adobe.com/C1LKLZDEvv95XXH3AEoxIXsLK55tgKTrvyxvs4LnYWw
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+    internal-label: Administration
 ---
 # Bulk Custom Object Import
 

@@ -3,6 +3,16 @@ title: Bulk Extract
 feature: REST API
 description: Learn how to use Marketo Bulk Extract REST API to export leads, activities, program members, and custom objects, with OAuth, job queues, and 500MB daily limits.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
+TQID: https://experienceleague.adobe.com/ECSchsjqp8fyxXbUGl5DgXHUkXuN0sIUc3yJfVaIe1E
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+    internal-label: Resources
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Bulk Extract
 

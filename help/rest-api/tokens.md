@@ -3,6 +3,13 @@ title: Tokens
 feature: REST API, Tokens
 description: Manage Marketo My Tokens with Asset REST API. See supported data types, get by folder or program, create or update via form-encoded POST, and delete by name.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
+TQID: https://experienceleague.adobe.com/uqOpu2vDuiQiZhILKuxZJQGadd0K14zwIaAdmNfK1-I
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Tokens
 

@@ -3,6 +3,16 @@ title: Bulk Import
 feature: REST API
 description: Marketo Bulk Import for loading leads, custom objects, and program members via multipart uploads, creating async jobs, polling status, and handling failures.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
+TQID: https://experienceleague.adobe.com/lr9dyX-fY-oJ2LM5P0zE1m24HtFYKQYYbxMkVe--PkE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Bulk Import
 

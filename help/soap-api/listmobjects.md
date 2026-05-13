@@ -3,6 +3,13 @@ title: listMObjects
 feature: SOAP
 description: Reference for the listMObjects SOAP call that returns Marketo object names for describeMObjects, with request and response XML and sample code.
 exl-id: d8b32ba2-7c20-4611-9062-c3c5db2d2ccb
+TQID: https://experienceleague.adobe.com/8-DjcptqZo6TDa4-bZbgJtCiN9bSwgy5BfUoyaIgPv8
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # listMObjects
 

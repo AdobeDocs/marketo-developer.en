@@ -3,6 +3,19 @@ title: Push Notifications
 feature: Mobile Marketing
 description: Guide to enable iOS push notifications with Marketo, from APNs certificates and Xcode setup to Marketo SDK integration, token registration, handling.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
+TQID: https://experienceleague.adobe.com/ghits-m4w3oid3cZuRTz-foAar8OaqtiQqWu2yRKTwE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: c1579802-ddd4-4214-8a91-97b2066abe11
+    internal-label: Troubleshooting
 ---
 # Push Notifications
 

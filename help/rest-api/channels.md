@@ -3,6 +3,13 @@ title: Channels
 feature: REST API
 description: Learn how to query Marketo Channels via Asset REST API, browse with pagination or fetch by name, view progression statuses, and understand program type rules.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
+TQID: https://experienceleague.adobe.com/e9TnbxgJCT5X2r5MjTdC49uVz4wvxDy2jhdQP5JOFTI
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Channels
 
