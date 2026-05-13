@@ -3,6 +3,13 @@ title: User Profiles
 feature: Mobile Marketing, Users and Roles
 description: Learn to create and update user profiles in Marketo Mobile SDK on iOS and Android with Objective C Swift and Java, standard and custom fields, associateLead
 exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
+TQID: https://experienceleague.adobe.com/famIZ1O17Z7TTe2SBHqWSLLL-pp6Vx9M6xXhy2SbB-0
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # User Profiles
 

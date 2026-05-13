@@ -3,6 +3,16 @@ title: syncLead
 feature: SOAP
 description: Learn how to use Marketo SOAP syncLead to insert or update a single lead, handle identifiers and workspaces, with request fields, XML and PHP examples.
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
+TQID: https://experienceleague.adobe.com/SecUbvn0SKgWEGHMKbSNJqMvy1QoM3u-4tVchq-T3xQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # syncLead
 

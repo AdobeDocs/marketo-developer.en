@@ -3,6 +3,16 @@ title: importToList
 feature: SOAP
 description: Learn how to use importToList in Marketo SOAP to import leads to a Static List with CSV headers, token overrides, XML examples, and status checks.
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
+TQID: https://experienceleague.adobe.com/yOioersMnzB6rSHlLrHvGTG2HyLXvqF9y8yOLdN9anY
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # importToList
 

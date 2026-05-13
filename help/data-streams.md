@@ -2,6 +2,16 @@
 title: Data Streams
 description: Overview of Marketo Engage Data Streams enabling near real-time lead activity and user audit events, easing API limits for Performance Tier customers
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
+TQID: https://experienceleague.adobe.com/JnhN70HexjmNueZa9MAVrxjEhZ5yJatWqZiowl22quA
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: e1e0219c-f879-479f-8427-888ed2a6e9c2
+    internal-label: Insights
 ---
 # Data Streams
 

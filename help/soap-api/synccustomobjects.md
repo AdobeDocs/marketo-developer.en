@@ -3,6 +3,13 @@ title: syncCustomObjects
 feature: SOAP
 description: Use Marketo syncCustomObjects SOAP to insert, update, or upsert up to 100 custom objects per call with per-record status results and XML and PHP examples.
 exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
+TQID: https://experienceleague.adobe.com/x-ijocpuVSFTNAQJY9zXVJMtVUZqI6YsjMPvKFNNA5g
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # syncCustomObjects
 

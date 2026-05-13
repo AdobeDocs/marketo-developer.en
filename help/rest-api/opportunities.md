@@ -3,6 +3,19 @@ title: Opportunities
 feature: REST API
 description: Marketo REST API to describe, query, create, and update opportunities, dedupe and searchable fields, limits, and read-only behavior with SFDC or Dynamics sync.
 exl-id: 46451285-4125-4857-890a-575069a68288
+TQID: https://experienceleague.adobe.com/rBDJcXWQrN5qyKRWHyzVC-sc9BH2mQFLm7fKUk-NUn8
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+    internal-label: Metadata
 ---
 # Opportunities
 

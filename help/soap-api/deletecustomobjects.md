@@ -3,6 +3,13 @@ title: deleteCustomObjects
 feature: SOAP, Custom Objects
 description: Learn to use deleteCustomObjects in Marketo SOAP API to delete custom objects by key attributes with DELETED, UNCHANGED, FAILED statuses, plus XML, PHP, Java.
 exl-id: 214b7cd1-dc4e-45dc-a29a-91518a275e61
+TQID: https://experienceleague.adobe.com/5ARV5AGPgRnLX9X3ychjeoMmZpW0jZlnNuILwArhzJI
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # deleteCustomObjects
 

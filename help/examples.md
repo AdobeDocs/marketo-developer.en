@@ -3,6 +3,16 @@ title: Email Scripting Examples
 feature: Email Programs
 description: Marketo email scripting examples using Velocity, including looping through custom objects, date parsing/formatting, HTML escaping, and URL ID appends.
 exl-id: 7c801f1c-0ab3-49f0-8577-0c4dccc80d0b
+TQID: https://experienceleague.adobe.com/QFC8YeZV3rAZtsE-KU8kFdpG7W0nocHscDSfuTkrLIY
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Examples
 

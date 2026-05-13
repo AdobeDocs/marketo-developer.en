@@ -3,6 +3,29 @@ title: Error Codes
 feature: REST API
 description: Learn Marketo REST API error handling with HTTP 413 and 414, response 6xx 7xx, record-level statuses, logging best practices, retries, and limits.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
+TQID: https://experienceleague.adobe.com/-bV6fjqJ8RkIBGX6gpVKMjGX1qYXR2g7VK3efpEQLDM
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+    internal-label: Metadata
+  - id: cc72dcf1-72e1-48cc-b434-e7c27d62d67c
+    internal-label: Accessibility
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+    internal-label: Administration
 ---
 # Error Codes
 

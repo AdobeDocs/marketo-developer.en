@@ -3,6 +3,16 @@ title: Landing Page Redirect Rules
 feature: REST API, Landing Pages
 description: Use Marketo Asset REST APIs to create, query, update, and delete landing page redirect rules with filters, pagination, hostname options, non-Marketo targets.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
+TQID: https://experienceleague.adobe.com/2gePbKA3xeoRdnL8mNnObN-GPTX00Ii4-zcM0lBjs-o
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Landing Page Redirect Rules
 

@@ -3,6 +3,13 @@ title: Stream Position
 feature: SOAP
 description: Explains stream position for paginating time sequenced data in SOAP, simple and complex formats, and use in getLeadChanges, getLeadActivity, and more
 exl-id: c3a3fc1e-086b-4822-b2c7-2a7959db557c
+TQID: https://experienceleague.adobe.com/Gn-BhpbF2inBlKcmfyq3rSwwYHmp8B-ODRREtRlzwx4
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Stream Position
 

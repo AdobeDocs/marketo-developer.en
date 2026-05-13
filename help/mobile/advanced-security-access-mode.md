@@ -3,6 +3,16 @@ title: Advanced Security Access Mode
 feature: Mobile Marketing
 description: Learn Advanced Security Access Mode for Marketo Mobile SDK, with HMAC signature generation, server endpoint setup, device ID usage, and iOS and Android examples
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
+TQID: https://experienceleague.adobe.com/F6lH1aGbCakK-E6IU4wLwYw58BG2-CRE-Ras2bMHeO8
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: d095671a-1355-40aa-8b5f-06c33c68080b
+    internal-label: Security
 ---
 # Advanced Security Access Mode
 

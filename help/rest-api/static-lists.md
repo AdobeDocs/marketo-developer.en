@@ -3,6 +3,13 @@ title: Static Lists
 feature: REST API, Static Lists
 description: Use Marketo REST APIs to query, create, update, and delete static lists, with endpoints for ID, name, and browse, folder scoping, paging, and date filters.
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
+TQID: https://experienceleague.adobe.com/DSV9h6d4F3ZrIUT-VtqlmFAnpdxOuTf05ajCqiGegqk
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Static Lists
 

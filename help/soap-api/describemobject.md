@@ -3,6 +3,16 @@ title: describeMObject
 feature: SOAP
 description: Learn to use describeMObject in Marketo SOAP to retrieve metadata and field attributes for ActivityRecord, LeadRecord, Opportunity, and OpportunityPersonRole.
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
+TQID: https://experienceleague.adobe.com/1Vp3iYux1Q10xogANCUW-tlyrQHGy5JUosS4hAp1DmQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+    internal-label: Metadata
 ---
 # describeMObject
 

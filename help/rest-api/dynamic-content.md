@@ -3,6 +3,16 @@ title: Dynamic Content
 feature: REST API, Dynamic Content
 description: Configure section-level Marketo dynamic content via REST APIs using segmentations to personalize emails, landing pages, and snippets with endpoints and examples
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
+TQID: https://experienceleague.adobe.com/MwfPxu74qk0bPZMr6yuxQi--e3gMvP1tXQZ5iMil02o
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Dynamic Content
 

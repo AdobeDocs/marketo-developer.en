@@ -3,6 +3,19 @@ title: Custom Services
 feature: REST API
 description: Create Marketo Custom Services, set API-only roles and permissions, obtain Client Id and Client Secret in LaunchPoint, and get access tokens.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
+TQID: https://experienceleague.adobe.com/lvT-8bYucf-K5LYxb5jQ7BHc137W71SvsGg7cWJlxEs
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+    internal-label: Metadata
 ---
 # Custom Services
 

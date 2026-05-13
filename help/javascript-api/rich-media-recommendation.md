@@ -3,6 +3,16 @@ title: Rich Media Recommendation
 description: Set up Rich Media Recommendation using Marketo Predictive Content RTP tag, template1 template2 template3 divs, GET to populate, SET to configure categories.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
+TQID: https://experienceleague.adobe.com/ygm5h1FJZZW4mC318-fRR3VAcO6j1sitcAeqIUjDTbI
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Rich Media Recommendation
 

@@ -3,6 +3,13 @@ title: Marketo Objects
 feature: SOAP
 description: Overview of Marketo MObjects including types, attributes, external-key behavior, and supported SOAP APIs for Opportunity, Program, and related records.
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
+TQID: https://experienceleague.adobe.com/-G3BW9oFhPZL68yBUy-aNYycmgADhQCo8OclQAierrU
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Marketo Objects
 

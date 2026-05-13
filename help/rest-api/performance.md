@@ -3,6 +3,13 @@ title: Performance
 feature: REST API
 description: Boost Marketo REST API performance with HTTP compression. Enable gzip to cut bandwidth; bulk APIs unsupported and under 1024 bytes not compressed.
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
+TQID: https://experienceleague.adobe.com/foJCTd890HZtL-UzWx2cjRXwTxqgW56A79sB7FPEWis
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Performance
 

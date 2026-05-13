@@ -3,6 +3,19 @@ title: Bulk Custom Object Extract
 feature: REST API, Custom Objects
 description: Guide to Marketo Bulk Custom Object Extract REST APIs for exporting lead-linked custom objects with updatedAt and list filters, selected fields, and…
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
+TQID: https://experienceleague.adobe.com/KAT-vab2uZq8FrRbZLy30PCJNfq01znDDuSSWuIu7WE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+    internal-label: Administration
 ---
 # Bulk Custom Object Extract
 

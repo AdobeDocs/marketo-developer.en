@@ -3,6 +3,13 @@ title: mergeLeads
 feature: SOAP
 description: Use mergeLeads with Marketo SOAP to merge winning and losing lead records. Includes request fields, XML request and response, and PHP and Java examples.
 exl-id: a667cb76-525d-4583-b26a-1181d320a68c
+TQID: https://experienceleague.adobe.com/--FRhhVbiS0KiMrUjakKgXXo79c2M1PQxUbo0YdGPzk
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # mergeLeads
 

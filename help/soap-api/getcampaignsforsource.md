@@ -3,6 +3,16 @@ title: getCampaignsForSource
 feature: SOAP
 description: Marketo SOAP getCampaignsForSource returns eligible Smart Campaigns by source for requestCampaign, requires Campaign is Requested trigger, XML and PHP examples.
 exl-id: bd8803ef-f462-4346-a381-73f40dc5d9ee
+TQID: https://experienceleague.adobe.com/QKOB21gL-zcTvMkvG9fYTYnGtUJcxsjbuYbtDHc-I-Y
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # getCampaignsForSource
 

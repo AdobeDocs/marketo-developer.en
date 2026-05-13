@@ -2,6 +2,16 @@
 title: Partner Sandbox
 description: Overview of Marketo Engage partner sandboxes, with provisioning info and limits on API calls, records, email sends, custom objects, and users.
 exl-id: a8f36cb5-d288-4b8b-b4bf-037faa3fe73f
+TQID: https://experienceleague.adobe.com/WsEGS1bb-bPo0zFj7XzwdtfuZMJ0-y1PPzvxiNceiFE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # Partner Sandbox
 

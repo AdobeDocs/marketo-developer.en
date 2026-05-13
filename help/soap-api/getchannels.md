@@ -3,6 +3,16 @@ title: getChannels
 feature: SOAP
 description: Learn how Marketo SOAP getChannels retrieves channel progression statuses, step numbers, and success flags, with request and response XML examples.
 exl-id: bcaef85b-154b-4571-ad24-07a36707a6ef
+TQID: https://experienceleague.adobe.com/J5K9bcrV1JA65m99qxG9h2z5Wxs5KhHR6cI-Fq5UGBQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 ---
 # getChannels
 
