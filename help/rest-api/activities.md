@@ -31,7 +31,7 @@ Most activities will be purged after some period of time.
 
 To retrieve a list of available types and their definitions for an instance, you can use the [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) endpoint.
 
-```http
+```
 GET /rest/v1/activities/types.json
 ```
 
@@ -88,9 +88,9 @@ You can optionally include either a `listId` query parameter to narrow your sea
 
 >[!CAUTION]
 >
->Beginning 2026-12-30, calls to the `Get Lead Activities` and `Get Lead Changes` endpoints which includes the `listId` parameter will fail (error code 1003) if the target lists contain 10,000 or more leads. To avoid service disruptions, ensure that calls are properly scoped to avoid this limit.
+>Beginning 2026-12-30, calls to the `Get Lead Activities` and `Get Lead Changes` endpoints which includes the `listId` parameter will fail (error code 1003) if the target lists contain 10,000 or more leads. To avoid service disruptions, ensure that calls are properly scoped to avoid this limit. See the [Migration guide](migration.md).
 
-```http
+```
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -153,7 +153,7 @@ For Data Value Change activities, a specialized version of the activities API is
 
 >[!CAUTION]
 >
->Beginning 2026-12-30, calls to the `Get Lead Activities` and `Get Lead Changes` endpoints which includes the `listId` parameter will fail (error code 1003) if the target lists contain 10,000 or more leads. To avoid service disruptions, ensure that calls are properly scoped to avoid this limit.
+>Beginning 2026-12-30, calls to the `Get Lead Activities` and `Get Lead Changes` endpoints which includes the `listId` parameter will fail (error code 1003) if the target lists contain 10,000 or more leads. To avoid service disruptions, ensure that calls are properly scoped to avoid this limit. See the [Migration guide](migration.md).
 
 ```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
