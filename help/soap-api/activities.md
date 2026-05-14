@@ -17,3 +17,7 @@ The following SOAP calls can be used to interact with Activities.
 
 - [getLeadActivities](getleadactivity.md)
 - [getLeadChanges](getleadchanges.md)
+
+>[!CAUTION]
+>
+>Beginning 2026-12-30, calls to the `Get Lead Activities` and `Get Lead Changes` endpoints which includes the `listId` parameter will fail (error code 1003) if the target lists contain 10,000 or more leads. To avoid service disruptions, ensure that calls are properly scoped to avoid this limit. See the [Migration guide](migration.md).
