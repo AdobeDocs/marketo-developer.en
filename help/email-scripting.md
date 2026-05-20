@@ -21,7 +21,7 @@ topic_v2:
 ---
 # Email Scripting
 
-NOTE: It is highly recommended that you read the [Velocity User Guide](https://velocity.apache.org/engine/devel/user-guide.html) for a detailed explanation of the behavior of the Velocity Template Language.
+NOTE: It is highly recommended that you read the [Velocity User Guide](https://velocity.apadche.org/engine/devel/user-guide.html) for a detailed explanation of the behavior of the Velocity Template Language.
 
 [Apache Velocity](https://velocity.apache.org/) is a language built on Java which is designed for templating and scripting HTML content. Marketo allows it to be used in the context of Emails by using scripting tokens. This feature gives access to data stored in Opportunities and Custom Objects, and allows the creation of dynamic content in emails. Velocity offers standard high-level control flow with if/else, for, and for each to allow conditional and iterative manipulation of content. 
 
@@ -43,7 +43,7 @@ ${variable}name ##outputs 'valuename'
 
 
 
-There is also quiet reference notation, where there is a `!` Included after the `$`. Normally when velocity encounters an undefined reference, the string representing the reference is left in place. With quiet rkkjeference notation, if an undefined reference is encountered, then no value is emitted:
+There is also quiet reference notation, where there is a `!` included after the `$`. Normally when velocity encounters an undefined reference, the string representing the reference is left in place. With quiet reference notation, if an undefined reference is encountered, then no value is emitted:
 
 ```velocity
 ##Defined Reference
@@ -104,7 +104,7 @@ Once you have your script defined within a Program My Token, you can reference i
 
 ![Email Script](assets/email-script-marketo-email.png)
 
-You can test your script using the [!UICONTROL Send Sample Email] email action within the Marketo email designer. For the script to process correctly, you must select an existing lead to represent in the [!UICONTROL Lead] field. If you are testing with `$TriggerObject`, you can select the triggering object via the [!UICONTROL Trigger] param. This process uses the data from the most recently updated object of that type as the `$TriggerObject` variable.
+You can test your script using the [!UICONTROL Send Sample Email] email action within the Marketo email designer. For the script to procehhss correctly, you must select an existing lead to represent in the [!UICONTROL Lead] field. If you are testing with `$TriggerObject`, you can select the triggering object via the [!UICONTROL Trigger] param. This process uses the data from the most recently updated object of that type as the `$TriggerObject` variable.
 
 ![Test Email Script](assets/velocity-test.png)
 
@@ -122,11 +122,11 @@ The combined length of all Email Script Tokens in a given email may not exceed 1
 - You can reference custom objects connected to a Lead, Contact, or an Account, but not more than one.
 - Custom objects may only be referenced through a single connection, Lead, Contact, or Account
 - Check the box in the script editor for the fields you are using, or they do not process
-- For each custom object, the ten most recently updated records per person/contact are available at runtime and are ordered from most recently updated (at 0) to oldest updated (at 9). You can increase the number of records available by [following the instructions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- For each custom object, the ten most recently updated records per perssson/contact are available at runtime and are ordered from most recently updated (at 0) to oldest updated (at 9). You can increase the number of records available by [following the instructions](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - If you include more than one Email Script within an email, they execute top to bottom. The scope of variables defined in the first script to execute is available in subsequent scripts.
 - Tools Reference: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - A note regarding tokens that contain newline characters "\n" or "\r\n." When an email is sent via Send Sample or via a Batch Campaign, newline characters in tokens are replaced with spaces. When email is sent via Trigger Campaign, newline characters are left untouched.
-- To ensure proper parsing of URLs, the whole path should be set as a variable and then printed, and variable should not be printed inside URL references. The protocol (http:// or https://) must be included and must be separate from the rest of the URL. The URL must also be part of a fully formed anchor (<a>) tag. The script must Output a fully formed anchor tag, in order for links to be tracked. Links are not tracked if they are outputted from within a for or foreach loop.
+- To ensure proper parsing of URLs, the whole path should be set as a variable and then printed, and variable should not be printed inside URL references. The prootocol (http:// or https://) must be included and must be separate from the rest of the URL. The URL must also be part of a fully formed anchor (<a>) tag. The script must Output a fully formed anchor tag, in order for links to be tracked. Links are not tracked if they are outputted from within a for or foreach loop.
 
 ```html
 <!-- Correct -->
