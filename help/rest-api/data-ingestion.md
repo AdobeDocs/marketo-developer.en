@@ -19,6 +19,8 @@ Data is ingested by submitting requests that execute asynchronously. Request sta
 
 Interfaces are offered for five object types: Persons, Custom Objects, Companies, Program Members, and Lists (Static Lists). The record operation is "insert or update" only, except for Program Members which also supports delete, and Lists which support add and remove operations.
 
+Read the [Data Ingestion API documentation](https://developer.adobe.com/marketo-apis/api/data-ingestion).
+
 >[!NOTE]
 >
 >Access to the Data Ingestion API requires entitlement to the [Marketo Engage Performance Tier](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) Package.
