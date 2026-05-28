@@ -1,16 +1,14 @@
 ---
-title: MCP Server
-description: Learn how to connect an AI assistant to Marketo using the MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
-badgeBeta: label="Beta" type="informative" tooltip="This feature is currently in a closed beta release"
+title: Marketo Engage MCP Server
+description: Learn how to connect an AI assistant to Marketo using the Marketo Engage MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
+badgeBeta: label="Limited Availability" type="informative" tooltip="This feature is currently in a limited beta release"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-hidefromtoc: true
-hide: true
 ---
-# [!DNL Marketo] MCP Server
+# [!DNL Marketo Engage] MCP Server
 
->[!NOTE]
+>[!AVAILABILITY] 
 >
->The MCP server is currently in a closed beta release. It is not available to all users at this time. 
+> This feature is in limited availability. To request access, fill out [this form](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Be sure to have your subscription's Munchkin ID ready.
 
 Model Context Protocol (MCP) is an open standard that enables AI tools to communicate with external services. The [!DNL Marketo] MCP server acts as a bridge between your AI assistant and [!DNL Marketo]. It exposes more than 100 operations across forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
 
@@ -34,7 +32,7 @@ MCP allows an AI tool to connect to multiple external services at the same time.
 
 MCP is a communication protocol — an open standard that any application can implement to expose its data and actions to AI tools.
 
-## What [!DNL Marketo] MCP does and does not do
+## What [!DNL Marketo Engage] MCP does and does not do
 
 Understanding the scope of MCP helps set expectations before you connect your AI tool.
 
@@ -53,6 +51,8 @@ Understanding the scope of MCP helps set expectations before you connect your AI
 * Generate predictions, recommendations, or decisions — decision-making is the responsibility of the downstream AI tool or user
 * Store or retain credentials, request data, or session state between requests
 * Require you to install, deploy, or manage any server-side software
+
+MCP may transmit data, including potentially sensitive fields, depending on API usage but B2B data involves customer business data and does not involve PII data. 
 
 ## Prerequisites
 
