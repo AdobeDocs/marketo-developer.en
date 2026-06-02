@@ -162,6 +162,7 @@ author: Donald
 - [Email Scripting Examples](examples.md)
 - [Marketo Objects](marketo-objects.md)
 - {hide-from-toc} [MCP Server](mcp-server.md)
+- {hide-from-toc} [Supported MCP operations](mcp-server-operations.md)
 - {hide-from-toc} [License](api-license.md)
 - [Partner Sandbox](partner-sandbox.md)
 - [Self-Service Flow Steps](self-service-flow-steps.md)

@@ -177,7 +177,7 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 
 ## Available operations
 
-Once connected, you can ask your AI assistant to perform operations across the following categories.
+Once connected, you can ask your AI assistant to perform operations across the following categories. For the complete list of supported operations with API references, see [Supported MCP operations](mcp-server-operations.md).
 
 ### Forms
 
