@@ -1,6 +1,23 @@
 ---
 title: Supported MCP operations
 description: Learn which Marketo Engage MCP operations are available for use with AI assistants.
+autotag-review: '2026-06-02T13:31:42.084Z'
+TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+topic_v2:
+  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+    internal-label: Artificial intelligence
 ---
 
 # Supported [!DNL Marketo Engage] MCP operations
