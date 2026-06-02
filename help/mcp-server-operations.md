@@ -1,5 +1,5 @@
 ---
-title: Supported MCP operations
+title: Marketo Engage MCP operations
 description: Learn which Marketo Engage MCP operations are available for use with AI assistants.
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
@@ -20,13 +20,13 @@ topic_v2:
     internal-label: Artificial intelligence
 ---
 
-# Supported [!DNL Marketo Engage] MCP operations
+# [!DNL Marketo Engage] MCP operations
 
 The following operations are available through the [!DNL Marketo Engage] MCP server. In general, endpoints that are read-only or non-destructive are available. `Delete` or other destructive operations are not available to the AI system.
 
 >[!NOTE]
 >
->This list is not final and will continue to grow as we add tooling.
+>This list will continue to grow as we add additional tools.
 
 ## Bulk export
 
