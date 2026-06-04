@@ -123,7 +123,7 @@ Each AI tool reads MCP server configuration from a different location. Find your
 
 ### Claude Desktop
 
-To connect to Claude Desktop, download this [marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip) file and unpack it. Put `marketo-mcp-bridge.mjs` into a known location so you can refer in the next step.
+To connect to Claude Desktop, download [marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip) and unpack it. Put `marketo-mcp-bridge.mjs` into a known location so you can refer in the next step.
 
 You will also need:
 
