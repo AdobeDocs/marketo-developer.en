@@ -44,6 +44,7 @@ Model Context Protocol (MCP) is an open standard that enables AI tools to commun
 
 When your AI tool calls the MCP server, the server executes the corresponding REST API call on your behalf, using the credentials you provide in each request. You do not need to install, deploy, or run any server-side software.
 
+
 >[!IMPORTANT]
 >
 >The Model Context Protocol (MCP) is an emerging open-source standard and may present security or reliability risks. Adobe MCP server integrations and related documentation are provided "as is," without warranties of any kind.
@@ -122,30 +123,37 @@ Each AI tool reads MCP server configuration from a different location. Find your
 
 ### Claude Desktop
 
-The configuration file is `claude_desktop_config.json`. Open it from one of these locations:
+To connect to Claude Desktop, download [marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip) and unpack it. Put `marketo-mcp-bridge.mjs` into a known location so you can refer in the next step.
 
-* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+You will also need:
 
-If the file already contains other MCP servers, add the `marketo` entry under `mcpServers`. The following example shows the complete `mcpServers` block:
+* Node.js v18+
+* npm
+
+1. Open Claude Desktop
+1. Go to **Settings > Developer > Edit Config**
+1. Add the following to `claude_desktop_config.json`:
 
 ```json
 {
+  "preferences": {
+    ...
+  },
   "mcpServers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
-        "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
+    "marketo-mcp": {
+      "command": "node",
+      "args": ["/path/to/marketo-bridge/bridge.mjs"],
+      "env": {
+        "MARKETO_MCP_PROD_CLIENT_ID": "<your-client-id>",
+        "MARKETO_MCP_PROD_CLIENT_SECRET": "<your-client-secret>",
+        "MARKETO_MCP_PROD_MUNCHKIN_ID": "<your-munchkin-id>"
       }
     }
   }
 }
 ```
 
-Save the file, quit Claude Desktop, and reopen it.
+1. Restart Claude Desktop
 
 ### Cursor
 
