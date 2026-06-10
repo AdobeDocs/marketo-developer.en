@@ -53,15 +53,15 @@ When your AI tool calls the MCP server, the server executes the corresponding RE
 
 ## MCP basics
 
->Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools. — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+>Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to data sources and tools. — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
 MCP allows an AI tool to connect to multiple external services at the same time. For example, an AI assistant could:
 
 * Connect to a word processor for AI-assisted document generation
-* Connect to 3D modeling apps such as Blender to build animations
-* Connect to After Effects for video editing
+* Connect to animation tools, such as Blender, for build visualizations
+* Connect to Adobe After Effects for video editing
 
-MCP is a communication protocol — an open standard that any application can implement to expose its data and actions to AI tools.
+MCP is a communication protocol: an open standard that any application can implement to expose its data and actions to AI tools.
 
 ## What [!DNL Marketo Engage] MCP does and does not do
 
@@ -72,24 +72,24 @@ Understanding the scope of MCP helps set expectations before you connect your AI
 * Provide access to [!DNL Marketo] data and capabilities through standard REST APIs
 * Execute API calls on your behalf using credentials you supply with each request
 * Support multiple simultaneous users, each connected with their own credentials
-* Handle OAuth token refresh automatically — you do not need to manage token expiration
+* Handle OAuth token refresh automatically. You do not need to manage token expiration
 * Operate within tenant-isolated environments so your data never intersects with another user's session
 
 **MCP does not:**
 
-* Use, host, or run any AI or machine learning models — all AI processing happens in your AI tool, not in MCP
+* Use, host, or run any AI or machine learning models. All AI processing happens in your AI tool, not in the MCP
 * Train on or learn from any data, including your customer data
-* Generate predictions, recommendations, or decisions — decision-making is the responsibility of the downstream AI tool or user
+* Generate predictions, recommendations, or decisions. Decision-making is the responsibility of the downstream AI tool or user
 * Store or retain credentials, request data, or session state between requests
 * Require you to install, deploy, or manage any server-side software
 
-MCP may transmit data, including potentially sensitive fields, depending on API usage but B2B data involves customer business data and does not involve PII data. 
+MCP may transmit data, including potentially sensitive fields, depending on API usage but B2B data involves customer business data and does not involve PII data.
 
 ## Prerequisites
 
 * A [!DNL Marketo] instance with REST API access enabled
 * Admin access to create API credentials in [!DNL Marketo] LaunchPoint
-* One of the following AI tools: Claude Desktop, Cursor, Claude Code (CLI), or VS Code with GitHub Copilot
+* One of the following AI tools: Claude Desktop, Cursor, Codex, Claude Code (CLI), or VS Code with GitHub Copilot
 * Network access to the MCP server URL: `https://marketo-mcp.adobe.io/mcp`
 
 ## Get Marketo credentials
@@ -115,13 +115,19 @@ If you already have them, skip to [Configure your AI tool](#configure-your-ai-to
 
 ## Configure your AI tool
 
-Each AI tool reads MCP server configuration from a different location. Find your tool below and follow the steps to add the [!DNL Marketo] MCP server.
+Each AI tool has a slightly different setup. Connection examples are provided for common tools.
+
+* [Claude Desktop](#claude-desktop)
+* [Cursor](#cursor)
+* [Claude Code CLI](#claude-code)
+* [OpenAI Codex](#codex)
+* [VSCode with GitHub Copilot](#vscode)
 
 >[!TIP]
 >
->To connect to multiple [!DNL Marketo] instances, add separate entries in your MCP configuration with unique names — for example, `marketo-prod` and `marketo-staging` — each with the corresponding credentials.
+>To connect to multiple [!DNL Marketo] instances, add separate entries in your MCP configuration with unique names: `marketo-prod` and `marketo-staging`, each with the corresponding credentials.
 
-### Claude Desktop
+### Claude Desktop {#claude-desktop}
 
 To connect to Claude Desktop, download [marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip) and unpack it. Put `marketo-mcp-bridge.mjs` into a known location so you can refer in the next step.
 
@@ -155,9 +161,13 @@ You will also need:
 
 1. Restart Claude Desktop
 
-### Cursor
+### Cursor {#cursor}
 
 If your Cursor MCP configuration already contains other servers, add the `marketo` entry under `mcpServers`. The following example shows the complete `mcpServers` block in **[!UICONTROL Settings]** > **[!UICONTROL MCP]** or `.cursor/mcp.json` in your project directory:
+
+>[!BEGINTABS]
+
+>[!TAB Marketo client credentials]
 
 ```json
 {
@@ -175,11 +185,34 @@ If your Cursor MCP configuration already contains other servers, add the `market
 }
 ```
 
+>[!TAB IMS token]
+
+```json
+{
+  "mcpServers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR-IMS-TOKEN",
+        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
+      }
+    }
+  }
+}
+```
+
+>[!ENDTABS]
+
 Restart Cursor.
 
-### Claude Code (CLI)
+### Claude Code (CLI) {#claude-code}
 
 Run the following command in your terminal, substituting your credentials:
+
+>[!BEGINTABS]
+
+>[!TAB Marketo client credentials]
 
 ```bash
 claude mcp add --transport http marketo \
@@ -189,9 +222,48 @@ claude mcp add --transport http marketo \
   --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
-### VS Code with GitHub Copilot
+>[!TAB IMS token]
+
+```bash
+claude mcp add --transport http marketo \
+  https://marketo-mcp.adobe.io/mcp \
+  --header "Authorization: Bearer YOUR-IMS-TOKEN" \
+  --header "x-gw-ims-org-id: YOUR-IMS-ORG-ID"
+```
+
+>[!ENDTABS]
+
+### OpenAI Codex {#codex}
+
+1. Go to Settings > MCP Servers > Add Server
+1. Add the server URL: `https://marketo-mcp.adobe.io/mcp`
+1. Add the headers for your authentication method:
+
+>[!BEGINTABS]
+
+>[!TAB Marketo client credentials]
+
+* X-Marketo-Client-Id: "YOUR-CLIENT-ID"
+* X-Marketo-Client-Secret: "YOUR-CLIENT-SECRET"
+* X-Marketo-Munchkin-Id: "YOUR-MUNCHKIN-ID"
+
+>[!TAB IMS token]
+
+* Authorization: "Bearer YOUR-IMS-TOKEN"
+* x-gw-ims-org-id: "YOUR-IMS-ORG-ID"
+
+>[!ENDTABS]
+
+1. Click Save to complete the process.
+
+
+### VS Code with GitHub Copilot {#vscode}
 
 Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), type **[!UICONTROL MCP: Open User Configuration]**, and press Enter. This opens `mcp.json`. Add the `marketo` entry inside the `servers` object:
+
+>[!BEGINTABS]
+
+>[!TAB Marketo client credentials]
 
 ```json
 {
@@ -209,9 +281,28 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 }
 ```
 
+>[!TAB IMS token]
+
+```json
+{
+  "servers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR-IMS-TOKEN",
+        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
+      }
+    }
+  }
+}
+```
+
+>[!ENDTABS]
+
 >[!NOTE]
 >
->For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your environment. This prevents credentials from being stored in plain text in files that may be committed to version control.
+>For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your environment. This prevents credentials from being stored in plain text in version-controlled files.
 
 ## Available operations
 
@@ -269,7 +360,7 @@ Example prompts:
 
 ### Instance structure
 
-Browse folders, channels, tag types, and activity types to understand your [!DNL Marketo] configuration.
+To understand your [!DNL Marketo] configuration, browse folders, channels, tag types, and activity types.
 
 Example prompts:
 
@@ -290,9 +381,10 @@ Example prompts:
 
 | Error | Cause | Fix |
 | ------- | ------- | ----- |
-| "Marketo credentials not provided" | One or more of `X-Marketo-Client-Id`, `X-Marketo-Client-Secret`, or `X-Marketo-Munchkin-Id` is missing. | Verify all four headers are present in your configuration. |
-| "Authentication Error" | Your credentials are invalid or expired. | Re-check your Client ID and Client Secret in **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**. |
-| "403 Forbidden" | Your Munchkin ID is not on the server allowlist. | Contact your [!DNL Marketo] MCP administrator to add your Munchkin ID. |
+| "Marketo credentials not provided" | One or more of `X-Marketo-Client-Id`, `X-Marketo-Client-Secret`, or `X-Marketo-Munchkin-Id` is missing. | Verify all Marketo client credential headers are present in your configuration. |
+| "401 Unauthorized" | Your credentials are missing, invalid, or expired. With Marketo client credentials, the Client ID or Client Secret is incorrect. With an IMS token, the token is invalid or expired. | Verify the credentials for your authentication method. For client credentials, re-check the **[!UICONTROL Client ID]** and **[!UICONTROL Client Secret]** in **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**. For an IMS token, generate a new token and update the `Authorization` header. |
+| "403 Forbidden" | Your credentials are valid, but your [!DNL Marketo] instance is not enabled for MCP access. | Contact your [!DNL Marketo] MCP administrator to enable MCP access for your Munchkin Account ID. |
+| "Too many requests" (rate limit) | You sent too many requests in a short period, or too many requests at the same time, and reached your [!DNL Marketo] instance's API limits. | Reduce how frequently and how many requests you send at once, and wait a short time before retrying. Use a dedicated API user to track and manage your quota. |
 | Connection timeout or refused | The MCP server is unreachable from your network. | Confirm you can reach the server URL from your environment. Check VPN requirements if applicable. |
 | Tool calls return empty results | The API user lacks permissions for the requested asset type. | Ask your [!DNL Marketo] admin to review the API user role and permissions. |
 
@@ -306,4 +398,4 @@ Example prompts:
 * **Multi-tenant isolation.** Each request uses its own set of credentials. Your data does not intersect with any other user's session.
 * **Munchkin ID allowlist.** The server only accepts requests for approved [!DNL Marketo] instances. Requests using an unauthorized Munchkin ID are rejected with a 403 error.
 * **API rate limits.** The MCP server inherits the API rate limits of your [!DNL Marketo] instance. Use a dedicated API user to track and manage quota consumption.
-* **Keep credentials out of version control.** Use environment variable interpolation (`${MARKETO_CLIENT_SECRET}`) if your AI tool supports it, so credentials are not stored in plain text in files committed to a repository.
+* **Keep credentials out of version control.** Use environment variable interpolation (`${MARKETO_CLIENT_SECRET}`) if your AI tool supports it, so credentials are not stored in plain text in repository files.
