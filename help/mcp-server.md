@@ -57,10 +57,10 @@ When your AI tool calls the MCP server, the server executes the corresponding RE
 MCP allows an AI tool to connect to multiple external services at the same time. For example, an AI assistant could:
 
 * Connect to a word processor for AI-assisted document generation
-* To build animations, connect to 3D modeling apps such as Blender
+* Connect to animation tools, such as Blender, for build visualizations
 * Connect to Adobe After Effects for video editing
 
-MCP is a communication protocol — an open standard that any application can implement to expose its data and actions to AI tools.
+MCP is a communication protocol: an open standard that any application can implement to expose its data and actions to AI tools.
 
 ## What [!DNL Marketo Engage] MCP does and does not do
 
@@ -71,18 +71,18 @@ Understanding the scope of MCP helps set expectations before you connect your AI
 * Provide access to [!DNL Marketo] data and capabilities through standard REST APIs
 * Execute API calls on your behalf using credentials you supply with each request
 * Support multiple simultaneous users, each connected with their own credentials
-* Handle OAuth token refresh automatically — you do not need to manage token expiration
+* Handle OAuth token refresh automatically. You do not need to manage token expiration
 * Operate within tenant-isolated environments so your data never intersects with another user's session
 
 **MCP does not:**
 
-* Use, host, or run any AI or machine learning models — all AI processing happens in your AI tool, not in the MCP
+* Use, host, or run any AI or machine learning models. All AI processing happens in your AI tool, not in the MCP
 * Train on or learn from any data, including your customer data
-* Generate predictions, recommendations, or decisions — decision-making is the responsibility of the downstream AI tool or user
+* Generate predictions, recommendations, or decisions. Decision-making is the responsibility of the downstream AI tool or user
 * Store or retain credentials, request data, or session state between requests
 * Require you to install, deploy, or manage any server-side software
 
-MCP transmits data, including potentially sensitive fields, depending on API usage but B2B data involves customer business data and does not involve PII data.
+MCP may transmit data, including potentially sensitive fields, depending on API usage but B2B data involves customer business data and does not involve PII data.
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ Each AI tool has a slightly different setup. Connection examples are provided fo
 
 >[!TIP]
 >
->To connect to multiple [!DNL Marketo] instances, add separate entries in your MCP configuration with unique names — for example, `marketo-prod` and `marketo-staging` — each with the corresponding credentials.
+>To connect to multiple [!DNL Marketo] instances, add separate entries in your MCP configuration with unique names: `marketo-prod` and `marketo-staging`, each with the corresponding credentials.
 
 ### Claude Desktop {#claude-desktop}
 
