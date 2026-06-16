@@ -164,7 +164,8 @@ You will also need:
 
 ### Cursor {#cursor}
 
-If your Cursor MCP configuration already contains other servers, add the `marketo` entry under `mcpServers`. The following example shows the complete `mcpServers` block in **[!UICONTROL Settings]** > **[!UICONTROL MCP]** or `.cursor/mcp.json` in your project directory:
+If your Cursor MCP configuration already contains other servers, add the `marketo` entry under `mcpServers`.
+The following example shows the complete `mcpServers` block in **[!UICONTROL Settings]** > **[!UICONTROL MCP]** or `.cursor/mcp.json` in your project directory:
 
 >[!BEGINTABS]
 
@@ -307,7 +308,8 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 
 ### Other tools {#other-tools}
 
-The [!DNL Marketo] MCP server is hosted by Adobe and exposed at a public URL. Any MCP client that supports remote servers over streamable HTTP transport can connect to it. You do not need a tool-specific bridge or any locally installed server software. If your tool is not listed above, use the connection details below to configure it manually.
+The [!DNL Marketo] MCP server is hosted by Adobe and exposed at a public URL. Any MCP client that supports remote servers over streamable HTTP transport may connect to it.
+You do not need a tool-specific bridge or any locally installed software. If your tool is not listed above, use the connection details below to configure it manually.
 
 **Connection details:**
 
@@ -339,7 +341,7 @@ Send the headers for one of the following authentication methods with each reque
 
 >[!ENDTABS]
 
-If your tool accepts a JSON configuration, reuse the structure shown in the [Cursor](#cursor) or [VS Code](#vscode) examples, adjusting the top-level key (`mcpServers`, `servers`, and so on) to match your tool's schema.
+If your tool accepts a JSON configuration, start with the [Cursor](#cursor) or [VS Code](#vscode) examples, and adjust the keys (`mcpServers`, `servers`) to match your tool's schema.
 
 ## Available operations
 
