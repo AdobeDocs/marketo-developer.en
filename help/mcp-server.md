@@ -122,6 +122,7 @@ Each AI tool has a slightly different setup. Connection examples are provided fo
 * [Claude Code CLI](#claude-code)
 * [OpenAI Codex](#codex)
 * [VSCode with GitHub Copilot](#vscode)
+* [Other tools](#other-tools)
 
 >[!TIP]
 >
@@ -303,6 +304,42 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 >[!NOTE]
 >
 >For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your environment. This prevents credentials from being stored in plain text in version-controlled files.
+
+### Other tools {#other-tools}
+
+The [!DNL Marketo] MCP server is hosted by Adobe and exposed at a public URL. Any MCP client that supports remote servers over streamable HTTP transport can connect to it. You do not need a tool-specific bridge or any locally installed server software. If your tool is not listed above, use the connection details below to configure it manually.
+
+**Connection details:**
+
+| Setting | Value |
+| ------- | ----- |
+| Transport | HTTP (streamable HTTP) |
+| Server URL | `https://marketo-mcp.adobe.io/mcp` |
+
+**Authentication headers:**
+
+Send the headers for one of the following authentication methods with each request. Where you enter the server URL and headers depends on your tool, so consult its MCP documentation.
+
+>[!BEGINTABS]
+
+>[!TAB Marketo client credentials]
+
+| Header | Value |
+| ------ | ----- |
+| `X-Marketo-Client-Id` | Your Client ID |
+| `X-Marketo-Client-Secret` | Your Client Secret |
+| `X-Marketo-Munchkin-Id` | Your Munchkin Account ID |
+
+>[!TAB IMS token]
+
+| Header | Value |
+| ------ | ----- |
+| `Authorization` | `Bearer YOUR-IMS-TOKEN` |
+| `x-gw-ims-org-id` | Your IMS Org ID |
+
+>[!ENDTABS]
+
+If your tool accepts a JSON configuration, reuse the structure shown in the [Cursor](#cursor) or [VS Code](#vscode) examples, adjusting the top-level key (`mcpServers`, `servers`, and so on) to match your tool's schema.
 
 ## Available operations
 
