@@ -168,6 +168,23 @@ If your Cursor MCP configuration already contains other servers, add the `market
 
 >[!BEGINTABS]
 
+>[!TAB IMS token]
+
+```json
+{
+  "mcpServers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR-IMS-TOKEN",
+        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
+      }
+    }
+  }
+}
+```
+
 >[!TAB Marketo client credentials]
 
 ```json
@@ -180,23 +197,6 @@ If your Cursor MCP configuration already contains other servers, add the `market
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
         "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
         "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
-      }
-    }
-  }
-}
-```
-
->[!TAB IMS token]
-
-```json
-{
-  "mcpServers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR-IMS-TOKEN",
-        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
       }
     }
   }
@@ -213,6 +213,15 @@ Run the following command in your terminal, substituting your credentials:
 
 >[!BEGINTABS]
 
+>[!TAB IMS token]
+
+```bash
+claude mcp add --transport http marketo \
+  https://marketo-mcp.adobe.io/mcp \
+  --header "Authorization: Bearer YOUR-IMS-TOKEN" \
+  --header "x-gw-ims-org-id: YOUR-IMS-ORG-ID"
+```
+
 >[!TAB Marketo client credentials]
 
 ```bash
@@ -221,15 +230,6 @@ claude mcp add --transport http marketo \
   --header "X-Marketo-Client-Id: YOUR-CLIENT-ID" \
   --header "X-Marketo-Client-Secret: YOUR-CLIENT-SECRET" \
   --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
-```
-
->[!TAB IMS token]
-
-```bash
-claude mcp add --transport http marketo \
-  https://marketo-mcp.adobe.io/mcp \
-  --header "Authorization: Bearer YOUR-IMS-TOKEN" \
-  --header "x-gw-ims-org-id: YOUR-IMS-ORG-ID"
 ```
 
 >[!ENDTABS]
@@ -242,16 +242,16 @@ claude mcp add --transport http marketo \
 
 >[!BEGINTABS]
 
+>[!TAB IMS token]
+
+* Authorization: "Bearer YOUR-IMS-TOKEN"
+* x-gw-ims-org-id: "YOUR-IMS-ORG-ID"
+
 >[!TAB Marketo client credentials]
 
 * X-Marketo-Client-Id: "YOUR-CLIENT-ID"
 * X-Marketo-Client-Secret: "YOUR-CLIENT-SECRET"
 * X-Marketo-Munchkin-Id: "YOUR-MUNCHKIN-ID"
-
->[!TAB IMS token]
-
-* Authorization: "Bearer YOUR-IMS-TOKEN"
-* x-gw-ims-org-id: "YOUR-IMS-ORG-ID"
 
 >[!ENDTABS]
 
@@ -263,6 +263,23 @@ claude mcp add --transport http marketo \
 Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), type **[!UICONTROL MCP: Open User Configuration]**, and press Enter. This opens `mcp.json`. Add the `marketo` entry inside the `servers` object:
 
 >[!BEGINTABS]
+
+>[!TAB IMS token]
+
+```json
+{
+  "servers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR-IMS-TOKEN",
+        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
+      }
+    }
+  }
+}
+```
 
 >[!TAB Marketo client credentials]
 
@@ -276,23 +293,6 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
         "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
         "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
-      }
-    }
-  }
-}
-```
-
->[!TAB IMS token]
-
-```json
-{
-  "servers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR-IMS-TOKEN",
-        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
       }
     }
   }
@@ -322,6 +322,13 @@ Send the headers for one of the following authentication methods with each reque
 
 >[!BEGINTABS]
 
+>[!TAB IMS token]
+
+| Header | Value |
+| ------ | ----- |
+| `Authorization` | `Bearer YOUR-IMS-TOKEN` |
+| `x-gw-ims-org-id` | Your IMS Org ID |
+
 >[!TAB Marketo client credentials]
 
 | Header | Value |
@@ -329,13 +336,6 @@ Send the headers for one of the following authentication methods with each reque
 | `X-Marketo-Client-Id` | Your Client ID |
 | `X-Marketo-Client-Secret` | Your Client Secret |
 | `X-Marketo-Munchkin-Id` | Your Munchkin Account ID |
-
->[!TAB IMS token]
-
-| Header | Value |
-| ------ | ----- |
-| `Authorization` | `Bearer YOUR-IMS-TOKEN` |
-| `x-gw-ims-org-id` | Your IMS Org ID |
 
 >[!ENDTABS]
 
