@@ -116,12 +116,13 @@ If you already have them, skip to [Configure your AI tool](#configure-your-ai-to
 ## Configure your AI tool
 
 Each AI tool has a slightly different setup. Connection examples are provided for common tools.
-
+ 
 * [Claude Desktop](#claude-desktop)
 * [Cursor](#cursor)
 * [Claude Code CLI](#claude-code)
 * [OpenAI Codex](#codex)
 * [VSCode with GitHub Copilot](#vscode)
+* [Glean](#glean)
 * [Other tools](#other-tools)
 
 >[!TIP]
@@ -305,6 +306,16 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 >[!NOTE]
 >
 >For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your environment. This prevents credentials from being stored in plain text in version-controlled files.
+
+### Glean {#glean}
+
+To connect Glean to the Marketo Engage MCP Server, the following custom headers must be configured by the [Glean support team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features). 
+
+| Header | Value |
+| ------ | ----- |
+| `X-Marketo-Client-Id` | Your Client ID |
+| `X-Marketo-Client-Secret` | Your Client Secret |
+| `X-Marketo-Munchkin-Id` | Your Munchkin Account ID |
 
 ### Other tools {#other-tools}
 
