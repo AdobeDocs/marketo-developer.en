@@ -44,6 +44,7 @@ Model Context Protocol (MCP) is an open standard that enables AI tools to commun
 
 When your AI tool calls the MCP server, the server executes the corresponding REST API call on your behalf, using the credentials you provide in each request. You do not need to install, deploy, or run any server-side software.
 
+For more information on how data is handled with Marketo AI and the Marketo Engage MCP server, see the [Data Information](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information) page.
 
 >[!IMPORTANT]
 >

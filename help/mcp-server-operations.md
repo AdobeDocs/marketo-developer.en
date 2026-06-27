@@ -28,6 +28,8 @@ The following operations are available through the [!DNL Marketo Engage] MCP ser
 >
 >This list will continue to grow as we add additional tools.
 
+For information on how data is handled with Marketo AI and the Marketo Engage MCP server, see the [Data Information](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information) page.
+
 ## Bulk export
 
 [Bulk export API reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export){target="_blank"}
