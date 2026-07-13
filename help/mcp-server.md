@@ -54,7 +54,7 @@ For more information on how data is handled with Marketo AI and the Marketo Enga
 
 ## MCP basics
 
->Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to data sources and tools. — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+>Think of MCP like a USB-C port for AI applications. USB-C provides a standardized way to connect your devices to various peripherals and accessories, and MCP provides a standardized way to connect AI models to data sources and tools. — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
 MCP allows an AI tool to connect to multiple external services at the same time. For example, an AI assistant could:
 
@@ -306,11 +306,11 @@ Press **[!UICONTROL Ctrl+Shift+P]** (or **[!UICONTROL Cmd+Shift+P]** on macOS), 
 
 >[!NOTE]
 >
->For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your environment. This prevents credentials from being stored in plain text in version-controlled files.
+>For security purposes, use environment variable interpolation in configuration files instead of pasting credentials directly. You can reference variables using syntax like `${MARKETO_CLIENT_SECRET}` and set them in your environment. This prevents storing credentials in plain text in version-controlled files.
 
 ### Glean {#glean}
 
-To connect Glean to the Marketo Engage MCP Server, the following custom headers must be configured by the [Glean support team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features). 
+To connect Glean to the Marketo Engage MCP Server, the [Glean support team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) must configure the following custom headers. 
 
 | Header | Value |
 | ------ | ----- |
@@ -320,7 +320,7 @@ To connect Glean to the Marketo Engage MCP Server, the following custom headers 
 
 ### Other tools {#other-tools}
 
-The [!DNL Marketo] MCP server is hosted by Adobe and exposed at a public URL. Any MCP client that supports remote servers over streamable HTTP transport may connect to it.
+Adobe hosts the [!DNL Marketo] MCP server and exposes it at a public URL. Any MCP client that supports remote servers over streamable HTTP transport may connect to it.
 You do not need a tool-specific bridge or any locally installed software. If your tool is not listed above, use the connection details below to configure it manually.
 
 **Connection details:**
@@ -450,3 +450,28 @@ Example prompts:
 * **Munchkin ID allowlist.** The server only accepts requests for approved [!DNL Marketo] instances. Requests using an unauthorized Munchkin ID are rejected with a 403 error.
 * **API rate limits.** The MCP server inherits the API rate limits of your [!DNL Marketo] instance. Use a dedicated API user to track and manage quota consumption.
 * **Keep credentials out of version control.** Use environment variable interpolation (`${MARKETO_CLIENT_SECRET}`) if your AI tool supports it, so credentials are not stored in plain text in repository files.
+
+## Governance and data retention
+
+### Credential handling 
+
+* Customer credentials are not persisted server-side and are supplied by the client per request, which helps limit credential exposure within the service. 
+
+### API Interaction Model 
+
+* Agent use: Agents may use the MCP Server to invoke supported Marketo APIs. 
+* Authentication model alignment: The service uses the same external API authentication model documented for Marketo APIs. 
+
+### Authentication and Authorization 
+
+* Least privilege: Effective permissions are inherited from the Marketo API-only user assigned to the customer's LaunchPoint service, enabling least-privilege administration within the customer's Marketo configuration. 
+* No server-side token persistence: The service continues to avoid server-side storage of customer credentials or tokens.   
+
+### Logging and Monitoring 
+
+* Security logging: Structured JSON logs are routed through Fluent Bit to Splunk, with sensitive-data masking and additional filtering to support compliance requirements. 
+* Audit support: These controls support ongoing monitoring of service availability, security-relevant events, and operational quality. 
+* No server-side secret storage: Customer credentials are not stored by the MCP deployment and must be provided by clients per request. 
+* Token handling: Access tokens are short-lived, token responses are marked no-store, and tokens are accepted through standard authorization mechanisms rather than query-string transmission. 
+* Role-based operational access: Administrative deployment access is governed through Adobe infrastructure roles and group-based controls, while data-plane permissions are inherited from the customer's Marketo API user configuration. 
+* Audit and observability: Security logging, masking, monitoring, and alerting are enabled to support investigation, service health tracking, and operational oversight. 
