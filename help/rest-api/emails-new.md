@@ -26,7 +26,7 @@ x-app-type: <app-type>
 
 ## Query
 
-You can retrieve email metadata by asset `id` or with the filter endpoint.
+Retrieve email metadata by asset `id` or with the filter endpoint.
 
 ### By ID
 
@@ -57,7 +57,7 @@ GET /rest/asset/v2/email/{id}
 
 ### Filter
 
-The filter endpoint supports searching within a workspace and narrowing results with additional query parameters. 
+The filter endpoint searches within a workspace and supports additional query parameters.
 
 `workspaceId` is required.
 

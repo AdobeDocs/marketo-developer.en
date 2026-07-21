@@ -40,9 +40,9 @@ topic_v2:
 >
 > This feature is in limited availability. To request access, fill out [this form](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Be sure to have your subscription's Munchkin ID ready.
 
-Model Context Protocol (MCP) is an open standard that enables AI tools to communicate with external services. The [!DNL Marketo] MCP server acts as a bridge between your AI assistant and [!DNL Marketo]. It exposes more than 100 operations across forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
+Model Context Protocol (MCP) is an open standard that connects AI tools to external services. The [!DNL Marketo] MCP server connects your AI assistant to [!DNL Marketo]. It provides more than 100 operations for forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
 
-When your AI tool calls the MCP server, the server executes the corresponding REST API call on your behalf, using the credentials you provide in each request. You do not need to install, deploy, or run any server-side software.
+When your AI tool calls the MCP server, the server uses the credentials in that request to execute the corresponding REST API call. You do not need to install, deploy, or run server-side software.
 
 For more information on how data is handled with Marketo AI and the Marketo Engage MCP server, see the [Data Information](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information) page.
 
@@ -56,13 +56,13 @@ For more information on how data is handled with Marketo AI and the Marketo Enga
 
 >Think of MCP like a USB-C port for AI applications. USB-C provides a standardized way to connect your devices to various peripherals and accessories, and MCP provides a standardized way to connect AI models to data sources and tools. — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
-MCP allows an AI tool to connect to multiple external services at the same time. For example, an AI assistant could:
+MCP allows an AI tool to connect to multiple external services simultaneously. For example, an AI assistant can:
 
 * Connect to a word processor for AI-assisted document generation
 * Connect to animation tools, such as Blender, for build visualizations
 * Connect to Adobe After Effects for video editing
 
-MCP is a communication protocol: an open standard that any application can implement to expose its data and actions to AI tools.
+Any application can implement MCP to expose data and actions to AI tools.
 
 ## What [!DNL Marketo Engage] MCP does and does not do
 
@@ -116,7 +116,7 @@ If you already have them, skip to [Configure your AI tool](#configure-your-ai-to
 
 ## Configure your AI tool
 
-Each AI tool has a slightly different setup. Connection examples are provided for common tools.
+Configuration differs by AI tool. The following sections provide connection examples for common tools.
  
 * [Claude Desktop](#claude-desktop)
 * [Cursor](#cursor)
@@ -139,8 +139,8 @@ You will also need:
 * Node.js v18+
 * npm
 
-1. Open Claude Desktop
-1. Go to **Settings > Developer > Edit Config**
+1. Open Claude Desktop.
+1. Go to **Settings > Developer > Edit Config**.
 1. Add the following to `claude_desktop_config.json`:
 
 ```json
@@ -162,7 +162,7 @@ You will also need:
 }
 ```
 
-1. Restart Claude Desktop
+1. Restart Claude Desktop.
 
 ### Cursor {#cursor}
 
@@ -239,8 +239,8 @@ claude mcp add --transport http marketo \
 
 ### OpenAI Codex {#codex}
 
-1. Go to Settings > MCP Servers > Add Server
-1. Add the server URL: `https://marketo-mcp.adobe.io/mcp`
+1. Go to Settings > MCP Servers > Add Server.
+1. Add the server URL: `https://marketo-mcp.adobe.io/mcp`.
 1. Add the headers for your authentication method:
 
 >[!BEGINTABS]
@@ -258,7 +258,7 @@ claude mcp add --transport http marketo \
 
 >[!ENDTABS]
 
-1. Click Save to complete the process.
+1. Select Save to complete the process.
 
 
 ### VS Code with GitHub Copilot {#vscode}

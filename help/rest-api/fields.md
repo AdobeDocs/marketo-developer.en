@@ -18,15 +18,15 @@ role_v2:
 ---
 # Fields
 
-The REST API and SOAP API use different naming conventions for lead fields.
+The REST API and SOAP API use different naming conventions for lead fields. Use the field-name convention required by each integration feature.
 
 ## Retrieve the List of Field Names
 
-Retrieve the list of all supported field names available on your lead records by using the REST 'Describe Lead' endpoint.
+Use the REST 'Describe Lead' endpoint to retrieve all supported field names for lead records.
 
 ## Where to Use Which Field Name Type?
 
-Sometimes it is difficult to know which field name type that you must use when leveraging a particular integration-related feature. The following is a quick reference for which features use REST or SOAP field name types.
+The required field-name type depends on the integration feature. The following table identifies whether each feature uses REST or SOAP field names.
 
 | Feature | Field Name Type to Use |
 | --- | --- |
@@ -41,4 +41,6 @@ Sometimes it is difficult to know which field name type that you must use when l
 
 ### Why does the REST API field sfdcId always return a value of null?
 
-The field `sfdcId` is a formula field which was erroneously included in the original field map for the REST API. Records retrieved via the REST API do not compute the value of formula fields, so the value will always be null. To capture the real SFDC ID, you should use the fields called `sfdcLeadId` and `sfdcContactId`.
+The `sfdcId` field is a formula field that was included in the original field map for the REST API. Records retrieved through the REST API do not compute formula field values, so `sfdcId` always returns null.
+
+To retrieve the SFDC ID, use the `sfdcLeadId` and `sfdcContactId` fields.

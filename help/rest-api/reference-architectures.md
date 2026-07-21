@@ -18,7 +18,7 @@ role_v2:
 ---
 # Reference Architecture
 
-Technical documents that describe best practices for synchronizing Marketo data with external systems.
+The following technical documents describe best practices for synchronizing Marketo data with external systems:
 
 - [CRM Synchronization Architecture](../sync-architecture-whitepaper.pdf)
 - [Database/Data Warehouse Integration Architecture](../reference_architecture.pdf)

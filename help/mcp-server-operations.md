@@ -22,7 +22,7 @@ topic_v2:
 
 # [!DNL Marketo Engage] MCP operations
 
-The following operations are available through the [!DNL Marketo Engage] MCP server. In general, endpoints that are read-only or non-destructive are available. `Delete` or other destructive operations are not available to the AI system.
+The following operations are available through the [!DNL Marketo Engage] MCP server. The server generally provides read-only or non-destructive endpoints. The AI system cannot use `Delete` or other destructive operations.
 
 >[!NOTE]
 >

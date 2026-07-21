@@ -30,7 +30,7 @@ topic_v2:
 ---
 # Endpoint Reference
 
-Below are links to the Marketo REST API references.
+Use the following references to find request parameters, response schemas, and examples for each Marketo REST API group:
 
 - [Asset](https://developer.adobe.com/marketo-apis/api/asset)
 - [Identity](https://developer.adobe.com/marketo-apis/api/identity/)
@@ -39,7 +39,7 @@ Below are links to the Marketo REST API references.
 
 ## Endpoint List {#endpoint_list}
 
-Here is a comprehensive list of REST API endpoints.
+The following table lists the REST API endpoints, HTTP methods, URIs, and required permissions.
 
 | Name | Group | Method | URI | Required Permission |
 | --- | --- | --- | --- | --- |
