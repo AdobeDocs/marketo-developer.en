@@ -36,9 +36,9 @@ The API user must have the "Read-Only Activity" or "Read-Write Activity" permiss
 | Filter Type | Data Type | Required | Notes |
 | --- | --- | --- | --- |
 | `createdAt` | Date Range | Yes | A JSON object that contains `startAt` and `endAt`. `startAt` is the low-watermark datetime, and `endAt` is the high-watermark datetime. The range must be 31 days or fewer. The job returns all accessible records created within the date range. Use ISO-8601 datetime values without milliseconds. |
-| `activityTypeIds` | Array\[Integer\] | No | A JSON object that contains an `activityTypeIds` array of integers for the requested activity types. The "Delete Lead" activity is not supported. Instead, use the [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) endpoint. Retrieve activity type ids with the [Get Activity Types endpoint](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET). |
-| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Integer\] | No | A JSON object that contains a `primaryAttributeValueIds` array. The array accepts a maximum of 50 ids for primary attributes. Each id uniquely identifies a lead field or asset. Retrieve ids by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form name to the [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) endpoint to retrieve the Form Id. See [primaryAttributeValueIds options](#primaryattributevalueids-options) for supported activity types. |
-| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | No | A JSON object that contains a `primaryAttributeValues` array. The array accepts a maximum of 50 names for primary attributes. Each name uniquely identifies a lead field or asset. Retrieve names by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form Id to [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) endpoint to retrieve the Form name. See [primaryAttributeValues options](#primaryattributevalues-options) for supported activity types. |
+| `activityTypeIds` | Array\[Integer\] | No | An array of integers for the requested activity types. The "Delete Lead" activity is not supported. Instead, use the [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) endpoint. Retrieve activity type ids with the [Get Activity Types endpoint](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET). |
+| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Integer\] | No | An array that accepts a maximum of 50 ids for primary attributes. Each id uniquely identifies a lead field or asset. Retrieve ids by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form name to the [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) endpoint to retrieve the Form Id. See [primaryAttributeValueIds options](#primaryattributevalueids-options) for supported activity types. |
+| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | No | An array that accepts a maximum of 50 names for primary attributes. Each name uniquely identifies a lead field or asset. Retrieve names by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form Id to [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) endpoint to retrieve the Form name. See [primaryAttributeValues options](#primaryattributevalues-options) for supported activity types. |
 
 ### primaryAttributeValueIds options {#primaryattributevalueids-options}
 
@@ -83,7 +83,7 @@ The following request includes the `primaryAttributeValueIds` filter:
 | Change Status in Progression | Program name | [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) | Marketing Program |
 | Add to List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Static List |
 | Remove from List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Static List |
-| Fill Out Form | Form name | [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) | Web Form |
+| Fill Out Form | Form name | [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) | Web Form |
 
 Use `&lt;program&gt;.&lt;asset&gt;` notation to specify names for the Marketing Program, Static List, and Web Form asset groups. For example, specify the "MPS Outbound" form in the "GL_OP_ALL_2021" program as "GL_OP_ALL_2021.MPS Outbound".
 
@@ -114,7 +114,7 @@ When you use `primaryAttributeValues`, you must also include the `activityTypeId
 
 | Parameter | Data Type | Required | Notes |
 | --- | --- | --- | --- |
-| `filter` | Array\[Object\] | Yes | An array of filters applied to the accessible activity set. Include exactly one `createdAt` filter. You can also include an `activityTypeIds` filter. The export job returns the resulting set of activities. |
+| `filter` | Object | Yes | An object containing filters that apply to the accessible activity set. Include exactly one `createdAt` filter. You can also include an `activityTypeIds` filter. The export job returns the resulting set of activities. |
 | `format` | String | No | The export file format: CSV, TSV, or SSV. These values produce comma-separated, tab-separated, or space-separated values, respectively. The default is CSV. |
 | `columnHeaderNames` | Object | No | A JSON object of field and column-header key-value pairs. Each key must name a field included in the export job. Its value sets the exported column header for that field. |
 | `fields` | Array\[String\] | No | An array of fields to include in the export file. By default, the response includes `marketoGUID`, `leadId`, `activityDate`, `activityTypeId`, `campaignId`, `primaryAttributeValueId`, `primaryAttributeValue`, and `attributes`. To return a subset, specify fields from this list, such as `"fields": ["leadId", "activityDate", "activityTypeId"]`. You can also specify `actionResult` to include the activity action: `("succeeded", "skipped", or "failed")`. |
@@ -240,7 +240,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 The response body contains the file in the format configured for the job.
 
-If a requested lead field contains no data, `null` appears in the corresponding export-file field. In the following example, the `campaignId` field for the returned activity is empty:
+If a requested activity field contains no data, `null` appears in the corresponding export-file field. The following example shows exported activity data:
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes

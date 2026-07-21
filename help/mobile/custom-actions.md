@@ -23,13 +23,13 @@ topic_v2:
 ---
 # Custom Actions
 
-You can track user interaction by sending custom actions. When your mobile app calls into the Marketo SDK to send a custom action, the custom action is initially saved to the device. The Marketo SDK then checks to see if there is adequate internet connectivity before sending out the custom action. As a result, there can be a delay between the time the custom action is sent, and the time it is received by Marketo.
+Custom actions track user interactions in your mobile app. When the app calls the Marketo SDK to send a custom action, the SDK first saves the action to the device. The SDK sends the action after it detects adequate internet connectivity, so Marketo might receive the action after a delay.
 
 Custom actions can be used as triggers and filters in Smart Campaigns. For more information, see [Mobile App Activity](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Sending Custom Actions on iOS
 
-Send custom action.
+Send a custom action.
 
 >[!BEGINTABS]
 
@@ -48,7 +48,7 @@ sharedInstance.reportAction("Login", withMetaData:nil);
 
 >[!ENDTABS]
 
-Send custom action with metadata.
+Send a custom action with metadata.
 
 >[!BEGINTABS]
 
@@ -78,7 +78,7 @@ sharedInstance.reportAction("Bought Shirt", withMetaData:meta);
 
 >[!ENDTABS]
 
-Report all actions immediately (send all saved actions).
+Report all saved actions immediately.
 
 >[!BEGINTABS]
 
@@ -98,13 +98,13 @@ sharedInstance.reportAll();
 
 ## Sending Custom Actions on Android
 
-1. Send custom action.
+1. Send a custom action.
 
     ```
     Marketo.reportAction("Login", null);
     ```
 
-1. Send custom action with metadata.
+1. Send a custom action with metadata.
 
     ```
     MarketoActionMetaData meta = new MarketoActionMetaData();
@@ -116,7 +116,7 @@ sharedInstance.reportAll();
     Marketo.reportAction("Bought Shirt", meta);
     ```
 
-1. Report all custom actions immediately (send all saved actions).
+1. Report all saved custom actions immediately.
 
     ```
     Marketo.reportAll();
@@ -124,6 +124,8 @@ sharedInstance.reportAll();
 
 ## Troubleshooting Custom Actions
 
-Setting up mobile custom actions is straightforward, but there are restrictions as to the number characters you can send from the Mobile SDK to Marketo. Ensure that all of your custom actions that report back to Marketo through the mobile SDK are fewer than 20 characters long.
+Custom action names sent from the Mobile SDK to Marketo must be fewer than 20 characters.
 
-**Note on multi-user use cases on a shared device:** When a user logs into a mobile app integrated with Marketo SDK, the first call is made to associate the lead with the app install. After this call successfully completes, further user activities in the app can be seen in the lead's activity log. Note, as this is an asynchronous call if there are any custom actions logged immediately after login they may get associated with the user that was previously logged in until the associate call succeeds.
+**Multi-user use cases on a shared device:** When a user logs in to a mobile app that uses the Marketo SDK, the first call associates the lead with the app installation. After the call succeeds, subsequent user activities appear in the lead's activity log.
+
+The association call is asynchronous. Custom actions logged immediately after login might be associated with the previously logged-in user until the call succeeds.

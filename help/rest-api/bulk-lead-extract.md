@@ -35,8 +35,8 @@ The `updatedAt`, `smartListName`, and `smartListId` filters require infrastructu
 | updatedAt* | Date Range | A JSON object with `startAt` and `endAt` members. `startAt` is the low-watermark datetime, and `endAt` is the high-watermark datetime. Use ISO-8601 date and time values without milliseconds. The range must be 31 days or fewer. This filter does not use the visible `updatedAt` field, which reflects updates to standard fields only. Instead, it uses the time of the most recent field update to a lead record. The job returns all accessible records most recently updated within the date range. |
 | staticListName | String | The name of a static list. The job returns all accessible records that are members of the static list when the job begins processing. Retrieve static list names by using the Get Lists endpoint. |
 | staticListId | Integer | The ID of a static list. The job returns all accessible records that are members of the static list when the job begins processing. Retrieve static list IDs by using the Get Lists endpoint. |
-| smartListName* | String | The name of a smart list. The job returns all accessible records that are members of the smart lists when the job begins processing. Retrieve smart list names by using the Get Smart Lists endpoint. |
-| smartListId* | Integer | The ID of a smart list. The job returns all accessible records that are members of the smart lists when the job begins processing. Retrieve smart list IDs by using the Get Smart Lists endpoint. |
+| smartListName* | String | The name of a smart list. The job returns all accessible records that are members of the smart list when the job begins processing. Retrieve smart list names by using the Get Smart Lists endpoint. |
+| smartListId* | Integer | The ID of a smart list. The job returns all accessible records that are members of the smart list when the job begins processing. Retrieve smart list IDs by using the Get Smart Lists endpoint. |
 
 The filter types marked with an asterisk are unavailable for some subscriptions. If a filter type is unavailable for your subscription, the Create Export Lead Job endpoint returns the error "1035, Unsupported filter type for target subscription". Contact Marketo Support to enable this functionality for your subscription.
 
@@ -46,7 +46,7 @@ The Create Export Lead Job endpoint provides options to select exported fields, 
 
 | Parameter | Data Type | Required | Notes |
 | --- | --- | --- | --- |
-| fields | Array[String] | Yes | A JSON array of strings. Each string must be the REST API name of a Marketo lead field. The export includes each listed field and uses its REST API name as the column header unless `columnHeader` overrides it. When the [!DNL Adobe Experience Cloud Audience Sharing] feature is enabled, a cookie sync process associates the [!DNL Adobe Experience Cloud] ID (ECID) with Marketo leads. Specify the `ecids` field to include ECIDs in the export file. |
+| fields | Array[String] | Yes | A JSON array of strings. Each string must be the REST API name of a Marketo lead field. The export includes each listed field and uses its REST API name as the column header unless `columnHeaderNames` overrides it. When the [!DNL Adobe Experience Cloud Audience Sharing] feature is enabled, a cookie sync process associates the [!DNL Adobe Experience Cloud] ID (ECID) with Marketo leads. Specify the `ecids` field to include ECIDs in the export file. |
 | columnHeaderNames | Object | No | A JSON object of field and column-header key-value pairs. Each key must be the API name of a field included in the export job. Retrieve the API name by calling Describe Lead. Each value is the exported column header for that field. |
 | format | String | No | The export file format: CSV for comma-separated values, TSV for tab-separated values, or SSV for space-separated values. The default is CSV. |
 
@@ -76,7 +76,7 @@ POST /bulk/v1/leads/export/create.json
    "filter": {
       "createdAt": {
          "startAt": "2017-01-01T00:00:00Z",
-         "`endAt`": "2017-01-31T00:00:00Z"
+         "endAt": "2017-01-31T00:00:00Z"
       }
    }
 }

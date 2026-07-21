@@ -16,7 +16,9 @@ role_v2:
 ---
 # Forms API Reference
 
-There are two main objects that you will interact with using the Forms 2.0 API. The `MktoForms2` object and the `Form` object. The `MktoForms2` object is the top-level publicly visible namespace for Forms2 functionality and contains functions to create, load, and fetch Form objects.
+The Forms 2.0 API provides two main objects: `MktoForms2` and `Form`.
+
+`MktoForms2` is the top-level public namespace for Forms2 functionality. It contains functions that create, load, and retrieve `Form` objects.
 
 ## MktoForms2 Methods
 

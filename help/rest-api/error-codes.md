@@ -29,30 +29,31 @@ topic_v2:
 ---
 # Error Codes
 
-Below are lists of REST API error codes, and an explanation of how errors are returned back to applications.
+Marketo REST APIs return errors at the HTTP, response, or record level. This page explains each error type and lists the associated error codes.
 
 ## Handling and Logging Exceptions
 
-When developing for Marketo, it is important that requests and responses get logged when an unexpected exception is encountered. While certain types of exceptions, such as expired authentication, can be safely handled by re-authentication, others may require support interactions, and requests and responses will always be requested in this scenario.
+Log requests and responses when your integration encounters an unexpected exception. Some exceptions, such as expired authentication, can be handled by re-authenticating. Other exceptions can require assistance from Support, which will request the associated request and response details.
 
 ## Error Types
 
-The Marketo REST API can return three different types of errors under normal operation:
+The Marketo REST API can return three types of errors during normal operation:
 
-* HTTP-Level: These errors are indicated by a `4xx` code.
-* Response-Level: These errors are included in the "errors" array of the JSON response.
-* Record-Level: These errors are included in the "result" array of the JSON response, and are indicated on an individual record basis with the "status" field and "reasons" array.
+- **HTTP-Level:** Indicated by a `4xx` code.
+- **Response-Level:** Included in the "errors" array of the JSON response.
+- **Record-Level:** Included in the "result" array of the JSON response and indicated for each record by the "status" field and "reasons" array.
 
-For Response-Level and Record-Level error types, an HTTP status code of 200 is returned. For all error types, the HTTP reason phrase should not be evaluated as it is optional and subject to change.
+Response-Level and Record-Level errors return HTTP status code 200. For all error types, do not evaluate the HTTP reason phrase because it is optional and subject to change.
 
 ### HTTP-Level errors
 
-Under normal operating circumstances Marketo should only return two HTTP status code errors, `413 Request Entity Too Large`, and `414 Request URI Too Long`. These are both recoverable through catching the error, modifying the request and retrying, but with smart coding practices, you should never encounter these in the wild.
+During normal operation, Marketo returns two HTTP status code errors: `413 Request Entity Too Large` and `414 Request URI Too Long`. To recover from either error, modify the request and retry it. You can prevent these errors by checking request sizes before submission.
 
-Marketo will return 413 if the Request Payload exceeds 1MB, or 10MB in the case of Import Lead. In most scenarios it is unlikely to hit these limits, but adding a check to the size of the request and moving any records, which cause the limit to be exceeded to a new request should prevent any circumstances, which lead to this error being returned by any endpoints.
+Marketo returns 413 when the request payload exceeds 1MB, or 10MB for Import Lead. Check the request size before submission. If records cause the request to exceed the limit, move those records to another request.
 
-414 will be returned when the URI of a GET request exceeds 8KB. To avoid it, check against the length of your query string to see if it exceeds this limit. If it does change your request to a POST method, then input your query string as the request body with the additional parameter `_method=GET`. This forgoes the limitation on URIs. It is rare to hit this limit in most cases, but it is somewhat common when retrieving large batches of records with long individual filter values such as a GUID.
-The [Identity](https://developer.adobe.com/marketo-apis/api/identity/) endpoint can return a 401 Unauthorized error. This is typically due to an invalid Client Id or invalid Client Secret. HTTP-Level Error Codes
+Marketo returns 414 when the URI of a GET request exceeds 8KB. Check the query-string length before submission. If it exceeds the limit, change the request method to POST, put the query string in the request body, and add the `_method=GET` parameter. Long URIs are most common when retrieving large record batches with long filter values, such as a GUID.
+
+The [Identity](https://developer.adobe.com/marketo-apis/api/identity/) endpoint can return a 401 Unauthorized error, typically because the Client Id or Client Secret is invalid. The following table lists HTTP-Level error codes.
 
 <table>
   <thead>
@@ -78,7 +79,7 @@ The [Identity](https://developer.adobe.com/marketo-apis/api/identity/) endpoint 
 
 #### Response-Level errors
 
-Response level errors are present when the `success` parameter of the response is set to false, and are structured like:
+Response-Level errors occur when the response sets the `success` parameter to false. They use the following structure:
 
 ```json
 {
@@ -93,7 +94,14 @@ Response level errors are present when the `success` parameter of the response i
 }
 ```
 
-Each object in the "errors" array has two members, `code`, which is a quoted integer from 601 to 799 and a `message` giving the plaintext reason for the error. 6xx codes always indicate that a request failed completely and were not executed. An example is a 601, "Access token invalid," which is recoverable by re-authenticating and passing the new access token with the request. 7xx errors indicate that the request failed, either because no data was returned, or the request was incorrectly parameterized, such as including an invalid date, or missing a required parameter.
+Each object in the "errors" array contains two members:
+
+- `code`: A quoted integer from 601 to 799.
+- `message`: The plain-text reason for the error.
+
+A 6xx code indicates that the entire request failed and was not executed. For example, recover from a 601 "Access token invalid" error by re-authenticating and passing the new access token with the request.
+
+A 7xx code indicates that the request failed because no data was returned or the request parameters were invalid. Causes include an invalid date or a missing required parameter.
 
 #### Response-Level Error Codes
 
@@ -274,7 +282,7 @@ Each object in the "errors" array has two members, `code`, which is a quoted int
 
 ### Record-Level {#record_level_errors}
 
-Record level errors indicate that an operation could not be completed for an individual record, but the request itself was valid. A response with record-level errors follows this pattern:
+Record-Level errors indicate that the request was valid but the operation could not be completed for an individual record. A response with Record-Level errors follows this pattern:
 
 #### Response
 
@@ -304,8 +312,11 @@ Record level errors indicate that an operation could not be completed for an ind
 }
 ```
 
-Records included in the result array of calls are ordered in the same way as the input array of a request.
-Each record in a successful request may succeed or fail on an individual basis, which is indicated by the status field of each record included in the result array of a response. The "status" field of these records will be "skipped" and a "reasons" array is present. Each reason contains a "code" member, and a "message" member. The code is always 1xxx, and the message indicates why the record was skipped. An example would be where a Sync Leads request has "action" set to "createOnly" but a lead already exists for one of the keys in the submitted records. This case returns a code of 1005, and a message of "Lead already exists" as displayed above.
+Records in the result array appear in the same order as records in the request input array. Each record can succeed or fail independently, as indicated by its status field.
+
+For a failed record, the "status" field is "skipped" and the record includes a "reasons" array. Each reason contains a "code" member and a "message" member. The code is always 1xxx, and the message explains why the record was skipped.
+
+For example, if a Sync Leads request sets "action" to "createOnly" and a lead already exists for one of the submitted keys, the response returns code 1005 and the message "Lead already exists," as shown above.
 
 #### Record-Level Error Codes
 

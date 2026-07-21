@@ -18,9 +18,9 @@ role_v2:
 ---
 # Standard Fields
 
-Here is a list of standard fields available in Marketo that are accessible via the API.
+The following table lists the standard Marketo fields available through the API. It includes each field's REST API name, SOAP API name, label, and description.
 
-You can retrieve the list of all supported field names available on your lead records by using the REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi) endpoint.
+Use the REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi) endpoint to retrieve all field names supported by your lead records.
 
 | REST API Name | SOAP API Name | Friendly Label | Description |
 | --- | --- | --- | --- |

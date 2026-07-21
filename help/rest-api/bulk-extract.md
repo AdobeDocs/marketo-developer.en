@@ -16,7 +16,7 @@ role_v2:
 ---
 # Bulk Extract
 
-Marketo Bulk Extract provides interfaces for retrieving large sets of person and person-related data. Interfaces are currently available for three object types:
+Marketo Bulk Extract provides interfaces for retrieving large sets of person and person-related data. Interfaces are currently available for four object types:
 
 - Leads (Persons)
 - Activities
@@ -40,7 +40,7 @@ The bulk extract APIs use the same OAuth 2.0 authentication method as other Mark
 
 >[!IMPORTANT]
 >
->Support for authentication using the **access_token** query parameter is being removed on June 30, 2025. If your project uses a query parameter to pass the access token, it should be updated to use the **Authorization** header as soon as possible. New development should use the **Authorization** header exclusively.
+>Support for authentication using the **access_token** query parameter is being removed on August 31, 2026. If your project uses a query parameter to pass the access token, it should be updated to use the **Authorization** header as soon as possible. New development should use the **Authorization** header exclusively.
 
 ## Limits
 
@@ -244,7 +244,7 @@ For a partial file, the endpoint returns status code 206 and the Accept-ranges, 
 
 ```text
 Accept-Ranges: bytes
-Content-Length: 1000
+Content-Length: 10000
 Content-Range: bytes 0-9999/123424
 ```
 
@@ -255,7 +255,7 @@ Use the `Range` header to retrieve part of a file or resume a retrieval. The fil
 If a retrieval partially fails, you can resume it. For example, if you try to retrieve a 1000-byte file but receive only the first 725 bytes, call the endpoint again and pass a new range:
 
 ```text
-Range: bytes 724-999
+Range: bytes=725-999
 ```
 
 This request returns the remaining 275 bytes of the file.
