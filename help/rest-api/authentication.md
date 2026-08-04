@@ -79,7 +79,7 @@ curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/
 
 Store the access token and expiration period from the Identity response. Managing token expiration helps prevent unexpected authentication errors during normal operation.
 
-Before making a REST call, check the token's remaining lifespan. If the token is expired, renew it by calling the [Identity](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) endpoint. Proactive renewal prevents failures caused by expired tokens and makes REST call latency more predictable, which is important for end-user-facing applications.
+Before making a REST call, check the token's remaining lifespan. If the token is expired, renew it by calling the [Identity](https://developer.adobe.com/marketo-apis/api/identity#tag/Identity) endpoint. Proactive renewal prevents failures caused by expired tokens and makes REST call latency more predictable, which is important for end-user-facing applications.
 
 Authentication errors return the following codes:
 
