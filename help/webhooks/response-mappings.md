@@ -1,7 +1,7 @@
 ---
 title: Response Mappings
 feature: Webhooks
-description: Marketo Webhooks response mappings for JSON and XML, map attributes to lead fields with SOAP API names, dot and array notation, and type compatibility.
+description: Marketo Webhooks response mappings for JSON and XML, map attributes to lead fields , dot and array notation, and type compatibility.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
 TQID: https://experienceleague.adobe.com/-OGDeKLPS1KmWGIKj6BGq5DGXoCSj5ip-dVr7-kKDro
 product_v2:
@@ -16,7 +16,7 @@ role_v2:
 ---
 # Response Mappings
 
-Marketo can translate webhook data from JSON or XML and write the values to lead fields. The Marketo Field parameter always uses the field's [SOAP API name](../rest-api/fields.md).
+Marketo can translate webhook data from JSON or XML and write the values to lead fields. The Marketo Field parameter always uses the field's SOAP API name.
 
 Each webhook can have an unlimited number of response mappings. To add or edit mappings, select [!UICONTROL Edit] in the webhook's Response Mappings pane:
 

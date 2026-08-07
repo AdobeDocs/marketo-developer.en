@@ -35,7 +35,6 @@ Design integrations around the shared API limits for your Marketo instance. Use 
 - **Batch size:** Lead DB supports 300 records; Asset Query supports 200 records.
 - **REST API payload size:** 1 MB.
 - **Bulk import file size:** 10 MB.
-- **SOAP maximum batch size:** 300 records.
 - **Bulk extract jobs:** Two executing and ten queued, inclusive.
 
 ## Quick Tips

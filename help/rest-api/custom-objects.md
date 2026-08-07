@@ -560,7 +560,7 @@ The response contains:
 
 ### List Types
 
-The [List Custom Object Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET) endpoint returns metadata for all custom object types available in the destination instance. It is similar to [List Custom Objects](https://experienceleague.adobe.com/docs/marketo-developer/marketo/soap/custom-objects/custom-objects.html?lang=en), but includes additional metadata such as state, relationships, and fields.
+The [List Custom Object Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET) endpoint returns metadata for all custom object types available in the destination instance.
 
 If an approved version exists, the endpoint returns it. Otherwise, it returns the draft version.
 

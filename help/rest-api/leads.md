@@ -73,7 +73,7 @@ GET /rest/v1/leads/describe.json
 
 Actual responses include more fields in the result array. Each item represents a field available on the lead record and contains at least an id, a displayName, and a datatype.
 
-The rest and soap child objects appear only when the field is valid for the corresponding API. The `readOnly` property indicates whether the corresponding API can update the field. When present, the length property gives the maximum field length, and the dataType property gives the field's data type.
+The REST child objects appear only when the field is valid for the corresponding API. The `readOnly` property indicates whether the corresponding API can update the field. When present, the length property gives the maximum field length, and the dataType property gives the field's data type.
 
 ## Query
 

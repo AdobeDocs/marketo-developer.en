@@ -90,7 +90,6 @@ author: Donald
     - [Activities](rest-api/activities.md)
     - [Companies](rest-api/companies.md)
     - [Custom Objects](rest-api/custom-objects.md)
-    - [Field List](rest-api/fields.md)
     - [Field Types](rest-api/field-types.md)
     - [Lead Database](rest-api/lead-database.md)
     - [Leads](rest-api/leads.md)

@@ -42,7 +42,7 @@ Configure each webhook with these properties:
 
 - **[!UICONTROL URL]** - The URL to which you submit the web service request.
 - **[!UICONTROL Request Type]** - The HTTP method.
-- **[!UICONTROL Payload Template]** - The template for information sent in the POST body. Use any data format that supports HTTP POST, including XML, JSON, or SOAP. The serialization format must allow double quotes around strings. To insert a token, select **[!UICONTROL Insert Token]**. Marketo automatically encloses string-type tokens in double quotes.
+- **[!UICONTROL Payload Template]** - The template for information sent in the POST body. Use any data format that supports HTTP POST, including XML and JSON. The serialization format must allow double quotes around strings. To insert a token, select **[!UICONTROL Insert Token]**. Marketo automatically encloses string-type tokens in double quotes.
 - **[!UICONTROL Request Token Encoding]** - The request format, JSON or Form/Url, used to encode token values that include special characters such as an ampersand, '&'. Select the correct body encoding so that the webhook communicates with the web service correctly.
 - **[!UICONTROL Response Type]** - The response format, JSON or XML. Select the correct type to map response properties to lead fields in Marketo.
 - **[!UICONTROL Custom Headers]** - Key-Value pairs added as HTTP Headers through **[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]**. You can add any number of custom headers.
