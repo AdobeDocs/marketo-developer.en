@@ -34,7 +34,7 @@ This page introduces the core Marketo Engage entities and their relationships.
 
 >[!NOTE]
 >
->The SOAP API is being deprecated and will no longer be available after July 31st 2026. Use the Marketo [REST API](./rest-api/rest-api.md) for all new development. Migrate existing services by that date to avoid service interruptions. If a service uses the SOAP API, see the SOAP API [Migration Guide](./soap-api/migration.md).
+>As of July 31st, 2026,the SOAP API is deprecated and is no longer be available. Use the Marketo [REST API](./rest-api/rest-api.md) for all new development. Migrate existing services by that date to avoid service interruptions. If a service uses the SOAP API, see the SOAP API [Migration Guide](./soap-api/migration.md).
 >
 
 When either the Native SFDC or MS Dynamics CRM connection is enabled on a Marketo Engage instance, these objects are read-only:

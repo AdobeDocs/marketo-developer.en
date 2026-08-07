@@ -29,7 +29,7 @@ The REST APIs fall into two broad categories:
 
 >[!NOTE]
 >
->The SOAP API is being deprecated and will no longer be available after July 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
+>As of July 31st, 2026,the SOAP API is deprecated and is no longer be available. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
 >
 
 >[!IMPORTANT]
