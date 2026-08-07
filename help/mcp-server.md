@@ -40,6 +40,10 @@ topic_v2:
 >
 > This feature is in limited availability. To request access, fill out [this form](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Be sure to have your subscription's Munchkin ID ready.
 
+>[!NOTE]
+>
+>The MCP Server team is working on enabling the Smart List and Smart Campaign Asset APIs to work with the MCP Server. The bulk of this work, including allowlisting Activities, Actions and Rules, is expected to be complete in Q3 2026.
+
 Model Context Protocol (MCP) is an open standard that connects AI tools to external services. The [!DNL Marketo] MCP server connects your AI assistant to [!DNL Marketo]. It provides more than 100 operations for forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
 
 When your AI tool calls the MCP server, the server uses the credentials in that request to execute the corresponding REST API call. You do not need to install, deploy, or run server-side software.

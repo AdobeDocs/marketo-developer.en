@@ -31,7 +31,7 @@ For a detailed comparison, see [Understanding free-form vs. guided landing pages
 
 ## Query
 
-Query landing page templates [by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). These endpoints return template metadata. Retrieve HTML content separately for each template by ID.
+Query landing page templates [by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByNameUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplatesUsingGET). These endpoints return template metadata. Retrieve HTML content separately for each template by ID.
 
 ## Create and Update
 
@@ -77,11 +77,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Add template content separately with the [Update Landing Page Template Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) endpoint.
+Add template content separately with the [Update Landing Page Template Content](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageTemplateContentUsingPOST) endpoint.
 
 ### Update Metadata
 
-Use the [Update Landing Page Template Metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) endpoint to change the name, description, or `enableMunchkin` setting.
+Use the [Update Landing Page Template Metadata](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLpTemplateUsingPOST) endpoint to change the name, description, or `enableMunchkin` setting.
 
 ### Update Content
 

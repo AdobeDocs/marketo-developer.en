@@ -29,7 +29,7 @@ Templates are HTML documents with metadata such as a name and description. The t
 
 ## Query
 
-Email templates support the standard asset query patterns: [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByNameUsingGET), and by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplatesUsingGET) a folder.
+Email templates support the standard asset query patterns: [by id](https://developer.adobe.com/marketo-apis/api/asset#operation/getTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getTemplateByNameUsingGET), and by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplatesUsingGET) a folder.
 
 ### By Id
 
@@ -203,7 +203,7 @@ Template queries return only record metadata. Use the content endpoint to retrie
 
 ## Create and Update
 
-To [create](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/createEmailTemplateUsingPOST) or [update](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) a template, send the HTML document in a `multipart/form-data` POST request. The `Content-Type` header must include a boundary as described in the RFCs for [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) and [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt).
+To [create](https://developer.adobe.com/marketo-apis/api/asset#operation/createEmailTemplateUsingPOST) or [update](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) a template, send the HTML document in a `multipart/form-data` POST request. The `Content-Type` header must include a boundary as described in the RFCs for [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) and [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt).
 
 Creating a template requires these parameters:
 
@@ -275,7 +275,7 @@ Create email template using API
 
 ```
 
-To update template content, call the [content endpoint](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) with the email template ID. The request body accepts only the `content` parameter.
+To update template content, call the [content endpoint](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) with the email template ID. The request body accepts only the `content` parameter.
 
 The submitted content completely replaces the existing template content. Updating an approved version creates a new draft. Updating a draft-only asset replaces the current draft.
 
@@ -319,7 +319,7 @@ Content-Type: text/html
 
 ## Update Metadata
 
-To [update a template's metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), send an `application/x-www-form-urlencoded` POST request with the `name` and `description` parameters.
+To [update a template's metadata](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateUsingPOST), send an `application/x-www-form-urlencoded` POST request with the `name` and `description` parameters.
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}.json
@@ -479,7 +479,7 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 ## Clone
 
-To [clone an email template](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/cloneTemplateUsingPOST), send an `application/x-www-form-urlencoded` POST request with these parameters:
+To [clone an email template](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneTemplateUsingPOST), send an `application/x-www-form-urlencoded` POST request with these parameters:
 
 - `name`: Required. The cloned template name.
 - `folder`: Required. An embedded JSON object with `id` and `type`.
@@ -525,7 +525,7 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## Query Email Dependencies
 
-Use the [Get Email Template Used By](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) endpoint to retrieve emails that depend on a template. The `id` path parameter identifies the parent email template.
+Use the [Get Email Template Used By](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplateUsedByUsingGET) endpoint to retrieve emails that depend on a template. The `id` path parameter identifies the parent email template.
 
 The endpoint supports two optional pagination parameters:
 

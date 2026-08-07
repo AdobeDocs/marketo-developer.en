@@ -36,20 +36,20 @@ The API user must have the "Read-Only Activity" or "Read-Write Activity" permiss
 | Filter Type | Data Type | Required | Notes |
 | --- | --- | --- | --- |
 | `createdAt` | Date Range | Yes | A JSON object that contains `startAt` and `endAt`. `startAt` is the low-watermark datetime, and `endAt` is the high-watermark datetime. The range must be 31 days or fewer. The job returns all accessible records created within the date range. Use ISO-8601 datetime values without milliseconds. |
-| `activityTypeIds` | Array\[Integer\] | No | An array of integers for the requested activity types. The "Delete Lead" activity is not supported. Instead, use the [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) endpoint. Retrieve activity type ids with the [Get Activity Types endpoint](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET). |
-| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Integer\] | No | An array that accepts a maximum of 50 ids for primary attributes. Each id uniquely identifies a lead field or asset. Retrieve ids by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form name to the [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) endpoint to retrieve the Form Id. See [primaryAttributeValueIds options](#primaryattributevalueids-options) for supported activity types. |
-| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | No | An array that accepts a maximum of 50 names for primary attributes. Each name uniquely identifies a lead field or asset. Retrieve names by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form Id to [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) endpoint to retrieve the Form name. See [primaryAttributeValues options](#primaryattributevalues-options) for supported activity types. |
+| `activityTypeIds` | Array\[Integer\] | No | An array of integers for the requested activity types. The "Delete Lead" activity is not supported. Instead, use the [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/getDeletedLeadsUsingGET) endpoint. Retrieve activity type ids with the [Get Activity Types endpoint](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET). |
+| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Integer\] | No | An array that accepts a maximum of 50 ids for primary attributes. Each id uniquely identifies a lead field or asset. Retrieve ids by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form name to the [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET) endpoint to retrieve the Form Id. See [primaryAttributeValueIds options](#primaryattributevalueids-options) for supported activity types. |
+| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | No | An array that accepts a maximum of 50 names for primary attributes. Each name uniquely identifies a lead field or asset. Retrieve names by calling the appropriate REST API endpoint. For example, to filter on a specific Form for the "Fill Out Form" activity, pass the Form Id to [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET) endpoint to retrieve the Form name. See [primaryAttributeValues options](#primaryattributevalues-options) for supported activity types. |
 
 ### primaryAttributeValueIds options {#primaryattributevalueids-options}
 
 | Activity Type | Primary Attribute Value Id | Retrieval Endpoint | Asset Group |
 | --- | --- | --- | --- |
-| Change Data Value | Lead field id | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attribute Name |
-| Change Score | Lead field id | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attribute Name |
-| Change Status in Progression | Program id | [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET) | Marketing Program |
-| Add to List | Static list id | [Get Static List by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Static List |
-| Remove from List | Static list id | [Get Static List by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Static List |
-| Fill Out Form | Form id | [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) | Web Form |
+| Change Data Value | Lead field id | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attribute Name |
+| Change Score | Lead field id | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attribute Name |
+| Change Status in Progression | Program id | [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByNameUsingGET) | Marketing Program |
+| Add to List | Static list id | [Get Static List by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByNameUsingGET) | Static List |
+| Remove from List | Static list id | [Get Static List by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByNameUsingGET) | Static List |
+| Fill Out Form | Form id | [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET) | Web Form |
 
 When you use `primaryAttributeValueIds`, you must also include the `activityTypeIds` filter. This filter can contain only activity ids that match the corresponding asset group. For example, when filtering Web Form assets, `activityTypeIds` can contain only the "Fill Out Form" activity type id.
 
@@ -78,12 +78,12 @@ The following request includes the `primaryAttributeValueIds` filter:
 
 | Activity Type | Primary Attribute Value | Retrieval Endpoint | Asset Group |
 | --- | --- | --- | --- |
-| Change Data Value | Lead field displayName | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attribute Name |
-| Change Score | Lead field displayName | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attribute Name |
-| Change Status in Progression | Program name | [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) | Marketing Program |
-| Add to List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Static List |
-| Remove from List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Static List |
-| Fill Out Form | Form name | [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) | Web Form |
+| Change Data Value | Lead field displayName | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attribute Name |
+| Change Score | Lead field displayName | [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attribute Name |
+| Change Status in Progression | Program name | [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByIdUsingGET) | Marketing Program |
+| Add to List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByIdUsingGET) | Static List |
+| Remove from List | Static list name | [Get Static List by Id](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByIdUsingGET) | Static List |
+| Fill Out Form | Form name | [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET) | Web Form |
 
 Use `&lt;program&gt;.&lt;asset&gt;` notation to specify names for the Marketing Program, Static List, and Web Form asset groups. For example, specify the "MPS Outbound" form in the "GL_OP_ALL_2021" program as "GL_OP_ALL_2021.MPS Outbound".
 
@@ -121,7 +121,7 @@ When you use `primaryAttributeValues`, you must also include the `activityTypeId
 
 ## Creating a Job
 
-Create an export job to define the records to retrieve. Use the [Create Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST) endpoint.
+Create an export job to define the records to retrieve. Use the [Create Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportActivitiesUsingPOST) endpoint.
 
 Every job requires a `createdAt` filter. Its `startAt` and `endAt` datetime parameters define the earliest and latest permitted activity creation dates. To exclude activity types that are not relevant, also include the optional `activityTypeIds` filter.
 
@@ -166,7 +166,7 @@ POST /bulk/v1/activities/export/create.json
 
 The response returns an `exportId` and a status of "Created." A created job is not yet in the processing queue.
 
-To add the job to the queue, call the [Enqueue Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) endpoint with the `exportId` from the creation response.
+To add the job to the queue, call the [Enqueue Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportActivitiesUsingPOST) endpoint with the `exportId` from the creation response.
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -194,7 +194,7 @@ The response status is now "Queued." When a worker becomes available, the status
 
 Job status can only be retrieved for jobs created by the same API user.
 
-Bulk Activity Extract processes jobs asynchronously. Poll the [Get Export Activity Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) endpoint to determine when a job is complete:
+Bulk Activity Extract processes jobs asynchronously. Poll the [Get Export Activity Job Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportActivitiesStatusUsingGET) endpoint to determine when a job is complete:
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -232,7 +232,7 @@ The `status` field returns one of the following values:
 
 ## Retrieving Your Data
 
-When the job status is "Completed," retrieve the exported data with the [Get Export Activity File](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET) endpoint:
+When the job status is "Completed," retrieve the exported data with the [Get Export Activity File](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportActivitiesFileUsingGET) endpoint:
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -254,7 +254,7 @@ For partial or resumable retrieval, the file endpoint supports the optional HTTP
 
 ## Canceling a Job
 
-To stop an incorrectly configured or unnecessary job, call the [Cancel Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) endpoint:
+To stop an incorrectly configured or unnecessary job, call the [Cancel Export Activity Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportActivitiesUsingPOST) endpoint:
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json

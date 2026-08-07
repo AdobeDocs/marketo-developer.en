@@ -28,7 +28,7 @@ Query landing page redirect rules [by ID](#by_id) or by [browsing](#browse).
 
 ### By Id
 
-The [Get Landing Page Redirect Rules by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) endpoint takes one redirect-rule `id` path parameter and returns the matching record.
+The [Get Landing Page Redirect Rules by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRuleByIdUsingGET) endpoint takes one redirect-rule `id` path parameter and returns the matching record.
 
 ```http
 GET /rest/asset/v1/redirectRule/{id}.json
@@ -63,7 +63,7 @@ GET /rest/asset/v1/redirectRule/{id}.json
 
 ### Browse
 
-The [Get Landing Page Redirect Rules](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET) endpoint returns landing page redirect-rule records.
+The [Get Landing Page Redirect Rules](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRulesUsingGET) endpoint returns landing page redirect-rule records.
 
 Use optional query parameters to filter the results.
 
@@ -140,7 +140,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## Create
 
-Call the [Create Landing Page Redirect Rule](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) endpoint with an `application/x-www-form-urlencoded` POST request. The request has three required parameters.
+Call the [Create Landing Page Redirect Rule](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageRedirectRuleUsingPOST) endpoint with an `application/x-www-form-urlencoded` POST request. The request has three required parameters.
 
 The `hostname` parameter specifies the landing page hostname. It must belong to a branding domain or alias and cannot exceed 255 characters.
 
@@ -202,7 +202,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## Update
 
-The [Update Landing Page Redirect Rules](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) endpoint takes one redirect-rule `id` path parameter. Send the update as an `application/x-www-form-urlencoded` POST request.
+The [Update Landing Page Redirect Rules](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageRedirectRuleUsingPOST) endpoint takes one redirect-rule `id` path parameter. Send the update as an `application/x-www-form-urlencoded` POST request.
 
 Pass one or more of these parameters to select the attributes to update: `hostname`, `redirectFrom`, or `redirectTo`.
 
@@ -249,7 +249,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## Delete
 
-The [Delete Landing Page Redirect Rule by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) endpoint takes one redirect-rule `id` path parameter.
+The [Delete Landing Page Redirect Rule by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageRedirectRuleUsingPOST) endpoint takes one redirect-rule `id` path parameter.
 
 ```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
@@ -271,7 +271,7 @@ POST /rest/asset/v1/redirectRule/{id}/delete.json
 
 ## Browse Landing Page Domains
 
-The [Get Landing Page Domains](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET) endpoint returns landing page domain records.
+The [Get Landing Page Domains](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageDomainsUsingGET) endpoint returns landing page domain records.
 
 Use two optional query parameters to filter results.
 

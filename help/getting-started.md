@@ -34,8 +34,7 @@ This page introduces the core Marketo Engage entities and their relationships.
 
 >[!NOTE]
 >
->The SOAP API is being deprecated and will no longer be available after July 31st 2026. Use the Marketo [REST API](./rest-api/rest-api.md) for all new development. Migrate existing services by that date to avoid service interruptions. If a service uses the SOAP API, see the SOAP API [Migration Guide](./soap-api/migration.md).
->
+>As of July 31st, 2026,the SOAP API is deprecated and no longer available. Use the Marketo [REST API](./rest-api/rest-api.md) for all new development.
 
 When either the Native SFDC or MS Dynamics CRM connection is enabled on a Marketo Engage instance, these objects are read-only:
 
@@ -147,6 +146,6 @@ Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custo
 
 You can manage Sales Person records and their lead relationships in Marketo when no native CRM integration is enabled. These records contain information such as Name, Email, and Job Title. When a Sales Person owns a lead, you can use this information for filtering and tokens.
 
-Manage the relationship to a sales person at the lead level through the "externalSalesPersonId" field. Update this field through the [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) API.
+Manage the relationship to a sales person at the lead level through the "externalSalesPersonId" field. Update this field through the [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST) API.
 
 Related APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)

@@ -29,7 +29,7 @@ The REST APIs fall into two broad categories:
 
 >[!NOTE]
 >
->The SOAP API is being deprecated and will no longer be available after July 31st 2026. All new development should be done with the Marketo [REST API](./rest-api.md), and existing services should be migrated by that date to avoid interruptions in service. If you have a service which uses the SOAP API, please consult the SOAP API [Migration Guide](../soap-api/migration.md) for information on how to migrate.
+>As of July 31st, 2026,the SOAP API is deprecated and is no longer be available. All new development should be done with the Marketo [REST API](./rest-api.md).
 >
 
 >[!IMPORTANT]
@@ -99,7 +99,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 >
 >Support for authentication using the **access_token** query parameter is being removed on June 30, 2025. If your project uses a query parameter to pass the access token, it should be updated to use the **Authorization** header as soon as possible. New development should use the **Authorization** header exclusively.
 
-Open a new browser tab and enter the following URL. Replace the placeholders with the endpoint and email address for your instance to call [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET).
+Open a new browser tab and enter the following URL. Replace the placeholders with the endpoint and email address for your instance to call [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET).
 
 ```text
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>

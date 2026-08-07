@@ -29,11 +29,11 @@ These APIs support only user-created smart lists. They do not support [built-in 
 
 ## Query
 
-Query smart lists [by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET).
+Query smart lists [by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET).
 
 ### By Id
 
-[Query by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET) takes one smart-list `id` path parameter and returns the matching record. Set the optional `includeRules` Boolean parameter to include smart-list rules.
+[Query by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET) takes one smart-list `id` path parameter and returns the matching record. Set the optional `includeRules` Boolean parameter to include smart-list rules.
 
 ![Smartlist Rules](assets/smartlist-rules.png)
 
@@ -108,7 +108,7 @@ GET /rest/asset/v1/smartList/{id}.json?includeRules=true
 
 ### By Smart Campaign Id
 
-[Query by smart campaign ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) takes one smart-campaign `id` path parameter and returns its smart-list record. Set the optional `includeRules` Boolean parameter to include smart-list rules.
+[Query by smart campaign ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListBySmartCampaignIdUsingGET) takes one smart-campaign `id` path parameter and returns its smart-list record. Set the optional `includeRules` Boolean parameter to include smart-list rules.
 
 ```http
 GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
@@ -139,7 +139,7 @@ GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
 
 ### By Program Id
 
-[Query by program ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getSmartListByProgramIdUsingGET) takes one email-program `id` path parameter and returns its smart-list record. Set the optional `includeRules` Boolean parameter to include smart-list rules.
+[Query by program ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByProgramIdUsingGET) takes one email-program `id` path parameter and returns its smart-list record. Set the optional `includeRules` Boolean parameter to include smart-list rules.
 
 ```http
 GET /rest/asset/v1/program/{programId}/smartList.json
@@ -170,7 +170,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### By Name
 
-[Query by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET) takes a smart-list `name` parameter. The endpoint performs an exact name match and returns the matching record.
+[Query by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET) takes a smart-list `name` parameter. The endpoint performs an exact name match and returns the matching record.
 
 ```http
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -200,7 +200,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Browse
 
-Use the browse endpoint to [retrieve smart lists in batches](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET). The optional `folder` parameter scopes the query to a parent folder. Pass it as a JSON object containing `id` and `type`.
+Use the browse endpoint to [retrieve smart lists in batches](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET). The optional `folder` parameter scopes the query to a parent folder. Pass it as a JSON object containing `id` and `type`.
 
 Use `offset` and `maxReturn` for pagination. Use the optional `earliestUpdatedAt` and `latestUpdatedAt` parameters to filter by the `updatedAt` date range.
 
@@ -256,7 +256,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 
 ## Clone
 
-Send an `application/x-www-form-urlencoded` POST request to [clone a smart list](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/cloneSmartListUsingPOST). The `id` path parameter identifies the source smart list.
+Send an `application/x-www-form-urlencoded` POST request to [clone a smart list](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneSmartListUsingPOST). The `id` path parameter identifies the source smart list.
 
 Pass `folder` as a JSON object containing `id` and `type`. The parent must be a program or smart-list folder. The `name` must be unique. The optional `description` parameter describes the new list.
 
@@ -296,7 +296,7 @@ folder={"id":31,"type":"Folder"}&name=2018 Leads Qualified
 
 ## Delete
 
-To [delete a smart list](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST), pass its `id` as a path parameter.
+To [delete a smart list](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteSmartListByIdUsingPOST), pass its `id` as a path parameter.
 
 ```http
 POST /rest/asset/v1/smartList/{id}/delete.json

@@ -27,7 +27,7 @@ Landing pages are web pages hosted by Marketo. Use the Landing Pages REST APIs t
 
 ## Query
 
-Query landing pages [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET). These queries return metadata only. Query a landing page's content sections separately by page ID.
+Query landing pages [by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByNameUsingGET), [by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByIdUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/browseLandingPagesUsingGET). These queries return metadata only. Query a landing page's content sections separately by page ID.
 
 Querying landing page content returns its available content sections. A section must appear in this list before you can update it.
 
@@ -67,7 +67,7 @@ The format of the `content` attribute depends on the `type` attribute and whethe
 
 ## Create and Update
 
-[Create a landing page](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/createLandingPageUsingPOST) from a template. The page name, template ID, and destination folder are required. See the endpoint reference for optional metadata.
+[Create a landing page](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageUsingPOST) from a template. The page name, template ID, and destination folder are required. See the endpoint reference for optional metadata.
 
 The [landing page content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content) endpoints support these content types: `richText`, `HTML`, `Form`, `Image`, `Rectangle`, and `Snippet`.
 
@@ -116,7 +116,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Landing page metadata can be updated with the [Update Landing Page Metadata endpoint](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+Landing page metadata can be updated with the [Update Landing Page Metadata endpoint](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageUsingPOST).
 
 ## Approval
 
@@ -124,7 +124,7 @@ Landing pages use the standard draft and approved model. Updates apply to the dr
 
 ## Delete
 
-Before deleting a landing page, ensure that it is not approved and that no other Marketo asset references it. Delete pages individually with the [Delete Landing Page](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) endpoint. You cannot use this API to delete pages with embedded social buttons.
+Before deleting a landing page, ensure that it is not approved and that no other Marketo asset references it. Delete pages individually with the [Delete Landing Page](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageByIdUsingPOST) endpoint. You cannot use this API to delete pages with embedded social buttons.
 
 ## Clone
 
@@ -184,7 +184,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Manage Content Section
 
-Content sections are ordered by their `index` property and displayed according to the client's CSS rules. Use the [Add](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Update](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST), and [Delete](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) endpoints to manage sections. Use [Get Landing Page Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET) to query them.
+Content sections are ordered by their `index` property and displayed according to the client's CSS rules. Use the [Add](https://developer.adobe.com/marketo-apis/api/asset#operation/addLandingPageContentUsingPOST), [Update](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST), and [Delete](https://developer.adobe.com/marketo-apis/api/asset#operation/removeLandingPageContentUsingPOST) endpoints to manage sections. Use [Get Landing Page Content](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageContentUsingGET) to query them.
 
 Each section has `type` and `value` parameters. The `type` determines the expected `value`. Pass data to these endpoints as POST `x-www-form-urlencoded`, not as JSON.
 
@@ -204,11 +204,11 @@ Each section has `type` and `value` parameters. The `type` determines the expect
 
 For free-form pages, add each required content section. Marketo embeds them in the `div` element with the ID `mktoContent`.
 
-Guided pages can include predefined elements returned by [Get Landing Page Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Use the corresponding endpoints to add elements or [update their content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST).
+Guided pages can include predefined elements returned by [Get Landing Page Content](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageContentUsingGET). Use the corresponding endpoints to add elements or [update their content](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST).
 
 ### Dynamic Content
 
-To make a section dynamic, first ensure that it appears in the landing page's content list. Then use [Update Landing Page Content Section](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) to set its type to `DynamicContent`.
+To make a section dynamic, first ensure that it appears in the landing page's content list. Then use [Update Landing Page Content Section](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST) to set its type to `DynamicContent`.
 
 Marketo creates underlying dynamic sections that inherit the converted element's base type and content.
 
@@ -246,7 +246,7 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 }
 ```
 
-[Updating the content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) for each individual segment is done on the basis of the segment id.
+[Updating the content](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageDynamicContentUsingPOST) for each individual segment is done on the basis of the segment id.
 
 ```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
@@ -355,7 +355,7 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 
 ## Preview Landing Page
 
-Use [Get Landing Page Full Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) to retrieve a browser-rendered preview. The landing page `id` path parameter is required. The endpoint also accepts two optional query parameters:
+Use [Get Landing Page Full Content](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageFullContentUsingGET) to retrieve a browser-rendered preview. The landing page `id` path parameter is required. The endpoint also accepts two optional query parameters:
 
 - `segmentation`: An array of JSON objects containing `segmentationId` and `segmentId`. The preview represents a lead that matches those segments.
 - `leadId`: An integer lead ID. The preview represents the specified lead.

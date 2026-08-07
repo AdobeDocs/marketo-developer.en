@@ -47,11 +47,11 @@ A program can also have tags. Tags are customizable fields that can be optional 
 
 ## Query
 
-Query programs by ID, name, browsing, or tag type and value. Use [Get Tag Types](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags/operation/getTagTypesUsingGET) to retrieve available tags and values.
+Query programs by ID, name, browsing, or tag type and value. Use [Get Tag Types](https://developer.adobe.com/marketo-apis/api/asset#operation/getTagTypesUsingGET) to retrieve available tags and values.
 
 ### By Id
 
-The [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) endpoint requires an `id` path parameter.
+The [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByIdUsingGET) endpoint requires an `id` path parameter.
 
 You can obtain the program ID from its UI URL, such as `https://app-\*\*\*.marketo.com/#PG1001A1`. In this example, the ID is `1001`, between the first and second sets of letters.
 
@@ -141,13 +141,13 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Browse
 
-Use the [Get Programs](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) endpoint to browse programs.
+Use the [Get Programs](https://developer.adobe.com/marketo-apis/api/asset#operation/browseProgramsUsingGET) endpoint to browse programs.
 
 The optional `status` parameter filters Engagement and Email programs by status. Valid values are `on` and `off` for Engagement programs and `unlocked` for Email programs.
 
 The optional `maxReturn` parameter controls the number of programs returned. The default is 20, and the maximum is 200. Use the optional `offset` parameter for pagination; its default is 0.
 
-This endpoint does not return program tags. Retrieve tags with [Get Programs by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) or [Get Programs by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET).
+This endpoint does not return program tags. Retrieve tags with [Get Programs by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByIdUsingGET) or [Get Programs by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByNameUsingGET).
 
 ```http
 GET /rest/asset/v1/programs.json
@@ -202,7 +202,7 @@ GET /rest/asset/v1/programs.json
 
 ### By Date Range
 
-Use the `earliestUpdatedAt` and `latestUpdatedAt` parameters with [Get Programs](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) to set low and high date-time boundaries. The endpoint returns programs created or updated within the range.
+Use the `earliestUpdatedAt` and `latestUpdatedAt` parameters with [Get Programs](https://developer.adobe.com/marketo-apis/api/asset#operation/browseProgramsUsingGET) to set low and high date-time boundaries. The endpoint returns programs created or updated within the range.
 
 ```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
@@ -293,7 +293,7 @@ GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&lat
 
 ### By Tag Type
 
-The [Get Programs by Tag](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramListByTagUsingGET) endpoint returns programs that match the specified tag type and value.
+The [Get Programs by Tag](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramListByTagUsingGET) endpoint returns programs that match the specified tag type and value.
 
 The `tagType` and `tagValue` parameters are required. The optional integer `maxReturn` controls the number of programs returned; the default is 20, and the maximum is 200. Use the optional integer `offset` for pagination; its default is 0. Results are returned in random order.
 
@@ -335,9 +335,9 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Create and Update
 
-[Creating](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/createProgramUsingPOST) a program requires `folder`, `name`, `type`, and `channel`. The optional parameters are `description`, `costs`, and `tags`. Some subscriptions require tags for specific program types. Use Get Tags to check instance requirements.
+[Creating](https://developer.adobe.com/marketo-apis/api/asset#operation/createProgramUsingPOST) a program requires `folder`, `name`, `type`, and `channel`. The optional parameters are `description`, `costs`, and `tags`. Some subscriptions require tags for specific program types. Use Get Tags to check instance requirements.
 
-When [updating](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST), you can change only the description, name, `tags`, and `costs`. You can set the channel and type only during creation. Setting `costsDestructiveUpdate` to `true` clears all existing costs and replaces them with costs included in the request.
+When [updating](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST), you can change only the description, name, `tags`, and `costs`. You can set the channel and type only during creation. Setting `costsDestructiveUpdate` to `true` clears all existing costs and replaces them with costs included in the request.
 
 When creating or updating an Email Program, a `startDate` and `endDate` may also be passed as a UTC date/time:
 
@@ -505,7 +505,7 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 ## Clone
 
-[Cloning programs](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/cloneProgramUsingPOST) requires a new name and parent folder. The description is optional. The `name` must be globally unique and cannot exceed 255 characters.
+[Cloning programs](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneProgramUsingPOST) requires a new name and parent folder. The description is optional. The `name` must be globally unique and cannot exceed 255 characters.
 
 Set the `folder` parameter's type attribute to `Folder`. The target folder must be in the same workspace as the source program.
 

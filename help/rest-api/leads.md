@@ -73,7 +73,7 @@ GET /rest/v1/leads/describe.json
 
 Actual responses include more fields in the result array. Each item represents a field available on the lead record and contains at least an id, a displayName, and a datatype.
 
-The rest and soap child objects appear only when the field is valid for the corresponding API. The `readOnly` property indicates whether the corresponding API can update the field. When present, the length property gives the maximum field length, and the dataType property gives the field's data type.
+The REST child objects appear only when the field is valid for the corresponding API. The `readOnly` property indicates whether the corresponding API can update the field. When present, the length property gives the maximum field length, and the dataType property gives the field's data type.
 
 ## Query
 
@@ -178,7 +178,7 @@ The Leads API can create, update, and delete lead records. Create and update ope
 
 >[!NOTE]
 >
-> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) endpoint instead.
+> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST) endpoint instead.
 
 >[!NOTE]
 >

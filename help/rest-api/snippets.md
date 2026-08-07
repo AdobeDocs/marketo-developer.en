@@ -27,7 +27,7 @@ Snippets are reusable HTML components that can be embedded in emails and landing
 
 ## Query
 
-Query snippets [by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET). The API does not provide a query-by-name method. Both endpoints accept the `status` field to retrieve an approved or draft version.
+Query snippets [by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetByIdUsingGET) or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetUsingGET). The API does not provide a query-by-name method. Both endpoints accept the `status` field to retrieve an approved or draft version.
 
 ### By Id
 
@@ -153,7 +153,7 @@ The response contains sections of type `HTML` or `DynamicContent`. It can also c
 
 ## Create and Update
 
-Create the snippet asset and its content separately. First, call the [create snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST) endpoint. The description is optional. Pass data as `x-www-form-urlencoded`, not as JSON.
+Create the snippet asset and its content separately. First, call the [create snippet](https://developer.adobe.com/marketo-apis/api/asset#operation/createSnippetUsingPOST) endpoint. The description is optional. Pass data as `x-www-form-urlencoded`, not as JSON.
 
 ```http
 POST /rest/asset/v1/snippets.json
@@ -226,7 +226,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 
 ```
 
-To [update metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST), specify the snippet ID. You can update only the name and description.
+To [update metadata](https://developer.adobe.com/marketo-apis/api/asset#operation/updateSnippetUsingPOST), specify the snippet ID. You can update only the name and description.
 
 ```http
 POST /rest/asset/v1/snippet/{id}.json
@@ -417,7 +417,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Clone
 
-To [clone a snippet](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST), provide a name, the source snippet ID, and a folder. The description is optional. If the source has no approved version, the endpoint clones its draft.
+To [clone a snippet](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneSnippetUsingPOST), provide a name, the source snippet ID, and a folder. The description is optional. If the source has no approved version, the endpoint clones its draft.
 
 ```http
 POST /rest/asset/v1/snippet/{id}/clone.json

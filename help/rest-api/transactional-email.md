@@ -18,7 +18,7 @@ role_v2:
 ---
 # Transactional Email
 
-Use the [Request Campaign](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST) API to send transactional emails to specific Marketo records. Configure the email and trigger campaign before making the request.
+Use the [Request Campaign](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST) API to send transactional emails to specific Marketo records. Configure the email and trigger campaign before making the request.
 
 - Ensure that the recipient has a Marketo record.
 - Create and approve a transactional email in the Marketo instance.
@@ -54,7 +54,7 @@ The Java examples use the [minimal-json package](https://github.com/ralfstx/mini
 
 Before sending the email, confirm that a Marketo record exists for the email address and retrieve its lead ID. This example assumes that the email address already exists.
 
-Use [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) to retrieve the ID. The following main method then requests the campaign:
+Use [Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET) to retrieve the ID. The following main method then requests the campaign:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -272,4 +272,4 @@ Result:
 
 ## Wrapping Up
 
-This method is extensible in a multitude of ways, changing content in emails within individual layout sections, or outside emails, allowing custom values to be passed into tasks or interesting moments. Anywhere a token can be used from within a program can be customized using this method. Similar functionality is also available with the [Schedule Campaign](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) call which will allow you to process tokens across an entire batch campaign. These cannot be customized on a per lead basis, but are useful for customizing content across a wide set of leads.
+This method is extensible in a multitude of ways, changing content in emails within individual layout sections, or outside emails, allowing custom values to be passed into tasks or interesting moments. Anywhere a token can be used from within a program can be customized using this method. Similar functionality is also available with the [Schedule Campaign](https://developer.adobe.com/marketo-apis/api/mapi#operation/scheduleCampaignUsingPOST) call which will allow you to process tokens across an entire batch campaign. These cannot be customized on a per lead basis, but are useful for customizing content across a wide set of leads.

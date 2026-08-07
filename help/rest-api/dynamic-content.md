@@ -32,7 +32,7 @@ When a lead views the asset, Marketo displays the variation for the lead's segme
 
 This example uses a Region (US) segmentation to display an event promotion to leads in the Southwest segment. The segment includes leads from California, Nevada, Utah, Colorado, Arizona, and New Mexico.
 
-Use the [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST) endpoint to change the editable section with ID `Q1-promotion-banner` to a `DynamicContent` section. The `value` parameter specifies the segmentation ID.
+Use the [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailComponentContentUsingPOST) endpoint to change the editable section with ID `Q1-promotion-banner` to a `DynamicContent` section. The `value` parameter specifies the segmentation ID.
 
 Emails and landing pages follow this pattern. Snippets use the different pattern described in the Snippets API documentation.
 
@@ -60,7 +60,7 @@ type=DynamicContent&value=1001
 }
 ```
 
-Call the [Update Email Dynamic Content Section](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST) endpoint to add content for a segment in a specific section.
+Call the [Update Email Dynamic Content Section](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailDynamicContentUsingPOST) endpoint to add content for a segment in a specific section.
 
 The following request displays a special banner instead of the default content for leads in the Southwest segment. To create more variations, call the endpoint for each segment and section.
 

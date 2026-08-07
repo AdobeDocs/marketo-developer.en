@@ -148,7 +148,7 @@ The first line is the header. Lines 2–4 contain the custom object data records
 
 ## Creating a Job
 
-To create the bulk import job, include the custom object API name in the path to the [Import Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST) endpoint. Include these parameters:
+To create the bulk import job, include the custom object API name in the path to the [Import Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST) endpoint. Include these parameters:
 
 - `file`: The name of the import file.
 - `format`: The file delimiter format (`csv`, `tsv`, or `ssv`).
@@ -214,7 +214,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## Polling Job Status
 
-After creating the import job, poll it every 5–30 seconds. Pass the custom object API name and `batchId` in the path to the [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) endpoint.
+After creating the import job, poll it every 5–30 seconds. Pass the custom object API name and `batchId` in the path to the [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET) endpoint.
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -246,9 +246,9 @@ When the job is complete, the response lists the numbers of rows processed, fail
 
 ## Failures
 
-The `numOfRowsFailed` attribute in the [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) response indicates the number of failed rows. A value greater than zero means that failures occurred.
+The `numOfRowsFailed` attribute in the [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET) response indicates the number of failed rows. A value greater than zero means that failures occurred.
 
-Pass the custom object API name and `batchId` in the path to the [Get Import Custom Object Failures](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) endpoint. The endpoint returns a file with failure details. If no failure file exists, it returns an HTTP 404 status code.
+Pass the custom object API name and `batchId` in the path to the [Get Import Custom Object Failures](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectFailuresUsingGET) endpoint. The endpoint returns a file with failure details. If no failure file exists, it returns an HTTP 404 status code.
 
 To demonstrate a failure, modify the header by changing `vin` to ` vin`, adding a space between the comma and `vin`.
 
@@ -302,7 +302,7 @@ The response shows that the deduplication field `vin` is missing.
 
 The `numOfRowsWithWarning` attribute in the Get Import Custom Object Status response indicates the number of rows with warnings. A value greater than zero means that warnings occurred.
 
-Pass the custom object API name and `batchId` in the path to the [Get Import Custom Object Warnings](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) endpoint. The endpoint returns a file with warning details. If no warning file exists, it returns an HTTP 404 status code.
+Pass the custom object API name and `batchId` in the path to the [Get Import Custom Object Warnings](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectWarningsUsingGET) endpoint. The endpoint returns a file with warning details. If no warning file exists, it returns an HTTP 404 status code.
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

@@ -98,7 +98,7 @@ The key response fields are:
 
 ## Query
 
-The pattern for [querying opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET) closely follows the Leads API. However, the `filterType` parameter accepts only fields listed in the `searchableFields` array of the corresponding Describe response or dedupeFields.
+The pattern for [querying opportunities](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunitiesUsingGET) closely follows the Leads API. However, the `filterType` parameter accepts only fields listed in the `searchableFields` array of the corresponding Describe response or dedupeFields.
 
 For custom opportunity fields, only fields of type String or Integer appear in the searchableFields array.
 
@@ -220,7 +220,7 @@ Query one company field by API name or retrieve all company fields.
 
 #### By Name
 
-The [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) endpoint retrieves metadata for one field on the company object. The required `fieldApiName` path parameter specifies the field's API name.
+The [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldByNameUsingGET) endpoint retrieves metadata for one field on the company object. The required `fieldApiName` path parameter specifies the field's API name.
 
 The response resembles the Describe Opportunity response but includes additional metadata. For example, the `isCustom` attribute indicates whether the field is custom.
 
@@ -251,7 +251,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Browse
 
-The [Get Opportunity Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET) endpoint retrieves metadata for all fields on the company object. By default, it returns a maximum of 300 records. Use the `batchSize` query parameter to reduce this number.
+The [Get Opportunity Fields](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldsUsingGET) endpoint retrieves metadata for all fields on the company object. By default, it returns a maximum of 300 records. Use the `batchSize` query parameter to reduce this number.
 
 If the `moreResult` attribute is true, more results are available. Continue calling the endpoint with the returned `nextPageToken` until moreResult is false.
 

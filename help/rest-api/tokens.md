@@ -36,7 +36,7 @@ The API supports only these data types when creating a token.
 
 ## Query
 
-[Get Tokens by Folder ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/getTokensByFolderIdUsingGET) takes the ID of a program or folder as a path parameter. Use the `folderType` parameter to specify the type.
+[Get Tokens by Folder ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getTokensByFolderIdUsingGET) takes the ID of a program or folder as a path parameter. Use the `folderType` parameter to specify the type.
 
 ```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
@@ -70,7 +70,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Create and Update
 
-The [Create Token](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/addTokenTOFolderUsingPOST) endpoint creates a token or updates an existing token with the submitted values. Tokens belong to a folder or program.
+The [Create Token](https://developer.adobe.com/marketo-apis/api/asset#operation/addTokenTOFolderUsingPOST) endpoint creates a token or updates an existing token with the submitted values. Tokens belong to a folder or program.
 
 The `id` path parameter identifies the parent folder. The `name`, `type`, `value`, and `folderType` parameters are required. Pass the data as POST `x-www-form-urlencoded`, not as JSON. The token `name` cannot exceed 50 characters.
 
@@ -114,7 +114,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Delete
 
-[Delete Token by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/deleteTokenByNameUsingPOST) takes the ID of a program or folder as a path parameter. Use `folderType` to specify the type.
+[Delete Token by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteTokenByNameUsingPOST) takes the ID of a program or folder as a path parameter. Use `folderType` to specify the type.
 
 The parent folder, token `name`, and token `type` are required. Pass the data as POST `x-www-form-urlencoded`, not as JSON.
 
