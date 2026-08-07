@@ -24,7 +24,7 @@ Marketo file storage is not optimized for bandwidth-intensive applications. Use 
 
 ## Query
 
-Query files [by ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET).
+Query files [by ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByNameUsingGET), or by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/getFilesUsingGET).
 
 ### By Id
 
@@ -162,7 +162,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Create and Update
 
-Use a `multipart/form-data` request to [create a file](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST). The `name`, `folder`, and `file` parameters are required. The `description` and `insertOnly` parameters are optional. When true, `insertOnly` prevents the request from updating an existing file with the same name.
+Use a `multipart/form-data` request to [create a file](https://developer.adobe.com/marketo-apis/api/asset#operation/createFileUsingPOST). The `name`, `folder`, and `file` parameters are required. The `description` and `insertOnly` parameters are optional. When true, `insertOnly` prevents the request from updating an existing file with the same name.
 
 For the `file` parameter, include a `filename` in the `Content-Disposition` header. Also include the file's `Content-Type` header. Marketo uses this MIME type when serving the file.
 
@@ -218,7 +218,7 @@ This is a test file
 
 ```
 
-To [update a file](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST), specify its ID. The `file` parameter has the same requirements as file creation.
+To [update a file](https://developer.adobe.com/marketo-apis/api/asset#operation/updateContentUsingPOST), specify its ID. The `file` parameter has the same requirements as file creation.
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

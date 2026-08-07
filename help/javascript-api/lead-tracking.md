@@ -94,7 +94,7 @@ Marketo records subsequent web activity from that browser on the anonymous recor
 
 - The lead must visit a Munchkin-tracked page with an `mkt_tok` parameter in the query string from a tracked Marketo email link.
 - The lead must fill out a Marketo Form.
-- A REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST) call must be sent.
+- A REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi#operation/associateLeadUsingPOST) call must be sent.
 
 When one of these events occurs, Marketo associates the cookie and all related web activity with the known lead.
 

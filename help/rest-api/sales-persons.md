@@ -24,9 +24,9 @@ Sales Persons are person records that represent the sales owners of lead records
 
 Relate Sales Persons to other records by passing the externalSalesPersonId attribute to the corresponding endpoint:
 
-- Lead records: [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST).
-- Opportunity records: [Sync Opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST).
-- Company records: [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST).
+- Lead records: [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST).
+- Opportunity records: [Sync Opportunities](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncOpportunitiesUsingPOST).
+- Company records: [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST).
 
 Sales Person records are only editable via the API.
 

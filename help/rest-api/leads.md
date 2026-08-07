@@ -178,7 +178,7 @@ The Leads API can create, update, and delete lead records. Create and update ope
 
 >[!NOTE]
 >
-> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) endpoint instead.
+> Updating Company fields using [Sync Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST) endpoint is not supported. Use [Sync Companies](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST) endpoint instead.
 
 >[!NOTE]
 >

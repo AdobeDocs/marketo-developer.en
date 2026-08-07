@@ -66,15 +66,15 @@ Each API-enabled Marketo instance has a daily allocation of at least 10,000 REST
 
 Capacity is shared by all API services and users in an instance. Eliminate redundant calls and batch records into as few calls as possible.
 
-The most call-efficient import method is the Marketo bulk import API, available for [Leads/Persons](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) and [Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo also provides Bulk Extract for [Leads](bulk-lead-extract.md) and [Activities](bulk-activity-extract.md).
+The most call-efficient import method is the Marketo bulk import API, available for [Leads/Persons](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) and [Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST). Marketo also provides Bulk Extract for [Leads](bulk-lead-extract.md) and [Activities](bulk-activity-extract.md).
 
 ### Caching
 
 Results from the following operations can typically be cached on the client side for a day or more, as they change infrequently:
 
 - Results from Describe operations
-- [Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Partitions](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)
+- [Partitions](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadPartitionsUsingGET)
 
 For use cases such as lead or activity data enrichment, you can also cache asset types such as programs, emails, and folders.
 

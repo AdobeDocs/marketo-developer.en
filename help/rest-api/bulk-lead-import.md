@@ -21,7 +21,7 @@ topic_v2:
 
 [Bulk Lead Import Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-Use the [bulk API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) to import large numbers of lead records asynchronously. Provide the records in a comma-, tab-, or semicolon-delimited flat file that is less than 10 MB.
+Use the [bulk API](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) to import large numbers of lead records asynchronously. Provide the records in a comma-, tab-, or semicolon-delimited flat file that is less than 10 MB.
 
 Bulk lead import supports only the "insert or update" record operation.
 

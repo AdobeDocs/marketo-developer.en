@@ -35,7 +35,7 @@ Each record contains standard fields and can contain up to 20 custom fields. The
 
 ## Describe
 
-The [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) endpoint follows the standard pattern for Lead Database objects.
+The [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2) endpoint follows the standard pattern for Lead Database objects.
 
 - The `searchableFields` array identifies fields that are valid for queries.
 - The `fields` array contains metadata such as the REST API name, display name, and whether the field is updateable.
@@ -229,11 +229,11 @@ GET /rest/v1/programs/members/describe.json
 
 ## Query
 
-Use the [Get Program Members](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMembersUsingGET) endpoint to retrieve members of a program. The request requires a `programId` path parameter and `filterType` and `filterValues` query parameters.
+Use the [Get Program Members](https://developer.adobe.com/marketo-apis/api/mapi#operation/getProgramMembersUsingGET) endpoint to retrieve members of a program. The request requires a `programId` path parameter and `filterType` and `filterValues` query parameters.
 
 `programId` specifies the program to search.
 
-`filterType` specifies the field to use as the search filter. It accepts any field in the "searchableFields" list returned by the [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) endpoint. For a custom field, the dataType must be either "string" or "integer".
+`filterType` specifies the field to use as the search filter. It accepts any field in the "searchableFields" list returned by the [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2) endpoint. For a custom field, the dataType must be either "string" or "integer".
 
 When filterType is not "leadId", the request can process a maximum of 100,000 program member records. Depending on your Marketo instance configuration, you receive one of these errors:
 
@@ -246,7 +246,7 @@ To query a program whose membership count exceeds the limit, use the [Bulk Progr
 
 Alternatively, filter by date range by specifying `updatedAt` as filterType and providing the `startAt` and `endAt` datetime parameters. The range must be seven days or fewer. Use ISO-8601 format without milliseconds for datetime values.
 
-The optional `fields` query parameter accepts a comma-separated list of field API names returned by the [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) endpoint. When included, each response record contains the specified fields. When omitted, the response returns `acquiredBy`, `leadId`, `membershipDate`, `programId`, and `reachedSuccess` by default.
+The optional `fields` query parameter accepts a comma-separated list of field API names returned by the [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2) endpoint. When included, each response record contains the specified fields. When omitted, the response returns `acquiredBy`, `leadId`, `membershipDate`, `programId`, and `reachedSuccess` by default.
 
 By default, the endpoint returns a maximum of 300 records. Use the `batchSize` query parameter to reduce this number.
 
@@ -375,12 +375,12 @@ Each endpoint can modify up to 300 program member records per call.
 
 ### Program Member Status
 
-Use the [Sync Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) endpoint to create or update the program status for one or more members.
+Use the [Sync Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncProgramMemberStatusUsingPOST) endpoint to create or update the program status for one or more members.
 
 The required parameters are:
 
 - `programId`: A path parameter that specifies the program containing members to create or update.
-- `statusName`: Specifies the program status to apply to a list of leads. The statusName must match an available status for the program's channel. Retrieve valid statuses with the [Get Channels](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels/operation/getAllChannelsUsingGET) endpoint. If a lead's status has a greater step value than the designated statusName, the request skips that lead.
+- `statusName`: Specifies the program status to apply to a list of leads. The statusName must match an available status for the program's channel. Retrieve valid statuses with the [Get Channels](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllChannelsUsingGET) endpoint. If a lead's status has a greater step value than the designated statusName, the request skips that lead.
 - `input`: An array of `leadId` values that correspond to program members. You can submit up to 300 leadIds per call.
 
 The endpoint performs an upsert on each record. If the leadId is associated with a program member, the endpoint updates its membership status. Otherwise, it creates a program member record, associates the record with the leadId, and assigns the membership status.
@@ -445,7 +445,7 @@ Content-Type: application/json
 
 ### Program Member Data
 
-Use the [Sync Program Member Data](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberDataUsingPOST) endpoint to update program member field data for one or more members. You can modify any custom field or any standard field marked as "updateable" by the [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) endpoint.
+Use the [Sync Program Member Data](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncProgramMemberDataUsingPOST) endpoint to update program member field data for one or more members. You can modify any custom field or any standard field marked as "updateable" by the [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2) endpoint.
 
 The required parameters are:
 
@@ -528,7 +528,7 @@ Query one program member field by API name or retrieve all program member fields
 
 #### By Name
 
-The [Get Program Member Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) endpoint retrieves metadata for one field on the program member object. The required `fieldApiName` path parameter specifies the field's API name.
+The [Get Program Member Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#operation/getProgramMemberFieldByNameUsingGET) endpoint retrieves metadata for one field on the program member object. The required `fieldApiName` path parameter specifies the field's API name.
 
 The response resembles the Describe Program Member response but includes additional metadata. For example, the `isCustom` attribute indicates whether the field is custom.
 
@@ -559,7 +559,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 #### Browse
 
-The [Get Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) endpoint retrieves metadata for all fields on the program member object. By default, it returns a maximum of 300 records. Use the `batchSize` query parameter to reduce this number.
+The [Get Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#operation/getProgramMemberFieldsUsingGET) endpoint retrieves metadata for all fields on the program member object. By default, it returns a maximum of 300 records. Use the `batchSize` query parameter to reduce this number.
 
 If the `moreResult` attribute is true, more results are available. Continue calling the endpoint with the returned `nextPageToken` until moreResult is false.
 
@@ -637,7 +637,7 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Create Fields
 
-The [Create Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) endpoint creates custom fields on the program member object. It provides functionality comparable to the [Marketo Engage UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). You can create up to 20 custom fields with this endpoint.
+The [Create Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#operation/createProgramMemberFieldUsingPOST) endpoint creates custom fields on the program member object. It provides functionality comparable to the [Marketo Engage UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). You can create up to 20 custom fields with this endpoint.
 
 Carefully consider each field before creating it in a production Marketo Engage instance. After you create a field, you cannot delete it; [you can only hide it](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo). Unused fields add clutter to the instance.
 
@@ -685,7 +685,7 @@ POST /rest/v1/programs/members/schema/fields.json
 
 ### Update Field
 
-The [Update Program Member Field](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) endpoint updates one custom field on the program member object. Most field updates available in the Marketo Engage UI are also available through the API. The following table summarizes the differences.
+The [Update Program Member Field](https://developer.adobe.com/marketo-apis/api/mapi#operation/updateProgramMemberFieldUsingPOST) endpoint updates one custom field on the program member object. Most field updates available in the Marketo Engage UI are also available through the API. The following table summarizes the differences.
 
 | Attribute | Updatable by API? | Updatable by UI? | Updatable by API? | Updatable by UI? |
 | --- | --- | --- | --- | --- |
@@ -735,7 +735,7 @@ POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
 
 ## Delete
 
-Use the [Delete Program Members](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/deleteProgramMemberUsingPOST) endpoint to delete program member records. The required `programId` path parameter specifies the program containing the members to delete.
+Use the [Delete Program Members](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteProgramMemberUsingPOST) endpoint to delete program member records. The required `programId` path parameter specifies the program containing the members to delete.
 
 The request body contains an `input` array of lead IDs. Each call permits a maximum of 300 lead IDs.
 

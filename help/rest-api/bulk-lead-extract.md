@@ -52,7 +52,7 @@ The Create Export Lead Job endpoint provides options to select exported fields, 
 
 ## Creating a Job
 
-Use the [Create Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) endpoint to define an export job. Specify the `fields` to export, one `filter` type and its parameters, the file `format`, and any custom column header names.
+Use the [Create Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportLeadsUsingPOST) endpoint to define an export job. Specify the `fields` to export, one `filter` type and its parameters, the file `format`, and any custom column header names.
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -100,7 +100,7 @@ This request creates an export job for leads created between January 1, 2017, an
 }
 ```
 
-The response confirms that the job is created but not started. To start the job, call the [Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) endpoint with the `exportId` from the creation response.
+The response confirms that the job is created but not started. To start the job, call the [Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportLeadsUsingPOST) endpoint with the `exportId` from the creation response.
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -128,7 +128,7 @@ The enqueue response has a `status` of "Queued". When an export slot becomes ava
 
 You can retrieve status only for jobs created by the same API user.
 
-Lead export jobs run asynchronously. Poll the [Get Export Lead Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) endpoint to track the job's progress.
+Lead export jobs run asynchronously. Poll the [Get Export Lead Job Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET) endpoint to track the job's progress.
 
 The status updates only once every 60 seconds. Do not poll more frequently; in nearly all cases, that interval is still excessive.
 
@@ -165,7 +165,7 @@ The `status` field can return any of the following values:
 
 ## Retrieving Your Data
 
-To retrieve a completed lead export, call the [Get Export Lead File](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) endpoint with the `exportId`.
+To retrieve a completed lead export, call the [Get Export Lead File](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsFileUsingGET) endpoint with the `exportId`.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -184,7 +184,7 @@ For partial or resumable retrieval, the file endpoint supports the optional HTTP
 
 ## Canceling a Job
 
-To cancel an incorrectly configured or unnecessary job, call the [Cancel Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) endpoint.
+To cancel an incorrectly configured or unnecessary job, call the [Cancel Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportLeadsUsingPOST) endpoint.
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json

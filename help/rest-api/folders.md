@@ -30,7 +30,7 @@ Use the Folders API to create, query, update, and delete folders or retrieve the
 
 ## Query
 
-Folders support the standard asset query patterns: [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET), and by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
+Folders support the standard asset query patterns: [by id](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET), and by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET).
 
 ### By Id
 
@@ -87,7 +87,7 @@ Folder types include:
 
 ### By Name
 
-The [query by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) endpoint requires `name`, which performs an exact match against folder names and returns every matching folder.
+The [query by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) endpoint requires `name`, which performs an exact match against folder names and returns every matching folder.
 
 The endpoint also accepts these optional parameters:
 
@@ -137,12 +137,12 @@ Marketing Activities and Design Studio are root folders. Retrieve either root by
 
 ### Browse
 
-You can also [retrieve folders in bulk](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Use the `root` parameter to specify the parent folder under which to query. Pass `root` as an embedded JSON object with two members:
+You can also [retrieve folders in bulk](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET). Use the `root` parameter to specify the parent folder under which to query. Pass `root` as an embedded JSON object with two members:
 
 1. `id`: The ID of the folder or program.
 1. `type`: Either `Folder` or `Program`, depending on the root folder type.
 
-If you do not know the root folder or want to retrieve all folders in an area, use the Marketing Activities, Design Studio, or Lead Database root. Retrieve the root ID by passing the area name to the [Get Folder By Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) API.
+If you do not know the root folder or want to retrieve all folders in an area, use the Marketing Activities, Design Studio, or Lead Database root. Retrieve the root ID by passing the area name to the [Get Folder By Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) API.
 
 As with other bulk asset retrieval endpoints, use the optional `offset` and `maxReturn` parameters for pagination. Other optional parameters are:
 
@@ -240,7 +240,7 @@ The `url` field contains the asset URL for the designated instance. It is not a 
 
 ## Create and Update
 
-To [create a folder](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST), send an `application/x-www-form-urlencoded` POST request with these parameters:
+To [create a folder](https://developer.adobe.com/marketo-apis/api/asset#operation/createFolderUsingPOST), send an `application/x-www-form-urlencoded` POST request with these parameters:
 
 - `name`: Required string containing the folder name.
 - `parent`: Required embedded JSON object containing `id` and `type`. The type is `Folder` or `Program`, depending on the parent.

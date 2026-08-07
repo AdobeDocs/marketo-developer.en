@@ -20,7 +20,7 @@ Marketo provides paging tokens to page through results or retrieve data updated 
 
 Some responses return long paging token strings, which can cause an HTTP 414 error. See information about handling these [errors](error-codes.md).
 
-See the [Paging Token API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) documentation.
+See the [Paging Token API](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET) documentation.
 
 ## Token Types
 
@@ -33,7 +33,7 @@ Marketo provides two related but distinct types of paging tokens:
 
 A date-based paging token represents a datetime. Use it to retrieve activities, data value changes, and deleted leads that occur after that datetime.
 
-Generate a date-based token by calling the [Get Paging Token](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) endpoint with a datetime:
+Generate a date-based token by calling the [Get Paging Token](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET) endpoint with a datetime:
 
 ```http
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -65,7 +65,7 @@ For example:
 
 Because `sinceDateTime` is a query parameter, URL-encode its value.
 
-Pass the returned `nextPageToken` string to a [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET), [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET), or [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) call. The call retrieves records that occur after the datetime supplied to the Get Paging Token API.
+Pass the returned `nextPageToken` string to a [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET), [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET), or [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/getDeletedLeadsUsingGET) call. The call retrieves records that occur after the datetime supplied to the Get Paging Token API.
 
 ```http
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12

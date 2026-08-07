@@ -49,7 +49,7 @@ Some subscriptions do not support this filter type. If it is unavailable, the Cr
 
 ## Options
 
-The [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) endpoint provides options to:
+The [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportCustomObjectsUsingPOST) endpoint provides options to:
 
 - Specify the fields to include in the export file.
 - Rename the exported column headers.
@@ -63,11 +63,11 @@ The [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/a
 
 ## Creating a Job
 
-Use the [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) endpoint to define the export job.
+Use the [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportCustomObjectsUsingPOST) endpoint to define the export job.
 
 The request uses these parameters:
 
-- `apiName`: Required path parameter. Specifies the Marketo custom object to export, using the name returned by the [Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) endpoint. CRM custom objects are not allowed.
+- `apiName`: Required path parameter. Specifies the Marketo custom object to export, using the name returned by the [Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) endpoint. CRM custom objects are not allowed.
 - `filter`: Required. Specifies the linked leads by referencing a static list or smart list.
 - `fields`: Required. Specifies the API names of the custom object attributes to include in the export file.
 - `format`: Optional. Specifies the export file format.
@@ -83,7 +83,7 @@ Custom Object Fields
 
 ![Custom Object Fields](assets/custom-object-car-fields.png)
 
-Call [Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) to inspect custom object attributes programmatically. The response returns the attributes in `fields`.
+Call [Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) to inspect custom object attributes programmatically. The response returns the attributes in `fields`.
 
 ```http
 GET /rest/v1/customobjects/car_c/describe.json
@@ -193,7 +193,7 @@ GET /rest/v1/customobjects/car_c/describe.json
 }
 ```
 
-Use the [Sync Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) endpoint to create custom object records and link each one to a lead. A lead can be linked to multiple custom object records, creating a one-to-many relationship.
+Use the [Sync Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST) endpoint to create custom object records and link each one to a lead. A lead can be linked to multiple custom object records, creating a one-to-many relationship.
 
 ```http
 POST /rest/v1/customobjects/car_c.json
@@ -252,7 +252,7 @@ POST /rest/v1/customobjects/car_c.json
 }
 ```
 
-The three leads in this example belong to the `Car Buyers` static list, which has an `id` of 1081. Call the [Get Leads by List Id](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1) endpoint to retrieve the list members.
+The three leads in this example belong to the `Car Buyers` static list, which has an `id` of 1081. Call the [Get Leads by List Id](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1) endpoint to retrieve the list members.
 
 ```http
 GET /rest/v1/lists/1081/leads.json
@@ -291,7 +291,7 @@ GET /rest/v1/lists/1081/leads.json
 }
 ```
 
-To retrieve these records, call the [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) endpoint. Specify the custom object attributes in `fields` and the static list ID in `filter`.
+To retrieve these records, call the [Create Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportCustomObjectsUsingPOST) endpoint. Specify the custom object attributes in `fields` and the static list ID in `filter`.
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/create.json
@@ -328,7 +328,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-The response confirms that the job is created, but the export does not start automatically. Pass `apiName` and the returned `exportId` to the [Enqueue Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) endpoint to start the job.
+The response confirms that the job is created, but the export does not start automatically. Pass `apiName` and the returned `exportId` to the [Enqueue Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportCustomObjectsUsingPOST) endpoint to start the job.
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -356,7 +356,7 @@ The enqueue response initially returns a `Queued` status. When an export slot be
 
 You can retrieve the status only for jobs created by the same API user.
 
-Because the export runs asynchronously, use the [Get Export Custom Object Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET) endpoint to poll its progress. The status updates only once every 60 seconds, so do not poll more frequently.
+Because the export runs asynchronously, use the [Get Export Custom Object Job Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportCustomObjectsStatusUsingGET) endpoint to poll its progress. The status updates only once every 60 seconds, so do not poll more frequently.
 
 The status can be `Created`, `Queued`, `Processing`, `Canceled`, `Completed`, or `Failed`.
 
@@ -406,7 +406,7 @@ This response shows that the job is still processing, so the file is not availab
 
 ## Retrieving Your Data
 
-To retrieve a completed custom object export, pass `apiName` and `exportId` to the [Get Export Custom Object File](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET) endpoint.
+To retrieve a completed custom object export, pass `apiName` and `exportId` to the [Get Export Custom Object File](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportCustomObjectsFileUsingGET) endpoint.
 
 The endpoint returns the file in the format configured for the job. If a requested custom object attribute contains no data, the corresponding export field contains `null`.
 
@@ -425,7 +425,7 @@ For partial or resumable retrieval, the file endpoint supports the optional HTTP
 
 ## Canceling a Job
 
-To cancel a job that is configured incorrectly or is no longer needed, call the [Cancel Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST) endpoint. The response status indicates that the job is canceled.
+To cancel a job that is configured incorrectly or is no longer needed, call the [Cancel Export Custom Object Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportCustomObjectsUsingPOST) endpoint. The response status indicates that the job is canceled.
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/cancel.json

@@ -42,11 +42,11 @@ Use the forms endpoints to manage forms from remote systems. A form can include 
 
 ## Query
 
-Forms support the standard asset retrieval methods: [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET), and by [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET). A form response contains every form property except the field list.
+Forms support the standard asset retrieval methods: [by id](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET), and by [browsing](https://developer.adobe.com/marketo-apis/api/asset#operation/browseForms2UsingGET). A form response contains every form property except the field list.
 
 ### By ID
 
-Pass a form `id` as a path parameter to [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET). The endpoint returns the matching form record.
+Pass a form `id` as a path parameter to [Get Form by Id](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET). The endpoint returns the matching form record.
 
 ```http
 GET /rest/asset/v1/form/{id}.json
@@ -101,7 +101,7 @@ GET /rest/asset/v1/form/{id}.json
 
 ### By Name
 
-Pass a form `name` to [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET). The endpoint returns the matching form record.
+Pass a form `name` to [Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET). The endpoint returns the matching form record.
 
 ```http
 GET /rest/asset/v1/form/byName.json?name=newForm
@@ -155,7 +155,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 ### Browse
 
-[Get Forms](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET) follows the standard Asset API browse pattern. It supports these optional filters:
+[Get Forms](https://developer.adobe.com/marketo-apis/api/asset#operation/browseForms2UsingGET) follows the standard Asset API browse pattern. It supports these optional filters:
 
 - `status`: Filters by `approved`, `approved with draft`, or `draft`.
 - `maxReturn`: Limits the number of returned records.
@@ -336,7 +336,7 @@ Before updating or deleting fields or changing their behavior, retrieve the form
 
 ### Dependencies
 
-Pass a form `id` as a path parameter to [Get Form Used By](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getFormUsedByUsingGET). The endpoint returns assets that depend on the form.
+Pass a form `id` as a path parameter to [Get Form Used By](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormUsedByUsingGET). The endpoint returns assets that depend on the form.
 
 The following asset types can use forms:
 
@@ -370,7 +370,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## Create and Update
 
-To [create a form](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/createLpFormsUsingPOST), provide two required fields:
+To [create a form](https://developer.adobe.com/marketo-apis/api/asset#operation/createLpFormsUsingPOST), provide two required fields:
 
 - The parent folder of the form.
 - The form name.
@@ -436,7 +436,7 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 
 ```
 
-To [update a form](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormsUsingPOST), pass its ID. During creation or update, you can set the base styling parameters that control how the form appears to the user.
+To [update a form](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFormsUsingPOST), pass its ID. During creation or update, you can set the base styling parameters that control how the form appears to the user.
 
 ```http
 POST /rest/asset/v1/form/736.json
@@ -502,7 +502,7 @@ The create and update form endpoints do not modify known visitor or thank-you pa
 
 Before adding or editing form fields, retrieve the valid fields for the target instance. Field operations use the `id` property returned for each field.
 
-For lead fields, use the [Get Available Form Fields](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllFieldsUsingGET) endpoint. The response includes each field's data type and the default metadata applied when the field is added to a form.
+For lead fields, use the [Get Available Form Fields](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllFieldsUsingGET) endpoint. The response includes each field's data type and the default metadata applied when the field is added to a form.
 
 ```http
 GET /rest/asset/v1/form/fields.json
@@ -635,7 +635,7 @@ GET /rest/asset/v1/form/fields.json
 
 ```
 
-For Program Member custom fields, call the [Get Available Form Program Member Fields](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET) endpoint. The response includes Program Member custom field data types and default metadata.
+For Program Member custom fields, call the [Get Available Form Program Member Fields](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllProgramMemberFieldsUsingGET) endpoint. The response includes Program Member custom field data types and default metadata.
 
 To use these fields, the form must be under a Program, not in Design Studio. A Landing Page that contains a form with these fields must also be under a Program. It cannot be in or cloned into Design Studio.
 
@@ -676,7 +676,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 Each form has an editable list of fields displayed to the user when the form loads. Use the corresponding endpoint to add, update, or delete one field at a time.
 
-To [add a field](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldToAFormUsingPOST), provide the parent form ID and the field `fieldId`. All other properties are empty or use defaults based on the field's data type and metadata.
+To [add a field](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldToAFormUsingPOST), provide the parent form ID and the field `fieldId`. All other properties are empty or use defaults based on the field's data type and metadata.
 
 Send the data as a POST with `application/x-www-form-urlencoded`, not as JSON.
 
@@ -844,7 +844,7 @@ Use the Add Field to Form response to determine how to format a complex form fie
 
 ### Rearranging Field
 
-Use the [Change Form Field Positions](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) endpoint to rearrange all form fields as a single unit. The endpoint requires `positions`, a JSON array of objects with three members:
+Use the [Change Form Field Positions](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST) endpoint to rearrange all form fields as a single unit. The endpoint requires `positions`, a JSON array of objects with three members:
 
 - `columnNumber`
 - `rowNumber`
@@ -885,7 +885,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### Rich Text
 
-Use a [separate endpoint](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addRichTextFieldUsingPOST) to add rich text fields. Pass the content as HTML in a `multipart/form-data` request. The HTML must not contain scripts, meta tags, or link tags.
+Use a [separate endpoint](https://developer.adobe.com/marketo-apis/api/asset#operation/addRichTextFieldUsingPOST) to add rich text fields. Pass the content as HTML in a `multipart/form-data` request. The HTML must not contain scripts, meta tags, or link tags.
 
 ```http
 POST /rest/asset/v1/form/{id}/richText.json
@@ -929,7 +929,7 @@ A fieldset is an optional group of fields. The top-level field list treats a fie
 
 A field must be unique within the form. The same field cannot appear in both the form's parent field list and a child fieldset.
 
-Add a fieldset with the [Add Fieldset to Form](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST) endpoint. The fieldset then appears in the [Get Fields for Form](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET) response. To add fields to the fieldset, use [Update Field Positions](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) to move them into its `fieldList`.
+Add a fieldset with the [Add Fieldset to Form](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldSetUsingPOST) endpoint. The fieldset then appears in the [Get Fields for Form](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormFieldByFormVidUsingGET) response. To add fields to the fieldset, use [Update Field Positions](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST) to move them into its `fieldList`.
 
 For these endpoints, send the data as a POST with `application/x-www-form-urlencoded`, not as JSON.
 
@@ -977,7 +977,7 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 
 ```
 
-For the complete list of operators, see [Add Form Field Visibility Rules](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST).
+For the complete list of operators, see [Add Form Field Visibility Rules](https://developer.adobe.com/marketo-apis/api/asset#operation/addFormFieldVisibilityRuleUsingPOST).
 
 ## Followup
 
@@ -989,7 +989,7 @@ The `followupType` value can be `lp` or `url`. The `lp` value indicates that `fo
 
 ## Submit Button
 
-Use the [Update Submit Button](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormSubmitButtonUsingPOST) endpoint to modify submit button styling. You can update `buttonPosition`, `buttonStyle`, `label`, and `waitingLabel`. The `waitingLabel` appears while submission is pending.
+Use the [Update Submit Button](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFormSubmitButtonUsingPOST) endpoint to modify submit button styling. You can update `buttonPosition`, `buttonStyle`, `label`, and `waitingLabel`. The `waitingLabel` appears while submission is pending.
 
 This is a destructive update.
 

@@ -16,7 +16,7 @@ role_v2:
 ---
 # Opportunity Roles
 
-[Opportunity Roles Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Opportunity Roles Endpoint Reference](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityRolesUsingGET)
 
 The intermediate `opportunityRole` object links leads to opportunities.
 

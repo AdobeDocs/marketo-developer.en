@@ -84,7 +84,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Update
 
-Use the [Update Program Tag](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST) endpoint to update the value for a tag type. All parameters are required:
+Use the [Update Program Tag](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST) endpoint to update the value for a tag type. All parameters are required:
 
 - The `id` path parameter specifies the program id.
 - The `tagType` path parameter specifies the tag type to update.
@@ -108,11 +108,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-To update multiple tags, use the [Update Program Metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST) endpoint. See the example in the [Programs update section](programs.md#update).
+To update multiple tags, use the [Update Program Metadata](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST) endpoint. See the example in the [Programs update section](programs.md#update).
 
 ## Delete
 
-Use the [Delete Program Tag](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST) endpoint to delete a non-required tag type. The `id` path parameter specifies the program id, and the `tagType` path parameter specifies the tag type to delete.
+Use the [Delete Program Tag](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteProgramUsingPOST) endpoint to delete a non-required tag type. The `id` path parameter specifies the program id, and the `tagType` path parameter specifies the tag type to delete.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

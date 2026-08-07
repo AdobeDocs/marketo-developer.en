@@ -54,7 +54,7 @@ The bulk import response does not indicate whether an individual record was upda
 
 ## Creating a Job
 
-Create a lead import job by calling the [Import Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) endpoint. This endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
+Create a lead import job by calling the [Import Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) endpoint. This endpoint uses [multipart/form-data as the content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
 
 Use an HTTP support library for your preferred language to construct the multipart request. You can also use [curl](https://curl.se/) to get started.
 
@@ -109,7 +109,7 @@ Each job creation endpoint shares parameters for configuring the import file. An
 
 ## Polling Job Status
 
-Pass the `batchId` to the [Get Import Lead Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) endpoint to retrieve the job status.
+Pass the `batchId` to the [Get Import Lead Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadStatusUsingGET) endpoint to retrieve the job status.
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -141,7 +141,7 @@ In this example, the job is complete, so polling can stop.
 
 The `numOfRowsFailed` attribute in the Get Import Lead Status response indicates the number of failed rows. A value greater than zero means that failures occurred.
 
-To retrieve the failed records and their causes, use the [Get Import Lead Failures](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) endpoint.
+To retrieve the failed records and their causes, use the [Get Import Lead Failures](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadFailuresUsingGET) endpoint.
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json

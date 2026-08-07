@@ -17,5 +17,5 @@ role_v2:
 # SOAP FAQ
 
 As of July 31st, 2026, SOAP functionality has been removed.
-Use the [REST API](../rest-api/endpoint-reference.md) to communicate with Marketo.
+Use the [REST API](rest-api/list-of-standard-fields.md) to communicate with Marketo.
 

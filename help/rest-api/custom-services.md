@@ -19,7 +19,7 @@ topic_v2:
 ---
 # Custom Services
 
-A Custom Service provides the credentials used to authenticate with Marketo and obtain an access token from the Marketo [Identity service](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Each Custom Service is scoped to one API-Only user and derives its permissions from that user.
+A Custom Service provides the credentials used to authenticate with Marketo and obtain an access token from the Marketo [Identity service](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET). Each Custom Service is scoped to one API-Only user and derives its permissions from that user.
 
 ## Roles
 
@@ -77,7 +77,7 @@ Give the service a descriptive name. From the "Service" list, select "Custom". E
 
 The service appears in the list of LaunchPoint services with a "View Details" option. Select "View Details" to access the Client Id, Client Secret, owning user, and Get Token option.
 
-Use Get Token for short-term testing. The token has the same lifetime as tokens obtained from the [Identity service](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) and is valid for 3,600 seconds after creation.
+Use Get Token for short-term testing. The token has the same lifetime as tokens obtained from the [Identity service](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET) and is valid for 3,600 seconds after creation.
 
 ![Get Token](assets/get-token.png)
 

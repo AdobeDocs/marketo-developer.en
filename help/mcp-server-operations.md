@@ -22,17 +22,17 @@ topic_v2:
 
 # [!DNL Marketo Engage] MCP operations
 
-The following operations are available through the [!DNL Marketo Engage] MCP server. The server generally provides read-only or non-destructive endpoints. The AI system cannot use `Delete` or other destructive operations.
+The following operations are available through the [!DNL Marketo Engage] MCP server. The server provides read-only or non-destructive endpoints. The AI system cannot use `Delete` or other destructive operations.
 
 >[!NOTE]
 >
->The MCP Server team is working on enabling the Smart List and Smart Campaign Asset APIs to work with the MCP Server. The bulk of this work, including allowlisting Activities, Actions and Rules, is expected to be complete in Q3 2026.
+>The MCP Server team is working on enabling the Smart List and Smart Campaign Asset APIs to work with the MCP Server. This work, including allowlisting items, is expected to be finished in Q3 2026.
 
 For information on how data is handled with Marketo AI and the Marketo Engage MCP server, see the [Data Information](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information) page.
 
 ## Bulk export
 
-[Bulk export API reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export){target="_blank"}
+[Bulk export API reference](https://developer.adobe.com/marketo-apis/api/mapi){target="_blank"}
 
 - `bulk_export_create`
 - `bulk_export_enqueue`
@@ -42,7 +42,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Channels and tags
 
-[Channels API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels){target="_blank"} | [Tags API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags){target="_blank"}
+[Channels API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels){target="_blank"} | [Tags API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags){target="_blank"}
 
 - `browse_channels`
 - `browse_tag_types`
@@ -51,7 +51,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Emails
 
-[Emails API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails){target="_blank"}
+[Emails API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails){target="_blank"}
 
 - `approve_email`
 - `browse_emails`
@@ -63,7 +63,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Folders
 
-[Folders API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders){target="_blank"}
+[Folders API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders){target="_blank"}
 
 - `browse_folders`
 - `create_folder`
@@ -75,7 +75,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Forms
 
-[Forms API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms){target="_blank"}
+[Forms API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms){target="_blank"}
 
 - `add_field_set`
 - `add_field_to_form`
@@ -103,7 +103,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Leads
 
-[Leads API reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads){target="_blank"}
+[Leads API reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads){target="_blank"}
 
 - `add_leads_to_list`
 - `describe_lead`
@@ -115,7 +115,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Programs
 
-[Programs API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs){target="_blank"}
+[Programs API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs){target="_blank"}
 
 - `approve_program`
 - `browse_email_batch_programs`
@@ -138,7 +138,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Smart campaigns
 
-[Smart campaigns API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns){target="_blank"}
+[Smart campaigns API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns){target="_blank"}
 
 - `activate_smart_campaign`
 - `add_flow_step`
@@ -164,7 +164,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Smart lists
 
-[Smart lists API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists){target="_blank"}
+[Smart lists API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists){target="_blank"}
 
 - `add_smart_list_rule`
 - `browse_smart_lists`
@@ -184,7 +184,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Snippets
 
-[Snippets API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets){target="_blank"}
+[Snippets API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets){target="_blank"}
 
 - `approve_snippet`
 - `browse_snippets`
@@ -203,7 +203,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Static lists
 
-[Static lists API reference](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists){target="_blank"}
+[Static lists API reference](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists){target="_blank"}
 
 - `browse_lists`
 - `create_list`
@@ -215,7 +215,7 @@ For information on how data is handled with Marketo AI and the Marketo Engage MC
 
 ## Tokens
 
-[Tokens API reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens){target="_blank"}
+[Tokens API reference](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens){target="_blank"}
 
 - `create_calendar_token`
 - `create_token`

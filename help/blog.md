@@ -8061,7 +8061,7 @@ In the Fall 2016 release, we are adding CRUD support for Email v2 variables and 
 
 ### Asset APIs
 
-* [**Email**](https://developer.adobe.com/marketo-apis/api/asset#operation/describeUsingGET_5)
+* [**Email**](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails)
   * New endpoints for manipulating Email v2 variables
   * New endpoints for manipulating Email v2 modules
   * Known Issues:
@@ -9768,7 +9768,7 @@ In October 2021 we are enhancing existing REST APIs, and resolving several defec
 
 ### Defect Resolutions
 
-* Fixed issue with [User Management](/help/rest-api/user-management.md) API. Pertains to Marketo users that are configured for use with [Sales Insight](https://business.adobe.com/products/marketo/sales-insight.html). These users are now returned by the [Get Users](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET) endpoint, and these users may now be deleted using the [Delete User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST) endpoint. [LM-155864]
+* Fixed issue with [User Management](/help/rest-api/user-management.md) API. Pertains to Marketo users that are configured for use with [Sales Insight](https://business.adobe.com/products/marketo/sales-insight.html). These users are now returned by the [Get Users](https://developer.adobe.com/marketo-apis/api/user#) endpoint, and these users may now be deleted using the [Delete User](https://developer.adobe.com/marketo-apis/api/user#) endpoint. [LM-155864]
 * Fixed issue with Add [Rich Text Field](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/addRichTextFieldUsingPOST) endpoint. When adding a rich text field that is longer than 65k characters to an email, landing page, snippet, or form, it returned a "611, System Error". It now returns error "701, Operation cannot be completed. 'content' exceeds a maximum length of 65,535 bytes".
 
 Posted on _2021-10-25_ by _David_
@@ -9789,7 +9789,7 @@ In January 2022 we are enhancing existing REST APIs, and resolving several defec
 * Fixed latency issue between time of call to [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi#operation/createLeadFieldUsingPOST) endpoint and time when newly created lead field was available in smart list. [LM-152838]
 * Fixed issue with the [Create Lead Fields](https://developer.adobe.com/marketo-apis/api/mapi#operation/createLeadFieldUsingPOST) endpoint where created fields were not available in the form fields dropdown list used to [add fields to form](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form) in Marketo Engage UI. [LM-158243]
 * Fixed issue with the [Get Campaigns](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCampaignsUsingGET) endpoint where triggerable campaigns were not returned when the isTriggerable=true parameter was specified. [LM-158283]
-* Fixed issue where [Get Leads by List Id](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteTokenByNameUsingPOST) endpoint would return an error "611, System error" in certain cases. [LM-157214]
+* Fixed issue where [Get Leads by List Id](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET) endpoint would return an error "611, System error" in certain cases. [LM-157214]
 * Cleaned up several error messages returned by the [Update Lead Field](/help/rest-api/leads.md) endpoint. [LM-151886, LM-151888, LM-151889]
 
 Posted on _2022-01-27_ by _David_
@@ -9811,7 +9811,7 @@ In March 2022 we are enhancing existing REST APIs, and resolving several defects
 
 ### Adobe IMS Integration
 
-* Those who've been onboarded to [Adobe IMS](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) cannot utilize all of the [Marketo User Management APIs](/help/rest-api/user-management.md). The following endpoints will return an error on when called on Marketo Instances that have been integrated with Adobe IMS : [Invite User](https://developer.adobe.com/marketo-apis/api/user/#operation/inviteUserUsingPOST), [Get Invited User by Id](https://developer.adobe.com/marketo-apis/api/user/#operation/getInvitedUserUsingGET), [Update User Attributes](https://developer.adobe.com/marketo-apis/api/user/#operation/updateUserAttributeUsingPOST), [Delete User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST), and [Delete Invited User](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteInvitedUserUsingPOST). As a replacement, the [Adobe User Management APIs](https://developer.adobe.com/umapi/) should be used.
+* Those who've been onboarded to [Adobe IMS](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) cannot utilize all of the [Marketo User Management APIs](/help/rest-api/user-management.md). The following endpoints will return an error on when called on Marketo Instances that have been integrated with Adobe IMS : [Invite User](https://developer.adobe.com/marketo-apis/api/user#), [Get Invited User by Id](https://developer.adobe.com/marketo-apis/api/user#), [Update User Attributes](https://developer.adobe.com/marketo-apis/api/user#), [Delete User](https://developer.adobe.com/marketo-apis/api/user#), and [Delete Invited User](https://developer.adobe.com/marketo-apis/api/user#). As a replacement, the [Adobe User Management APIs](https://developer.adobe.com/umapi/) should be used.
 
 Posted on _2022-03-14_ by _David_
 
@@ -9848,7 +9848,7 @@ LWe have added several new filters that can be used when calling Create Export P
 
 ### Announcements
 
-* The behavior of the [Identity](https://developer.adobe.com/marketo-apis/api/identity/#operation/identityUsingGET) endpoint has changed. When you call the endpoint and do not include an **access_token** parameter, the "603, Access denied" error is returned. Previously, the "600, Empty access token" error was returned. Note that the "600, Empty access token" error has been deprecated.
+* The behavior of the [Identity](https://developer.adobe.com/marketo-apis/api/identity#) endpoint has changed. When you call the endpoint and do not include an **access_token** parameter, the "603, Access denied" error is returned. Previously, the "600, Empty access token" error was returned. Note that the "600, Empty access token" error has been deprecated.
 
 Posted on _2022-09-03_ by _David_
 

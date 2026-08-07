@@ -29,7 +29,7 @@ The API user must have a role with the Read-Only Lead permission, the Read-Write
 
 ## Describe
 
-Use [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) to determine which fields are available and retrieve their metadata. The `name` attribute contains the REST API field name.
+Use [Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2) to determine which fields are available and retrieve their metadata. The `name` attribute contains the REST API field name.
 
 ```http
 GET /rest/v1/programs/members/describe.json
@@ -335,7 +335,7 @@ The Create Export Program Member Job endpoint provides options to:
 
 ## Creating a Job
 
-Use the [Create Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) endpoint to define the export job. Specify a `filter` that contains the program ID and the `fields` to export. You can also specify `format` and `columnHeaderNames`.
+Use the [Create Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportProgramMembersUsingPOST) endpoint to define the export job. Specify a `filter` that contains the program ID and the `fields` to export. You can also specify `format` and `columnHeaderNames`.
 
 ```http
 POST /bulk/v1/program/members/export/create.json
@@ -379,7 +379,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-The response confirms that the job is created, but the export does not start automatically. Pass the returned `exportId` to the [Enqueue Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) endpoint to start the job:
+The response confirms that the job is created, but the export does not start automatically. Pass the returned `exportId` to the [Enqueue Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportProgramMembersUsingPOST) endpoint to start the job:
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -407,7 +407,7 @@ The enqueue response initially returns a `Queued` status. When an export slot be
 
 You can retrieve the status only for jobs created by the same API user.
 
-Because the export runs asynchronously, use the [Get Export Program Member Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) endpoint to poll its progress. The status updates only once every 60 seconds, so do not poll more frequently.
+Because the export runs asynchronously, use the [Get Export Program Member Job Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET) endpoint to poll its progress. The status updates only once every 60 seconds, so do not poll more frequently.
 
 The status can be `Created`, `Queued`, `Processing`, `Canceled`, `Completed`, or `Failed`.
 
@@ -457,7 +457,7 @@ This response shows that the job is still processing, so the file is not availab
 
 ## Retrieving Your Data
 
-To retrieve a completed program member export, pass the `exportId` to the [Get Export Program Member File](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET) endpoint.
+To retrieve a completed program member export, pass the `exportId` to the [Get Export Program Member File](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportProgramMembersFileUsingGET) endpoint.
 
 The endpoint returns the file in the format configured for the job. If a requested program member field contains no data, the corresponding export field contains `null`.
 
@@ -485,7 +485,7 @@ For partial or resumable retrieval, the file endpoint supports the optional HTTP
 
 ## Canceling a Job
 
-To cancel a job that is configured incorrectly or is no longer needed, call the [Cancel Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) endpoint:
+To cancel a job that is configured incorrectly or is no longer needed, call the [Cancel Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportProgramMembersUsingPOST) endpoint:
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/cancel.json
