@@ -385,7 +385,7 @@ Example prompts:
 
 ### Leads and lists
 
-Find leads by email address, create or update lead records, and manage static list membership.
+Find leads by email address, create lead records, and manage static list membership.
 
 Example prompts:
 
