@@ -26,7 +26,7 @@ The following operations are available through the [!DNL Marketo Engage] MCP ser
 
 >[!NOTE]
 >
->The MCP Server team is working on enabling the Smart List and Smart Campaign Asset APIs to work with the MCP Server. This work, including allowlisting items, is expected to be finished in Q3 2026.
+>Smart List and Smart Campaign `create` and `update` tools are targeted for a September 2026 release.
 
 For information on how data is handled with Marketo AI and the Marketo Engage MCP server, see the [Data Information](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information) page.
 

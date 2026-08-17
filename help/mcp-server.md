@@ -38,7 +38,7 @@ topic_v2:
 
 >[!NOTE]
 >
->The MCP Server team is working on enabling the Smart List and Smart Campaign Asset APIs to work with the MCP Server. The bulk of this work, including allowlisting Activities, Actions and Rules, is expected to be complete in Q3 2026.
+>Smart List and Smart Campaign `create` and `update` tools are targeted for a September 2026 release.
 
 Model Context Protocol (MCP) is an open standard that connects AI tools to external services. The [!DNL Marketo] MCP server connects your AI assistant to [!DNL Marketo]. It provides more than 100 operations for forms, programs, smart campaigns, leads, emails, snippets, lists, and folders.
 
