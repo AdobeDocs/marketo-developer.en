@@ -1,7 +1,6 @@
 ---
 title: Marketo Engage MCP Server
 description: Learn how to connect an AI assistant to Marketo using the Marketo Engage MCP server. Configure Claude Desktop, Cursor, Claude Code, or VS Code with your Marketo credentials.
-badgeBeta: label="Limited Availability" type="informative" tooltip="This feature is currently in a limited beta release"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
@@ -34,11 +33,8 @@ topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
 ---
-# [!DNL Marketo Engage] MCP Server
 
->[!AVAILABILITY] 
->
-> This feature is in limited availability. To request access, fill out [this form](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}. Be sure to have your subscription's Munchkin ID ready.
+# [!DNL Marketo Engage] MCP Server
 
 >[!NOTE]
 >
