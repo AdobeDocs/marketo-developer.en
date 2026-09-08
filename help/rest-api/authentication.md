@@ -57,7 +57,7 @@ Every REST API call must include an access token in an HTTP header.
 
 >[!IMPORTANT]
 >
->Support for authentication using the `access_token` query parameter is being removed on August 31, 2026. If your project uses a query parameter to pass the access token, it should be updated to use the [Authorization header](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) as soon as possible. New development should use the `Authorization` header exclusively.
+>Support for authentication using the `access_token` query parameter was removed on August 31, 2026. New development should use the `Authorization` header exclusively.
 
 ### Switching to the Authorization header
 

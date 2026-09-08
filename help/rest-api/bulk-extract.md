@@ -40,14 +40,14 @@ The bulk extract APIs use the same OAuth 2.0 authentication method as other Mark
 
 >[!IMPORTANT]
 >
->Support for authentication using the **access_token** query parameter is being removed on August 31, 2026. If your project uses a query parameter to pass the access token, it should be updated to use the **Authorization** header as soon as possible. New development should use the **Authorization** header exclusively.
+>Support for authentication using the **access_token** query parameter was removed on August 31, 2026. New development should use the **Authorization** header exclusively.
 
 ## Limits
 
 - Maximum concurrent export jobs: 2
 - Maximum queued export jobs, including jobs that are currently exporting: 10
 - File retention period: seven days
-- Default daily export allocation: 500MB. The allocation resets daily at 12:00AM CST. Increases are available for purchase.
+- The allocation resets daily at 12:00 AM CST/CDT, depending on Daylight Saving Time. Increases are available for purchase.
 - Maximum time span for the date range filter (`createdAt` or `updatedAt`): 31 days
 
 Bulk Lead Extract filters for UpdatedAt and Smart List are unavailable for some subscription types. If these filters are unavailable, the Create Export Lead Job endpoint returns the error "1035, Unsupported filter type for target subscription". Contact Marketo Support to enable this functionality for your subscription.
