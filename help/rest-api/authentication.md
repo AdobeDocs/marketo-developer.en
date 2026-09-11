@@ -58,6 +58,8 @@ Every REST API call must include an access token in an HTTP header.
 >[!IMPORTANT]
 >
 >Support for authentication using the `access_token` query parameter was removed on August 31, 2026. New development should use the `Authorization` header exclusively.
+>This change is a security remediation to conform to Industry and OAuth 2.0 Security Best Practices, which recommend against transmitting access tokens in URLs.  Existing workflows which authenticate this way may already be experiencing 603 (Access Denied) errors.
+>Prioritize updating your integration to use header-based authentication before 15th September 2026.  If you need additional time, please contact Adobe Support to discuss available options
 
 ### Switching to the Authorization header
 
