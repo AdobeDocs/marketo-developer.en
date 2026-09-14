@@ -337,7 +337,9 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 [Creating](https://developer.adobe.com/marketo-apis/api/asset#operation/createProgramUsingPOST) a program requires `folder`, `name`, `type`, and `channel`. The optional parameters are `description`, `costs`, and `tags`. Some subscriptions require tags for specific program types. Use Get Tags to check instance requirements.
 
-When [updating](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST), you can change only the description, name, `tags`, and `costs`. You can set the channel and type only during creation. Setting `costsDestructiveUpdate` to `true` clears all existing costs and replaces them with costs included in the request.
+When [updating](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST), you can change the description, name, `channel`, `tags`, and `costs`. The type can be set only during creation. Setting `costsDestructiveUpdate` to `true` clears all existing costs and replaces them with costs included in the request.
+
+Updating the `channel` keeps the Program Settings Channel and the Channel tag in sync: setting `channel` updates both. The channel must be valid for the program's type. If a `Channel` tag is also passed in `tags`, the `channel` value takes precedence. The update is rejected with error code `1173` when a child campaign uses a Change Program Status flow step, matching the validation enforced by the Marketo UI.
 
 When creating or updating an Email Program, a `startDate` and `endDate` may also be passed as a UTC date/time:
 
@@ -398,6 +400,8 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 
 To append program costs, add them to the `costs` array. To replace existing costs, pass the new costs and set `costsDestructiveUpdate` to `true`. To clear all costs, omit `costs` and set `costsDestructiveUpdate` to `true`.
 
+To change the program's channel, pass the `channel` parameter. This updates both the Program Settings Channel and the Channel tag.
+
 ```http
 POST /rest/asset/v1/program/{id}.json
 ```
@@ -407,7 +411,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```text
-description=This is an updated description&name=Updated Program Name&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
+description=This is an updated description&name=Updated Program Name&channel=Nurture&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
 ```
 
 ```json
