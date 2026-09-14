@@ -108,6 +108,10 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
+>[!NOTE]
+>
+>The `Channel` tag is special. Updating it also updates the Program Settings Channel, so the two stay in sync. The channel must be valid for the program's type, and the update is rejected with error code `1173` when a child campaign uses a Change Program Status flow step, matching the validation enforced by the Marketo UI. To update the channel through the Programs endpoint instead, see the [Programs update section](programs.md#update).
+
 To update multiple tags, use the [Update Program Metadata](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST) endpoint. See the example in the [Programs update section](programs.md#update).
 
 ## Delete
